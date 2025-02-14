@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://n2ncjxjrjo5d"]
+
+[ext_resource type="PackedScene" uid="uid://cya4q8yelbtm7" path="res://assets/friends/deliveryDrone/Drone_animated.fbx" id="1_roeyw"]
+[ext_resource type="Texture2D" uid="uid://pmpdfptoyi40" path="res://assets/friends/deliveryDrone/drone_Base_Color.png" id="2_henop"]
+[ext_resource type="Script" path="res://assets/friends/deliveryDrone/delivery_drone.gd" id="2_jvccs"]
+[ext_resource type="Texture2D" uid="uid://cqyevnj5cdvug" path="res://assets/friends/deliveryDrone/drone_Metallic.png" id="3_2q56q"]
+[ext_resource type="Texture2D" uid="uid://bn6pf4xm6tw35" path="res://assets/friends/deliveryDrone/drone_Roughness.png" id="4_b3v8l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcv3d"]
+albedo_texture = ExtResource("2_henop")
+metallic = 1.0
+metallic_texture = ExtResource("3_2q56q")
+roughness_texture = ExtResource("4_b3v8l")
+
+[node name="Drone_animated" instance=ExtResource("1_roeyw")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("2_jvccs")
+
+[node name="Skeleton3D" parent="." index="0"]
+bones/1/position = Vector3(0.318636, -1.06132e-08, -3.79682e-08)
+bones/1/rotation = Quaternion(-2.39304e-07, 6.10028e-08, 0.0141304, 0.9999)
+bones/3/position = Vector3(0.772493, 0.0752782, 0.0608829)
+bones/3/rotation = Quaternion(0.706897, 0.0171961, 0.707104, -0.00187542)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(0.520116, -6.49167e-06, 4.59505e-08)
+bones/4/rotation = Quaternion(6.54656e-10, -2.38418e-07, 0.00274583, 0.999996)
+bones/6/position = Vector3(0.772449, 0.0768875, -0.0942384)
+bones/6/rotation = Quaternion(-0.00629052, 0.707079, 0.012777, 0.706991)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(0.526464, -4.60152e-06, 2.11508e-10)
+bones/7/rotation = Quaternion(-2.47024e-11, 1.38368e-09, 0.0178516, 0.999841)
+bones/9/position = Vector3(0.78822, 0.62462, -0.0160434)
+bones/9/rotation = Quaternion(0.493212, 0.506697, 0.506697, 0.493212)
+bones/11/position = Vector3(0.848414, -0.572502, -0.017796)
+bones/11/rotation = Quaternion(-0.506697, 0.493212, -0.493212, 0.506697)
+bones/11/scale = Vector3(1, 1, 1)
+
+[node name="Drone2" parent="Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_kcv3d")

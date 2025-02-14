@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bie0mx082taib"]
+
+[ext_resource type="PackedScene" uid="uid://bdvsiogqk357t" path="res://assets/enemies/doneTwo/MilitaryDrone.fbx" id="1_e8hey"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r00qv"]
+size = Vector3(5.65112, 10.7358, 4.44604)
+
+[node name="MilitaryDrone" instance=ExtResource("1_e8hey")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360229, 4.86792, -0.463989)
+shape = SubResource("BoxShape3D_r00qv")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgythppl5hb6h"]
+
+[ext_resource type="ArrayMesh" uid="uid://c1m5jvsb73hig" path="res://assets/models/Car 08/Car8.obj" id="1_nmyvy"]
+
+[node name="Car8" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_nmyvy")

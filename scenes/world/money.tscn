@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=4 uid="uid://dsaa4vfsxdl37"]
+
+[ext_resource type="ArrayMesh" uid="uid://dqyjbw1w4spr8" path="res://assets/models/c01-cns-lg.obj" id="1_6pfn8"]
+[ext_resource type="Script" path="res://scripts/money.gd" id="1_150x2"]
+[ext_resource type="Texture2D" uid="uid://blky0qcd7wm32" path="res://assets/models/c01-cns-d.png" id="2_fhm4q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6j6f"]
+albedo_texture = ExtResource("2_fhm4q")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8iyrv"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xyrhs"]
+_surfaces = [{
+"aabb": AABB(-0.141996, -0.353878, -0.507854, 0.273397, 0.721778, 0.923011),
+"attribute_data": PackedByteArray("h7SGPuqZaT+HpIY+9l92P5hwGD3pZmk/mOAXPfSVcz+kACQ99W11P8FgQT32MXY/oyEjP6yhKz+jISM/6qZpP/Us9T6soSs/8oDxPqxkLD/w+u8+rjsuP/D87z7qpWk/oyEjP/Zsdj/w/O8+9NJzP/KA8T72qXU/9S71PvZsdj/d7lw/rjouP93uXD/qpmk/3CtcP6xkLD/aVFo/rKErP9ti2z72qHU/2LbXPvZrdj/d6Nw+9NJzP93q3D7qpWk/3ejcPq47Lj/bYts+rGUsP9i01z6sois/h5qGPqywKz/x9HA+s8kyP4SYgz2zvDI/waBAPazXKz/yiHE+441iP4RYhD3idWI/pZAkPa2SLD+Z4Bg9rlMuP9wrXD/2qXU/2lRaP/Zsdj/d7lw/9NNzP4SYgz2zvDI/8fRwPrPJMj/LsMo9uHE4P830TD64Szg/h5CGPqIlIj+HmoY+rLArP8BAQD2iSyI/waBAPazXKz+YcBg96WZpP5hQGD30hHM/wABAOelkaT+gACA59IJzP9i21z72a3Y/2LDXPgD1fz+HpIY+9l92P4eahj4A6X8/8PzvPuqlaT/w/O8+9NJzP93q3D7qpWk/3ejcPvTScz/BYEE99jF2P8HgQD0AvX8/8PrvPq47Lj/d6Nw+rjsuP9iu1z6iGCI/2LTXPqyiKz+Z4Bg9rlMuP5gAmDmuUi4/zGjMPd30XD/O6E0+3dRcP4RYhD3idWI/8ohxPuONYj/bcFs+2XhZP9pQWj68pzs/srCxPdqXWT+wqK89vMw7P9doVz7c21s/1nBWPrlKOT+4uLc9uWo5P7lwuT3c9Fs/8PrvPvjNdz/d6Nw++Mx3P/D87z720HU/3ejcPvbPdT/crts+rKIrP9yo2z6iFyI/4KrfPqyhKz/gpN8+ohciP5hQGD33eHc/oAAgOfd3dz+YUBg99X51P6AAIDn1fXU/oGAgPaJMIj+h0CA9rNgrP4GAAD2iTiI/gfAAPazaKz8="),
+"format": 34359742487,
+"index_count": 288,
+"index_data": PackedByteArray("AAACAAEAAgADAAEAAwAEAAEABAAFAAEABgAIAAcACAAJAAcACQAKAAcACgALAAcABwALAAwACwANAAwADQAOAAwADgAPAAwAEAASABEAEgATABEAEwAGABEABgAHABEAFAAWABUAFgAXABUAFwAAABUAAAABABUAGAAZABcAGQAaABcAGgAbABcAGwAAABcAHAAbAB0AGwAeAB0AHwAgAAAAIAACAAAAHAAfABsAHwAAABsAIQAdAB4AIgAdACEAIAAdAAIAHQAiAAIAIwAlACQAJQARACQAEQAHACQABwAMACQAJgAoACcAKAApACcAKgAsACsALAAtACsALgAwAC8AMAAxAC8AMgA0ADMANAA1ADMANgA4ADcAOAA5ADcANAA6ADUAOgA7ADUAPAA9ADYAPQA4ADYAPgAqAD8AKgArAD8AQABBAC4AQQAwAC4AQgBEAEMARABFAEMARgBFAEcARQAnAEcARABIACYASABJACYASgBGAEMARgBHAEMARwBLAEMASwApAEMAKQAoAEMAKABMAEMATABJAEMASQBIAEMASABNAEMATQBCAEMATgBQAE8AUABRAE8AUAA3AFEANwA5AFEAPwBSAD4AUgBTAD4AUgBUAFMAVABVAFMAVgBYAFcAWABZAFcAWAAvAFkALwAxAFkALABaAC0AWgBbAC0AWgBcAFsAXABdAFsAJwBLAEcAJwApAEsASQBMACYATAAoACYAQgBNAEQATQBIAEQARgBKAEUASgBDAEUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 94,
+"vertex_data": PackedByteArray("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")
+}]
+
+[node name="Money" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_150x2")
+
+[node name="C01-cns-lg" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.997309, 0, 0, 0, 0.997309, 0, 0, 0, 0.997309, -0.0337267, 0, 0.0908892)
+mesh = ExtResource("1_6pfn8")
+surface_material_override/0 = SubResource("StandardMaterial3D_r6j6f")
+
+[node name="Area3D" type="Area3D" parent="C01-cns-lg"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="C01-cns-lg/Area3D"]
+shape = SubResource("BoxShape3D_8iyrv")
+
+[node name="outline" type="MeshInstance3D" parent="C01-cns-lg"]
+mesh = SubResource("ArrayMesh_xyrhs")
+
+[connection signal="input_event" from="C01-cns-lg/Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="C01-cns-lg/Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="C01-cns-lg/Area3D" to="." method="_on_area_3d_mouse_exited"]

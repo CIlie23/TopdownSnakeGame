@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://banvpif1xm08v"]
+
+[ext_resource type="PackedScene" uid="uid://bg3mq3g0i8pmd" path="res://assets/enemies/robotTwo/robot.fbx" id="1_7ak4k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m3f6i"]
+size = Vector3(5.44724, 5.67957, 3.6795)
+
+[node name="robot" instance=ExtResource("1_7ak4k")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132706, 2.47015, -0.178986)
+shape = SubResource("BoxShape3D_m3f6i")

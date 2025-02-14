@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh3ocl34lg3dh"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_c8ga6"]
+[ext_resource type="Script" path="res://scripts/FPSCounter.gd" id="2_rcm6a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_is2tc"]
+size = Vector3(1, 1.10645, 0.666504)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir727"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0fc7"]
+material = SubResource("StandardMaterial3D_ir727")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_c8ga6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0532227, 0.166748)
+shape = SubResource("BoxShape3D_is2tc")
+
+[node name="Marker3D" type="Marker3D" parent="CollisionShape3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D/Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0936203, 0)
+mesh = SubResource("BoxMesh_d0fc7")
+
+[node name="Camera3D" type="Camera3D" parent="CollisionShape3D/Marker3D/MeshInstance3D"]
+transform = Transform3D(0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -5.61144, 5.02041, 5.61144)
+projection = 1
+current = true
+size = 10.0
+
+[node name="MouseRay" type="RayCast3D" parent="CollisionShape3D/Marker3D/MeshInstance3D/Camera3D"]
+target_position = Vector3(0, 0, 0)
+
+[node name="FPSCounter" type="Label" parent="CollisionShape3D/Marker3D/MeshInstance3D/Camera3D"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_rcm6a")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

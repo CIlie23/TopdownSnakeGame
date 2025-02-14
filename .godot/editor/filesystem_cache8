@@ -1,0 +1,660 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1739556500
+icon.svg::CompressedTexture2D::555564474643039522::1737540575::1739556502::1::::<><>::
+README.md::TextFile::-1::1739462005::0::1::::<><>::
+::res://addons/::1739556461
+::res://addons/godot-jolt/::1739556461
+godot-jolt.gdextension::GDExtension::-1::1739470404::0::1::::<><>::
+LICENSE.txt::TextFile::-1::1739470404::0::1::::<><>::
+THIRDPARTY.txt::TextFile::-1::1739470404::0::1::::<><>::
+::res://addons/godot-jolt/android/::1739556461
+::res://addons/godot-jolt/ios/::1739556461
+::res://addons/godot-jolt/ios/godot-jolt_ios.framework/::1739556461
+::res://addons/godot-jolt/ios/godot-jolt_ios_editor.framework/::1739556461
+::res://addons/godot-jolt/linux/::1739556461
+::res://addons/godot-jolt/macos/::1739556461
+::res://addons/godot-jolt/macos/godot-jolt_macos.framework/::1739556461
+::res://addons/godot-jolt/macos/godot-jolt_macos.framework/_CodeSignature/::1739556461
+::res://addons/godot-jolt/macos/godot-jolt_macos.framework/Resources/::1739556461
+::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/::1739556461
+::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/_CodeSignature/::1739556461
+::res://addons/godot-jolt/macos/godot-jolt_macos_editor.framework/Resources/::1739556461
+::res://addons/godot-jolt/windows/::1739556461
+::res://addons/mixamo_animation_retargeter/::1739556461
+icon.png::CompressedTexture2D::3041511594140601344::1739462005::1739556503::1::::<><>::
+mixamo_animation_retargeter.gd::GDScript::-1::1739462005::0::1::::<>EditorPlugin<>::
+mixamo_bone_map.tres::BoneMap::4240935064570849907::1739462005::0::1::::<><>::
+plugin.cfg::TextFile::-1::1739462005::0::1::::<><>::
+README.md::TextFile::-1::1739462005::0::1::::<><>::
+::res://assets/::1739556462
+::res://assets/animations/::1739556462
+GunnerAnimations.res::AnimationLibrary::1941394480953218323::1739468176::0::1::::<><>::
+robotAnims.glb::PackedScene::7109083221867335386::1739467261::1739556510::1::::<><>::
+::res://assets/cursors/::1739556462
+arrow_e.png::CompressedTexture2D::3559056299807358380::1717589788::1739556503::1::::<><>::
+arrow_n.png::CompressedTexture2D::4279831237621661236::1717589780::1739556503::1::::<><>::
+arrow_ne.png::CompressedTexture2D::1985059618717874895::1717589780::1739556503::1::::<><>::
+arrow_nw.png::CompressedTexture2D::74931034407121820::1717589780::1739556503::1::::<><>::
+arrow_s.png::CompressedTexture2D::2775387725518338983::1717589780::1739556503::1::::<><>::
+arrow_se.png::CompressedTexture2D::1611914572664354486::1717589780::1739556503::1::::<><>::
+arrow_sw.png::CompressedTexture2D::9101534208938234636::1717589780::1739556503::1::::<><>::
+arrow_w.png::CompressedTexture2D::869490947501393686::1717589780::1739556503::1::::<><>::
+boot.png::CompressedTexture2D::377835759390672155::1717589780::1739556503::1::::<><>::
+bracket_a_horizontal.png::CompressedTexture2D::6113743105327244276::1717589780::1739556503::1::::<><>::
+bracket_a_vertical.png::CompressedTexture2D::2794024859279377024::1717589780::1739556503::1::::<><>::
+bracket_b_horizontal.png::CompressedTexture2D::6912257783741282441::1717589781::1739556503::1::::<><>::
+bracket_b_vertical.png::CompressedTexture2D::6430954775791269927::1717589781::1739556503::1::::<><>::
+busy_circle.png::CompressedTexture2D::8024271921488751546::1717589781::1739556503::1::::<><>::
+busy_circle_fade.png::CompressedTexture2D::7906597351640585012::1717589781::1739556503::1::::<><>::
+busy_hourglass.png::CompressedTexture2D::5366123000632150150::1717589781::1739556503::1::::<><>::
+busy_hourglass_outline.png::CompressedTexture2D::1901175005546787097::1717589781::1739556503::1::::<><>::
+busy_hourglass_outline_detail.png::CompressedTexture2D::7485083936229999392::1717589781::1739556503::1::::<><>::
+cross_large.png::CompressedTexture2D::7947541483600047789::1717589781::1739556503::1::::<><>::
+cross_small.png::CompressedTexture2D::6646497436876807559::1717589781::1739556503::1::::<><>::
+cursor_alias.png::CompressedTexture2D::1826101945043477835::1717589781::1739556503::1::::<><>::
+cursor_busy.png::CompressedTexture2D::3634083038927833104::1717589781::1739556503::1::::<><>::
+cursor_cogs.png::CompressedTexture2D::7683003521498023849::1717589781::1739556503::1::::<><>::
+cursor_copy.png::CompressedTexture2D::4353598358656500104::1717589781::1739556503::1::::<><>::
+cursor_disabled.png::CompressedTexture2D::1699709687174636631::1717589781::1739556503::1::::<><>::
+cursor_exclamation.png::CompressedTexture2D::53783691436606640::1717589781::1739556503::1::::<><>::
+cursor_help.png::CompressedTexture2D::94162442412082486::1717589781::1739556503::1::::<><>::
+cursor_menu.png::CompressedTexture2D::4734805868687572348::1717589781::1739556503::1::::<><>::
+cursor_none.png::CompressedTexture2D::274979226958802283::1717589781::1739556503::1::::<><>::
+disabled.png::CompressedTexture2D::272579981022715312::1717589781::1739556503::1::::<><>::
+door.png::CompressedTexture2D::5091412278109086229::1717589781::1739556503::1::::<><>::
+door_disabled.png::CompressedTexture2D::6891167792769743626::1717589781::1739556503::1::::<><>::
+door_enter.png::CompressedTexture2D::5244398376932250101::1717589781::1739556503::1::::<><>::
+door_exit.png::CompressedTexture2D::18480858120776504::1717589781::1739556503::1::::<><>::
+dot_large.png::CompressedTexture2D::8603259381936617982::1717589781::1739556503::1::::<><>::
+dot_small.png::CompressedTexture2D::4731576317363143570::1717589782::1739556503::1::::<><>::
+drawing_brush.png::CompressedTexture2D::6910807501191578554::1717589782::1739556503::1::::<><>::
+drawing_brush_large.png::CompressedTexture2D::2253640770578822607::1717589782::1739556503::1::::<><>::
+drawing_bucket.png::CompressedTexture2D::1305774238479656005::1717589782::1739556503::1::::<><>::
+drawing_eraser.png::CompressedTexture2D::7990723924431601061::1717589782::1739556503::1::::<><>::
+drawing_pen.png::CompressedTexture2D::7092895525390292512::1717589782::1739556503::1::::<><>::
+drawing_pencil.png::CompressedTexture2D::3389292352859281986::1717589782::1739556503::1::::<><>::
+drawing_picker.png::CompressedTexture2D::5868488223535513532::1717589782::1739556503::1::::<><>::
+drawing_spray.png::CompressedTexture2D::4473937251574551109::1717589782::1739556503::1::::<><>::
+gauntlet_default.png::CompressedTexture2D::7366867688420677802::1717589782::1739556503::1::::<><>::
+gauntlet_open.png::CompressedTexture2D::7823866776062854256::1717589782::1739556503::1::::<><>::
+gauntlet_point.png::CompressedTexture2D::1888917332840502265::1717589782::1739556503::1::::<><>::
+hand_closed.png::CompressedTexture2D::3363767104623067509::1717589782::1739556503::1::::<><>::
+hand_open.png::CompressedTexture2D::107246995625073453::1717589782::1739556503::1::::<><>::
+hand_point.png::CompressedTexture2D::7883090573463641837::1717589782::1739556503::1::::<><>::
+hand_point_e.png::CompressedTexture2D::5197675734710656708::1717589782::1739556503::1::::<><>::
+hand_point_n.png::CompressedTexture2D::6290888938360094847::1717589782::1739556503::1::::<><>::
+hand_small_closed.png::CompressedTexture2D::6207475024480976222::1717589782::1739556503::1::::<><>::
+hand_small_open.png::CompressedTexture2D::6823451899947477390::1717589782::1739556503::1::::<><>::
+hand_small_point.png::CompressedTexture2D::4218673675651015547::1717589782::1739556503::1::::<><>::
+hand_small_point_e.png::CompressedTexture2D::8890036688585460080::1717589783::1739556503::1::::<><>::
+hand_small_point_n.png::CompressedTexture2D::378537852626210456::1717589783::1739556503::1::::<><>::
+hand_thin_closed.png::CompressedTexture2D::6748286078818257268::1717589783::1739556503::1::::<><>::
+hand_thin_open.png::CompressedTexture2D::5545967670917852498::1717589783::1739556503::1::::<><>::
+hand_thin_point.png::CompressedTexture2D::7124399672249219535::1717589783::1739556503::1::::<><>::
+hand_thin_small_closed.png::CompressedTexture2D::119380046657113549::1717589783::1739556503::1::::<><>::
+hand_thin_small_open.png::CompressedTexture2D::4865674389799227783::1717589783::1739556503::1::::<><>::
+hand_thin_small_point.png::CompressedTexture2D::6631032400364955556::1717589783::1739556503::1::::<><>::
+line_cross.png::CompressedTexture2D::5005783130494053178::1717589783::1739556503::1::::<><>::
+line_horizontal.png::CompressedTexture2D::3100790834818864291::1717589783::1739556503::1::::<><>::
+line_vertical.png::CompressedTexture2D::8356267196209895857::1717589783::1739556503::1::::<><>::
+lock.png::CompressedTexture2D::4246785738938909889::1717589783::1739556503::1::::<><>::
+lock_unlocked.png::CompressedTexture2D::8324665137581954669::1717589783::1739556503::1::::<><>::
+look_a.png::CompressedTexture2D::1628856432319645115::1717589783::1739556503::1::::<><>::
+look_b.png::CompressedTexture2D::5145059223334975380::1717589783::1739556503::1::::<><>::
+look_c.png::CompressedTexture2D::5538435975383415383::1717589783::1739556502::1::::<><>::
+look_d.png::CompressedTexture2D::3088175169801351473::1717589783::1739556502::1::::<><>::
+mark_exclamation.png::CompressedTexture2D::7126528288302841702::1717589783::1739556502::1::::<><>::
+mark_exclamation_pointer_b.png::CompressedTexture2D::8074663264333662954::1717589783::1739556502::1::::<><>::
+mark_question.png::CompressedTexture2D::6741446986980382298::1717589783::1739556502::1::::<><>::
+mark_question_pointer_b.png::CompressedTexture2D::3543991696972814394::1717589783::1739556502::1::::<><>::
+message_dots_round.png::CompressedTexture2D::3342807803614387974::1717589783::1739556502::1::::<><>::
+message_dots_square.png::CompressedTexture2D::7247504632548076796::1717589783::1739556502::1::::<><>::
+message_round.png::CompressedTexture2D::2191122954430814673::1717589783::1739556502::1::::<><>::
+message_square.png::CompressedTexture2D::5877734941719955044::1717589784::1739556502::1::::<><>::
+navigation_e.png::CompressedTexture2D::3859610713906644561::1717589784::1739556502::1::::<><>::
+navigation_n.png::CompressedTexture2D::7517197372522249266::1717589784::1739556502::1::::<><>::
+navigation_ne.png::CompressedTexture2D::2966103871483320822::1717589784::1739556502::1::::<><>::
+navigation_nw.png::CompressedTexture2D::8842256599540126299::1717589784::1739556502::1::::<><>::
+navigation_s.png::CompressedTexture2D::4826676598708533092::1717589784::1739556502::1::::<><>::
+navigation_se.png::CompressedTexture2D::2768669151374458497::1717589784::1739556502::1::::<><>::
+navigation_sw.png::CompressedTexture2D::5864873142459060385::1717589784::1739556502::1::::<><>::
+navigation_w.png::CompressedTexture2D::7109948484257388669::1717589784::1739556502::1::::<><>::
+pointer_a.png::CompressedTexture2D::7971065824442899335::1717589784::1739556502::1::::<><>::
+pointer_b.png::CompressedTexture2D::5108945559128172058::1717589784::1739556502::1::::<><>::
+pointer_b_shaded.png::CompressedTexture2D::929334768604440627::1717589784::1739556502::1::::<><>::
+pointer_c.png::CompressedTexture2D::4857215607672818132::1717589784::1739556502::1::::<><>::
+pointer_c_shaded.png::CompressedTexture2D::8751524833459077047::1717589784::1739556502::1::::<><>::
+pointer_d.png::CompressedTexture2D::2280244801608326922::1717589784::1739556502::1::::<><>::
+pointer_e.png::CompressedTexture2D::2797976655440212446::1717589784::1739556502::1::::<><>::
+pointer_f.png::CompressedTexture2D::2914624298414318381::1717589784::1739556502::1::::<><>::
+pointer_g.png::CompressedTexture2D::7165257157610439099::1717589784::1739556502::1::::<><>::
+pointer_h.png::CompressedTexture2D::8752921531384312929::1717589784::1739556502::1::::<><>::
+pointer_i.png::CompressedTexture2D::179806094980695355::1717589784::1739556502::1::::<><>::
+pointer_j.png::CompressedTexture2D::2162430877996394855::1717589784::1739556502::1::::<><>::
+pointer_k.png::CompressedTexture2D::7160535970668554837::1717589784::1739556502::1::::<><>::
+pointer_l.png::CompressedTexture2D::2762315212153429442::1717589785::1739556502::1::::<><>::
+pointer_scifi_a.png::CompressedTexture2D::6506938719326340273::1717589785::1739556502::1::::<><>::
+pointer_scifi_b.png::CompressedTexture2D::5908365699057718535::1717589785::1739556502::1::::<><>::
+pointer_toon_a.png::CompressedTexture2D::4793328546539133299::1717589785::1739556502::1::::<><>::
+pointer_toon_b.png::CompressedTexture2D::5718472058923157112::1717589785::1739556502::1::::<><>::
+progress_CCW_25.png::CompressedTexture2D::7752203296663482069::1717589785::1739556502::1::::<><>::
+progress_CCW_50.png::CompressedTexture2D::826131276354916308::1717589785::1739556502::1::::<><>::
+progress_CCW_75.png::CompressedTexture2D::5420791567086774183::1717589785::1739556502::1::::<><>::
+progress_CW_25.png::CompressedTexture2D::3554478382740010328::1717589785::1739556502::1::::<><>::
+progress_CW_50.png::CompressedTexture2D::3000481881439967612::1717589785::1739556502::1::::<><>::
+progress_CW_75.png::CompressedTexture2D::2212334276505973557::1717589785::1739556502::1::::<><>::
+progress_empty.png::CompressedTexture2D::5240583680972025704::1717589785::1739556503::1::::<><>::
+progress_full.png::CompressedTexture2D::2953054720550438822::1717589785::1739556503::1::::<><>::
+resize_a_cross.png::CompressedTexture2D::5675941283688606688::1717589785::1739556503::1::::<><>::
+resize_a_cross_diagonal.png::CompressedTexture2D::4205323267816295825::1717589785::1739556503::1::::<><>::
+resize_a_diagonal.png::CompressedTexture2D::2014218454082058432::1717589785::1739556503::1::::<><>::
+resize_a_diagonal_mirror.png::CompressedTexture2D::7277797136878551246::1717589785::1739556503::1::::<><>::
+resize_a_horizontal.png::CompressedTexture2D::716850773481212011::1717589785::1739556503::1::::<><>::
+resize_a_vertical.png::CompressedTexture2D::7873107647994107672::1717589785::1739556503::1::::<><>::
+resize_b_cross.png::CompressedTexture2D::1667928811712305995::1717589785::1739556503::1::::<><>::
+resize_b_cross_diagonal.png::CompressedTexture2D::1226819263027132624::1717589785::1739556503::1::::<><>::
+resize_b_diagonal.png::CompressedTexture2D::8246928864709628075::1717589785::1739556503::1::::<><>::
+resize_b_diagonal_mirror.png::CompressedTexture2D::69674425200959778::1717589785::1739556502::1::::<><>::
+resize_b_horizontal.png::CompressedTexture2D::1619351606172928205::1717589785::1739556502::1::::<><>::
+resize_b_vertical.png::CompressedTexture2D::7689147527891867739::1717589786::1739556502::1::::<><>::
+resize_c_cross.png::CompressedTexture2D::4889509832390079516::1717589786::1739556502::1::::<><>::
+resize_c_cross_diagonal.png::CompressedTexture2D::6124631368193385594::1717589786::1739556502::1::::<><>::
+resize_c_diagonal.png::CompressedTexture2D::4305253909849465488::1717589786::1739556502::1::::<><>::
+resize_c_diagonal_mirror.png::CompressedTexture2D::986182253693970280::1717589786::1739556502::1::::<><>::
+resize_c_horizontal.png::CompressedTexture2D::1923744521128603440::1717589786::1739556502::1::::<><>::
+resize_c_vertical.png::CompressedTexture2D::5252730185859383592::1717589786::1739556502::1::::<><>::
+resize_d_cross.png::CompressedTexture2D::4176298019312922338::1717589786::1739556502::1::::<><>::
+resize_d_cross_diagonal.png::CompressedTexture2D::4813727163171682709::1717589786::1739556502::1::::<><>::
+resize_d_diagonal.png::CompressedTexture2D::8094937178687817642::1717589786::1739556502::1::::<><>::
+resize_d_diagonal_mirror.png::CompressedTexture2D::1108391476213450218::1717589786::1739556502::1::::<><>::
+resize_d_horizontal.png::CompressedTexture2D::6104524054418303715::1717589786::1739556502::1::::<><>::
+resize_d_vertical.png::CompressedTexture2D::6932081115305041705::1717589786::1739556502::1::::<><>::
+resize_e_cross.png::CompressedTexture2D::52080745804441155::1717589786::1739556502::1::::<><>::
+resize_e_cross_diagonal.png::CompressedTexture2D::3809976539412037973::1717589786::1739556502::1::::<><>::
+resize_e_diagonal.png::CompressedTexture2D::5097809702778624169::1717589786::1739556503::1::::<><>::
+resize_e_diagonal_mirror.png::CompressedTexture2D::8527895201331354923::1717589786::1739556503::1::::<><>::
+resize_e_horizontal.png::CompressedTexture2D::2950084125307871290::1717589786::1739556503::1::::<><>::
+resize_e_vertical.png::CompressedTexture2D::8964664641422232231::1717589786::1739556503::1::::<><>::
+resize_horizontal.png::CompressedTexture2D::4241149721557149320::1717589786::1739556503::1::::<><>::
+resize_vertical.png::CompressedTexture2D::185171146876003678::1717589786::1739556503::1::::<><>::
+rotate_ccw.png::CompressedTexture2D::3498430968768531331::1717589786::1739556503::1::::<><>::
+rotate_cw.png::CompressedTexture2D::6200441739269564431::1717589786::1739556503::1::::<><>::
+rotate_horizontal_down.png::CompressedTexture2D::1175343320686955778::1717589786::1739556503::1::::<><>::
+rotate_horizontal_up.png::CompressedTexture2D::6477856149193009767::1717589786::1739556503::1::::<><>::
+stairs.png::CompressedTexture2D::2556796423809128647::1717589786::1739556503::1::::<><>::
+stairs_down.png::CompressedTexture2D::5145055019664375949::1717589787::1739556503::1::::<><>::
+stairs_up.png::CompressedTexture2D::872248088188580448::1717589787::1739556503::1::::<><>::
+steps.png::CompressedTexture2D::3785449126741368152::1717589787::1739556503::1::::<><>::
+target_a.png::CompressedTexture2D::2512011397664234206::1717589787::1739556503::1::::<><>::
+target_b.png::CompressedTexture2D::1630064138614582263::1717589787::1739556503::1::::<><>::
+target_round_a.png::CompressedTexture2D::6732610631626583792::1717589787::1739556503::1::::<><>::
+target_round_b.png::CompressedTexture2D::898823473742687975::1717589787::1739556503::1::::<><>::
+tool_axe.png::CompressedTexture2D::906403388049579270::1717589787::1739556503::1::::<><>::
+tool_axe_single.png::CompressedTexture2D::6798958349184393024::1717589787::1739556503::1::::<><>::
+tool_bomb.png::CompressedTexture2D::7933709541612031373::1717589787::1739556503::1::::<><>::
+tool_bow.png::CompressedTexture2D::5642019274714291966::1717589787::1739556503::1::::<><>::
+tool_hammer.png::CompressedTexture2D::7450231103512104983::1717589787::1739556503::1::::<><>::
+tool_hoe.png::CompressedTexture2D::2847878093829702834::1717589787::1739556503::1::::<><>::
+tool_pickaxe.png::CompressedTexture2D::7402916285450985042::1717589787::1739556503::1::::<><>::
+tool_shovel.png::CompressedTexture2D::8227864914403907119::1717589787::1739556503::1::::<><>::
+tool_sword_a.png::CompressedTexture2D::5078740045682785997::1717589787::1739556503::1::::<><>::
+tool_sword_b.png::CompressedTexture2D::2365326037645141635::1717589787::1739556503::1::::<><>::
+tool_torch.png::CompressedTexture2D::4298457593324077623::1717589787::1739556503::1::::<><>::
+tool_wand.png::CompressedTexture2D::3778449664336497427::1717589787::1739556503::1::::<><>::
+tool_watering_can.png::CompressedTexture2D::9189187716978200777::1717589787::1739556503::1::::<><>::
+tool_wrench.png::CompressedTexture2D::7293637491969891955::1717589787::1739556503::1::::<><>::
+tracking_horizontal.png::CompressedTexture2D::3114566837780125131::1717589787::1739556503::1::::<><>::
+tracking_horizontal_down.png::CompressedTexture2D::7776441538733381946::1717589787::1739556503::1::::<><>::
+tracking_horizontal_up.png::CompressedTexture2D::7209362193151708402::1717589787::1739556503::1::::<><>::
+tracking_vertical.png::CompressedTexture2D::5679666806426920658::1717589787::1739556503::1::::<><>::
+tracking_vertical_left.png::CompressedTexture2D::1932139614997449642::1717589788::1739556503::1::::<><>::
+tracking_vertical_right.png::CompressedTexture2D::1615648897545421435::1717589788::1739556503::1::::<><>::
+zoom.png::CompressedTexture2D::6883964013891038776::1717589788::1739556503::1::::<><>::
+zoom_in.png::CompressedTexture2D::8939366906188506245::1717589788::1739556503::1::::<><>::
+zoom_out.png::CompressedTexture2D::145732879003853300::1717589788::1739556503::1::::<><>::
+zoom_reset.png::CompressedTexture2D::7356137772264925585::1717589788::1739556503::1::::<><>::
+::res://assets/enemies/::1739556462
+::res://assets/enemies/doneSmall/::1739556462
+Drone1_Emissive.png::CompressedTexture2D::5734987241632525931::1629017600::1739556503::1::::<><>::
+Drone1_tex.png::CompressedTexture2D::4294626350413226293::1629012616::1739556503::1::::<><>::
+smallDrone.glb::PackedScene::2285567410819709598::1739549480::1739556510::1::::<><>::uid://cyiu7jebnyt4::::res://assets/enemies/doneSmall/smallDrone_Drone1_tex.png<>uid://dvmo7tibjywqx::::res://assets/enemies/doneSmall/smallDrone_Drone1_Emissive.png
+smallDrone_Drone1_Emissive.png::CompressedTexture2D::8658908494190907519::1739549503::1739556503::1::::<><>::
+smallDrone_Drone1_tex.png::CompressedTexture2D::190445900027790779::1739549503::1739556503::1::::<><>::
+small_drone.gd::GDScript::-1::1739555923::0::1::::<>Node3D<>::
+small_drone.tscn::PackedScene::8339882929925012858::1739556061::0::1::::<><>::uid://7te7xkeypmla::::res://assets/enemies/doneSmall/smallDrone.glb<>res://assets/enemies/doneSmall/small_drone.gd<>uid://b2gl4sbbk8odp::::res://assets/enemies/doneSmall/Drone1_tex.png<>uid://voahc4el36wc::::res://assets/particles/vfx_fire.tscn
+::res://assets/enemies/doneTwo/::1739556462
+MilitaryDrone.fbx::PackedScene::2641447085000683979::1728968374::1739556516::1::::<><>::uid://w5njh6cc0u85::::res://assets/enemies/doneTwo/Military_Drone_Legs_Albedo.png<>uid://cjoxfho6gr34g::::res://assets/enemies/doneTwo/Military_Drone_Torso_Albedo.png<>uid://3lu4c2n4hwre::::res://assets/enemies/doneTwo/Military_Drone_Torso_Emit.png
+MilitaryDrone_Legs_Normal.png::CompressedTexture2D::1417672655051753423::1728968374::1739556503::1::::<><>::
+MilitaryDrone_Torso_Normal.png::CompressedTexture2D::6381749155433597396::1728968374::1739556503::1::::<><>::
+military_drone.tscn::PackedScene::2957729546352980409::1739184321::0::1::::<><>::uid://bdvsiogqk357t::::res://assets/enemies/doneTwo/MilitaryDrone.fbx
+Military_Drone_Legs_Albedo.png::CompressedTexture2D::1606891701356552120::1728968376::1739556503::1::::<><>::
+Military_Drone_Legs_Metalness.png::CompressedTexture2D::1852498078060669509::1728968374::1739556503::1::::<><>::
+Military_Drone_Legs_Roughness.png::CompressedTexture2D::1878776554295781776::1728968374::1739556503::1::::<><>::
+Military_Drone_Torso_Albedo.png::CompressedTexture2D::5434848059196414104::1728968376::1739556503::1::::<><>::
+Military_Drone_Torso_Emit.png::CompressedTexture2D::1989262052424270470::1728968376::1739556503::1::::<><>::
+Military_Drone_Torso_Metalness.png::CompressedTexture2D::7868870184740844449::1728968376::1739556503::1::::<><>::
+Military_Drone_Torso_Roughness.png::CompressedTexture2D::2432671223566197449::1728968376::1739556503::1::::<><>::
+::res://assets/enemies/oeia/::1739556462
+oiiaioooooiai_fin.gd::GDScript::-1::1739286727::0::1::::<>Node3D<>::
+oiiaioooooiai_fin.tscn::PackedScene::6881864230480415618::1739529611::0::1::::<><>::uid://b0lwjtwn4axbr::::res://assets/enemies/oeia/source/OiiaioooooiaiFin.fbx<>res://assets/enemies/oeia/oiiaioooooiai_fin.gd
+::res://assets/enemies/oeia/source/::1739556462
+OiiaioooooiaiFin.fbx::PackedScene::4165202808483365247::1729233646::1739556513::1::::<><>::uid://qj8jc6d0jpog::::res://assets/enemies/oeia/textures/Muchkin2_BaseColor.png
+::res://assets/enemies/oeia/textures/::1739556462
+Muchkin2_BaseColor.png::CompressedTexture2D::1143620784007216918::1729233646::1739556504::1::::<><>::
+::res://assets/enemies/robot/::1739556462
+gunner_robot.gd::GDScript::-1::1739555825::0::1::::<>Node3D<>::
+robotFella.glb::PackedScene::8032093052490986543::1739467514::1739556509::1::::<><>::uid://coctnmkeejfmc::::res://assets/enemies/robot/robotFella_MainBody_Metallic_Raw-MainBody_Roughness_Raw.png<>uid://cdbc1ddns528a::::res://assets/enemies/robot/robotFella_Head_Metallic_Raw-Head_Roughness_Raw.png<>uid://d4k6xb4nfxas8::::res://assets/enemies/robot/robotFella_Hands_Metallic_Raw-Hands_Roughness_Raw.png
+robotFella_Hands_Metallic_Raw-Hands_Roughness_Raw.png::CompressedTexture2D::9217305692079338093::1739553566::1739556503::1::::<><>::
+robotFella_Head_Metallic_Raw-Head_Roughness_Raw.png::CompressedTexture2D::4985640303501808958::1739553566::1739556503::1::::<><>::
+robotFella_MainBody_Metallic_Raw-MainBody_Roughness_Raw.png::CompressedTexture2D::5760791417925794358::1739553566::1739556503::1::::<><>::
+robot_fella.tscn::PackedScene::8953782030603341880::1739555965::0::1::::<><>::uid://dmo2ntldae5hj::::res://assets/enemies/robot/robotFella.glb<>res://assets/enemies/robot/gunner_robot.gd<>uid://bwgwvmjwjvomd::::res://assets/enemies/robot/textures/MainBody_Base_color_sRGB.png<>uid://bg54gioh7aebn::::res://assets/enemies/robot/textures/Head_Base_color_sRGB.png<>uid://mwswc7yrkc3b::::res://assets/enemies/robot/textures/Hands_Base_color_sRGB.png<>uid://dgydp104ki4ep::::res://assets/enemies/robot/textures/Hands_Roughness_Raw.png<>uid://voahc4el36wc::::res://assets/particles/vfx_fire.tscn
+::res://assets/enemies/robot/textures/::1739556462
+Hands_Base_color_sRGB.png::CompressedTexture2D::888814783175413537::1683309724::1739556503::1::::<><>::
+Hands_Metallic_Raw.png::CompressedTexture2D::1403578971506921396::1683309724::1739556503::1::::<><>::
+Hands_Mixed_AO_Raw.png::CompressedTexture2D::7251285413034508260::1683309724::1739556503::1::::<><>::
+Hands_Normal_DirectX_Raw.png::CompressedTexture2D::2113972267740881935::1683309724::1739556503::1::::<><>::
+Hands_Roughness_Raw.png::CompressedTexture2D::7630150522450357835::1683309724::1739556503::1::::<><>::
+Head_Base_color_sRGB.png::CompressedTexture2D::2871257027871623839::1683309724::1739556503::1::::<><>::
+Head_Metallic_Raw.png::CompressedTexture2D::4173496063905176802::1683309724::1739556503::1::::<><>::
+Head_Mixed_AO_Raw.png::CompressedTexture2D::48088542843430882::1683309724::1739556503::1::::<><>::
+Head_Normal_DirectX_Raw.png::CompressedTexture2D::5364631720930771472::1683309724::1739556503::1::::<><>::
+Head_Roughness_Raw.png::CompressedTexture2D::2837316869720384277::1683309724::1739556503::1::::<><>::
+MainBody_Base_color_sRGB.png::CompressedTexture2D::3944335430962926987::1683309724::1739556503::1::::<><>::
+MainBody_Metallic_Raw.png::CompressedTexture2D::2503045885337902229::1683309724::1739556503::1::::<><>::
+MainBody_Mixed_AO_Raw.png::CompressedTexture2D::6073560574879417337::1683309724::1739556503::1::::<><>::
+MainBody_Normal_DirectX_Raw.png::CompressedTexture2D::1558118271390759327::1683309724::1739556503::1::::<><>::
+MainBody_Roughness_Raw.png::CompressedTexture2D::3157910845305603127::1683309724::1739556503::1::::<><>::
+::res://assets/enemies/robotTwo/::1739556462
+botAO.png::CompressedTexture2D::3197508741905714433::1569362154::1739556503::1::::<><>::
+botcolor.png::CompressedTexture2D::3838634582352319162::1569362156::1739556503::1::::<><>::
+botemissive.png::CompressedTexture2D::1320628839281475679::1569362154::1739556503::1::::<><>::
+botMetallic.png::CompressedTexture2D::2271564515744610925::1569362154::1739556503::1::::<><>::
+botNormal.png::CompressedTexture2D::3999189199466353109::1569362156::1739556503::1::::<><>::
+botSmoothness.png::CompressedTexture2D::7833336690259748773::1569362156::1739556503::1::::<><>::
+robot.fbx::PackedScene::2866114980321166591::1569362154::1739556507::1::::<><>::uid://buxp0r4cvv6re::::res://assets/enemies/robotTwo/botcolor.png<>uid://s2ytga5ruuex::::res://assets/enemies/robotTwo/botemissive.png<>uid://bw8icdqa1yoft::::res://assets/enemies/robotTwo/botNormal.png
+robot.tscn::PackedScene::2414559867375929003::1739184369::0::1::::<><>::uid://bg3mq3g0i8pmd::::res://assets/enemies/robotTwo/robot.fbx
+::res://assets/fonts/::1739556462
+URW Grotesk SC Light.ttf::FontFile::7020206370905263000::1644030040::1739556502::1::::<><>::
+URW Grotesk SC Regular.ttf::FontFile::1875713588008826565::1644030040::1739556502::1::::<><>::
+::res://assets/friends/::1739556462
+::res://assets/friends/deliveryDrone/::1739556462
+deliveryDrone.tscn::PackedScene::968986567820469103::1739548060::0::1::::<><>::uid://cya4q8yelbtm7::::res://assets/friends/deliveryDrone/Drone_animated.fbx<>uid://pmpdfptoyi40::::res://assets/friends/deliveryDrone/drone_Base_Color.png<>res://assets/friends/deliveryDrone/delivery_drone.gd<>uid://cqyevnj5cdvug::::res://assets/friends/deliveryDrone/drone_Metallic.png<>uid://bn6pf4xm6tw35::::res://assets/friends/deliveryDrone/drone_Roughness.png
+delivery_drone.gd::GDScript::-1::1739404828::0::1::::<>Node3D<>::
+Drone_animated.fbx::PackedScene::6459164750734048956::1630207616::1739556508::1::::<><>::
+drone_Base_Color.png::CompressedTexture2D::1078521586564166995::1630207616::1739556503::1::::<><>::
+drone_Emissive.png::CompressedTexture2D::8928859869007654437::1630207616::1739556503::1::::<><>::
+drone_Metallic.png::CompressedTexture2D::5945688999407893434::1630207616::1739556502::1::::<><>::
+drone_Mixed_AO.png::CompressedTexture2D::5498070291908454105::1630207616::1739556503::1::::<><>::
+drone_Normal_OpenGL.png::CompressedTexture2D::5689695804130704366::1630207616::1739556503::1::::<><>::
+drone_Roughness.png::CompressedTexture2D::3363792604519476982::1630207616::1739556502::1::::<><>::
+::res://assets/GLTF format/::1739556461
+balconyLadder_bottom.glb::PackedScene::6874593026288550611::1616280222::1739556507::1::::<><>::uid://b3qw6ejuh3w1c::::res://assets/GLTF format/balconyLadder_bottom_bars.png
+balconyLadder_bottom_bars.png::CompressedTexture2D::4386129707990708190::1738711170::1739556502::1::::<><>::
+balconyLadder_top.glb::PackedScene::8067170163840531076::1616280223::1739556507::1::::<><>::uid://dft0nwtbdxqbf::::res://assets/GLTF format/balconyLadder_top_bars.png
+balconyLadder_top_bars.png::CompressedTexture2D::7550971771651880111::1738711170::1739556502::1::::<><>::
+balcony_typeA.glb::PackedScene::2131202537355151656::1616280222::1739556508::1::::<><>::uid://d02picoa3nmqu::::res://assets/GLTF format/balcony_typeA_bars.png
+balcony_typeA_bars.png::CompressedTexture2D::8970646509344367756::1738711170::1739556502::1::::<><>::
+detailAwning_small.glb::PackedScene::2384253660076745929::1616280223::1739556508::1::::<><>::uid://krpsj1hglllj::::res://assets/GLTF format/detailAwning_small_roof.png
+detailAwning_small_roof.png::CompressedTexture2D::737926270582702659::1738711170::1739556502::1::::<><>::
+detailAwning_wide.glb::PackedScene::5682776598825903844::1616280223::1739556508::1::::<><>::uid://dl748xdgjwdhm::::res://assets/GLTF format/detailAwning_wide_roof.png
+detailAwning_wide_roof.png::CompressedTexture2D::7999220356173635782::1738711169::1739556502::1::::<><>::
+detailBarrierStrong_damaged.glb::PackedScene::1313923708130816242::1616280223::1739556508::1::::<><>::uid://dswmttm4gg2hf::::res://assets/GLTF format/detailBarrierStrong_damaged_concrete.png
+detailBarrierStrong_damaged_concrete.png::CompressedTexture2D::8468841098957810063::1738711169::1739556502::1::::<><>::
+detailBarrierStrong_typeA.glb::PackedScene::6888983753951253862::1616280223::1739556509::1::::<><>::uid://b06d45tn6rpam::::res://assets/GLTF format/detailBarrierStrong_typeA_concrete.png
+detailBarrierStrong_typeA_concrete.png::CompressedTexture2D::4205373029705865760::1738711169::1739556502::1::::<><>::
+detailBarrierStrong_typeB.glb::PackedScene::7337847322103769209::1616280224::1739556509::1::::<><>::uid://l866k2dutmxh::::res://assets/GLTF format/detailBarrierStrong_typeB_concrete.png<>uid://b8avmcn08aimr::::res://assets/GLTF format/detailBarrierStrong_typeB_signs.png
+detailBarrierStrong_typeB_concrete.png::CompressedTexture2D::842139899396156093::1738711169::1739556502::1::::<><>::
+detailBarrierStrong_typeB_signs.png::CompressedTexture2D::4703949136432276281::1738711169::1739556502::1::::<><>::
+detailBarrier_typeA.glb::PackedScene::3106109093934071631::1616280223::1739556509::1::::<><>::uid://dpl2dw473f5et::::res://assets/GLTF format/detailBarrier_typeA_metal.png<>uid://d3dfs1qy32hc2::::res://assets/GLTF format/detailBarrier_typeA_signs.png
+detailBarrier_typeA_metal.png::CompressedTexture2D::8236448778935469243::1738711169::1739556502::1::::<><>::
+detailBarrier_typeA_signs.png::CompressedTexture2D::9131079926913421075::1738711169::1739556502::1::::<><>::
+detailBarrier_typeB.glb::PackedScene::485471962875748812::1616280223::1739556509::1::::<><>::uid://csaoriuah4o2y::::res://assets/GLTF format/detailBarrier_typeB_metal.png<>uid://bh2qqht5epcbf::::res://assets/GLTF format/detailBarrier_typeB_signs.png
+detailBarrier_typeB_metal.png::CompressedTexture2D::6037121400359299518::1738711169::1739556502::1::::<><>::
+detailBarrier_typeB_signs.png::CompressedTexture2D::2934481231489418343::1738711169::1739556502::1::::<><>::
+detailBeam.glb::PackedScene::1489977470828366998::1616280224::1739556504::1::::<><>::uid://wkllowaxbts3::::res://assets/GLTF format/detailBeam_roof.png<>uid://cpdtqku41bc4o::::res://assets/GLTF format/detailBeam_metal.png
+detailBeam_metal.png::CompressedTexture2D::5833049908265912760::1738711169::1739556502::1::::<><>::
+detailBeam_roof.png::CompressedTexture2D::1565486637574091972::1738711169::1739556502::1::::<><>::
+detailBricks_typeA.glb::PackedScene::927129182971393901::1616280224::1739556504::1::::<><>::uid://06n2hmj3e8pj::::res://assets/GLTF format/detailBricks_typeA_concrete.png
+detailBricks_typeA_concrete.png::CompressedTexture2D::1819554725315694987::1738711169::1739556502::1::::<><>::
+detailBricks_typeB.glb::PackedScene::4101274847632492316::1616280224::1739556505::1::::<><>::uid://cux6rq1drlssf::::res://assets/GLTF format/detailBricks_typeB_concrete.png
+detailBricks_typeB_concrete.png::CompressedTexture2D::6226012394460363129::1738711169::1739556502::1::::<><>::
+detailCables_typeA.glb::PackedScene::6540094757092658029::1616280224::1739556505::1::::<><>::uid://ccamd46qw7g1s::::res://assets/GLTF format/detailCables_typeA_signs.png
+detailCables_typeA_signs.png::CompressedTexture2D::4913954587780901950::1738711169::1739556502::1::::<><>::
+detailCables_typeB.glb::PackedScene::8983745707630786807::1616280224::1739556506::1::::<><>::uid://ctq6u10s7w1v0::::res://assets/GLTF format/detailCables_typeB_signs.png
+detailCables_typeB_signs.png::CompressedTexture2D::6141378788316342139::1738711169::1739556502::1::::<><>::
+detailDumpster_closed.glb::PackedScene::6304034460079707551::1616280224::1739556506::1::::<><>::uid://b4jvnqus1cycv::::res://assets/GLTF format/detailDumpster_closed_metal_wall.png<>uid://b0qhg6fmmnknl::::res://assets/GLTF format/detailDumpster_closed_wall.png<>uid://cwitw55vl5opk::::res://assets/GLTF format/detailDumpster_closed_roof.png
+detailDumpster_closed_metal_wall.png::CompressedTexture2D::4441775693273817001::1738711168::1739556502::1::::<><>::
+detailDumpster_closed_roof.png::CompressedTexture2D::6334705482798539520::1738711168::1739556502::1::::<><>::
+detailDumpster_closed_wall.png::CompressedTexture2D::4174609188931322325::1738711168::1739556502::1::::<><>::
+detailDumpster_open.glb::PackedScene::6352053327372362468::1616280225::1739556506::1::::<><>::uid://bvlfndmqh62ms::::res://assets/GLTF format/detailDumpster_open_metal_wall.png<>uid://bftvd3gwfnehm::::res://assets/GLTF format/detailDumpster_open_wall.png<>uid://b557gwnu8o44l::::res://assets/GLTF format/detailDumpster_open_dirt.png<>uid://c7iu422acy7b6::::res://assets/GLTF format/detailDumpster_open_roof.png
+detailDumpster_open_dirt.png::CompressedTexture2D::4555972160537375001::1738711168::1739556502::1::::<><>::
+detailDumpster_open_metal_wall.png::CompressedTexture2D::3883421532516309246::1738711168::1739556502::1::::<><>::
+detailDumpster_open_roof.png::CompressedTexture2D::7036666973558114017::1738711168::1739556502::1::::<><>::
+detailDumpster_open_wall.png::CompressedTexture2D::2777869974369616514::1738711168::1739556502::1::::<><>::
+detailLight_double.glb::PackedScene::6076324230730420361::1616280225::1739556513::1::::<><>::uid://cp8n1gcwbico6::::res://assets/GLTF format/detailLight_double_metal.png
+detailLight_double_metal.png::CompressedTexture2D::5894634558619094419::1738711168::1739556502::1::::<><>::
+detailLight_single.glb::PackedScene::181317226959036407::1616280225::1739556513::1::::<><>::uid://3pu430r1atpy::::res://assets/GLTF format/detailLight_single_metal.png
+detailLight_single_metal.png::CompressedTexture2D::1997520926135458530::1738711168::1739556502::1::::<><>::
+detailLight_traffic.glb::PackedScene::125849914589025117::1616280225::1739556514::1::::<><>::uid://dyhljgwnec6ud::::res://assets/GLTF format/detailLight_traffic_metal.png<>uid://oocibh6pte0l::::res://assets/GLTF format/detailLight_traffic_roof.png
+detailLight_traffic_metal.png::CompressedTexture2D::8858929251457992983::1738711168::1739556502::1::::<><>::
+detailLight_traffic_roof.png::CompressedTexture2D::1011680884592338837::1738711168::1739556502::1::::<><>::
+door_typeA.glb::PackedScene::2962257115547142952::1616280225::1739556514::1::::<><>::uid://c383n763sath1::::res://assets/GLTF format/door_typeA_doors.png<>uid://cbqbkbheyuwib::::res://assets/GLTF format/door_typeA_metal.png
+door_typeA_doors.png::CompressedTexture2D::6807978476185715764::1738711168::1739556502::1::::<><>::
+door_typeA_metal.png::CompressedTexture2D::4876138893572612937::1738711168::1739556502::1::::<><>::
+door_typeB.glb::PackedScene::7611346433887180038::1616280225::1739556514::1::::<><>::uid://djr27y6bqnrk::::res://assets/GLTF format/door_typeB_doors.png<>uid://ktlm6ajkc8hj::::res://assets/GLTF format/door_typeB_metal.png
+door_typeB_doors.png::CompressedTexture2D::230228055246086768::1738711168::1739556502::1::::<><>::
+door_typeB_metal.png::CompressedTexture2D::741802558801003083::1738711168::1739556502::1::::<><>::
+grass.glb::PackedScene::548645694193550822::1616280225::1739556515::1::::<><>::uid://3ix5np2yyv4u::::res://assets/GLTF format/grass_grass.png
+grass_grass.png::CompressedTexture2D::1983253415783575714::1738711168::1739556502::1::::<><>::
+roadAsphalt_center.glb::PackedScene::6289559386826404935::1616280226::1739556515::1::::<><>::uid://tbevovy5bgya::::res://assets/GLTF format/roadAsphalt_center_asphalt.png
+roadAsphalt_center_asphalt.png::CompressedTexture2D::1335933545418125808::1738711168::1739556502::1::::<><>::
+roadAsphalt_corner.glb::PackedScene::900454154660289017::1616280226::1739556515::1::::<><>::uid://c12qwbajfdspg::::res://assets/GLTF format/roadAsphalt_corner_tiles.png<>uid://dl5m4xj7aavhy::::res://assets/GLTF format/roadAsphalt_corner_asphalt.png
+roadAsphalt_cornerInner.glb::PackedScene::5297923040089531081::1616280226::1739556515::1::::<><>::uid://b81a87s3ecl6q::::res://assets/GLTF format/roadAsphalt_cornerInner_tiles.png<>uid://m0ln7vqqo86a::::res://assets/GLTF format/roadAsphalt_cornerInner_asphalt.png
+roadAsphalt_cornerInner_asphalt.png::CompressedTexture2D::894568383686112722::1738711172::1739556502::1::::<><>::
+roadAsphalt_cornerInner_tiles.png::CompressedTexture2D::4756386986383899178::1738711172::1739556502::1::::<><>::
+roadAsphalt_cornerOuter.glb::PackedScene::4756264983006678286::1616280226::1739556510::1::::<><>::uid://bvmc8htsr2juk::::res://assets/GLTF format/roadAsphalt_cornerOuter_asphalt.png<>uid://bcnucyk444dse::::res://assets/GLTF format/roadAsphalt_cornerOuter_tiles.png
+roadAsphalt_cornerOuter_asphalt.png::CompressedTexture2D::3885339696181255486::1738711172::1739556502::1::::<><>::
+roadAsphalt_cornerOuter_tiles.png::CompressedTexture2D::2554854470581054540::1738711172::1739556502::1::::<><>::
+roadAsphalt_corner_asphalt.png::CompressedTexture2D::7994052279050143386::1738711168::1739556502::1::::<><>::
+roadAsphalt_corner_tiles.png::CompressedTexture2D::6654500313623919060::1738711168::1739556502::1::::<><>::
+roadAsphalt_damaged.glb::PackedScene::5629309993031893296::1616280226::1739556511::1::::<><>::uid://cm0xrixddb06e::::res://assets/GLTF format/roadAsphalt_damaged_tiles.png<>uid://b1y7n7oljxxlc::::res://assets/GLTF format/roadAsphalt_damaged_asphalt.png
+roadAsphalt_damaged_asphalt.png::CompressedTexture2D::4262843546355882236::1738711172::1739556502::1::::<><>::
+roadAsphalt_damaged_tiles.png::CompressedTexture2D::5668144240081784286::1738711172::1739556502::1::::<><>::
+roadAsphalt_pavement.glb::PackedScene::1055662334248459661::1616280226::1739556511::1::::<><>::uid://cskqtd05nkas3::::res://assets/GLTF format/roadAsphalt_pavement_tiles.png
+roadAsphalt_pavement_tiles.png::CompressedTexture2D::6057889929950828832::1738711172::1739556502::1::::<><>::
+roadAsphalt_side.glb::PackedScene::4199571839345044789::1616280226::1739556511::1::::<><>::uid://p80mqe0oud26::::res://assets/GLTF format/roadAsphalt_side_asphalt.png<>uid://divh3moi6pn5p::::res://assets/GLTF format/roadAsphalt_side_tiles.png
+roadAsphalt_side_asphalt.png::CompressedTexture2D::1122497322508683489::1738711172::1739556502::1::::<><>::
+roadAsphalt_side_tiles.png::CompressedTexture2D::7764600406510498855::1738711172::1739556502::1::::<><>::
+roadAsphalt_straight.glb::PackedScene::6352698260224512277::1616280227::1739556512::1::::<><>::uid://b3780ehdvxlgm::::res://assets/GLTF format/roadAsphalt_straight_tiles.png<>uid://53wh5cq5nba6::::res://assets/GLTF format/roadAsphalt_straight_asphalt.png
+roadAsphalt_straight_asphalt.png::CompressedTexture2D::2164817740210523883::1738711171::1739556502::1::::<><>::
+roadAsphalt_straight_tiles.png::CompressedTexture2D::4419816920369154092::1738711171::1739556502::1::::<><>::
+roadDirt_center.glb::PackedScene::4500167203196403991::1616280227::1739556512::1::::<><>::uid://cm1isap3uumsy::::res://assets/GLTF format/roadDirt_center_dirt.png
+roadDirt_center_dirt.png::CompressedTexture2D::5669299217352350156::1738711171::1739556502::1::::<><>::
+roadDirt_corner.glb::PackedScene::108327392138471808::1616280227::1739556512::1::::<><>::uid://dssp3rl5oxpqg::::res://assets/GLTF format/roadDirt_corner_concrete.png<>uid://u3bxrypbshj::::res://assets/GLTF format/roadDirt_corner_dirt.png
+roadDirt_cornerInner.glb::PackedScene::5855124893511676064::1616280227::1739556513::1::::<><>::uid://b0adcpo2bvbin::::res://assets/GLTF format/roadDirt_cornerInner_concrete.png<>uid://ys01u2v4xhmi::::res://assets/GLTF format/roadDirt_cornerInner_dirt.png
+roadDirt_cornerInner_concrete.png::CompressedTexture2D::4141328307916453433::1738711171::1739556502::1::::<><>::
+roadDirt_cornerInner_dirt.png::CompressedTexture2D::1723256495517074340::1738711171::1739556502::1::::<><>::
+roadDirt_cornerOuter.glb::PackedScene::5355400184553447331::1616280227::1739556511::1::::<><>::uid://dfhkf6r1hdqtt::::res://assets/GLTF format/roadDirt_cornerOuter_dirt.png<>uid://cgb75e8428oqs::::res://assets/GLTF format/roadDirt_cornerOuter_concrete.png
+roadDirt_cornerOuter_concrete.png::CompressedTexture2D::5198035586981098370::1738711171::1739556502::1::::<><>::
+roadDirt_cornerOuter_dirt.png::CompressedTexture2D::7525274668121414625::1738711171::1739556502::1::::<><>::
+roadDirt_corner_concrete.png::CompressedTexture2D::8460781704530290426::1738711171::1739556502::1::::<><>::
+roadDirt_corner_dirt.png::CompressedTexture2D::42990652081845367::1738711171::1739556502::1::::<><>::
+roadDirt_damaged.glb::PackedScene::2674241177367526551::1616280227::1739556506::1::::<><>::uid://cy6adjg7h3hwu::::res://assets/GLTF format/roadDirt_damaged_concrete.png<>uid://d3okmxhero1p1::::res://assets/GLTF format/roadDirt_damaged_dirt.png
+roadDirt_damaged_concrete.png::CompressedTexture2D::6521375165899922156::1738711171::1739556502::1::::<><>::
+roadDirt_damaged_dirt.png::CompressedTexture2D::9154080780011294656::1738711171::1739556502::1::::<><>::
+roadDirt_pavement.glb::PackedScene::2375681065618290422::1616280227::1739556509::1::::<><>::uid://dydg77bhwlj4y::::res://assets/GLTF format/roadDirt_pavement_concrete.png
+roadDirt_pavement_concrete.png::CompressedTexture2D::8850410561655715310::1738711171::1739556502::1::::<><>::
+roadDirt_side.glb::PackedScene::1399397436003699037::1616280227::1739556508::1::::<><>::uid://csttxu7872ay1::::res://assets/GLTF format/roadDirt_side_dirt.png<>uid://dejldv8n5h40m::::res://assets/GLTF format/roadDirt_side_concrete.png
+roadDirt_side_concrete.png::CompressedTexture2D::7459271224320075338::1738711171::1739556502::1::::<><>::
+roadDirt_side_dirt.png::CompressedTexture2D::6076659527764234178::1738711171::1739556502::1::::<><>::
+roadDirt_straight.glb::PackedScene::2576737617616579839::1616280228::1739556508::1::::<><>::uid://b07yjgtu3s13b::::res://assets/GLTF format/roadDirt_straight_concrete.png<>uid://cc2lfthwldmmw::::res://assets/GLTF format/roadDirt_straight_dirt.png
+roadDirt_straight_concrete.png::CompressedTexture2D::4208675488183611825::1738711171::1739556502::1::::<><>::
+roadDirt_straight_dirt.png::CompressedTexture2D::4969635079683531302::1738711171::1739556502::1::::<><>::
+roadDirt_tile.glb::PackedScene::578548477119061427::1616280228::1739556506::1::::<><>::uid://c72ynwewn7lqc::::res://assets/GLTF format/roadDirt_tile_concrete.png
+roadDirt_tile_concrete.png::CompressedTexture2D::7076104149021154654::1738711171::1739556502::1::::<><>::
+roofMetal_poles.glb::PackedScene::6677469794277094756::1616280228::1739556511::1::::<><>::uid://dmx5mrtpldj77::::res://assets/GLTF format/roofMetal_poles_concrete.png<>uid://dfnxjn81rxwl5::::res://assets/GLTF format/roofMetal_poles_metal_wall.png
+roofMetal_poles_concrete.png::CompressedTexture2D::8050852725333516140::1738711171::1739556502::1::::<><>::
+roofMetal_poles_metal_wall.png::CompressedTexture2D::7538456478038081076::1738711171::1739556502::1::::<><>::
+roofMetal_typeA.glb::PackedScene::8006188051242357141::1616280228::1739556512::1::::<><>::uid://cpyglt3454ms1::::res://assets/GLTF format/roofMetal_typeA_concrete.png<>uid://j2px0jgqoka3::::res://assets/GLTF format/roofMetal_typeA_roof_plates.png
+roofMetal_typeA_concrete.png::CompressedTexture2D::5875604076300723222::1738711171::1739556502::1::::<><>::
+roofMetal_typeA_roof_plates.png::CompressedTexture2D::688390947534764084::1738711171::1739556502::1::::<><>::
+roofMetal_typeB.glb::PackedScene::4224006450185977936::1616280228::1739556511::1::::<><>::uid://dwkgvdrq3xruu::::res://assets/GLTF format/roofMetal_typeB_concrete.png<>uid://dtktx0smosjcp::::res://assets/GLTF format/roofMetal_typeB_roof.png<>uid://c45ot1f1up4us::::res://assets/GLTF format/roofMetal_typeB_roof_plates.png
+roofMetal_typeB_concrete.png::CompressedTexture2D::8724462376882249016::1738711170::1739556502::1::::<><>::
+roofMetal_typeB_roof.png::CompressedTexture2D::8514689895319776487::1738711170::1739556502::1::::<><>::
+roofMetal_typeB_roof_plates.png::CompressedTexture2D::6871134508033655398::1738711170::1739556502::1::::<><>::
+scaffolding_poles.glb::PackedScene::2896239789822948232::1616280228::1739556515::1::::<><>::uid://dou0fyxvccibh::::res://assets/GLTF format/scaffolding_poles_metal.png
+scaffolding_poles_metal.png::CompressedTexture2D::8184721567929447641::1738711170::1739556502::1::::<><>::
+scaffolding_structure.glb::PackedScene::9001878554995276099::1616280228::1739556514::1::::<><>::uid://dqf2bf06f1e4e::::res://assets/GLTF format/scaffolding_structure_metal.png<>uid://cjwk7a60r0wts::::res://assets/GLTF format/scaffolding_structure_bars.png
+scaffolding_structure_bars.png::CompressedTexture2D::5450621635098978856::1738711170::1739556502::1::::<><>::
+scaffolding_structure_metal.png::CompressedTexture2D::8294246885309788078::1738711170::1739556502::1::::<><>::
+treePine_large.glb::PackedScene::453177351196043453::1616280229::1739556513::1::::<><>::uid://cgyw8yf67tsgf::::res://assets/GLTF format/treePine_large_treeB.png
+treePine_large_treeB.png::CompressedTexture2D::5244915470088009041::1738711170::1739556502::1::::<><>::
+treePine_small.glb::PackedScene::3748954927602211918::1616280229::1739556507::1::::<><>::uid://bc03a8xiy1drp::::res://assets/GLTF format/treePine_small_treeB.png
+treePine_small_treeB.png::CompressedTexture2D::2580109659815758957::1738711170::1739556502::1::::<><>::
+tree_large.glb::PackedScene::7388220567774463779::1616280228::1739556506::1::::<><>::uid://dv3jnrjn7g52e::::res://assets/GLTF format/tree_large_treeA.png
+tree_large_treeA.png::CompressedTexture2D::8691600920281205666::1738711170::1739556502::1::::<><>::
+tree_shrub.glb::PackedScene::8105385769719785827::1616280229::1739556505::1::::<><>::uid://dafhqt7v4mro3::::res://assets/GLTF format/tree_shrub_treeA.png
+tree_shrub_treeA.png::CompressedTexture2D::7170038579872229132::1738711170::1739556502::1::::<><>::
+tree_small.glb::PackedScene::4156046927638572334::1616280229::1739556504::1::::<><>::uid://c0ykpaq57doqh::::res://assets/GLTF format/tree_small_treeA.png
+tree_small_treeA.png::CompressedTexture2D::6577741507393515191::1738711170::1739556502::1::::<><>::
+truck_flat.glb::PackedScene::601795179938240111::1616280229::1739556510::1::::<><>::uid://cygf6s167lxmf::::res://assets/GLTF format/truck_flat_truck.png<>uid://di7dx0xjn7vk::::res://assets/GLTF format/truck_flat_metal.png
+truck_flat_metal.png::CompressedTexture2D::229031101811571052::1738711165::1739556502::1::::<><>::
+truck_flat_truck.png::CompressedTexture2D::6470119812835159729::1738711165::1739556502::1::::<><>::
+truck_green.glb::PackedScene::3812326137055828202::1616280229::1739556509::1::::<><>::uid://cyfi0v1bd3ok4::::res://assets/GLTF format/truck_green_truck_alien.png
+truck_green_truck_alien.png::CompressedTexture2D::6468227027464861657::1738711165::1739556502::1::::<><>::
+truck_grey.glb::PackedScene::4757510085199514702::1616280229::1739556508::1::::<><>::uid://dtivn2p2pmn5h::::res://assets/GLTF format/truck_grey_truck.png
+truck_grey_truck.png::CompressedTexture2D::8510664816953065383::1738711165::1739556502::1::::<><>::
+wallA.glb::PackedScene::6691590484758802203::1616280230::1739556507::1::::<><>::uid://kf0mybl4fs0k::::res://assets/GLTF format/wallA_wall_lines.png<>uid://bsdtmrl0rrye2::::res://assets/GLTF format/wallA_concrete.png
+wallA_concrete.png::CompressedTexture2D::3657188965878385275::1738711165::1739556502::1::::<><>::
+wallA_corner.glb::PackedScene::8379715357662653748::1616280230::1739556509::1::::<><>::uid://drkm0xkuebi2x::::res://assets/GLTF format/wallA_corner_wall_lines.png<>uid://cq8lxmmef1qeu::::res://assets/GLTF format/wallA_corner_concrete.png
+wallA_cornerPainted.glb::PackedScene::7368142862042126328::1616280230::1739556507::1::::<><>::uid://dywbom30cqnq::::res://assets/GLTF format/wallA_cornerPainted_wall.png<>uid://cn13yeytv4k7f::::res://assets/GLTF format/wallA_cornerPainted_concrete.png
+wallA_cornerPainted_concrete.png::CompressedTexture2D::5740713339198550917::1738711165::1739556502::1::::<><>::
+wallA_cornerPainted_wall.png::CompressedTexture2D::261449911816551722::1738711165::1739556502::1::::<><>::
+wallA_corner_concrete.png::CompressedTexture2D::5964696940666255228::1738711165::1739556502::1::::<><>::
+wallA_corner_wall_lines.png::CompressedTexture2D::8373890643626472213::1738711165::1739556502::1::::<><>::
+wallA_detail.glb::PackedScene::4378860426611519401::1616280230::1739556508::1::::<><>::uid://ceiwjrug4x7f6::::res://assets/GLTF format/wallA_detail_concrete.png<>uid://xw3ne8o704rg::::res://assets/GLTF format/wallA_detail_wall_lines.png
+wallA_detailPainted.glb::PackedScene::396599015589808597::1616280230::1739556509::1::::<><>::uid://2mc2exkecdeg::::res://assets/GLTF format/wallA_detailPainted_concrete.png<>uid://dd8lg6kmqeu5x::::res://assets/GLTF format/wallA_detailPainted_wall.png
+wallA_detailPainted_concrete.png::CompressedTexture2D::1920041207780240746::1738711165::1739556502::1::::<><>::
+wallA_detailPainted_wall.png::CompressedTexture2D::7438633293799919875::1738711165::1739556502::1::::<><>::
+wallA_detail_concrete.png::CompressedTexture2D::5071464534062164369::1738711165::1739556502::1::::<><>::
+wallA_detail_wall_lines.png::CompressedTexture2D::1661483267134106244::1738711165::1739556502::1::::<><>::
+wallA_door.glb::PackedScene::2176826249316887588::1616280230::1739556510::1::::<><>::uid://ubru5ilmqv4y::::res://assets/GLTF format/wallA_door_wall_lines.png<>uid://dxbvvtcyiqhs1::::res://assets/GLTF format/wallA_door_concrete.png<>uid://bn4olu0r46r7e::::res://assets/GLTF format/wallA_door_metal.png<>uid://dbpuh34j6841t::::res://assets/GLTF format/wallA_door_doors.png
+wallA_door_concrete.png::CompressedTexture2D::8776983393163246362::1738711165::1739556502::1::::<><>::
+wallA_door_doors.png::CompressedTexture2D::7261644917345704531::1738711165::1739556502::1::::<><>::
+wallA_door_metal.png::CompressedTexture2D::3359613377386448304::1738711165::1739556502::1::::<><>::
+wallA_door_wall_lines.png::CompressedTexture2D::1406910743845254758::1738711165::1739556502::1::::<><>::
+wallA_flat.glb::PackedScene::4328407757119137733::1616280231::1739556505::1::::<><>::uid://dulvcuwasdngo::::res://assets/GLTF format/wallA_flat_wall_lines.png
+wallA_flatGarage.glb::PackedScene::4625799698002153435::1616280231::1739556506::1::::<><>::uid://7gt2l61k8wan::::res://assets/GLTF format/wallA_flatGarage_wall_garage.png<>uid://bbhkt2gcwf702::::res://assets/GLTF format/wallA_flatGarage_wall.png<>uid://c267wya1uffmn::::res://assets/GLTF format/wallA_flatGarage_concrete.png
+wallA_flatGarage_concrete.png::CompressedTexture2D::6733919348992018017::1738711165::1739556502::1::::<><>::
+wallA_flatGarage_wall.png::CompressedTexture2D::2471702699141194549::1738711165::1739556502::1::::<><>::
+wallA_flatGarage_wall_garage.png::CompressedTexture2D::2259631729081185293::1738711165::1739556502::1::::<><>::
+wallA_flatPainted.glb::PackedScene::3184125715396569195::1616280231::1739556507::1::::<><>::uid://l4a04jaytc06::::res://assets/GLTF format/wallA_flatPainted_wall.png
+wallA_flatPainted_wall.png::CompressedTexture2D::831990416846928081::1738711164::1739556502::1::::<><>::
+wallA_flatWindow.glb::PackedScene::9020618275717587889::1616280231::1739556513::1::::<><>::uid://cbpysde140ku1::::res://assets/GLTF format/wallA_flatWindow_metal.png<>uid://bo2308a8b64cj::::res://assets/GLTF format/wallA_flatWindow_windows.png<>uid://dm0yv3jsctl1u::::res://assets/GLTF format/wallA_flatWindow_wall_lines.png
+wallA_flatWindow_metal.png::CompressedTexture2D::4875485394422152130::1738711164::1739556502::1::::<><>::
+wallA_flatWindow_wall_lines.png::CompressedTexture2D::8054633813463898604::1738711164::1739556502::1::::<><>::
+wallA_flatWindow_windows.png::CompressedTexture2D::3426549149402763881::1738711164::1739556502::1::::<><>::
+wallA_flat_wall_lines.png::CompressedTexture2D::8587026792047401158::1738711165::1739556502::1::::<><>::
+wallA_garage.glb::PackedScene::5695019424771530200::1616280231::1739556514::1::::<><>::uid://dpi2fmd0762gs::::res://assets/GLTF format/wallA_garage_wall_garage.png<>uid://drdcmcq3iaug0::::res://assets/GLTF format/wallA_garage_concrete.png<>uid://ba6avm4nghano::::res://assets/GLTF format/wallA_garage_wall.png
+wallA_garage_concrete.png::CompressedTexture2D::8358808520746901557::1738711164::1739556502::1::::<><>::
+wallA_garage_wall.png::CompressedTexture2D::2450454571419440832::1738711164::1739556502::1::::<><>::
+wallA_garage_wall_garage.png::CompressedTexture2D::8230258651550999330::1738711164::1739556502::1::::<><>::
+wallA_low.glb::PackedScene::637484837285191475::1616280231::1739556515::1::::<><>::uid://be0ordgdnpjfv::::res://assets/GLTF format/wallA_low_wall.png<>uid://cdko0byqkw58y::::res://assets/GLTF format/wallA_low_concrete.png
+wallA_lowPainted.glb::PackedScene::6886480582817649420::1616280231::1739556515::1::::<><>::uid://6p8shlpol13n::::res://assets/GLTF format/wallA_lowPainted_wall.png<>uid://mdwqmkhrdfjk::::res://assets/GLTF format/wallA_lowPainted_concrete.png
+wallA_lowPainted_concrete.png::CompressedTexture2D::849824249531044056::1738711164::1739556502::1::::<><>::
+wallA_lowPainted_wall.png::CompressedTexture2D::2208856009498484997::1738711164::1739556502::1::::<><>::
+wallA_low_concrete.png::CompressedTexture2D::5004946448927136706::1738711164::1739556502::1::::<><>::
+wallA_low_wall.png::CompressedTexture2D::2719666065484994443::1738711164::1739556502::1::::<><>::
+wallA_open.glb::PackedScene::5407065490876915498::1616280231::1739556511::1::::<><>::uid://r62v7yywuyup::::res://assets/GLTF format/wallA_open_concrete.png<>uid://bbb3ftn0subp1::::res://assets/GLTF format/wallA_open_wall_lines.png
+wallA_open_concrete.png::CompressedTexture2D::1258884631642275607::1738711164::1739556502::1::::<><>::
+wallA_open_wall_lines.png::CompressedTexture2D::2460383929039016252::1738711164::1739556502::1::::<><>::
+wallA_painted.glb::PackedScene::4884062662228693364::1616280232::1739556511::1::::<><>::uid://becsfpicphkx2::::res://assets/GLTF format/wallA_painted_wall.png<>uid://boh80ja8ekeed::::res://assets/GLTF format/wallA_painted_concrete.png
+wallA_painted_concrete.png::CompressedTexture2D::3385563918728152011::1738711164::1739556502::1::::<><>::
+wallA_painted_wall.png::CompressedTexture2D::2672407448912561849::1738711164::1739556502::1::::<><>::
+wallA_roof.glb::PackedScene::7236578453964339601::1616280232::1739556512::1::::<><>::uid://th47dguae4q5::::res://assets/GLTF format/wallA_roof_concrete.png<>uid://bska51sioyxav::::res://assets/GLTF format/wallA_roof_roof.png<>uid://dy6gvjr12kliy::::res://assets/GLTF format/wallA_roof_wall_lines.png
+wallA_roofDetailed.glb::PackedScene::6317086699454980176::1616280232::1739556512::1::::<><>::uid://cxttnolufa0d8::::res://assets/GLTF format/wallA_roofDetailed_concrete.png<>uid://catmu4wtt8v00::::res://assets/GLTF format/wallA_roofDetailed_roof.png<>uid://ci0xf5halpve5::::res://assets/GLTF format/wallA_roofDetailed_wall_lines.png
+wallA_roofDetailed_concrete.png::CompressedTexture2D::6427585539806578939::1738711164::1739556502::1::::<><>::
+wallA_roofDetailed_roof.png::CompressedTexture2D::4812830422557470295::1738711164::1739556502::1::::<><>::
+wallA_roofDetailed_wall_lines.png::CompressedTexture2D::5387368566674557666::1738711164::1739556502::1::::<><>::
+wallA_roofSlant.glb::PackedScene::6278879415726475795::1616280232::1739556515::1::::<><>::uid://cunj3ps3kof06::::res://assets/GLTF format/wallA_roofSlant_wall_lines.png<>uid://bq0wsaj5wbxvr::::res://assets/GLTF format/wallA_roofSlant_roof.png<>uid://do7iecgu2a78x::::res://assets/GLTF format/wallA_roofSlant_concrete.png
+wallA_roofSlantDetailed.glb::PackedScene::3004488103889541228::1616280232::1739556513::1::::<><>::uid://babdav5245hep::::res://assets/GLTF format/wallA_roofSlantDetailed_wall_lines.png<>uid://ba8rkvtcgtf34::::res://assets/GLTF format/wallA_roofSlantDetailed_roof.png<>uid://caebpfq6wxhed::::res://assets/GLTF format/wallA_roofSlantDetailed_concrete.png
+wallA_roofSlantDetailed_concrete.png::CompressedTexture2D::4781186671076212255::1738711164::1739556502::1::::<><>::
+wallA_roofSlantDetailed_roof.png::CompressedTexture2D::2455596328834431841::1738711164::1739556502::1::::<><>::
+wallA_roofSlantDetailed_wall_lines.png::CompressedTexture2D::2388668363026643283::1738711164::1739556502::1::::<><>::
+wallA_roofSlant_concrete.png::CompressedTexture2D::8208458944519775145::1738711164::1739556502::1::::<><>::
+wallA_roofSlant_roof.png::CompressedTexture2D::3562419559180032415::1738711164::1739556502::1::::<><>::
+wallA_roofSlant_wall_lines.png::CompressedTexture2D::6204052423056705941::1738711164::1739556502::1::::<><>::
+wallA_roof_concrete.png::CompressedTexture2D::1349856779343994578::1738711164::1739556502::1::::<><>::
+wallA_roof_roof.png::CompressedTexture2D::3670518614332173841::1738711164::1739556502::1::::<><>::
+wallA_roof_wall_lines.png::CompressedTexture2D::8908192312586169556::1738711164::1739556502::1::::<><>::
+wallA_wall_lines.png::CompressedTexture2D::713750942140612540::1738711165::1739556502::1::::<><>::
+wallA_window.glb::PackedScene::2993158647119486926::1616280232::1739556504::1::::<><>::uid://dpsjf7udkw7e3::::res://assets/GLTF format/wallA_window_concrete.png<>uid://c6n1fshc0aj0d::::res://assets/GLTF format/wallA_window_wall_lines.png<>uid://4fi4g6rcodma::::res://assets/GLTF format/wallA_window_metal.png<>uid://dqf4eyj11o3gv::::res://assets/GLTF format/wallA_window_windows.png
+wallA_window_concrete.png::CompressedTexture2D::8249810598921151956::1738711164::1739556502::1::::<><>::
+wallA_window_metal.png::CompressedTexture2D::2046336242043278484::1738711164::1739556502::1::::<><>::
+wallA_window_wall_lines.png::CompressedTexture2D::6977120958107659657::1738711164::1739556502::1::::<><>::
+wallA_window_windows.png::CompressedTexture2D::8294374649704259041::1738711164::1739556502::1::::<><>::
+wallB.glb::PackedScene::4108508739461157860::1616280232::1739556514::1::::<><>::uid://o4xcu8kso4ir::::res://assets/GLTF format/wallB_metal_wall.png<>uid://b32fywnsjssxy::::res://assets/GLTF format/wallB_concrete.png
+wallBroken_typeA.glb::PackedScene::4923069651556293301::1616280234::1739556514::1::::<><>::uid://bhoo7wk24nssp::::res://assets/GLTF format/wallBroken_typeA_wall_lines.png<>uid://ksnfs8tjq4u8::::res://assets/GLTF format/wallBroken_typeA_concrete.png
+wallBroken_typeA_concrete.png::CompressedTexture2D::739846483103699821::1738711163::1739556502::1::::<><>::
+wallBroken_typeA_wall_lines.png::CompressedTexture2D::2907552233247641683::1738711163::1739556502::1::::<><>::
+wallBroken_typeB.glb::PackedScene::8897306186859392164::1616280234::1739556510::1::::<><>::uid://b4n83lnr2w1ms::::res://assets/GLTF format/wallBroken_typeB_wall_lines.png<>uid://cxwnc0ngesoik::::res://assets/GLTF format/wallBroken_typeB_concrete.png
+wallBroken_typeB_concrete.png::CompressedTexture2D::6433395307588928674::1738711168::1739556502::1::::<><>::
+wallBroken_typeB_wall_lines.png::CompressedTexture2D::4450788321638135122::1738711168::1739556502::1::::<><>::
+wallB_concrete.png::CompressedTexture2D::4407794125361925902::1738711163::1739556502::1::::<><>::
+wallB_door.glb::PackedScene::3865119853705807961::1616280233::1739556512::1::::<><>::uid://b7rdyklm5xx48::::res://assets/GLTF format/wallB_door_metal_wall.png<>uid://bux74mm1w620l::::res://assets/GLTF format/wallB_door_concrete.png<>uid://c1tb3hhx030nb::::res://assets/GLTF format/wallB_door_metal.png<>uid://dkxspyh20upj1::::res://assets/GLTF format/wallB_door_doors.png
+wallB_door_concrete.png::CompressedTexture2D::3839673626618718049::1738711168::1739556502::1::::<><>::
+wallB_door_doors.png::CompressedTexture2D::7909752141216374616::1738711168::1739556502::1::::<><>::
+wallB_door_metal.png::CompressedTexture2D::6637085578080918319::1738711168::1739556502::1::::<><>::
+wallB_door_metal_wall.png::CompressedTexture2D::4667783654773767215::1738711167::1739556502::1::::<><>::
+wallB_flat.glb::PackedScene::3270567978395060150::1616280233::1739556512::1::::<><>::uid://cyfbi70pi0ost::::res://assets/GLTF format/wallB_flat_metal_wall.png
+wallB_flatGarage.glb::PackedScene::975580110707578929::1616280233::1739556512::1::::<><>::uid://cg1nx3mf02c6v::::res://assets/GLTF format/wallB_flatGarage_metal_wall.png<>uid://bv71ik5snd5by::::res://assets/GLTF format/wallB_flatGarage_wall_garage.png
+wallB_flatGarage_metal_wall.png::CompressedTexture2D::5248480134438834371::1738711167::1739556502::1::::<><>::
+wallB_flatGarage_wall_garage.png::CompressedTexture2D::3928039988797857754::1738711167::1739556502::1::::<><>::
+wallB_flatWindow.glb::PackedScene::5730671123005006624::1616280233::1739556512::1::::<><>::uid://dg00ofj38x6lm::::res://assets/GLTF format/wallB_flatWindow_metal.png<>uid://ntg8s1nnh4fb::::res://assets/GLTF format/wallB_flatWindow_windows.png<>uid://b6avoe1sgcgk2::::res://assets/GLTF format/wallB_flatWindow_metal_wall.png
+wallB_flatWindow_metal.png::CompressedTexture2D::7633547760530043654::1738711167::1739556502::1::::<><>::
+wallB_flatWindow_metal_wall.png::CompressedTexture2D::4563575145519126199::1738711167::1739556502::1::::<><>::
+wallB_flatWindow_windows.png::CompressedTexture2D::952102363970576199::1738711167::1739556502::1::::<><>::
+wallB_flat_metal_wall.png::CompressedTexture2D::6467772226873820311::1738711167::1739556502::1::::<><>::
+wallB_garage.glb::PackedScene::3390082926662441157::1616280233::1739556511::1::::<><>::uid://clwc74k0n70ex::::res://assets/GLTF format/wallB_garage_metal_wall.png<>uid://koj7bjouvuvq::::res://assets/GLTF format/wallB_garage_concrete.png<>uid://bpk0hjrd5mqvu::::res://assets/GLTF format/wallB_garage_wall_garage.png
+wallB_garage_concrete.png::CompressedTexture2D::731393390367277330::1738711167::1739556502::1::::<><>::
+wallB_garage_metal_wall.png::CompressedTexture2D::5590515077164106099::1738711167::1739556502::1::::<><>::
+wallB_garage_wall_garage.png::CompressedTexture2D::3461428040329394046::1738711167::1739556502::1::::<><>::
+wallB_metal_wall.png::CompressedTexture2D::1043911930146166309::1738711163::1739556502::1::::<><>::
+wallB_open.glb::PackedScene::4484766964787322656::1616280233::1739556511::1::::<><>::uid://b637tqvi26pj8::::res://assets/GLTF format/wallB_open_concrete.png<>uid://d1kkwbrb3dr3o::::res://assets/GLTF format/wallB_open_metal_wall.png
+wallB_open_concrete.png::CompressedTexture2D::4622055160653794167::1738711167::1739556502::1::::<><>::
+wallB_open_metal_wall.png::CompressedTexture2D::9005462299470331842::1738711167::1739556502::1::::<><>::
+wallB_roof.glb::PackedScene::3525686092807436792::1616280233::1739556511::1::::<><>::uid://e01d66s4wqw6::::res://assets/GLTF format/wallB_roof_concrete.png<>uid://dh3ibdyvhv832::::res://assets/GLTF format/wallB_roof_roof_plates.png<>uid://ct5cs1ions24i::::res://assets/GLTF format/wallB_roof_metal_wall.png
+wallB_roofDetailed.glb::PackedScene::8476225243344178354::1616280233::1739556511::1::::<><>::uid://cq8qfjlihis74::::res://assets/GLTF format/wallB_roofDetailed_concrete.png<>uid://x22uaw52ousm::::res://assets/GLTF format/wallB_roofDetailed_roof_plates.png<>uid://cmm2no3qc6i1g::::res://assets/GLTF format/wallB_roofDetailed_metal_wall.png
+wallB_roofDetailed_concrete.png::CompressedTexture2D::5964968222408654741::1738711167::1739556502::1::::<><>::
+wallB_roofDetailed_metal_wall.png::CompressedTexture2D::5641543377529059890::1738711167::1739556502::1::::<><>::
+wallB_roofDetailed_roof_plates.png::CompressedTexture2D::1671756713102566176::1738711167::1739556502::1::::<><>::
+wallB_roofSlant.glb::PackedScene::977048210255264697::1616280234::1739556510::1::::<><>::uid://cglj7872geqhn::::res://assets/GLTF format/wallB_roofSlant_metal_wall.png<>uid://hvn08jmb444h::::res://assets/GLTF format/wallB_roofSlant_roof_plates.png<>uid://dl4liantd31je::::res://assets/GLTF format/wallB_roofSlant_concrete.png
+wallB_roofSlantDetailed.glb::PackedScene::2651530407360255009::1616280234::1739556510::1::::<><>::uid://cfat3edb6837r::::res://assets/GLTF format/wallB_roofSlantDetailed_metal_wall.png<>uid://d08yift5qffc8::::res://assets/GLTF format/wallB_roofSlantDetailed_roof_plates.png<>uid://0iydqs3dk4kf::::res://assets/GLTF format/wallB_roofSlantDetailed_concrete.png
+wallB_roofSlantDetailed_concrete.png::CompressedTexture2D::1772699547648107213::1738711167::1739556502::1::::<><>::
+wallB_roofSlantDetailed_metal_wall.png::CompressedTexture2D::5124989425484270105::1738711167::1739556502::1::::<><>::
+wallB_roofSlantDetailed_roof_plates.png::CompressedTexture2D::8983579395444400801::1738711167::1739556502::1::::<><>::
+wallB_roofSlant_concrete.png::CompressedTexture2D::7991888480187933518::1738711167::1739556502::1::::<><>::
+wallB_roofSlant_metal_wall.png::CompressedTexture2D::5217287966788155291::1738711167::1739556502::1::::<><>::
+wallB_roofSlant_roof_plates.png::CompressedTexture2D::535509551776598669::1738711167::1739556502::1::::<><>::
+wallB_roof_concrete.png::CompressedTexture2D::333950494567533387::1738711167::1739556502::1::::<><>::
+wallB_roof_metal_wall.png::CompressedTexture2D::6168515686026178798::1738711167::1739556502::1::::<><>::
+wallB_roof_roof_plates.png::CompressedTexture2D::7708874251004959375::1738711167::1739556502::1::::<><>::
+wallB_window.glb::PackedScene::6155911937244074395::1616280234::1739556515::1::::<><>::uid://b2ir14durluhk::::res://assets/GLTF format/wallB_window_concrete.png<>uid://dvlf31w1ywsax::::res://assets/GLTF format/wallB_window_metal_wall.png<>uid://mxfed4tdx0i0::::res://assets/GLTF format/wallB_window_metal.png<>uid://r66rrluxv1qc::::res://assets/GLTF format/wallB_window_windows.png
+wallB_window_concrete.png::CompressedTexture2D::4299114632214460144::1738711167::1739556502::1::::<><>::
+wallB_window_metal.png::CompressedTexture2D::890057743376809109::1738711167::1739556502::1::::<><>::
+wallB_window_metal_wall.png::CompressedTexture2D::8656290910772889679::1738711167::1739556502::1::::<><>::
+wallB_window_windows.png::CompressedTexture2D::1259119548324648418::1738711167::1739556502::1::::<><>::
+wallC_flat.glb::PackedScene::1096889086789352728::1616280234::1739556514::1::::<><>::uid://bhjtv8kdo4cf::::res://assets/GLTF format/wallC_flat_bars.png
+wallC_flatLow.glb::PackedScene::4541347635251184409::1616280234::1739556514::1::::<><>::uid://bubrb4ftxt512::::res://assets/GLTF format/wallC_flatLow_bars.png
+wallC_flatLow_bars.png::CompressedTexture2D::3793297440674710703::1738711166::1739556502::1::::<><>::
+wallC_flat_bars.png::CompressedTexture2D::85221025363387869::1738711167::1739556502::1::::<><>::
+wallFence.glb::PackedScene::80371657947935493::1616280234::1739556514::1::::<><>::uid://dk1u3aglft6a0::::res://assets/GLTF format/wallFence_wall_lines.png<>uid://utde51xfcwgy::::res://assets/GLTF format/wallFence_concrete.png<>uid://mvjdwvdy8kp2::::res://assets/GLTF format/wallFence_bars.png
+wallFence_bars.png::CompressedTexture2D::886171054932540137::1738711166::1739556502::1::::<><>::
+wallFence_concrete.png::CompressedTexture2D::1443190961158922236::1738711166::1739556502::1::::<><>::
+wallFence_wall_lines.png::CompressedTexture2D::7916088660925928029::1738711166::1739556502::1::::<><>::
+wallSteps_typeA.glb::PackedScene::6793680040263156973::1616280235::1739556514::1::::<><>::uid://ce52bpgn2tlt::::res://assets/GLTF format/wallSteps_typeA_wall_lines.png<>uid://5rvjrpkulr2c::::res://assets/GLTF format/wallSteps_typeA_concrete.png
+wallSteps_typeA_concrete.png::CompressedTexture2D::2142051776503780084::1738711166::1739556502::1::::<><>::
+wallSteps_typeA_wall_lines.png::CompressedTexture2D::150505000497214845::1738711166::1739556502::1::::<><>::
+wallSteps_typeB.glb::PackedScene::8594846965185161855::1616280235::1739556513::1::::<><>::uid://behbrhwnecr5o::::res://assets/GLTF format/wallSteps_typeB_wall_lines.png<>uid://bc0fcfu0a8eq6::::res://assets/GLTF format/wallSteps_typeB_concrete.png
+wallSteps_typeB_concrete.png::CompressedTexture2D::2578715266022329207::1738711166::1739556502::1::::<><>::
+wallSteps_typeB_wall_lines.png::CompressedTexture2D::2681718180258052030::1738711166::1739556502::1::::<><>::
+wall_typeA.glb::PackedScene::7562607280299425077::1616280229::1739556513::1::::<><>::uid://cpdw0ec6eih8u::::res://assets/GLTF format/wall_typeA_wall_lines.png<>uid://caynwwbfka4g4::::res://assets/GLTF format/wall_typeA_concrete.png
+wall_typeA_concrete.png::CompressedTexture2D::4823216199154590301::1738711166::1739556502::1::::<><>::
+wall_typeA_wall_lines.png::CompressedTexture2D::5833247788504528370::1738711166::1739556502::1::::<><>::
+wall_typeB.glb::PackedScene::5907580863782126611::1616280229::1739556507::1::::<><>::uid://clkjuva5bgwwc::::res://assets/GLTF format/wall_typeB_wall_lines.png<>uid://lrag8hvfeedb::::res://assets/GLTF format/wall_typeB_concrete.png
+wall_typeB_concrete.png::CompressedTexture2D::807184161645974983::1738711166::1739556502::1::::<><>::
+wall_typeB_wall_lines.png::CompressedTexture2D::5566145698113166278::1738711166::1739556502::1::::<><>::
+windowSmall_typeA.glb::PackedScene::2100738430565239038::1616280235::1739556506::1::::<><>::uid://dkbgmk4kq27r::::res://assets/GLTF format/windowSmall_typeA_windows.png<>uid://de2g3ai01n0jr::::res://assets/GLTF format/windowSmall_typeA_metal.png
+windowSmall_typeA_metal.png::CompressedTexture2D::7496169942706588367::1738711166::1739556502::1::::<><>::
+windowSmall_typeA_windows.png::CompressedTexture2D::231282387270788477::1738711166::1739556502::1::::<><>::
+windowSmall_typeB.glb::PackedScene::1658660384152958842::1616280235::1739556506::1::::<><>::uid://bew4nq1qwytn7::::res://assets/GLTF format/windowSmall_typeB_windows.png<>uid://b3srcieqbp85r::::res://assets/GLTF format/windowSmall_typeB_metal.png
+windowSmall_typeB_metal.png::CompressedTexture2D::4389903292690874137::1738711166::1739556502::1::::<><>::
+windowSmall_typeB_windows.png::CompressedTexture2D::2714377258241385798::1738711166::1739556502::1::::<><>::
+windowWide_typeA.glb::PackedScene::1132387063124418395::1616280235::1739556506::1::::<><>::uid://4lkp2yc0wpk1::::res://assets/GLTF format/windowWide_typeA_windows.png<>uid://cyqyge3nfdti1::::res://assets/GLTF format/windowWide_typeA_metal.png
+windowWide_typeA_metal.png::CompressedTexture2D::6491871835299166846::1738711166::1739556502::1::::<><>::
+windowWide_typeA_windows.png::CompressedTexture2D::2058820032964756266::1738711166::1739556502::1::::<><>::
+windowWide_typeB.glb::PackedScene::1624713076164242868::1616280235::1739556506::1::::<><>::uid://c2fq3pi6xm2u0::::res://assets/GLTF format/windowWide_typeB_windows.png<>uid://c6xe4kn1uhelq::::res://assets/GLTF format/windowWide_typeB_metal.png
+windowWide_typeB_metal.png::CompressedTexture2D::6996471411027175438::1738711166::1739556502::1::::<><>::
+windowWide_typeB_windows.png::CompressedTexture2D::6679284310145400797::1738711166::1739556502::1::::<><>::
+windowWide_typeC.glb::PackedScene::9065523389011469705::1616280235::1739556505::1::::<><>::uid://wusupfsdfpky::::res://assets/GLTF format/windowWide_typeC_windows.png<>uid://3ttge05332hc::::res://assets/GLTF format/windowWide_typeC_metal.png
+windowWide_typeC_metal.png::CompressedTexture2D::2005675386933157756::1738711166::1739556502::1::::<><>::
+windowWide_typeC_windows.png::CompressedTexture2D::1586571533262137344::1738711166::1739556502::1::::<><>::
+windowWide_typeD.glb::PackedScene::1120176546587014595::1616280236::1739556505::1::::<><>::uid://bsdtj8rrsrkv4::::res://assets/GLTF format/windowWide_typeD_windows.png<>uid://bot8lwixcbitm::::res://assets/GLTF format/windowWide_typeD_metal.png
+windowWide_typeD_metal.png::CompressedTexture2D::3410312145366812474::1738711166::1739556502::1::::<><>::
+windowWide_typeD_windows.png::CompressedTexture2D::3657184457776936727::1738711166::1739556502::1::::<><>::
+::res://assets/meshes/::1739556462
+cityassets.tres::MeshLibrary::5032110816819865701::1739552823::0::1::::<><>::uid://b3qw6ejuh3w1c::::res://assets/GLTF format/balconyLadder_bottom_bars.png<>uid://dft0nwtbdxqbf::::res://assets/GLTF format/balconyLadder_top_bars.png<>uid://wkllowaxbts3::::res://assets/GLTF format/detailBeam_roof.png<>uid://cpdtqku41bc4o::::res://assets/GLTF format/detailBeam_metal.png<>uid://06n2hmj3e8pj::::res://assets/GLTF format/detailBricks_typeA_concrete.png<>uid://cux6rq1drlssf::::res://assets/GLTF format/detailBricks_typeB_concrete.png<>uid://ccamd46qw7g1s::::res://assets/GLTF format/detailCables_typeA_signs.png<>uid://ctq6u10s7w1v0::::res://assets/GLTF format/detailCables_typeB_signs.png<>uid://b4jvnqus1cycv::::res://assets/GLTF format/detailDumpster_closed_metal_wall.png<>uid://b0qhg6fmmnknl::::res://assets/GLTF format/detailDumpster_closed_wall.png<>uid://cwitw55vl5opk::::res://assets/GLTF format/detailDumpster_closed_roof.png<>uid://bvlfndmqh62ms::::res://assets/GLTF format/detailDumpster_open_metal_wall.png<>uid://bftvd3gwfnehm::::res://assets/GLTF format/detailDumpster_open_wall.png<>uid://b557gwnu8o44l::::res://assets/GLTF format/detailDumpster_open_dirt.png<>uid://c7iu422acy7b6::::res://assets/GLTF format/detailDumpster_open_roof.png<>uid://cp8n1gcwbico6::::res://assets/GLTF format/detailLight_double_metal.png<>uid://3pu430r1atpy::::res://assets/GLTF format/detailLight_single_metal.png<>uid://dyhljgwnec6ud::::res://assets/GLTF format/detailLight_traffic_metal.png<>uid://oocibh6pte0l::::res://assets/GLTF format/detailLight_traffic_roof.png<>uid://d02picoa3nmqu::::res://assets/GLTF format/balcony_typeA_bars.png<>uid://c383n763sath1::::res://assets/GLTF format/door_typeA_doors.png<>uid://cbqbkbheyuwib::::res://assets/GLTF format/door_typeA_metal.png<>uid://djr27y6bqnrk::::res://assets/GLTF format/door_typeB_doors.png<>uid://ktlm6ajkc8hj::::res://assets/GLTF format/door_typeB_metal.png<>uid://3ix5np2yyv4u::::res://assets/GLTF format/grass_grass.png<>uid://tbevovy5bgya::::res://assets/GLTF format/roadAsphalt_center_asphalt.png<>uid://c12qwbajfdspg::::res://assets/GLTF format/roadAsphalt_corner_tiles.png<>uid://dl5m4xj7aavhy::::res://assets/GLTF format/roadAsphalt_corner_asphalt.png<>uid://b81a87s3ecl6q::::res://assets/GLTF format/roadAsphalt_cornerInner_tiles.png<>uid://m0ln7vqqo86a::::res://assets/GLTF format/roadAsphalt_cornerInner_asphalt.png<>uid://bvmc8htsr2juk::::res://assets/GLTF format/roadAsphalt_cornerOuter_asphalt.png<>uid://bcnucyk444dse::::res://assets/GLTF format/roadAsphalt_cornerOuter_tiles.png<>uid://cm0xrixddb06e::::res://assets/GLTF format/roadAsphalt_damaged_tiles.png<>uid://b1y7n7oljxxlc::::res://assets/GLTF format/roadAsphalt_damaged_asphalt.png<>uid://cskqtd05nkas3::::res://assets/GLTF format/roadAsphalt_pavement_tiles.png<>uid://p80mqe0oud26::::res://assets/GLTF format/roadAsphalt_side_asphalt.png<>uid://divh3moi6pn5p::::res://assets/GLTF format/roadAsphalt_side_tiles.png<>uid://krpsj1hglllj::::res://assets/GLTF format/detailAwning_small_roof.png<>uid://b3780ehdvxlgm::::res://assets/GLTF format/roadAsphalt_straight_tiles.png<>uid://53wh5cq5nba6::::res://assets/GLTF format/roadAsphalt_straight_asphalt.png<>uid://cm1isap3uumsy::::res://assets/GLTF format/roadDirt_center_dirt.png<>uid://dssp3rl5oxpqg::::res://assets/GLTF format/roadDirt_corner_concrete.png<>uid://u3bxrypbshj::::res://assets/GLTF format/roadDirt_corner_dirt.png<>uid://b0adcpo2bvbin::::res://assets/GLTF format/roadDirt_cornerInner_concrete.png<>uid://ys01u2v4xhmi::::res://assets/GLTF format/roadDirt_cornerInner_dirt.png<>uid://dfhkf6r1hdqtt::::res://assets/GLTF format/roadDirt_cornerOuter_dirt.png<>uid://cgb75e8428oqs::::res://assets/GLTF format/roadDirt_cornerOuter_concrete.png<>uid://cy6adjg7h3hwu::::res://assets/GLTF format/roadDirt_damaged_concrete.png<>uid://d3okmxhero1p1::::res://assets/GLTF format/roadDirt_damaged_dirt.png<>uid://dydg77bhwlj4y::::res://assets/GLTF format/roadDirt_pavement_concrete.png<>uid://csttxu7872ay1::::res://assets/GLTF format/roadDirt_side_dirt.png<>uid://dejldv8n5h40m::::res://assets/GLTF format/roadDirt_side_concrete.png<>uid://b07yjgtu3s13b::::res://assets/GLTF format/roadDirt_straight_concrete.png<>uid://cc2lfthwldmmw::::res://assets/GLTF format/roadDirt_straight_dirt.png<>uid://c72ynwewn7lqc::::res://assets/GLTF format/roadDirt_tile_concrete.png<>uid://dl748xdgjwdhm::::res://assets/GLTF format/detailAwning_wide_roof.png<>uid://dmx5mrtpldj77::::res://assets/GLTF format/roofMetal_poles_concrete.png<>uid://dfnxjn81rxwl5::::res://assets/GLTF format/roofMetal_poles_metal_wall.png<>uid://cpyglt3454ms1::::res://assets/GLTF format/roofMetal_typeA_concrete.png<>uid://j2px0jgqoka3::::res://assets/GLTF format/roofMetal_typeA_roof_plates.png<>uid://dwkgvdrq3xruu::::res://assets/GLTF format/roofMetal_typeB_concrete.png<>uid://dtktx0smosjcp::::res://assets/GLTF format/roofMetal_typeB_roof.png<>uid://c45ot1f1up4us::::res://assets/GLTF format/roofMetal_typeB_roof_plates.png<>uid://dou0fyxvccibh::::res://assets/GLTF format/scaffolding_poles_metal.png<>uid://dqf2bf06f1e4e::::res://assets/GLTF format/scaffolding_structure_metal.png<>uid://cjwk7a60r0wts::::res://assets/GLTF format/scaffolding_structure_bars.png<>uid://cgyw8yf67tsgf::::res://assets/GLTF format/treePine_large_treeB.png<>uid://bc03a8xiy1drp::::res://assets/GLTF format/treePine_small_treeB.png<>uid://dv3jnrjn7g52e::::res://assets/GLTF format/tree_large_treeA.png<>uid://dafhqt7v4mro3::::res://assets/GLTF format/tree_shrub_treeA.png<>uid://c0ykpaq57doqh::::res://assets/GLTF format/tree_small_treeA.png<>uid://dswmttm4gg2hf::::res://assets/GLTF format/detailBarrierStrong_damaged_concrete.png<>uid://cygf6s167lxmf::::res://assets/GLTF format/truck_flat_truck.png<>uid://di7dx0xjn7vk::::res://assets/GLTF format/truck_flat_metal.png<>uid://cyfi0v1bd3ok4::::res://assets/GLTF format/truck_green_truck_alien.png<>uid://dtivn2p2pmn5h::::res://assets/GLTF format/truck_grey_truck.png<>uid://kf0mybl4fs0k::::res://assets/GLTF format/wallA_wall_lines.png<>uid://bsdtmrl0rrye2::::res://assets/GLTF format/wallA_concrete.png<>uid://drkm0xkuebi2x::::res://assets/GLTF format/wallA_corner_wall_lines.png<>uid://cq8lxmmef1qeu::::res://assets/GLTF format/wallA_corner_concrete.png<>uid://dywbom30cqnq::::res://assets/GLTF format/wallA_cornerPainted_wall.png<>uid://cn13yeytv4k7f::::res://assets/GLTF format/wallA_cornerPainted_concrete.png<>uid://ceiwjrug4x7f6::::res://assets/GLTF format/wallA_detail_concrete.png<>uid://xw3ne8o704rg::::res://assets/GLTF format/wallA_detail_wall_lines.png<>uid://2mc2exkecdeg::::res://assets/GLTF format/wallA_detailPainted_concrete.png<>uid://dd8lg6kmqeu5x::::res://assets/GLTF format/wallA_detailPainted_wall.png<>uid://ubru5ilmqv4y::::res://assets/GLTF format/wallA_door_wall_lines.png<>uid://dxbvvtcyiqhs1::::res://assets/GLTF format/wallA_door_concrete.png<>uid://bn4olu0r46r7e::::res://assets/GLTF format/wallA_door_metal.png<>uid://dbpuh34j6841t::::res://assets/GLTF format/wallA_door_doors.png<>uid://dulvcuwasdngo::::res://assets/GLTF format/wallA_flat_wall_lines.png<>uid://b06d45tn6rpam::::res://assets/GLTF format/detailBarrierStrong_typeA_concrete.png<>uid://7gt2l61k8wan::::res://assets/GLTF format/wallA_flatGarage_wall_garage.png<>uid://bbhkt2gcwf702::::res://assets/GLTF format/wallA_flatGarage_wall.png<>uid://c267wya1uffmn::::res://assets/GLTF format/wallA_flatGarage_concrete.png<>uid://l4a04jaytc06::::res://assets/GLTF format/wallA_flatPainted_wall.png<>uid://cbpysde140ku1::::res://assets/GLTF format/wallA_flatWindow_metal.png<>uid://bo2308a8b64cj::::res://assets/GLTF format/wallA_flatWindow_windows.png<>uid://dm0yv3jsctl1u::::res://assets/GLTF format/wallA_flatWindow_wall_lines.png<>uid://dpi2fmd0762gs::::res://assets/GLTF format/wallA_garage_wall_garage.png<>uid://drdcmcq3iaug0::::res://assets/GLTF format/wallA_garage_concrete.png<>uid://ba6avm4nghano::::res://assets/GLTF format/wallA_garage_wall.png<>uid://be0ordgdnpjfv::::res://assets/GLTF format/wallA_low_wall.png<>uid://cdko0byqkw58y::::res://assets/GLTF format/wallA_low_concrete.png<>uid://6p8shlpol13n::::res://assets/GLTF format/wallA_lowPainted_wall.png<>uid://mdwqmkhrdfjk::::res://assets/GLTF format/wallA_lowPainted_concrete.png<>uid://r62v7yywuyup::::res://assets/GLTF format/wallA_open_concrete.png<>uid://bbb3ftn0subp1::::res://assets/GLTF format/wallA_open_wall_lines.png<>uid://becsfpicphkx2::::res://assets/GLTF format/wallA_painted_wall.png<>uid://boh80ja8ekeed::::res://assets/GLTF format/wallA_painted_concrete.png<>uid://th47dguae4q5::::res://assets/GLTF format/wallA_roof_concrete.png<>uid://bska51sioyxav::::res://assets/GLTF format/wallA_roof_roof.png<>uid://dy6gvjr12kliy::::res://assets/GLTF format/wallA_roof_wall_lines.png<>uid://cxttnolufa0d8::::res://assets/GLTF format/wallA_roofDetailed_concrete.png<>uid://catmu4wtt8v00::::res://assets/GLTF format/wallA_roofDetailed_roof.png<>uid://ci0xf5halpve5::::res://assets/GLTF format/wallA_roofDetailed_wall_lines.png<>uid://l866k2dutmxh::::res://assets/GLTF format/detailBarrierStrong_typeB_concrete.png<>uid://b8avmcn08aimr::::res://assets/GLTF format/detailBarrierStrong_typeB_signs.png<>uid://cunj3ps3kof06::::res://assets/GLTF format/wallA_roofSlant_wall_lines.png<>uid://bq0wsaj5wbxvr::::res://assets/GLTF format/wallA_roofSlant_roof.png<>uid://do7iecgu2a78x::::res://assets/GLTF format/wallA_roofSlant_concrete.png<>uid://babdav5245hep::::res://assets/GLTF format/wallA_roofSlantDetailed_wall_lines.png<>uid://ba8rkvtcgtf34::::res://assets/GLTF format/wallA_roofSlantDetailed_roof.png<>uid://caebpfq6wxhed::::res://assets/GLTF format/wallA_roofSlantDetailed_concrete.png<>uid://dpsjf7udkw7e3::::res://assets/GLTF format/wallA_window_concrete.png<>uid://c6n1fshc0aj0d::::res://assets/GLTF format/wallA_window_wall_lines.png<>uid://4fi4g6rcodma::::res://assets/GLTF format/wallA_window_metal.png<>uid://dqf4eyj11o3gv::::res://assets/GLTF format/wallA_window_windows.png<>uid://o4xcu8kso4ir::::res://assets/GLTF format/wallB_metal_wall.png<>uid://b32fywnsjssxy::::res://assets/GLTF format/wallB_concrete.png<>uid://bhoo7wk24nssp::::res://assets/GLTF format/wallBroken_typeA_wall_lines.png<>uid://ksnfs8tjq4u8::::res://assets/GLTF format/wallBroken_typeA_concrete.png<>uid://b4n83lnr2w1ms::::res://assets/GLTF format/wallBroken_typeB_wall_lines.png<>uid://cxwnc0ngesoik::::res://assets/GLTF format/wallBroken_typeB_concrete.png<>uid://b7rdyklm5xx48::::res://assets/GLTF format/wallB_door_metal_wall.png<>uid://bux74mm1w620l::::res://assets/GLTF format/wallB_door_concrete.png<>uid://c1tb3hhx030nb::::res://assets/GLTF format/wallB_door_metal.png<>uid://dkxspyh20upj1::::res://assets/GLTF format/wallB_door_doors.png<>uid://cyfbi70pi0ost::::res://assets/GLTF format/wallB_flat_metal_wall.png<>uid://cg1nx3mf02c6v::::res://assets/GLTF format/wallB_flatGarage_metal_wall.png<>uid://bv71ik5snd5by::::res://assets/GLTF format/wallB_flatGarage_wall_garage.png<>uid://dg00ofj38x6lm::::res://assets/GLTF format/wallB_flatWindow_metal.png<>uid://ntg8s1nnh4fb::::res://assets/GLTF format/wallB_flatWindow_windows.png<>uid://b6avoe1sgcgk2::::res://assets/GLTF format/wallB_flatWindow_metal_wall.png<>uid://dpl2dw473f5et::::res://assets/GLTF format/detailBarrier_typeA_metal.png<>uid://d3dfs1qy32hc2::::res://assets/GLTF format/detailBarrier_typeA_signs.png<>uid://clwc74k0n70ex::::res://assets/GLTF format/wallB_garage_metal_wall.png<>uid://koj7bjouvuvq::::res://assets/GLTF format/wallB_garage_concrete.png<>uid://bpk0hjrd5mqvu::::res://assets/GLTF format/wallB_garage_wall_garage.png<>uid://b637tqvi26pj8::::res://assets/GLTF format/wallB_open_concrete.png<>uid://d1kkwbrb3dr3o::::res://assets/GLTF format/wallB_open_metal_wall.png<>uid://e01d66s4wqw6::::res://assets/GLTF format/wallB_roof_concrete.png<>uid://dh3ibdyvhv832::::res://assets/GLTF format/wallB_roof_roof_plates.png<>uid://ct5cs1ions24i::::res://assets/GLTF format/wallB_roof_metal_wall.png<>uid://cq8qfjlihis74::::res://assets/GLTF format/wallB_roofDetailed_concrete.png<>uid://x22uaw52ousm::::res://assets/GLTF format/wallB_roofDetailed_roof_plates.png<>uid://cmm2no3qc6i1g::::res://assets/GLTF format/wallB_roofDetailed_metal_wall.png<>uid://cglj7872geqhn::::res://assets/GLTF format/wallB_roofSlant_metal_wall.png<>uid://hvn08jmb444h::::res://assets/GLTF format/wallB_roofSlant_roof_plates.png<>uid://dl4liantd31je::::res://assets/GLTF format/wallB_roofSlant_concrete.png<>uid://cfat3edb6837r::::res://assets/GLTF format/wallB_roofSlantDetailed_metal_wall.png<>uid://d08yift5qffc8::::res://assets/GLTF format/wallB_roofSlantDetailed_roof_plates.png<>uid://0iydqs3dk4kf::::res://assets/GLTF format/wallB_roofSlantDetailed_concrete.png<>uid://b2ir14durluhk::::res://assets/GLTF format/wallB_window_concrete.png<>uid://dvlf31w1ywsax::::res://assets/GLTF format/wallB_window_metal_wall.png<>uid://mxfed4tdx0i0::::res://assets/GLTF format/wallB_window_metal.png<>uid://r66rrluxv1qc::::res://assets/GLTF format/wallB_window_windows.png<>uid://bhjtv8kdo4cf::::res://assets/GLTF format/wallC_flat_bars.png<>uid://bubrb4ftxt512::::res://assets/GLTF format/wallC_flatLow_bars.png<>uid://dk1u3aglft6a0::::res://assets/GLTF format/wallFence_wall_lines.png<>uid://utde51xfcwgy::::res://assets/GLTF format/wallFence_concrete.png<>uid://mvjdwvdy8kp2::::res://assets/GLTF format/wallFence_bars.png<>uid://csaoriuah4o2y::::res://assets/GLTF format/detailBarrier_typeB_metal.png<>uid://bh2qqht5epcbf::::res://assets/GLTF format/detailBarrier_typeB_signs.png<>uid://ce52bpgn2tlt::::res://assets/GLTF format/wallSteps_typeA_wall_lines.png<>uid://5rvjrpkulr2c::::res://assets/GLTF format/wallSteps_typeA_concrete.png<>uid://behbrhwnecr5o::::res://assets/GLTF format/wallSteps_typeB_wall_lines.png<>uid://bc0fcfu0a8eq6::::res://assets/GLTF format/wallSteps_typeB_concrete.png<>uid://cpdw0ec6eih8u::::res://assets/GLTF format/wall_typeA_wall_lines.png<>uid://caynwwbfka4g4::::res://assets/GLTF format/wall_typeA_concrete.png<>uid://clkjuva5bgwwc::::res://assets/GLTF format/wall_typeB_wall_lines.png<>uid://lrag8hvfeedb::::res://assets/GLTF format/wall_typeB_concrete.png<>uid://dkbgmk4kq27r::::res://assets/GLTF format/windowSmall_typeA_windows.png<>uid://de2g3ai01n0jr::::res://assets/GLTF format/windowSmall_typeA_metal.png<>uid://bew4nq1qwytn7::::res://assets/GLTF format/windowSmall_typeB_windows.png<>uid://b3srcieqbp85r::::res://assets/GLTF format/windowSmall_typeB_metal.png<>uid://4lkp2yc0wpk1::::res://assets/GLTF format/windowWide_typeA_windows.png<>uid://cyqyge3nfdti1::::res://assets/GLTF format/windowWide_typeA_metal.png<>uid://c2fq3pi6xm2u0::::res://assets/GLTF format/windowWide_typeB_windows.png<>uid://c6xe4kn1uhelq::::res://assets/GLTF format/windowWide_typeB_metal.png<>uid://wusupfsdfpky::::res://assets/GLTF format/windowWide_typeC_windows.png<>uid://3ttge05332hc::::res://assets/GLTF format/windowWide_typeC_metal.png<>uid://bsdtj8rrsrkv4::::res://assets/GLTF format/windowWide_typeD_windows.png<>uid://bot8lwixcbitm::::res://assets/GLTF format/windowWide_typeD_metal.png
+::res://assets/models/::1739556462
+c01-cns-d.png::CompressedTexture2D::3180644437569232275::1565887004::1739556502::1::::<><>::
+c01-cns-lg.obj::Mesh::8332378050831735487::1565928490::1739556504::1::::<><>::
+chest.fbx::PackedScene::7917937696185324247::1735140443::1739556510::1::::<><>::
+::res://assets/models/Car 08/::1739556462
+Car8.blend::PackedScene::5648815097115998659::1692922474::1739556505::1::::<><>::uid://b4klwdb170wlg::::res://assets/models/Car 08/Car8.png
+Car8.obj::Mesh::6624362547838038962::1692916476::1739556504::1::::<><>::uid://b4klwdb170wlg::::res://assets/models/Car 08/Car8.png
+Car8.png::CompressedTexture2D::4443248261462923804::1692917014::1739556502::1::::<><>::
+Car8_grey.png::CompressedTexture2D::6360779695754901611::1692917074::1739556502::1::::<><>::
+Car8_mail.png::CompressedTexture2D::7306396002064750090::1692921068::1739556502::1::::<><>::
+Car8_purple.png::CompressedTexture2D::5837251758064086793::1692917144::1739556502::1::::<><>::
+::res://assets/particles/::1739556462
+vfx_fire.gd::GDScript::-1::1739195613::0::1::::<>Node3D<>::
+vfx_fire.tscn::PackedScene::1502879655556458042::1739555869::0::1::::<><>::res://assets/particles/vfx_fire.gd
+vfx_fire_two.tscn::PackedScene::8787296220116831665::1739195613::0::1::::<><>::
+::res://assets/ui/::1739556462
+BarV1_Bar.png::CompressedTexture2D::1331653175449107297::1631092992::1739556502::1::::<><>::
+BarV1_ProgressBarBorder.png::CompressedTexture2D::137224370462897007::1631093073::1739556502::1::::<><>::
+BarV5_ProgressBar.png::CompressedTexture2D::4020669618263850808::1631092945::1739556502::1::::<><>::
+BarV8_ProgressBar.png::CompressedTexture2D::1313006932461750192::1631092724::1739556502::1::::<><>::
+Button01.png::CompressedTexture2D::2950575047859457302::1597290618::1739556502::1::::<><>::
+Cell125x121px.png::CompressedTexture2D::8070551523156501518::1593220096::1739556502::1::::<><>::
+Circle01.png::CompressedTexture2D::4013338564806481400::1593279964::1739556502::1::::<><>::
+fil.png::CompressedTexture2D::244302994314104105::1739094658::1739556502::1::::<><>::
+filBlu.png::CompressedTexture2D::8713110223507911070::1739094913::1739556502::1::::<><>::
+ItemEnable.png::CompressedTexture2D::3020121328518721369::1593398513::1739556502::1::::<><>::
+MainPanel01.png::CompressedTexture2D::4824467408401864007::1597290650::1739556502::1::::<><>::
+overFIll.png::CompressedTexture2D::2358697799677567260::1739095296::1739556502::1::::<><>::
+overFIllHealth.png::CompressedTexture2D::1322071498713284291::1739095364::1739556502::1::::<><>::
+Panel1_NoOpacity592x975px.png::CompressedTexture2D::2454493171740270171::1593219917::1739556502::1::::<><>::
+Panel02.png::CompressedTexture2D::6905362659399908610::1593280308::1739556502::1::::<><>::
+PanelWindow.png::CompressedTexture2D::397030594830096042::1593221622::1739556502::1::::<><>::
+Window04.png::CompressedTexture2D::6459563186112354211::1593221822::1739556502::1::::<><>::
+::res://assets/ui/buttons/::1739556462
+Button Active.png::CompressedTexture2D::46089394212185426::1643033938::1739556502::1::::<><>::
+Button Disable.png::CompressedTexture2D::7009494936333823618::1643033938::1739556502::1::::<><>::
+Button Hover.png::CompressedTexture2D::2693277084418763133::1643033938::1739556502::1::::<><>::
+Button Normal.png::CompressedTexture2D::1518268146565332021::1643033938::1739556502::1::::<><>::
+::res://assets/ui/sidebar/::1739556462
+Icon28.png::CompressedTexture2D::5440756263456927301::1593279767::1739556502::1::::<><>::
+Icon33.png::CompressedTexture2D::8737688451731577493::1593279848::1739556502::1::::<><>::
+Icon36.png::CompressedTexture2D::3195794075277862034::1593279900::1739556502::1::::<><>::
+Icon37.png::CompressedTexture2D::3092214679981204545::1593279925::1739556502::1::::<><>::
+::res://assets/ui/windows/::1739556462
+Card X3.png::CompressedTexture2D::6984456958868299225::1643141247::1739556502::1::::<><>::
+::res://scenes/::1739556462
+car_8.tscn::PackedScene::2858265746601102561::1738619328::0::1::::<><>::uid://c1m5jvsb73hig::::res://assets/models/Car 08/Car8.obj
+Game.tscn::PackedScene::1175601146617840146::1739555965::0::1::::<><>::res://scripts/Game.gd<>uid://dh3ocl34lg3dh::::res://scenes/world/player.tscn<>res://shaders/Game.gdshader<>uid://dsaa4vfsxdl37::::res://scenes/world/money.tscn<>uid://ca0ajj84jrdnj::::res://assets/ui/MainPanel01.png<>uid://s8cesa782cov::::res://assets/ui/BarV1_Bar.png<>uid://b7qchr3teljb::::res://assets/ui/BarV1_ProgressBarBorder.png<>res://scripts/ui/dialog.gd<>uid://bxjv3un7voxki::::res://assets/ui/BarV5_ProgressBar.png<>uid://cdxueohwd3sef::::res://assets/meshes/cityassets.tres<>uid://1yuy1o07mph2::::res://assets/fonts/URW Grotesk SC Regular.ttf<>uid://vvpwiwrv1fvx::::res://assets/ui/buttons/Button Normal.png<>uid://sybbdnjxw4uu::::res://assets/ui/BarV8_ProgressBar.png<>uid://c7av1j5mjwa37::::res://assets/fonts/URW Grotesk SC Light.ttf<>uid://c64pmfjh8j7ec::::res://assets/ui/buttons/Button Disable.png<>uid://bemv46m73p0r6::::res://assets/ui/buttons/Button Hover.png<>uid://cybccdt0vrsml::::res://assets/ui/Window04.png<>res://scripts/ui/typewriter.gd<>uid://bxgddnm1x0qb5::::res://assets/ui/Circle01.png<>uid://dqlvtvh47kej::::res://assets/ui/fil.png<>uid://dwexwgfewv1os::::res://assets/ui/filBlu.png<>uid://dm8o2l7wjmdco::::res://assets/ui/Cell125x121px.png<>uid://cjrspwvrdbbe8::::res://assets/ui/sidebar/Icon28.png<>uid://dwqupm0trkf5f::::res://assets/ui/sidebar/Icon33.png<>uid://blsci5klgfdp7::::res://assets/ui/sidebar/Icon36.png<>uid://bkb5lasskcliv::::res://assets/ui/sidebar/Icon37.png<>uid://ba78e5nelx6m6::::res://assets/ui/Panel1_NoOpacity592x975px.png<>res://scripts/ui/drone_camera.gd<>uid://c6rk8ro2e6oeb::::res://assets/ui/windows/Card X3.png<>uid://b475wnptaipdd::::res://scenes/pause_menu.tscn<>uid://bie0mx082taib::::res://assets/enemies/doneTwo/military_drone.tscn<>uid://banvpif1xm08v::::res://assets/enemies/robotTwo/robot.tscn<>uid://c5bvke8hqq3so::::res://assets/enemies/oeia/oiiaioooooiai_fin.tscn<>uid://voahc4el36wc::::res://assets/particles/vfx_fire.tscn<>uid://n2ncjxjrjo5d::::res://assets/friends/deliveryDrone/deliveryDrone.tscn<>uid://dq25whkugls8y::::res://assets/enemies/doneSmall/small_drone.tscn<>uid://d0tjqnb20e8kq::::res://assets/enemies/robot/robot_fella.tscn
+pause_menu.tscn::PackedScene::4489818741414077701::1739555281::0::1::::<><>::res://scripts/ui/pause_menu.gd<>res://shaders/pause_menu.gdshader
+tiles.tscn::PackedScene::2480274506264847130::1739043883::0::1::::<><>::uid://c47dspolrwt4n::::res://assets/GLTF format/balconyLadder_bottom.glb<>uid://dm62d40qny07q::::res://assets/GLTF format/balconyLadder_top.glb<>uid://5mmuhe8ybp3m::::res://assets/GLTF format/balcony_typeA.glb<>uid://877kryewucu0::::res://assets/GLTF format/detailAwning_small.glb<>uid://cm71ramr1hmb1::::res://assets/GLTF format/detailAwning_wide.glb<>uid://syqeqaysut8e::::res://assets/GLTF format/detailBarrierStrong_damaged.glb<>uid://c5fcs5wphwhjy::::res://assets/GLTF format/detailBarrierStrong_typeA.glb<>uid://dcsrjj7whijg0::::res://assets/GLTF format/detailBarrierStrong_typeB.glb<>uid://bkivfsnlf8rid::::res://assets/GLTF format/detailBarrier_typeA.glb<>uid://g6fwgcajfym3::::res://assets/GLTF format/detailBarrier_typeB.glb<>uid://vh0yghhe7fxu::::res://assets/GLTF format/detailBeam.glb<>uid://nhdxguy0kbpl::::res://assets/GLTF format/detailBricks_typeA.glb<>uid://byoxnrs1w6mgi::::res://assets/GLTF format/detailBricks_typeB.glb<>uid://c0gcn1lhfh4nx::::res://assets/GLTF format/detailCables_typeA.glb<>uid://d0818ka7n3dnb::::res://assets/GLTF format/detailCables_typeB.glb<>uid://b4jvnqus1cycv::::res://assets/GLTF format/detailDumpster_closed_metal_wall.png<>res://scripts/other/dumpster_hover.gd<>uid://cwq8njeudi4d1::::res://assets/GLTF format/detailDumpster_open.glb<>uid://b0qhg6fmmnknl::::res://assets/GLTF format/detailDumpster_closed_wall.png<>uid://cwitw55vl5opk::::res://assets/GLTF format/detailDumpster_closed_roof.png<>uid://cstof4g12v6sr::::res://assets/GLTF format/detailLight_double.glb<>uid://ct3jec2cufnj::::res://assets/GLTF format/detailLight_single.glb<>uid://b17y2sm5ycbt::::res://assets/GLTF format/detailLight_traffic.glb<>uid://big67a3rnknye::::res://assets/GLTF format/door_typeA.glb<>uid://dgo807425oapy::::res://assets/GLTF format/door_typeB.glb<>uid://h21d5jms1tkw::::res://assets/GLTF format/grass.glb<>uid://cvuyehs701px4::::res://assets/GLTF format/roadAsphalt_center.glb<>uid://m3gl3ykm44mf::::res://assets/GLTF format/roadAsphalt_corner.glb<>uid://chqmavkscbbkj::::res://assets/GLTF format/roadAsphalt_cornerInner.glb<>uid://b8078vyih3yvu::::res://assets/GLTF format/roadAsphalt_cornerOuter.glb<>uid://cmg46bt1f1fho::::res://assets/GLTF format/roadAsphalt_damaged.glb<>uid://pbmusx1ams4l::::res://assets/GLTF format/roadAsphalt_pavement.glb<>uid://b03klm3ivorfh::::res://assets/GLTF format/roadAsphalt_side.glb<>uid://cwrkaodycmgft::::res://assets/GLTF format/roadAsphalt_straight.glb<>uid://b5d6djndkke44::::res://assets/GLTF format/roadDirt_center.glb<>uid://bsqevt8t2t3u::::res://assets/GLTF format/roadDirt_corner.glb<>uid://cpojb0ugmv3ai::::res://assets/GLTF format/roadDirt_cornerInner.glb<>uid://cikgwnl3xoddr::::res://assets/GLTF format/roadDirt_cornerOuter.glb<>uid://bedomj4umhys2::::res://assets/GLTF format/roadDirt_damaged.glb<>uid://832ec12xdhso::::res://assets/GLTF format/roadDirt_pavement.glb<>uid://t644vihswfmb::::res://assets/GLTF format/roadDirt_side.glb<>uid://bcygqy4lxqojf::::res://assets/GLTF format/roadDirt_straight.glb<>uid://iiiux44gbyw6::::res://assets/GLTF format/roadDirt_tile.glb<>uid://c2eu7mokthitw::::res://assets/GLTF format/roofMetal_poles.glb<>uid://dmci0odfpgp70::::res://assets/GLTF format/roofMetal_typeA.glb<>uid://b1ge1fcxl0w6c::::res://assets/GLTF format/roofMetal_typeB.glb<>uid://bhi7v787igb5y::::res://assets/GLTF format/scaffolding_poles.glb<>uid://d1itvibwvvl6b::::res://assets/GLTF format/scaffolding_structure.glb<>uid://gpr1acj43lu0::::res://assets/GLTF format/treePine_large.glb<>uid://btoa0fmfaluag::::res://assets/GLTF format/treePine_small.glb<>uid://ddi56b2cw5sal::::res://assets/GLTF format/tree_large.glb<>uid://dnqkrwpd1ga8r::::res://assets/GLTF format/tree_shrub.glb<>uid://b0hhqrpv54gha::::res://assets/GLTF format/tree_small.glb<>uid://itrqjmo7rfel::::res://assets/GLTF format/truck_flat.glb<>uid://bukyppniwxory::::res://assets/GLTF format/truck_green.glb<>uid://b81tq4nwqeroo::::res://assets/GLTF format/truck_grey.glb<>uid://c2lprum7do88v::::res://assets/GLTF format/wallA.glb<>uid://drngxm6mcovtk::::res://assets/GLTF format/wallA_corner.glb<>uid://dc8gibk8sdk45::::res://assets/GLTF format/wallA_cornerPainted.glb<>uid://b3nfgrln7gk8p::::res://assets/GLTF format/wallA_detail.glb<>uid://fwd6st65uq8t::::res://assets/GLTF format/wallA_detailPainted.glb<>uid://6aqal5mfss81::::res://assets/GLTF format/wallA_door.glb<>uid://b2wyijlqbxfe8::::res://assets/GLTF format/wallA_flat.glb<>uid://b651ilo47o4vn::::res://assets/GLTF format/wallA_flatGarage.glb<>uid://blmoc5vwgv44v::::res://assets/GLTF format/wallA_flatPainted.glb<>uid://d1rwjaont3gdd::::res://assets/GLTF format/wallA_flatWindow.glb<>uid://cneyexm776241::::res://assets/GLTF format/wallA_garage.glb<>uid://jc2jue6wu7vj::::res://assets/GLTF format/wallA_low.glb<>uid://c5d4lgn3h0yjc::::res://assets/GLTF format/wallA_lowPainted.glb<>uid://cjbhtw6mjxgw5::::res://assets/GLTF format/wallA_open.glb<>uid://cbt42fbk10xfg::::res://assets/GLTF format/wallA_painted.glb<>uid://dbdpnixbhl88d::::res://assets/GLTF format/wallA_roof.glb<>uid://cwabq3htetr5y::::res://assets/GLTF format/wallA_roofDetailed.glb<>uid://cvpshx8eewnqp::::res://assets/GLTF format/wallA_roofSlant.glb<>uid://bi2nqlaic3om3::::res://assets/GLTF format/wallA_roofSlantDetailed.glb<>uid://biv55d1dltk83::::res://assets/GLTF format/wallA_window.glb<>uid://bysgskyhgljqi::::res://assets/GLTF format/wallB.glb<>uid://cce1idadggiiv::::res://assets/GLTF format/wallBroken_typeA.glb<>uid://dy06lk6vw3sfs::::res://assets/GLTF format/wallBroken_typeB.glb<>uid://bvcj7u66bhcv6::::res://assets/GLTF format/wallB_door.glb<>uid://bmuj1n7dk0dr7::::res://assets/GLTF format/wallB_flat.glb<>uid://n5twre5ryair::::res://assets/GLTF format/wallB_flatGarage.glb<>uid://cnv8k0ply3dl5::::res://assets/GLTF format/wallB_flatWindow.glb<>uid://bokgf2dryu8b6::::res://assets/GLTF format/wallB_garage.glb<>uid://b45ppr6ipaa4w::::res://assets/GLTF format/wallB_open.glb<>uid://bqh4sgjlc2q2k::::res://assets/GLTF format/wallB_roof.glb<>uid://ds07grhpdsjbm::::res://assets/GLTF format/wallB_roofDetailed.glb<>uid://n6j3urph5k5v::::res://assets/GLTF format/wallB_roofSlant.glb<>uid://bd1ok3daqdfyf::::res://assets/GLTF format/wallB_roofSlantDetailed.glb<>uid://ctx778tneodlj::::res://assets/GLTF format/wallB_window.glb<>uid://pvlurcnf5abw::::res://assets/GLTF format/wallC_flat.glb<>uid://b5x4lj4a50de4::::res://assets/GLTF format/wallC_flatLow.glb<>uid://be6yee1hwycb::::res://assets/GLTF format/wallFence.glb<>uid://c3156g4buv2q0::::res://assets/GLTF format/wallSteps_typeA.glb<>uid://dupn4ydubgjr0::::res://assets/GLTF format/wallSteps_typeB.glb<>uid://df0nbi1c17gnd::::res://assets/GLTF format/wall_typeA.glb<>uid://cqfw810dkmypv::::res://assets/GLTF format/wall_typeB.glb<>uid://46u4coc7hedq::::res://assets/GLTF format/windowSmall_typeA.glb<>uid://xvp5nxnhgjkc::::res://assets/GLTF format/windowSmall_typeB.glb<>uid://qesiqn154m8b::::res://assets/GLTF format/windowWide_typeA.glb<>uid://xfa1005ibnds::::res://assets/GLTF format/windowWide_typeB.glb<>uid://d2fn30wqcpky0::::res://assets/GLTF format/windowWide_typeC.glb<>uid://p7ve5sh3lqtf::::res://assets/GLTF format/windowWide_typeD.glb
+::res://scenes/world/::1739556462
+box_small.tscn::PackedScene::6338917086635122013::1738489669::0::1::::<><>::
+money.tscn::PackedScene::8422714136150208140::1739407743::0::1::::<><>::uid://dqyjbw1w4spr8::::res://assets/models/c01-cns-lg.obj<>res://scripts/money.gd<>uid://blky0qcd7wm32::::res://assets/models/c01-cns-d.png
+player.tscn::PackedScene::7709240765489714397::1739407743::0::1::::<><>::res://scripts/player/player.gd<>res://scripts/FPSCounter.gd
+snake_segment.tscn::PackedScene::7856090395410322791::1739194379::0::1::::<><>::uid://h6ech8nhb30i::::res://icon.svg<>res://scripts/player/snake_segment.gd
+::res://scripts/::1739556462
+FPSCounter.gd::GDScript::-1::1737544460::0::1::::<>Label<>::
+Game.gd::GDScript::-1::1739444184::0::1::::<>Node3D<>::
+money.gd::GDScript::-1::1739291533::0::1::::<>Node3D<>::
+::res://scripts/other/::1739556462
+dumpster_hover.gd::GDScript::-1::1739044710::0::1::::<>Node3D<>::
+ray_cast_3d.gd::GDScript::-1::1739043156::0::1::::<>RayCast3D<>::
+::res://scripts/player/::1739556462
+player (copy 1).gd::GDScript::-1::1737904283::0::1::::<>CharacterBody3D<>::
+player.gd::GDScript::-1::1739030789::0::1::::<>CharacterBody3D<>::
+snake_segment.gd::GDScript::-1::1737568710::0::1::::<>CharacterBody3D<>::
+::res://scripts/ui/::1739556462
+dialog.gd::GDScript::-1::1739540933::0::1::::<>Control<>::
+drone_camera.gd::GDScript::-1::1739406147::0::1::::<>Control<>::
+pause_menu.gd::GDScript::-1::1739443659::0::1::::<>Control<>::
+typewriter.gd::GDScript::-1::1739291500::0::1::::<>AnimationPlayer<>::
+::res://shaders/::1739556462
+Game.gdshader::Shader::-1::1739556063::0::1::::<><>::
+pause_menu.gdshader::Shader::-1::1739556063::0::1::::<><>::

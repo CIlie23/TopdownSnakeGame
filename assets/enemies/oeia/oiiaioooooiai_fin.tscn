@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5bvke8hqq3so"]
+
+[ext_resource type="PackedScene" uid="uid://b0lwjtwn4axbr" path="res://assets/enemies/oeia/source/OiiaioooooiaiFin.fbx" id="1_sit8p"]
+[ext_resource type="Script" path="res://assets/enemies/oeia/oiiaioooooiai_fin.gd" id="2_8eb51"]
+
+[node name="OiiaioooooiaiFin" instance=ExtResource("1_sit8p")]
+script = ExtResource("2_8eb51")
+
+[node name="Muchkin1_002" parent="." index="0"]
+transform = Transform3D(0.999941, 0, -0.0108234, 0, 1, 0, 0.0108234, 0, 0.999941, 0, 0, 0)
