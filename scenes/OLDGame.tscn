@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://q0p8j4vc433c"]
+
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
+[ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
+[ext_resource type="PackedScene" uid="uid://dsaa4vfsxdl37" path="res://scenes/world/money.tscn" id="4_4nwhm"]
+[ext_resource type="MeshLibrary" uid="uid://cdxueohwd3sef" path="res://assets/meshes/cityassets.tres" id="7_m58bh"]
+[ext_resource type="PackedScene" uid="uid://voahc4el36wc" path="res://assets/particles/vfx_fire.tscn" id="32_v08qx"]
+[ext_resource type="PackedScene" uid="uid://n2ncjxjrjo5d" path="res://assets/friends/deliveryDrone/deliveryDrone.tscn" id="34_m6pxn"]
+[ext_resource type="PackedScene" uid="uid://bbix8gik8a0ao" path="res://assets/enemies/landingpod/pod.tscn" id="36_mn4mn"]
+[ext_resource type="PackedScene" uid="uid://dq25whkugls8y" path="res://assets/enemies/doneSmall/small_drone.tscn" id="38_a5n5r"]
+[ext_resource type="PackedScene" uid="uid://d0tjqnb20e8kq" path="res://scenes/enemies/rifle_robot/robot_fella.tscn" id="38_aui5f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnp1g"]
+albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wu1uj"]
+material = SubResource("StandardMaterial3D_jnp1g")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_21piy"]
+size = Vector3(1, 1.59082, 1.02148)
+
+[node name="Spacial" type="Node3D"]
+transform = Transform3D(1.00207, 0, 0, 0, 1.00207, 0, 0, 0, 1.00207, 0, 0, 0)
+script = ExtResource("1_mfq8h")
+
+[node name="vfx_Fire" parent="." instance=ExtResource("32_v08qx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.37, 0, -7.404)
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(27.175, 0, 0, 0, -0.851035, 0, 0, 0, 26.9875, 0, -1.06368, 0)
+mesh = SubResource("BoxMesh_wu1uj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29541, -0.0107422)
+shape = SubResource("BoxShape3D_21piy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.000483983, -0.990043, 0.140762, 0.00340408, 0.140763, 0.990038, -0.999994, -1.34167e-09, 0.00343831, 6.41712, 2.71247, -0.457095)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("7_m58bh")
+cell_size = Vector3(1, 1, 1)
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="Money" parent="." instance=ExtResource("4_4nwhm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.2237, -0.159485, -4.46529)
+
+[node name="Drone_animated" parent="." instance=ExtResource("34_m6pxn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.703, -0.298579, 3.72027)
+
+[node name="smallDrone" parent="." instance=ExtResource("38_a5n5r")]
+transform = Transform3D(-0.974632, 0, 0.223812, 0, 1, 0, -0.223812, 0, -0.974632, 2.3629, -0.539734, -10.8233)
+
+[node name="pod" parent="." instance=ExtResource("36_mn4mn")]
+transform = Transform3D(-0.368669, -0.155186, 0, 0.155186, -0.368669, 0, 0, 0, 0.4, 9.60171, 0.0992341, -10.8068)
+
+[node name="Player" parent="." instance=ExtResource("2_ii6h3")]
+transform = Transform3D(0.997934, 0, 0, 0, 0.997934, 0, 0, 0, 0.997934, -6.02642, -0.0625596, -3.54077)
+
+[node name="robotFella" parent="." instance=ExtResource("38_aui5f")]
+transform = Transform3D(0.997934, 0, 0, 0, 0.997934, 0, 0, 0, 0.997934, -8.37756, -0.638162, -7.30117)

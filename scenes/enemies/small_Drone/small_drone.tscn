@@ -1,0 +1,162 @@
+[gd_scene load_steps=14 format=3 uid="uid://dq25whkugls8y"]
+
+[ext_resource type="PackedScene" uid="uid://7te7xkeypmla" path="res://assets/enemies/doneSmall/smallDrone.glb" id="1_7fxhi"]
+[ext_resource type="Script" path="res://assets/enemies/doneSmall/small_drone.gd" id="2_nbqha"]
+[ext_resource type="Texture2D" uid="uid://b2gl4sbbk8odp" path="res://assets/enemies/doneSmall/Drone1_tex.png" id="3_ahtnc"]
+[ext_resource type="PackedScene" uid="uid://voahc4el36wc" path="res://assets/particles/vfx_fire.tscn" id="3_dys3y"]
+[ext_resource type="Texture2D" uid="uid://b4od5ehp712cn" path="res://assets/ui/Detected.png" id="5_y3dia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02gw8"]
+albedo_texture = ExtResource("3_ahtnc")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nbjj0"]
+radius = 0.271538
+height = 1.16031
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5w801"]
+radius = 0.13027
+height = 0.709546
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vds2w"]
+radius = 0.101618
+height = 0.613146
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_prg8f"]
+radius = 6.32147
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_37t4h"]
+radius = 7.71418
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4q8j3"]
+radius = 10.364
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ua5jf"]
+size = Vector3(1.771, 2.21777, 1.54468)
+
+[node name="smallDrone" groups=["Enemy"] instance=ExtResource("1_7fxhi")]
+script = ExtResource("2_nbqha")
+
+[node name="Skeleton3D" parent="Drone1_Armature" index="0"]
+bones/0/position = Vector3(-4.76837e-06, 98.8616, 2.02935)
+bones/0/rotation = Quaternion(-0.707107, 8.42937e-08, -8.42937e-08, 0.707107)
+bones/1/rotation = Quaternion(-0.0403663, 2.02812e-16, 2.39287e-16, 0.999185)
+bones/2/rotation = Quaternion(0.877713, -0.100914, -0.268935, -0.38355)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.662077, -0.014906, -0.0123227, 0.749186)
+bones/4/rotation = Quaternion(0.877713, 0.100914, 0.268935, -0.38355)
+bones/5/position = Vector3(3.57941e-06, 66.0863, 2.85145e-06)
+bones/5/rotation = Quaternion(0.662077, 0.0149061, 0.0123227, 0.749186)
+bones/5/scale = Vector3(1, 1, 1)
+
+[node name="Drone_1" parent="Drone1_Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_02gw8")
+
+[node name="Physical Bone Body" type="PhysicalBone3D" parent="Drone1_Armature/Skeleton3D" index="1"]
+transform = Transform3D(100, -2.32376e-06, -5.37663e-07, 2.38515e-06, 97.4261, 22.5423, -4.14923e-12, -22.5423, 97.4261, -9.44139e-06, 74.8631, -15.2514)
+collision_layer = 2
+collision_mask = 2
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24542e-08, 0.194853, 0.222457)
+body_offset = Transform3D(100, -2.55519e-05, -5.91216e-06, 4.14923e-12, 22.5423, -97.4261, 2.6227e-05, 97.4261, 22.5423, 1.04867e-06, 17.2807, -23.9985)
+bone_name = "Body"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="vfx_Fire" parent="Drone1_Armature/Skeleton3D/Physical Bone Body" index="0" instance=ExtResource("3_dys3y")]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drone1_Armature/Skeleton3D/Physical Bone Body" index="1"]
+transform = Transform3D(0.999999, -0.00151332, -6.61493e-11, 0, -4.37114e-08, 1, -0.00151332, -0.999999, -4.37113e-08, -0.0471756, 0.17089, 0.261371)
+shape = SubResource("CapsuleShape3D_nbjj0")
+
+[node name="RayCast3D" type="RayCast3D" parent="Drone1_Armature/Skeleton3D/Physical Bone Body" index="2"]
+transform = Transform3D(1, -1.58639e-08, -6.68101e-09, 1.43143e-08, 0.981959, -0.189095, 9.56032e-09, 0.189095, 0.981959, -0.0209043, 0.207514, -0.439602)
+target_position = Vector3(0, 0, -10)
+
+[node name="Physical Bone Leg_0_l" type="PhysicalBone3D" parent="Drone1_Armature/Skeleton3D" index="2"]
+transform = Transform3D(75.8469, -61.4576, -21.6845, -62.6953, -77.8919, 1.46668, -17.7919, 12.4828, -97.6096, -11.6015, 50.4431, 49.1381)
+collision_layer = 2
+collision_mask = 2
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217011, -0.279307, 0.478975)
+body_offset = Transform3D(98.3008, -8.87766, -16.0665, -2.46873, 80.3378, -59.4958, 18.1893, 58.8815, 78.7535, 26.5482, 50.4002, -17.3277)
+bone_name = "Leg_0_l"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drone1_Armature/Skeleton3D/Physical Bone Leg_0_l" index="0"]
+transform = Transform3D(0.971608, 0.193177, 0.136604, -0.225909, 0.585891, 0.778267, 0.0703084, -0.787031, 0.612897, -0.300918, -0.00581211, 0.199107)
+shape = SubResource("CapsuleShape3D_5w801")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Drone1_Armature/Skeleton3D/Physical Bone Leg_0_l" index="1"]
+transform = Transform3D(0.320994, -0.267751, -0.908447, 0.712682, -0.563438, 0.417886, -0.623742, -0.781571, 0.00996159, -0.204723, 0.561234, 0.287892)
+shape = SubResource("CapsuleShape3D_5w801")
+
+[node name="Physical Bone Leg_0_r" type="PhysicalBone3D" parent="Drone1_Armature/Skeleton3D" index="3"]
+transform = Transform3D(88.7708, 32.5562, -32.5552, 43.1984, -34.4363, 83.3549, 15.9264, -88.0581, -44.6331, 29.9671, 40.0318, 11.4012)
+collision_layer = 2
+collision_mask = 2
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109904, -0.112227, 0.454236)
+body_offset = Transform3D(98.324, 5.69371, 17.3199, 18.2146, -26.5559, -94.6732, -0.790959, 96.2412, -27.1479, -18.0345, 38.0218, 23.2193)
+bone_name = "Leg_0_r"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drone1_Armature/Skeleton3D/Physical Bone Leg_0_r" index="0"]
+transform = Transform3D(0.986525, 0.0473199, -0.156619, 0.163458, -0.326517, 0.93095, -0.00708629, -0.944005, -0.329853, 0.235545, -0.302203, 0.0414421)
+shape = SubResource("CapsuleShape3D_vds2w")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Drone1_Armature/Skeleton3D/Physical Bone Leg_0_r" index="1"]
+transform = Transform3D(0.929519, 0.0131296, 0.346575, 0.127961, -0.934443, -0.307789, 0.322355, 0.333071, -0.87718, 0.223621, 0.0390005, -0.31536)
+shape = SubResource("CapsuleShape3D_vds2w")
+
+[node name="DetectArea" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectArea" index="0"]
+shape = SubResource("CylinderShape3D_prg8f")
+
+[node name="AttackArea" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea" index="0"]
+shape = SubResource("CylinderShape3D_37t4h")
+
+[node name="ChaseArea" type="Area3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseArea" index="0" groups=["Enemy"]]
+shape = SubResource("CylinderShape3D_4q8j3")
+
+[node name="IdleTimer" type="Timer" parent="." index="5"]
+wait_time = 10.0
+one_shot = true
+
+[node name="WanderTimer" type="Timer" parent="." index="6"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Despawn" type="Timer" parent="." index="7"]
+wait_time = 10.0
+one_shot = true
+
+[node name="ShootTimer" type="Timer" parent="." index="8"]
+
+[node name="Hitbox" type="CollisionShape3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0622559, 0.608887, -0.0501709)
+shape = SubResource("BoxShape3D_ua5jf")
+
+[node name="ExclamationMark" type="Sprite3D" parent="." index="10"]
+transform = Transform3D(0.115318, -0.085139, -0.139475, 9.10988e-09, 0.170708, -0.104205, 0.163407, 0.0600834, 0.0984286, 0, 1.97133, 0)
+visible = false
+texture = ExtResource("5_y3dia")
+
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

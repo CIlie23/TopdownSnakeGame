@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://g20mnkwd23di"]
+
+[ext_resource type="PackedScene" uid="uid://dea1lmf4lvbm5" path="res://assets/gun/GL.fbx" id="1_cxx0u"]
+
+[node name="GL" instance=ExtResource("1_cxx0u")]

@@ -2,6 +2,9 @@ extends CharacterBody3D
 
 @export var grid_size: float = 1.0  # Adjust this to match your scene's grid
 @export var move_duration: float = 0.1  # How long each move takes
+@onready var snake_head: MeshInstance3D = $CollisionShape3D/MeshInstance3D
+
+@export var inv: Inv #inventory
 
 var direction = Vector3(0, 0, 0)  # Default movement direction
 var last_used_direction = direction
@@ -28,18 +31,31 @@ func handle_input():
  	
 	# We prevent reversing (e.g., moving right and immediately moving left) by checking last_used_direction.
 	if Input.is_action_pressed("game_up") and last_used_direction != Vector3(0, 0, 1):
+		#snake_head.look_at(new_direction)
 		new_direction = Vector3(0, 0, -1)
 	elif Input.is_action_pressed("game_down") and last_used_direction != Vector3(0, 0, -1):
+		#snake_head.look_at(new_direction)
 		new_direction = Vector3(0, 0, 1)
 	elif Input.is_action_pressed("game_left") and last_used_direction != Vector3(1, 0, 0):
+		#snake_head.look_at(new_direction)
 		new_direction = Vector3(-1, 0, 0)
 	elif Input.is_action_pressed("game_right") and last_used_direction != Vector3(-1, 0, 0):
+		#snake_head.look_at(new_direction)
 		new_direction = Vector3(1, 0, 0)
 
+	if new_direction != direction:
+		# Rotate smoothly towards the new direction
+		rotate_towards(new_direction)
+		
 	direction = new_direction
 
 	move_snake()
 
+func rotate_towards(new_direction: Vector3):
+	var target_position = position + new_direction
+	snake_head.look_at(target_position, Vector3.UP)  # Make the head look in the movement direction
+
+	snake_head.rotate_y(PI)
 func move_snake():
 	is_moving = true
 	var target_position = position + direction * grid_size
@@ -74,3 +90,6 @@ func extend():
 
 	snake_bodies.append(new_body)
 	get_tree().current_scene.add_child(new_body)
+
+func collect(item):
+	inv.insert(item)

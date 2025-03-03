@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp15cenbvmedl"]
+
+[ext_resource type="Script" path="res://scenes/awesome_test_cube.gd" id="1_bmel6"]
+[ext_resource type="Shader" uid="uid://dakc3383jl1fr" path="res://shaders/dissolve_shader.tres" id="2_urhqh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_77r6p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxkix"]
+render_priority = 0
+shader = ExtResource("2_urhqh")
+shader_parameter/Speed = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjpca"]
+
+[node name="AwesomeTestCube" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_bmel6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_77r6p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_xxkix")
+mesh = SubResource("BoxMesh_hjpca")

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/robotFella.glb-66177585e78dfd4d582ad04d338b89
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="CharacterBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -1834,6 +1834,9 @@ _subresources={
 }
 },
 "nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
 "PATH:XRKArmature/Skeleton3D": {
 "rest_pose/external_animation_library": null,
 "retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)

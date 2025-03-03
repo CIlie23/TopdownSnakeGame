@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://by7h3m0e7qjod"]
+
+[ext_resource type="Script" path="res://scenes/turrets/basic_turret.gd" id="1_qkowt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gnrr6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_765ed"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iavdm"]
+radius = 9.5824
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_qkowt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_gnrr6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.511799, -0.41463)
+mesh = SubResource("BoxMesh_765ed")
+
+[node name="RayCast3D" type="RayCast3D" parent="MeshInstance3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.545459)
+target_position = Vector3(0, 0, -10)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="TurretArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurretArea"]
+shape = SubResource("CylinderShape3D_iavdm")
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="TurretArea" to="." method="_on_turret_area_body_entered"]
+[connection signal="body_exited" from="TurretArea" to="." method="_on_turret_area_body_exited"]

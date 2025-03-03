@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://e0xq0la0csgp"]
+
+[ext_resource type="Script" path="res://scenes/turrets/cannon_bullet.gd" id="1_uskuq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_aqgow"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wvil"]
+albedo_color = Color(0.259294, 0.259294, 0.259294, 1)
+
+[sub_resource type="Curve" id="Curve_247sj"]
+_data = [Vector2(0, 0.637363), 0.0, 0.0, 0, 0, Vector2(1, 0.241758), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qvou3"]
+curve = SubResource("Curve_247sj")
+
+[sub_resource type="Curve" id="Curve_mqicc"]
+max_value = 3.0
+_data = [Vector2(0, 0.56044), 0.0, 0.0, 0, 0, Vector2(1, 0.494506), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_obqv7"]
+curve = SubResource("Curve_mqicc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ockki"]
+lifetime_randomness = 1.0
+emission_shape_scale = Vector3(1, 0, 1)
+direction = Vector3(1, 1, 1)
+spread = 60.0
+initial_velocity_max = 3.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 0.999984
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_qvou3")
+scale_over_velocity_curve = SubResource("CurveTexture_obqv7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilwvw"]
+albedo_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mc7fv"]
+material = SubResource("StandardMaterial3D_ilwvw")
+radius = 0.1
+height = 0.2
+
+[node name="cannonBall" type="Node3D"]
+script = ExtResource("1_uskuq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_aqgow")
+surface_material_override/0 = SubResource("StandardMaterial3D_2wvil")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.325248, 0.379755, 0, -0.379755, 0.325248, 0, 0, 0)
+cast_shadow = 0
+emitting = false
+amount = 300
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ockki")
+draw_pass_1 = SubResource("SphereMesh_mc7fv")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.241046)
+target_position = Vector3(0, 0, -0.06)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

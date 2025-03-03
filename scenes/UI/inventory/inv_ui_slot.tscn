@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3l4hstsqmam5"]
+
+[ext_resource type="Script" path="res://scenes/UI/inventory/inv_ui_slot.gd" id="1_7540b"]
+[ext_resource type="Texture2D" uid="uid://dm8o2l7wjmdco" path="res://assets/ui/Cell125x121px.png" id="1_umjki"]
+[ext_resource type="PackedScene" uid="uid://d1yipd73sbrxm" path="res://scenes/UI/inventory/items/item.tscn" id="3_oglb5"]
+
+[node name="Inv_UI_slot" type="Control"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(63, 61)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 63.0
+offset_bottom = 61.0
+script = ExtResource("1_7540b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_umjki")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(63, 61)
+layout_mode = 0
+offset_right = 63.0
+offset_bottom = 61.0
+
+[node name="TextureRect" parent="CenterContainer" instance=ExtResource("3_oglb5")]
+layout_mode = 2
+
+[editable path="CenterContainer/TextureRect"]

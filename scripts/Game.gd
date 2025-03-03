@@ -16,11 +16,11 @@ func _process(delta):
 
 func pauseMenu():
 	if isPaused:
-		print("Hello")
+		#print("Hello")
 		pause_menu.hide()
 		Engine.time_scale = 1
 	else:
-		print("Hi")
+		#print("Hi")
 		pause_menu.show()
 		Engine.time_scale = 0
 	

@@ -1,0 +1,190 @@
+[gd_scene load_steps=17 format=3 uid="uid://bg0igraon254v"]
+
+[ext_resource type="PackedScene" uid="uid://d0awnfqoi0gh6" path="res://assets/turrets/cannon_small.glb" id="1_bk2qm"]
+
+[sub_resource type="GDScript" id="GDScript_p3a6h"]
+script/source = "extends Node3D
+
+@onready var barrel: RayCast3D = $Turret_Cannon_Top/Barrel
+@onready var shoot_timer: Timer = $ShootTimer
+@onready var turret_head: MeshInstance3D = $Turret_Cannon_Top
+#@onready var turret_head: MeshInstance3D = $turret_double
+@onready var particles: GPUParticles3D = $GPUParticles3D
+@onready var cannon_shoot_anim: AnimationPlayer = $AnimationPlayer
+
+var target = null
+var bullet = load(\"res://scenes/turrets/cannon_ball.tscn\")
+var cannon_bullet
+var can_shoot = true 
+
+func _ready() -> void:
+	print(\"Cannon Loaded!\")
+
+func _process(delta: float) -> void:
+	if barrel.is_colliding() and can_shoot:
+		shoot_timer.start()
+		can_shoot = false
+	rotate_towards_target()
+	
+func rotate_towards_target():
+	if target == null:
+		pass
+	else:
+		turret_head.look_at(target.global_transform.origin, Vector3.UP)
+		turret_head.rotate_y(deg_to_rad(180))  # Adjust depending on model orientation
+#----------------------------------------------------------------------------
+# Turret Detection Logic
+#----------------------------------------------------------------------------
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group(\"Enemy\"): #checking if the raycast is coliding so it doesn't shoot at random
+		#head.look_at(target.global_transform.origin, Vector3.UP)
+		target = body
+		can_shoot = true
+		print(body.name + \" Detected\")
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	target = null
+	shoot_timer.stop()
+	print(body.name + \" Lost :(\")
+
+func _on_shoot_timer_timeout() -> void:
+	can_shoot = true
+	
+	cannon_shoot_anim.play(\"shoot\")
+	#Can't think of a better way to do this :/
+	cannon_bullet = bullet.instantiate()
+	cannon_bullet.position = barrel.global_position
+	cannon_bullet.transform.basis = barrel.global_transform.basis
+	cannon_bullet.position = barrel.global_position
+	cannon_bullet.transform.basis = barrel.global_transform.basis
+	get_parent().add_child(cannon_bullet)
+	#print(\"pow\")
+	#particles.emitting = true
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmab1"]
+albedo_color = Color(0.54902, 0.580392, 0.611765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jb37n"]
+albedo_color = Color(0.988235, 0.831373, 0.486275, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e414"]
+albedo_color = Color(0.92549, 0.956863, 0.956863, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_452w0"]
+radius = 3.77117
+
+[sub_resource type="Curve" id="Curve_urscg"]
+_data = [Vector2(0, 0.637363), 0.0, 0.0, 0, 0, Vector2(1, 0.241758), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y1o61"]
+curve = SubResource("Curve_urscg")
+
+[sub_resource type="Curve" id="Curve_c1k34"]
+max_value = 3.0
+_data = [Vector2(0, 0.56044), 0.0, 0.0, 0, 0, Vector2(1, 0.494506), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qrq1e"]
+curve = SubResource("Curve_c1k34")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_31275"]
+lifetime_randomness = 1.0
+emission_shape_scale = Vector3(1, 0, 1)
+direction = Vector3(1, 1, 1)
+spread = 60.0
+initial_velocity_max = 3.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 0.999984
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_y1o61")
+scale_over_velocity_curve = SubResource("CurveTexture_qrq1e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86i2"]
+albedo_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dbl7p"]
+material = SubResource("StandardMaterial3D_p86i2")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Animation" id="Animation_vy6qc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret_Cannon_Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oji8y"]
+resource_name = "shoot"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret_Cannon_Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.05), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ebtbk"]
+_data = {
+"RESET": SubResource("Animation_vy6qc"),
+"shoot": SubResource("Animation_oji8y")
+}
+
+[node name="cannon_small" instance=ExtResource("1_bk2qm")]
+script = SubResource("GDScript_p3a6h")
+
+[node name="Turret_Cannon_Top" parent="." index="1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_lmab1")
+surface_material_override/1 = SubResource("StandardMaterial3D_jb37n")
+surface_material_override/2 = SubResource("StandardMaterial3D_7e414")
+
+[node name="Barrel" type="RayCast3D" parent="Turret_Cannon_Top" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.397161, 0)
+target_position = Vector3(0, 0, -4)
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_452w0")
+
+[node name="ShootTimer" type="Timer" parent="." index="3"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.325248, 0.379755, 0, -0.379755, 0.325248, 0, 0.407553, -0.516261)
+cast_shadow = 0
+emitting = false
+amount = 300
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_31275")
+draw_pass_1 = SubResource("SphereMesh_dbl7p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_ebtbk")
+}
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

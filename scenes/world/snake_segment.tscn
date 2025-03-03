@@ -7,7 +7,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_7iejj"]
 
-[node name="SnakeSegment" type="CharacterBody3D"]
+[node name="SnakeSegment" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_dkpwd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

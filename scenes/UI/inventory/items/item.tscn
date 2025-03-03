@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1yipd73sbrxm"]
+
+[ext_resource type="Script" path="res://scenes/UI/inventory/items/item_test_script.gd" id="1_mimq2"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mimq2")
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+unique_name_in_owner = true

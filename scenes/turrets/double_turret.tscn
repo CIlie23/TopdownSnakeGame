@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://bm5k6p72qyjq6"]
+
+[ext_resource type="PackedScene" uid="uid://cdhvpbx0rv3j4" path="res://assets/turrets/doubleTurret.glb" id="1_ubny7"]
+[ext_resource type="Script" path="res://scenes/turrets/double_turret.gd" id="2_typuv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4fl4d"]
+radius = 3.57972
+
+[sub_resource type="Animation" id="Animation_31tmw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turret_double/turret:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.03, 0.0025)]
+}
+
+[sub_resource type="Animation" id="Animation_yhvb7"]
+resource_name = "shoot"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turret_double/turret:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.03, 0.0025), Vector3(0, 0.03, 0.01), Vector3(0, 0.03, 0.0025)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eubtv"]
+_data = {
+"RESET": SubResource("Animation_31tmw"),
+"shoot": SubResource("Animation_yhvb7")
+}
+
+[node name="doubleTurret" instance=ExtResource("1_ubny7")]
+script = ExtResource("2_typuv")
+
+[node name="turret" parent="turret_double" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.03, 0.0025)
+
+[node name="BarrelRightOne" type="RayCast3D" parent="turret_double/turret" index="0"]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, -0.0327465, 0.0275388, 0.0284626)
+target_position = Vector3(0, 0, -5)
+
+[node name="BarrelRightTwo" type="RayCast3D" parent="turret_double/turret" index="1"]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, -0.0326158, 0.0135319, 0.0286099)
+target_position = Vector3(0, 0, -5)
+
+[node name="BarrelLeftOne" type="RayCast3D" parent="turret_double/turret" index="2"]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.0319667, 0.0279576, 0.0275747)
+target_position = Vector3(0, 0, -5)
+
+[node name="BarrelLeftTwo" type="RayCast3D" parent="turret_double/turret" index="3"]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0.032652, 0.0126794, 0.0281716)
+target_position = Vector3(0, 0, -5)
+
+[node name="ShootTimer" type="Timer" parent="." index="1"]
+wait_time = 0.1
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_4fl4d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_eubtv")
+}
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

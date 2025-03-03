@@ -1,0 +1,128 @@
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://dakc3383jl1fr"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_27jqf"]
+default_input_values = [0, 0.0, 1, 0.1]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_atkes"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_im7kn"]
+parameter_name = "Albedo"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_txmjo"]
+source = 5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gegdl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_42x00"]
+noise = SubResource("FastNoiseLite_gegdl")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4psiy"]
+expanded_output_ports = [0]
+texture = SubResource("NoiseTexture2D_42x00")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hx25j"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_bkyay"]
+function = 0
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_0m23q"]
+default_input_values = [1, -1.0, 2, 1.0, 3, 0.0, 4, 1.0]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_sa6lw"]
+parameter_name = "Speed"
+default_value_enabled = true
+default_value = 2.0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_2tlpq"]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D Albedo;
+uniform sampler2D tex_frg_4;
+uniform float Speed = 2;
+
+
+
+void fragment() {
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Albedo, UV);
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+	float n_out4p1 = n_out4p0.r;
+
+
+// FloatParameter:8
+	float n_out8p0 = Speed;
+
+
+// Input:5
+	float n_out5p0 = TIME;
+
+
+// FloatOp:9
+	float n_out9p0 = n_out8p0 * n_out5p0;
+
+
+// FloatFunc:6
+	float n_out6p0 = sin(n_out9p0);
+
+
+// FloatOp:10
+	float n_in10p1 = 0.10000;
+	float n_out10p0 = n_out6p0 + n_in10p1;
+
+
+// Step:11
+	float n_out11p0 = step(n_out4p1, n_out10p0);
+
+
+	float n_out7p0;
+// Remap:7
+	float n_in7p1 = -1.00000;
+	float n_in7p2 = 1.00000;
+	float n_in7p3 = 0.00000;
+	float n_in7p4 = 1.00000;
+	{
+		float __input_range = n_in7p2 - n_in7p1;
+		float __output_range = n_in7p4 - n_in7p3;
+		n_out7p0 = n_in7p3 + __output_range * ((n_out6p0 - n_in7p1) / __input_range);
+	}
+
+
+// Output:0
+	ALBEDO = vec3(n_out3p0.xyz);
+	ALPHA = n_out4p0.x;
+	EMISSION = vec3(n_out11p0);
+	ALPHA_SCISSOR_THRESHOLD = n_out7p0;
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_im7kn")
+nodes/fragment/2/position = Vector2(-640, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_txmjo")
+nodes/fragment/3/position = Vector2(-80, 20)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_4psiy")
+nodes/fragment/4/position = Vector2(-220, 340)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_hx25j")
+nodes/fragment/5/position = Vector2(-980, 1040)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatFunc_bkyay")
+nodes/fragment/6/position = Vector2(-280, 1140)
+nodes/fragment/7/node = SubResource("VisualShaderNodeRemap_0m23q")
+nodes/fragment/7/position = Vector2(109.741, 763.522)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_sa6lw")
+nodes/fragment/8/position = Vector2(-940, 1200)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatOp_2tlpq")
+nodes/fragment/9/position = Vector2(-520, 1120)
+nodes/fragment/10/node = SubResource("VisualShaderNodeFloatOp_27jqf")
+nodes/fragment/10/position = Vector2(-480, 860)
+nodes/fragment/11/node = SubResource("VisualShaderNodeStep_atkes")
+nodes/fragment/11/position = Vector2(-120, 720)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 0, 0, 4, 0, 0, 1, 6, 0, 7, 0, 7, 0, 0, 19, 8, 0, 9, 0, 5, 0, 9, 1, 9, 0, 6, 0, 6, 0, 10, 0, 10, 0, 11, 1, 4, 1, 11, 0, 11, 0, 0, 5)

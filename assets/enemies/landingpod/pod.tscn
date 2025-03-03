@@ -1,0 +1,48 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbix8gik8a0ao"]
+
+[ext_resource type="PackedScene" uid="uid://bu0w03w2bw5rh" path="res://assets/enemies/landingpod/pod.glb" id="1_8oqad"]
+[ext_resource type="Texture2D" uid="uid://bjhqevyhy86fo" path="res://assets/enemies/landingpod/Booster_Bottom_baseColor.png" id="2_as8kj"]
+[ext_resource type="Texture2D" uid="uid://82xdyfyibp3w" path="res://assets/enemies/landingpod/Booster_Top_baseColor.png" id="3_5rv1j"]
+[ext_resource type="Texture2D" uid="uid://ddo2wvaa8g0pi" path="res://assets/enemies/landingpod/MainBody_baseColor.png" id="4_cv7c0"]
+[ext_resource type="Texture2D" uid="uid://b6b6hf6ajhtnn" path="res://assets/enemies/landingpod/Panes_baseColor.png" id="5_fqd4a"]
+[ext_resource type="Texture2D" uid="uid://6x04bm8ki5cc" path="res://assets/enemies/landingpod/Windows_baseColor.png" id="6_j83j0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtkch"]
+albedo_texture = ExtResource("2_as8kj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgpt7"]
+albedo_texture = ExtResource("3_5rv1j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44yt8"]
+albedo_texture = ExtResource("4_cv7c0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnk78"]
+albedo_texture = ExtResource("5_fqd4a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtiju"]
+albedo_texture = ExtResource("6_j83j0")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7gmgb"]
+radius = 2.28279
+height = 8.18308
+
+[node name="pod" instance=ExtResource("1_8oqad")]
+
+[node name="pCylinder6_pCylinder6_Booster_Bottom_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mtkch")
+
+[node name="pCylinder6_pCylinder6_Booster_Top_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xgpt7")
+
+[node name="pCylinder6_pCylinder6_MainBody_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_44yt8")
+
+[node name="pCylinder6_pCylinder6_Panes_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hnk78")
+
+[node name="pCylinder6_pCylinder6_Windows_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xtiju")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0761871, -0.935787, 0)
+shape = SubResource("CapsuleShape3D_7gmgb")
