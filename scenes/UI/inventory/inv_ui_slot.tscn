@@ -26,5 +26,8 @@ offset_bottom = 61.0
 
 [node name="TextureRect" parent="CenterContainer" instance=ExtResource("3_oglb5")]
 layout_mode = 2
+expand_mode = 1
+
+[connection signal="item_clicked" from="CenterContainer/TextureRect" to="." method="_on_texture_rect_item_clicked"]
 
 [editable path="CenterContainer/TextureRect"]

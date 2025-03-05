@@ -3,6 +3,8 @@ extends Control
 #@onready var item_visual: Sprite2D = $CenterContainer/Panel/ItemDisplay
 @onready var item_visual: TextureRect = $CenterContainer/TextureRect
 
+signal item_out_of_slot
+
 func _process(delta: float) -> void:
 	pass
 
@@ -30,3 +32,6 @@ func can_drop_data(_pos, data):
 func drop_data(_pos, data):
 	item_visual.item = data  # Assign item to the slot
 	item_visual.texture = data.texture  # Update the display
+
+func _on_texture_rect_item_clicked() -> void:
+	item_out_of_slot.emit()

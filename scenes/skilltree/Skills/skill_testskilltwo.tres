@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://bgrdst4q204l7"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_gppnc"]
+[ext_resource type="Texture2D" uid="uid://by8bp8fq54ib5" path="res://assets/ui/skillIcons/Skillicon14_29.png" id="2_wedd6"]
+
+[resource]
+script = ExtResource("1_gppnc")
+skill_name = "TestSkillTwo"
+skillIcon = ExtResource("2_wedd6")
+description = "hello"
+effects = {
+"health boost": 25
+}

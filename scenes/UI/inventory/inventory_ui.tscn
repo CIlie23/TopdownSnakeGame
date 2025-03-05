@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://x3r8d5cox4a7"]
+[gd_scene load_steps=6 format=3 uid="uid://x3r8d5cox4a7"]
 
 [ext_resource type="Script" path="res://scenes/UI/inventory/inventory_ui.gd" id="1_1l141"]
 [ext_resource type="Texture2D" uid="uid://cdxkm3c4b2ic6" path="res://assets/ui/inventory/Panel2_NoOpacity591x975px.png" id="2_tq2o0"]
 [ext_resource type="PackedScene" uid="uid://b3l4hstsqmam5" path="res://scenes/UI/inventory/inv_ui_slot.tscn" id="3_a0qli"]
 [ext_resource type="Texture2D" uid="uid://d0t08mprk1vqd" path="res://assets/ui/inventory/BtnExitNoOpacity.png" id="4_j443v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5h5m"]
+size = Vector2(342, 369)
 
 [node name="InventoryUI" type="Control"]
 custom_minimum_size = Vector2(40, 40)
@@ -102,4 +105,11 @@ scale = Vector2(0.5, 0.5)
 icon = ExtResource("4_j443v")
 flat = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-109, -27.5)
+shape = SubResource("RectangleShape2D_e5h5m")
+
+[connection signal="item_out_of_slot" from="NinePatchRect/GridContainer/Inv_UI_slot" to="." method="_on_inv_ui_slot_item_out_of_slot"]
 [connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_button_pressed"]

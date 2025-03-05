@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://c43mvr23c6gke"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_tree.gd" id="1_e5m0p"]
+[ext_resource type="PackedScene" uid="uid://bfpo6p1bmcpad" path="res://scenes/skilltree/skill_btn.tscn" id="1_s7r1q"]
+[ext_resource type="Resource" uid="uid://bgrdst4q204l7" path="res://scenes/skilltree/Skills/skill_testskilltwo.tres" id="2_cki0d"]
+[ext_resource type="Resource" uid="uid://brbsb75b2n04a" path="res://scenes/skilltree/Skills/skill_testskill.tres" id="2_fd67e"]
+[ext_resource type="Resource" uid="uid://da3x75y4auqsh" path="res://scripts/player/player_stats_resource.tres" id="3_fv47a"]
+[ext_resource type="Resource" uid="uid://cea687d32qif7" path="res://scenes/skilltree/Skills/skill_armorbuff.tres" id="5_6wieu"]
+
+[node name="SkillTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5m0p")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.85098)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillBtn2" parent="." instance=ExtResource("1_s7r1q")]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 324.0
+offset_right = 299.0
+offset_bottom = 356.0
+
+[node name="SkillBtn" parent="." instance=ExtResource("1_s7r1q")]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 62.0
+offset_right = 559.0
+offset_bottom = 94.0
+skill_resource = ExtResource("2_cki0d")
+player_stats = ExtResource("3_fv47a")
+
+[node name="SkillBtn4" parent="SkillBtn" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
+offset_left = -95.0
+offset_top = 95.0
+offset_right = -63.0
+offset_bottom = 127.0
+scale = Vector2(2, 2)
+disabled = true
+skill_resource = ExtResource("2_fd67e")
+player_stats = ExtResource("3_fv47a")
+
+[node name="SkillBtn2" parent="SkillBtn/SkillBtn4" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
+offset_left = 9.5
+offset_top = 72.5
+offset_right = 41.5
+offset_bottom = 104.5
+scale = Vector2(0.5, 0.5)
+disabled = true
+skill_resource = ExtResource("5_6wieu")
+player_stats = ExtResource("3_fv47a")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 32.0
+offset_right = 208.0
+offset_bottom = 55.0
+text = "Available Skill Points:"

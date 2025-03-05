@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://cea687d32qif7"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_565su"]
+[ext_resource type="Texture2D" uid="uid://c20cn7kggy7en" path="res://assets/ui/skillIcons/Skillicon14_02.png" id="2_euk82"]
+
+[resource]
+script = ExtResource("1_565su")
+skill_name = "ArmorBuff"
+skillIcon = ExtResource("2_euk82")
+description = "This buffs armor"
+effects = {
+"armor boost": 5
+}

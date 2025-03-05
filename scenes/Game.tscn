@@ -1,18 +1,14 @@
-[gd_scene load_steps=46 format=3 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=49 format=3 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
 [ext_resource type="Shader" path="res://shaders/Game.gdshader" id="2_wbnov"]
 [ext_resource type="PackedScene" uid="uid://dsaa4vfsxdl37" path="res://scenes/world/money.tscn" id="4_4nwhm"]
 [ext_resource type="Texture2D" uid="uid://ca0ajj84jrdnj" path="res://assets/ui/MainPanel01.png" id="5_88b5c"]
-[ext_resource type="Texture2D" uid="uid://s8cesa782cov" path="res://assets/ui/BarV1_Bar.png" id="5_r6pbo"]
-[ext_resource type="Texture2D" uid="uid://b7qchr3teljb" path="res://assets/ui/BarV1_ProgressBarBorder.png" id="6_7wo5u"]
 [ext_resource type="Script" path="res://scripts/ui/dialog.gd" id="6_51ty7"]
-[ext_resource type="Texture2D" uid="uid://bxjv3un7voxki" path="res://assets/ui/BarV5_ProgressBar.png" id="7_4roe0"]
 [ext_resource type="MeshLibrary" uid="uid://cdxueohwd3sef" path="res://assets/meshes/cityassets.tres" id="7_m58bh"]
 [ext_resource type="FontFile" uid="uid://1yuy1o07mph2" path="res://assets/fonts/URW Grotesk SC Regular.ttf" id="7_rt3cn"]
 [ext_resource type="Texture2D" uid="uid://vvpwiwrv1fvx" path="res://assets/ui/buttons/Button Normal.png" id="8_jd6hj"]
-[ext_resource type="Texture2D" uid="uid://sybbdnjxw4uu" path="res://assets/ui/BarV8_ProgressBar.png" id="8_kenfo"]
 [ext_resource type="FontFile" uid="uid://c7av1j5mjwa37" path="res://assets/fonts/URW Grotesk SC Light.ttf" id="9_k4d8i"]
 [ext_resource type="Texture2D" uid="uid://c64pmfjh8j7ec" path="res://assets/ui/buttons/Button Disable.png" id="9_lmfon"]
 [ext_resource type="Texture2D" uid="uid://bemv46m73p0r6" path="res://assets/ui/buttons/Button Hover.png" id="10_0vpjl"]
@@ -21,14 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://cjrspwvrdbbe8" path="res://assets/ui/sidebar/Icon28.png" id="17_mlpqy"]
 [ext_resource type="Texture2D" uid="uid://dwqupm0trkf5f" path="res://assets/ui/sidebar/Icon33.png" id="18_l250t"]
 [ext_resource type="Texture2D" uid="uid://blsci5klgfdp7" path="res://assets/ui/sidebar/Icon36.png" id="19_1mubg"]
+[ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="20_73y51"]
 [ext_resource type="Texture2D" uid="uid://bkb5lasskcliv" path="res://assets/ui/sidebar/Icon37.png" id="20_2288c"]
+[ext_resource type="Resource" uid="uid://da3x75y4auqsh" path="res://scripts/player/player_stats_resource.tres" id="21_sfccr"]
+[ext_resource type="PackedScene" uid="uid://c43mvr23c6gke" path="res://scenes/skilltree/skill_tree.tscn" id="26_auhyj"]
 [ext_resource type="Script" path="res://scripts/ui/drone_camera.gd" id="26_bb6pl"]
+[ext_resource type="PackedScene" uid="uid://dkmojbkfpsjow" path="res://scenes/enemies/xporb.tscn" id="26_iprpn"]
 [ext_resource type="Texture2D" uid="uid://c6rk8ro2e6oeb" path="res://assets/ui/windows/Card X3.png" id="26_n8b2v"]
 [ext_resource type="PackedScene" uid="uid://x3r8d5cox4a7" path="res://scenes/UI/inventory/inventory_ui.tscn" id="26_nv6hk"]
 [ext_resource type="PackedScene" uid="uid://b475wnptaipdd" path="res://scenes/pause_menu.tscn" id="28_4ig8x"]
 [ext_resource type="PackedScene" uid="uid://uvfwcht0hfmi" path="res://scenes/UI/minimap.tscn" id="28_a32ar"]
 [ext_resource type="PackedScene" uid="uid://cp15cenbvmedl" path="res://scenes/awesome_test_cube.tscn" id="32_6a8in"]
-[ext_resource type="Texture2D" uid="uid://ioby8trp86gu" path="res://assets/ui/inventory/04.png" id="33_bwtj7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnp1g"]
 albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
@@ -92,6 +91,18 @@ _data = {
 "RESET": SubResource("Animation_bshj3"),
 "typewriter": SubResource("Animation_fs1qd")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syiin"]
+bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nl5wp"]
+bg_color = Color(1, 0.231373, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a6jd"]
+bg_color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfia4"]
+bg_color = Color(0, 0.52549, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mm3f"]
 texture = ExtResource("26_n8b2v")
@@ -223,32 +234,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Player_Heath" type="TextureProgressBar" parent="Player/UI/uiTest"]
-visible = false
-layout_mode = 0
-offset_left = 876.0
-offset_top = 447.0
-offset_right = 1148.0
-offset_bottom = 487.0
-value = 100.0
-texture_under = ExtResource("5_r6pbo")
-texture_over = ExtResource("6_7wo5u")
-texture_progress = ExtResource("7_4roe0")
-texture_progress_offset = Vector2(2, 2)
-
-[node name="Player_Mana" type="TextureProgressBar" parent="Player/UI/uiTest"]
-visible = false
-layout_mode = 0
-offset_left = 874.0
-offset_top = 478.0
-offset_right = 1159.0
-offset_bottom = 517.0
-value = 100.0
-texture_under = ExtResource("5_r6pbo")
-texture_over = ExtResource("6_7wo5u")
-texture_progress = ExtResource("8_kenfo")
-texture_progress_offset = Vector2(2, 2)
-
 [node name="Cell125x121Px2" type="Sprite2D" parent="Player/UI/uiTest"]
 visible = false
 position = Vector2(559, 595)
@@ -273,35 +258,46 @@ texture = ExtResource("19_1mubg")
 position = Vector2(965, 589)
 texture = ExtResource("20_2288c")
 
-[node name="ProgressBar2" type="ProgressBar" parent="Player/UI/uiTest"]
+[node name="HealthBar" type="ProgressBar" parent="Player/UI/uiTest"]
 layout_mode = 0
-offset_left = 828.0
-offset_top = 526.0
-offset_right = 1120.0
-offset_bottom = 533.0
-value = 100.0
+offset_left = 830.0
+offset_top = 512.0
+offset_right = 1122.0
+offset_bottom = 519.0
+theme_override_styles/background = SubResource("StyleBoxFlat_syiin")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nl5wp")
+fill_mode = 1
 show_percentage = false
+script = ExtResource("20_73y51")
+player_stats = ExtResource("21_sfccr")
 
-[node name="ProgressBar" type="ProgressBar" parent="Player/UI/uiTest"]
+[node name="Label" type="Label" parent="Player/UI/uiTest/HealthBar"]
 layout_mode = 0
-offset_left = 856.0
+offset_left = 241.0
+offset_top = -20.0
+offset_right = 293.0
+offset_bottom = 3.0
+text = "Health"
+
+[node name="ManaBar" type="ProgressBar" parent="Player/UI/uiTest"]
+layout_mode = 0
+offset_left = 829.0
 offset_top = 538.0
-offset_right = 1119.0
+offset_right = 1120.0
 offset_bottom = 545.0
-value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0a6jd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pfia4")
+value = 50.0
+fill_mode = 1
 show_percentage = false
 
-[node name="04" type="Sprite2D" parent="Player/UI/uiTest"]
-position = Vector2(1128, 528)
-scale = Vector2(0.423077, 0.423077)
-texture = ExtResource("33_bwtj7")
-
-[node name="Label" type="Label" parent="Player/UI/uiTest/04"]
-offset_left = 16.5452
-offset_top = -9.45455
-offset_right = 56.5452
-offset_bottom = 13.5455
-text = "100"
+[node name="Label" type="Label" parent="Player/UI/uiTest/ManaBar"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = -20.0
+offset_right = 293.0
+offset_bottom = 3.0
+text = "Mana"
 
 [node name="deliveryDroneCam" type="Control" parent="Player/UI"]
 visible = false
@@ -353,12 +349,21 @@ offset_bottom = -2.0
 [node name="Minimap" parent="Player/UI" instance=ExtResource("28_a32ar")]
 target = NodePath("../..")
 
+[node name="SkillTree2" parent="Player/UI" instance=ExtResource("26_auhyj")]
+visible = false
+
+[node name="xporb" parent="Player/UI" instance=ExtResource("26_iprpn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.94039, 0.215572, 1.16481)
+
 [node name="Shader" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.541)
 visible = false
 material_overlay = SubResource("ShaderMaterial_y1lgv")
 mesh = SubResource("QuadMesh_fraa3")
 skeleton = NodePath("../..")
+
+[node name="SkillTree" parent="Player" instance=ExtResource("26_auhyj")]
+visible = false
 
 [node name="InventoryUI" parent="Player" instance=ExtResource("26_nv6hk")]
 
@@ -379,3 +384,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7582, -0.140483, -2.62307)
 
 [connection signal="pressed" from="Player/UI/Dialog/Box/okButton" to="Player/UI/Dialog" method="_on_ok_button_pressed"]
 [connection signal="animation_finished" from="Player/UI/Dialog/VBoxContainer/TypeWriterEffect" to="Player/UI/Dialog" method="_on_type_writer_effect_animation_finished"]
+[connection signal="item_out_of_inventory" from="Player/InventoryUI" to="." method="_on_inventory_ui_item_out_of_inventory"]

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Inv" load_steps=5 format=3 uid="uid://b53ao7fapekuc"]
 
-[ext_resource type="Script" path="res://inventory_item.gd" id="1_urcko"]
+[ext_resource type="Script" path="res://scenes/UI/inventory/items/inventory_item.gd" id="1_ad3fh"]
 [ext_resource type="Resource" uid="uid://dcqitnbskjtlv" path="res://scenes/UI/inventory/items/cannon.tres" id="2_6fj0k"]
 [ext_resource type="Resource" uid="uid://dojci5u6fjd8h" path="res://scenes/UI/inventory/items/test_item.tres" id="3_3gl0t"]
 [ext_resource type="Script" path="res://scenes/UI/inventory/inventory.gd" id="3_k4ugt"]
 
 [resource]
 script = ExtResource("3_k4ugt")
-items = Array[ExtResource("1_urcko")]([ExtResource("2_6fj0k"), null, ExtResource("3_3gl0t"), null, null, null, null, ExtResource("2_6fj0k"), null, null, null, null])
+items = Array[ExtResource("1_ad3fh")]([ExtResource("2_6fj0k"), ExtResource("2_6fj0k"), ExtResource("3_3gl0t"), null, ExtResource("2_6fj0k"), null, null, ExtResource("2_6fj0k"), null, null, null, ExtResource("2_6fj0k")])

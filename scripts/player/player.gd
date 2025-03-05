@@ -6,6 +6,9 @@ extends CharacterBody3D
 
 @export var inv: Inv #inventory
 
+var playerStats = preload("res://scripts/player/player_stats_resource.tres")
+var skilltree: SkillAtribute
+
 var direction = Vector3(0, 0, 0)  # Default movement direction
 var last_used_direction = direction
 var snake_bodies = []
@@ -14,6 +17,8 @@ var tail_piece = preload("res://scenes/world/snake_segment.tscn")
 var is_moving = false  # Prevents input spam while moving
 
 func _ready():
+	print(playerStats.playerHealth, " health")
+	#print(skilltree.healthBoost += 10)
 	# Ensure position starts snapped to grid
 	position = position.snapped(Vector3.ONE * grid_size)
 
@@ -91,5 +96,5 @@ func extend():
 	snake_bodies.append(new_body)
 	get_tree().current_scene.add_child(new_body)
 
-func collect(item):
+func collect(item): #connected to inventory.gd
 	inv.insert(item)

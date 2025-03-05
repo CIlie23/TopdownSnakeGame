@@ -3,9 +3,15 @@
 [ext_resource type="Script" path="res://scenes/UI/inventory/items/item_test_script.gd" id="1_mimq2"]
 
 [node name="TextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_mimq2")
 
-[node name="ItemIcon" type="Sprite2D" parent="."]
-unique_name_in_owner = true
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2

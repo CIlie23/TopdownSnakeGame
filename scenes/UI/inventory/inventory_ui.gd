@@ -6,6 +6,8 @@ extends Control
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 var is_inventory_open = false
 
+signal item_out_of_inventory
+
 func _ready() -> void:
 	update_slots()
 	closed()
@@ -41,6 +43,8 @@ func closed():
 	visible = false
 	is_inventory_open = false
 
-
 func _on_button_pressed() -> void:
 	closed()
+
+func _on_inv_ui_slot_item_out_of_slot() -> void:
+	item_out_of_inventory.emit()
