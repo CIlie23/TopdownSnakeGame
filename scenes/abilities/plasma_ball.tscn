@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://8tyqj84mvv8m"]
+
+[ext_resource type="Texture2D" uid="uid://dbq2r1f2u6n8v" path="res://assets/ui/abilities/plasma ball/plasma.png" id="1_8knq3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goytf"]
+albedo_color = Color(1, 0, 1, 1)
+albedo_texture = ExtResource("1_8knq3")
+emission_energy_multiplier = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4mjyf"]
+material = SubResource("StandardMaterial3D_goytf")
+
+[sub_resource type="Curve" id="Curve_v6lqm"]
+_data = [Vector2(0, 0.098901), 0.0, 0.0, 0, 0, Vector2(1, 0.0659341), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6lr5f"]
+curve = SubResource("Curve_v6lqm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eeqlr"]
+lifetime_randomness = 1.0
+emission_shape_offset = Vector3(0, 0.1, 0.1)
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(0, 0, -9)
+scale_curve = SubResource("CurveTexture_6lr5f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysrxf"]
+albedo_color = Color(0.572216, 0.000237477, 0.572212, 1)
+emission = Color(0.235294, 0, 0.235294, 1)
+proximity_fade_distance = 4096.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_o2b6l"]
+material = SubResource("StandardMaterial3D_ysrxf")
+
+[node name="PlasmaBall" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_4mjyf")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+visible = false
+amount = 90
+process_material = SubResource("ParticleProcessMaterial_eeqlr")
+draw_pass_1 = SubResource("SphereMesh_o2b6l")

@@ -5,8 +5,11 @@ class_name PlayerStats
 @export var max_playerHealth: int
 @export var armor: int
 @export var maxArmor: int
+@export var mana: int
+@export var maxMana: int
 
 signal health_changed(new_health, max_health)
+signal mana_grown(new_mana, max_mana)
 
 func apply_stat_boost(effect: String, value: int):
 	match effect:
@@ -19,3 +22,6 @@ func apply_stat_boost(effect: String, value: int):
 		"armor boost":
 			armor += value
 			print("Armor increased by ", value, "| New Armor:", armor, "| Max Armor:", maxArmor)
+		"mana boost":
+			maxArmor += value
+			print("Max mana increased by ", value)

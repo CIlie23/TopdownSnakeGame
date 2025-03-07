@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=54 format=3 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://x3r8d5cox4a7" path="res://scenes/UI/inventory/inventory_ui.tscn" id="26_nv6hk"]
 [ext_resource type="PackedScene" uid="uid://b475wnptaipdd" path="res://scenes/pause_menu.tscn" id="28_4ig8x"]
 [ext_resource type="PackedScene" uid="uid://uvfwcht0hfmi" path="res://scenes/UI/minimap.tscn" id="28_a32ar"]
+[ext_resource type="PackedScene" uid="uid://duu00ypj1dd7q" path="res://scenes/UI/abilities/ability_button.tscn" id="29_ladu2"]
 [ext_resource type="PackedScene" uid="uid://cp15cenbvmedl" path="res://scenes/awesome_test_cube.tscn" id="32_6a8in"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnp1g"]
@@ -120,6 +121,18 @@ shader_parameter/resolution_scale = 2
 [sub_resource type="QuadMesh" id="QuadMesh_fraa3"]
 flip_faces = true
 size = Vector2(2, 2)
+
+[sub_resource type="InputEventAction" id="InputEventAction_87xu8"]
+action = &"ability_one"
+
+[sub_resource type="Shortcut" id="Shortcut_xe53s"]
+events = [SubResource("InputEventAction_87xu8")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_pwlp2"]
+action = &"ability_two"
+
+[sub_resource type="Shortcut" id="Shortcut_2mwdy"]
+events = [SubResource("InputEventAction_pwlp2")]
 
 [node name="Spacial" type="Node3D"]
 script = ExtResource("1_mfq8h")
@@ -241,28 +254,32 @@ scale = Vector2(0.442, 0.442)
 texture = ExtResource("16_fe47w")
 
 [node name="Icon28" type="Sprite2D" parent="Player/UI/uiTest"]
+visible = false
 position = Vector2(1111.75, 587.75)
 scale = Vector2(0.767045, 0.767045)
 texture = ExtResource("17_mlpqy")
 
 [node name="Icon33" type="Sprite2D" parent="Player/UI/uiTest"]
+visible = false
 position = Vector2(1040, 588)
 scale = Vector2(0.815318, 0.815318)
 texture = ExtResource("18_l250t")
 
 [node name="Icon36" type="Sprite2D" parent="Player/UI/uiTest"]
+visible = false
 position = Vector2(885, 589)
 texture = ExtResource("19_1mubg")
 
 [node name="Icon37" type="Sprite2D" parent="Player/UI/uiTest"]
+visible = false
 position = Vector2(965, 589)
 texture = ExtResource("20_2288c")
 
 [node name="HealthBar" type="ProgressBar" parent="Player/UI/uiTest"]
 layout_mode = 0
-offset_left = 830.0
+offset_left = 851.0
 offset_top = 512.0
-offset_right = 1122.0
+offset_right = 1143.0
 offset_bottom = 519.0
 theme_override_styles/background = SubResource("StyleBoxFlat_syiin")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nl5wp")
@@ -281,15 +298,16 @@ text = "Health"
 
 [node name="ManaBar" type="ProgressBar" parent="Player/UI/uiTest"]
 layout_mode = 0
-offset_left = 829.0
+offset_left = 850.0
 offset_top = 538.0
-offset_right = 1120.0
+offset_right = 1141.0
 offset_bottom = 545.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0a6jd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pfia4")
-value = 50.0
 fill_mode = 1
 show_percentage = false
+script = ExtResource("20_73y51")
+player_stats = ExtResource("21_sfccr")
 
 [node name="Label" type="Label" parent="Player/UI/uiTest/ManaBar"]
 layout_mode = 0
@@ -352,9 +370,6 @@ target = NodePath("../..")
 [node name="SkillTree2" parent="Player/UI" instance=ExtResource("26_auhyj")]
 visible = false
 
-[node name="xporb" parent="Player/UI" instance=ExtResource("26_iprpn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.94039, 0.215572, 1.16481)
-
 [node name="Shader" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.541)
 visible = false
@@ -379,8 +394,24 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 [node name="Money" parent="." instance=ExtResource("4_4nwhm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.43127, -0.159485, -1.88047)
 
+[node name="xporb" parent="." instance=ExtResource("26_iprpn")]
+
 [node name="AwesomeTestCube" parent="." instance=ExtResource("32_6a8in")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7582, -0.140483, -2.62307)
+
+[node name="AbilityButton" parent="." instance=ExtResource("29_ladu2")]
+offset_left = 944.0
+offset_top = 579.0
+offset_right = 984.0
+offset_bottom = 619.0
+shortcut = SubResource("Shortcut_xe53s")
+
+[node name="AbilityButton2" parent="." instance=ExtResource("29_ladu2")]
+offset_left = 1007.0
+offset_top = 578.0
+offset_right = 1047.0
+offset_bottom = 618.0
+shortcut = SubResource("Shortcut_2mwdy")
 
 [connection signal="pressed" from="Player/UI/Dialog/Box/okButton" to="Player/UI/Dialog" method="_on_ok_button_pressed"]
 [connection signal="animation_finished" from="Player/UI/Dialog/VBoxContainer/TypeWriterEffect" to="Player/UI/Dialog" method="_on_type_writer_effect_animation_finished"]

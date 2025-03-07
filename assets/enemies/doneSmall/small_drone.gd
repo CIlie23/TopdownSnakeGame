@@ -11,6 +11,8 @@ extends CharacterBody3D
 @onready var shoot_timer: Timer = $ShootTimer
 
 @onready var rifle_barrel: Node3D = $"Drone1_Armature/Skeleton3D/Physical Bone Body/RayCast3D"
+var xporb = preload("res://scenes/enemies/xporb.tscn")
+
 var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
 var instance
 
@@ -59,6 +61,8 @@ func _process(delta: float) -> void:
 			#rotate_y(deg_to_rad(180))
 			#rotate_y(deg_to_rad(eyes.rotation.y * rotation_speed))
 		DEAD:
+			var orbInstance = xporb.instantiate()
+			add_child(orbInstance)
 			target = null
 			skeleton.physical_bones_start_simulation()
 			#queue_free()

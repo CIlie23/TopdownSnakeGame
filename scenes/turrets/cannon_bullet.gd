@@ -18,4 +18,5 @@ func _process(delta):
 		queue_free()
 
 func _on_timer_timeout() -> void:
+	print("cannon bullet deleted")
 	queue_free()

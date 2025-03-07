@@ -8,3 +8,5 @@ playerHealth = 100
 max_playerHealth = 100
 armor = 0
 maxArmor = 0
+mana = 100
+maxMana = 100

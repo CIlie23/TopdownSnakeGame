@@ -6,6 +6,12 @@ extends CharacterBody3D
 
 @export var inv: Inv #inventory
 
+#------------------------------BULLETS--------------------------------
+@onready var barrel: RayCast3D = $CollisionShape3D/MeshInstance3D/DirArrow/Rifle
+const PLASMA_BALL = preload("res://scenes/abilities/plasma_ball.tscn")
+var CANNON_BALL = preload("res://scenes/turrets/cannon_ball.tscn")
+var ball
+
 var playerStats = preload("res://scripts/player/player_stats_resource.tres")
 var skilltree: SkillAtribute
 
@@ -24,7 +30,8 @@ func _ready():
 
 func _process(_delta):
 	handle_input()
-	
+	if Input.is_action_just_pressed("shoot"):
+		_shoot_stuff()
 	if Input.is_action_just_pressed("extend_snake"):
 		extend()
 
@@ -61,6 +68,7 @@ func rotate_towards(new_direction: Vector3):
 	snake_head.look_at(target_position, Vector3.UP)  # Make the head look in the movement direction
 
 	snake_head.rotate_y(PI)
+	
 func move_snake():
 	is_moving = true
 	var target_position = position + direction * grid_size
@@ -98,3 +106,11 @@ func extend():
 
 func collect(item): #connected to inventory.gd
 	inv.insert(item)
+
+func _shoot_stuff():
+	ball = CANNON_BALL.instantiate()
+	ball.position = barrel.global_position
+	ball.transform.basis = barrel.global_transform.basis
+	ball.position = barrel.global_position
+	ball.transform.basis = barrel.global_transform.basis
+	get_parent().add_child(ball)

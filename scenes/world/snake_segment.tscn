@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj6swqe4fbcol"]
+[gd_scene load_steps=6 format=3 uid="uid://dj6swqe4fbcol"]
 
 [ext_resource type="Texture2D" uid="uid://h6ech8nhb30i" path="res://icon.svg" id="1_aygri"]
 [ext_resource type="Script" path="res://scripts/player/snake_segment.gd" id="1_dkpwd"]
+[ext_resource type="PackedScene" uid="uid://bm5k6p72qyjq6" path="res://scenes/turrets/double_turret.tscn" id="3_n1yal"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_drjxe"]
 
@@ -22,3 +23,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866025, 0.5, 0.707107, -0.353553, 0.612372, 0, 0, 0)
 visible = false
 texture = ExtResource("1_aygri")
+
+[node name="doubleTurret" parent="." instance=ExtResource("3_n1yal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021887, 0.232829, -0.0158863)
