@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityScript" load_steps=4 format=3 uid="uid://dft8b1iy1npyh"]
+
+[ext_resource type="Texture2D" uid="uid://2ccgcj3uplyd" path="res://assets/ui/abilities/Skillicon1_17.png" id="1_j4t74"]
+[ext_resource type="Resource" uid="uid://bu24cpd7gihw4" path="res://scenes/abilities/assets/test_abil.tres" id="1_yrjpm"]
+[ext_resource type="Script" path="res://scenes/UI/abilities/ability_script.gd" id="2_apw8u"]
+
+[resource]
+script = ExtResource("2_apw8u")
+abilityName = "FourthAbil"
+abilityIcon = ExtResource("1_j4t74")
+abilityShortcut = "ability_four"
+description = "this is the fourth ability"
+abilityColdown = 1.0
+abilityEffect = ExtResource("1_yrjpm")

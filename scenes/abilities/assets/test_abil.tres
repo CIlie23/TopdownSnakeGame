@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlayerAbility" load_steps=3 format=3 uid="uid://bu24cpd7gihw4"]
+
+[ext_resource type="PackedScene" uid="uid://8tyqj84mvv8m" path="res://scenes/abilities/assets/plasma_ball.tscn" id="1_4ef2n"]
+[ext_resource type="Script" path="res://scenes/abilities/basic_ability_script.gd" id="2_ose0j"]
+
+[resource]
+script = ExtResource("2_ose0j")
+ability = ExtResource("1_4ef2n")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityScript" load_steps=4 format=3 uid="uid://dcjfxsl8b3wei"]
+
+[ext_resource type="Resource" uid="uid://bu24cpd7gihw4" path="res://scenes/abilities/assets/test_abil.tres" id="1_ij8h2"]
+[ext_resource type="Texture2D" uid="uid://bbpei83bxnqgt" path="res://assets/ui/abilities/Skillicon1_04.png" id="1_jtgn5"]
+[ext_resource type="Script" path="res://scenes/UI/abilities/ability_script.gd" id="2_io2ya"]
+
+[resource]
+script = ExtResource("2_io2ya")
+abilityName = "TestificateAgain"
+abilityIcon = ExtResource("1_jtgn5")
+abilityShortcut = "2"
+description = ""
+abilityColdown = 4.0
+abilityEffect = ExtResource("1_ij8h2")

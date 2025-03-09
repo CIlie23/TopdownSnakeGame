@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=63 format=3 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
@@ -13,12 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://c64pmfjh8j7ec" path="res://assets/ui/buttons/Button Disable.png" id="9_lmfon"]
 [ext_resource type="Texture2D" uid="uid://bemv46m73p0r6" path="res://assets/ui/buttons/Button Hover.png" id="10_0vpjl"]
 [ext_resource type="Script" path="res://scripts/ui/typewriter.gd" id="11_tqxcn"]
-[ext_resource type="Texture2D" uid="uid://dm8o2l7wjmdco" path="res://assets/ui/Cell125x121px.png" id="16_fe47w"]
-[ext_resource type="Texture2D" uid="uid://cjrspwvrdbbe8" path="res://assets/ui/sidebar/Icon28.png" id="17_mlpqy"]
-[ext_resource type="Texture2D" uid="uid://dwqupm0trkf5f" path="res://assets/ui/sidebar/Icon33.png" id="18_l250t"]
-[ext_resource type="Texture2D" uid="uid://blsci5klgfdp7" path="res://assets/ui/sidebar/Icon36.png" id="19_1mubg"]
+[ext_resource type="Resource" uid="uid://y6ic2kdpthvr" path="res://scenes/abilities/abil_secondabil.tres" id="15_w28vc"]
+[ext_resource type="Script" path="res://scenes/abilities/basic_ability_script.gd" id="16_3uhxe"]
+[ext_resource type="Resource" uid="uid://bkay3rew2586i" path="res://scenes/abilities/abil_thirdabil.tres" id="16_yji8p"]
+[ext_resource type="Resource" uid="uid://dft8b1iy1npyh" path="res://scenes/abilities/abil_fourthabil.tres" id="17_1kxay"]
+[ext_resource type="PackedScene" uid="uid://8tyqj84mvv8m" path="res://scenes/abilities/assets/plasma_ball.tscn" id="18_q0on2"]
+[ext_resource type="Resource" uid="uid://bu24cpd7gihw4" path="res://scenes/abilities/assets/test_abil.tres" id="19_qwnsf"]
 [ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="20_73y51"]
-[ext_resource type="Texture2D" uid="uid://bkb5lasskcliv" path="res://assets/ui/sidebar/Icon37.png" id="20_2288c"]
 [ext_resource type="Resource" uid="uid://da3x75y4auqsh" path="res://scripts/player/player_stats_resource.tres" id="21_sfccr"]
 [ext_resource type="PackedScene" uid="uid://c43mvr23c6gke" path="res://scenes/skilltree/skill_tree.tscn" id="26_auhyj"]
 [ext_resource type="Script" path="res://scripts/ui/drone_camera.gd" id="26_bb6pl"]
@@ -28,7 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://b475wnptaipdd" path="res://scenes/pause_menu.tscn" id="28_4ig8x"]
 [ext_resource type="PackedScene" uid="uid://uvfwcht0hfmi" path="res://scenes/UI/minimap.tscn" id="28_a32ar"]
 [ext_resource type="PackedScene" uid="uid://duu00ypj1dd7q" path="res://scenes/UI/abilities/ability_button.tscn" id="29_ladu2"]
+[ext_resource type="Resource" uid="uid://dcjfxsl8b3wei" path="res://scenes/abilities/abil_keepcoming.tres" id="30_dbf63"]
 [ext_resource type="PackedScene" uid="uid://cp15cenbvmedl" path="res://scenes/awesome_test_cube.tscn" id="32_6a8in"]
+[ext_resource type="PackedScene" uid="uid://bfxt5jytjwrxn" path="res://scenes/enemies/chaser/enemy_mimic.tscn" id="34_s64ao"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_385kf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnp1g"]
 albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
@@ -105,6 +110,34 @@ bg_color = Color(0.223529, 0.223529, 0.223529, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfia4"]
 bg_color = Color(0, 0.52549, 1, 1)
 
+[sub_resource type="InputEventAction" id="InputEventAction_87xu8"]
+action = &"ability_one"
+
+[sub_resource type="Shortcut" id="Shortcut_xe53s"]
+events = [SubResource("InputEventAction_87xu8")]
+
+[sub_resource type="Resource" id="Resource_gu0gh"]
+script = ExtResource("16_3uhxe")
+ability_scene = ExtResource("18_q0on2")
+
+[sub_resource type="InputEventAction" id="InputEventAction_b14d4"]
+action = &"ability_two"
+
+[sub_resource type="Shortcut" id="Shortcut_5mvnc"]
+events = [SubResource("InputEventAction_b14d4")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_50msj"]
+action = &"ability_tree"
+
+[sub_resource type="Shortcut" id="Shortcut_te72a"]
+events = [SubResource("InputEventAction_50msj")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_t64ml"]
+action = &"ability_four"
+
+[sub_resource type="Shortcut" id="Shortcut_jfcgm"]
+events = [SubResource("InputEventAction_t64ml")]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mm3f"]
 texture = ExtResource("26_n8b2v")
 
@@ -122,31 +155,23 @@ shader_parameter/resolution_scale = 2
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="InputEventAction" id="InputEventAction_87xu8"]
-action = &"ability_one"
-
-[sub_resource type="Shortcut" id="Shortcut_xe53s"]
-events = [SubResource("InputEventAction_87xu8")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_pwlp2"]
-action = &"ability_two"
-
-[sub_resource type="Shortcut" id="Shortcut_2mwdy"]
-events = [SubResource("InputEventAction_pwlp2")]
-
 [node name="Spacial" type="Node3D"]
 script = ExtResource("1_mfq8h")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_385kf")
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(26.4785, 0, 0, 0, -0.851035, 0, 0, 0, 25.2955, 0, -1.06368, 0)
 mesh = SubResource("BoxMesh_wu1uj")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00100086, -0.0181824, -0.000659283)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29541, -0.0107422)
 shape = SubResource("BoxShape3D_21piy")
 
@@ -241,41 +266,13 @@ libraries = {
 }
 script = ExtResource("11_tqxcn")
 
-[node name="uiTest" type="Control" parent="Player/UI"]
+[node name="UI" type="Control" parent="Player/UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Cell125x121Px2" type="Sprite2D" parent="Player/UI/uiTest"]
-visible = false
-position = Vector2(559, 595)
-scale = Vector2(0.442, 0.442)
-texture = ExtResource("16_fe47w")
-
-[node name="Icon28" type="Sprite2D" parent="Player/UI/uiTest"]
-visible = false
-position = Vector2(1111.75, 587.75)
-scale = Vector2(0.767045, 0.767045)
-texture = ExtResource("17_mlpqy")
-
-[node name="Icon33" type="Sprite2D" parent="Player/UI/uiTest"]
-visible = false
-position = Vector2(1040, 588)
-scale = Vector2(0.815318, 0.815318)
-texture = ExtResource("18_l250t")
-
-[node name="Icon36" type="Sprite2D" parent="Player/UI/uiTest"]
-visible = false
-position = Vector2(885, 589)
-texture = ExtResource("19_1mubg")
-
-[node name="Icon37" type="Sprite2D" parent="Player/UI/uiTest"]
-visible = false
-position = Vector2(965, 589)
-texture = ExtResource("20_2288c")
-
-[node name="HealthBar" type="ProgressBar" parent="Player/UI/uiTest"]
+[node name="HealthBar" type="ProgressBar" parent="Player/UI/UI"]
 layout_mode = 0
 offset_left = 851.0
 offset_top = 512.0
@@ -288,7 +285,7 @@ show_percentage = false
 script = ExtResource("20_73y51")
 player_stats = ExtResource("21_sfccr")
 
-[node name="Label" type="Label" parent="Player/UI/uiTest/HealthBar"]
+[node name="Label" type="Label" parent="Player/UI/UI/HealthBar"]
 layout_mode = 0
 offset_left = 241.0
 offset_top = -20.0
@@ -296,7 +293,7 @@ offset_right = 293.0
 offset_bottom = 3.0
 text = "Health"
 
-[node name="ManaBar" type="ProgressBar" parent="Player/UI/uiTest"]
+[node name="ManaBar" type="ProgressBar" parent="Player/UI/UI"]
 layout_mode = 0
 offset_left = 850.0
 offset_top = 538.0
@@ -309,13 +306,57 @@ show_percentage = false
 script = ExtResource("20_73y51")
 player_stats = ExtResource("21_sfccr")
 
-[node name="Label" type="Label" parent="Player/UI/uiTest/ManaBar"]
+[node name="Label" type="Label" parent="Player/UI/UI/ManaBar"]
 layout_mode = 0
 offset_left = 249.0
 offset_top = -20.0
 offset_right = 293.0
 offset_bottom = 3.0
 text = "Mana"
+
+[node name="AbilityBar" type="HBoxContainer" parent="Player/UI/UI"]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 561.0
+offset_right = 1054.0
+offset_bottom = 601.0
+scale = Vector2(1.5, 1.5)
+
+[node name="AbilityButton" parent="Player/UI/UI/AbilityBar" node_paths=PackedStringArray("player") instance=ExtResource("29_ladu2")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_xe53s")
+abilityAtributes = ExtResource("30_dbf63")
+action_name = "Test1"
+input_config = "1"
+spell_number = 1
+player_ability = SubResource("Resource_gu0gh")
+player = NodePath("../../../..")
+
+[node name="AbilityButton2" parent="Player/UI/UI/AbilityBar" instance=ExtResource("29_ladu2")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_5mvnc")
+abilityAtributes = ExtResource("15_w28vc")
+action_name = "Tes2"
+input_config = "2"
+spell_number = 2
+
+[node name="AbilityButton3" parent="Player/UI/UI/AbilityBar" node_paths=PackedStringArray("player") instance=ExtResource("29_ladu2")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_te72a")
+abilityAtributes = ExtResource("16_yji8p")
+action_name = "Test3"
+input_config = "3"
+spell_number = 3
+player_ability = ExtResource("19_qwnsf")
+player = NodePath("../../../..")
+
+[node name="AbilityButton4" parent="Player/UI/UI/AbilityBar" instance=ExtResource("29_ladu2")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_jfcgm")
+abilityAtributes = ExtResource("17_1kxay")
+action_name = "Test4"
+input_config = "4"
+spell_number = 4
 
 [node name="deliveryDroneCam" type="Control" parent="Player/UI"]
 visible = false
@@ -394,24 +435,13 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 [node name="Money" parent="." instance=ExtResource("4_4nwhm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.43127, -0.159485, -1.88047)
 
-[node name="xporb" parent="." instance=ExtResource("26_iprpn")]
-
 [node name="AwesomeTestCube" parent="." instance=ExtResource("32_6a8in")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7582, -0.140483, -2.62307)
 
-[node name="AbilityButton" parent="." instance=ExtResource("29_ladu2")]
-offset_left = 944.0
-offset_top = 579.0
-offset_right = 984.0
-offset_bottom = 619.0
-shortcut = SubResource("Shortcut_xe53s")
+[node name="mimic" parent="." instance=ExtResource("34_s64ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.763025, -0.622688, 7.26763)
 
-[node name="AbilityButton2" parent="." instance=ExtResource("29_ladu2")]
-offset_left = 1007.0
-offset_top = 578.0
-offset_right = 1047.0
-offset_bottom = 618.0
-shortcut = SubResource("Shortcut_2mwdy")
+[node name="xporb" parent="." instance=ExtResource("26_iprpn")]
 
 [connection signal="pressed" from="Player/UI/Dialog/Box/okButton" to="Player/UI/Dialog" method="_on_ok_button_pressed"]
 [connection signal="animation_finished" from="Player/UI/Dialog/VBoxContainer/TypeWriterEffect" to="Player/UI/Dialog" method="_on_type_writer_effect_animation_finished"]

@@ -1,2 +1,4 @@
+PlayerAbility
+AbilityScript
 SkillAtribute
 PlayerStats

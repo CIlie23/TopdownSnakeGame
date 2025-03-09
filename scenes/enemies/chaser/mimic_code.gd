@@ -10,7 +10,7 @@ extends CharacterBody3D #Code for the mimic enemy
 @onready var sight: CollisionShape3D = $DetectArea/Sight
 @onready var animations: AnimationPlayer = $Animations
 @onready var skeleton: Skeleton3D = %GeneralSkeleton
-@onready var animation_tree: AnimationTree = $AnimationTree
+
 
 @onready var idle_timer: Timer = $IdleTimer
 @onready var wander_timer: Timer = $WanderTimer
@@ -22,6 +22,7 @@ extends CharacterBody3D #Code for the mimic enemy
 
 @export var blend_speed = 1000
 
+@onready var XPORB = preload("res://scenes/enemies/xporb.tscn")
 var state = IDLE
 var wander_directon: Vector3
 var target = null
@@ -139,6 +140,8 @@ func _process(delta):
 			animations.play("memecAnimations/claw")
 			#animation_tree.set("parameters/conditions/attack", _target_in_range())
 		DEAD:
+			print("dead")
+			spawn_xp_orb()
 			target = null
 			skeleton.physical_bones_start_simulation()
 			set_process(false)
@@ -166,6 +169,14 @@ func _on_wander_timer_timeout() -> void:
 	
 	idle_timer.start()
 
-
 func _on_despawn_timeout() -> void:
 	queue_free()
+
+func spawn_xp_orb():
+	var xp_orb = XPORB.instantiate()
+	xp_orb.global_position = global_position
+	# Reparent to the world so it doesn't get deleted
+	#get_parent().add_child(xp_orb) 
+	get_tree().get_root().add_child(xp_orb)
+	  # Spawn at enemy's last position
+	print("XP orb spawned at:", xp_orb.global_position)

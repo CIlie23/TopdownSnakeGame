@@ -1,14 +1,14 @@
 extends CharacterBody3D
 
 @export var grid_size: float = 1.0  # Adjust this to match your scene's grid
-@export var move_duration: float = 0.1  # How long each move takes
+var move_duration: float = 0.1  # How long each move takes
 @onready var snake_head: MeshInstance3D = $CollisionShape3D/MeshInstance3D
 
 @export var inv: Inv #inventory
 
 #------------------------------BULLETS--------------------------------
 @onready var barrel: RayCast3D = $CollisionShape3D/MeshInstance3D/DirArrow/Rifle
-const PLASMA_BALL = preload("res://scenes/abilities/plasma_ball.tscn")
+const PLASMA_BALL = preload("res://scenes/abilities/assets/plasma_ball.tscn")
 var CANNON_BALL = preload("res://scenes/turrets/cannon_ball.tscn")
 var ball
 
@@ -23,7 +23,8 @@ var tail_piece = preload("res://scenes/world/snake_segment.tscn")
 var is_moving = false  # Prevents input spam while moving
 
 func _ready():
-	print(playerStats.playerHealth, " health")
+	#print(move_duration)
+	#print(playerStats.playerHealth, " health")
 	#print(skilltree.healthBoost += 10)
 	# Ensure position starts snapped to grid
 	position = position.snapped(Vector3.ONE * grid_size)
@@ -31,7 +32,7 @@ func _ready():
 func _process(_delta):
 	handle_input()
 	if Input.is_action_just_pressed("shoot"):
-		_shoot_stuff()
+		_shoot_plasmaball()
 	if Input.is_action_just_pressed("extend_snake"):
 		extend()
 
@@ -107,10 +108,24 @@ func extend():
 func collect(item): #connected to inventory.gd
 	inv.insert(item)
 
-func _shoot_stuff():
-	ball = CANNON_BALL.instantiate()
+#----------------------------------------------------------------------------
+# ABILITIESSSSSSSS
+#---------------------------------------------------------------------------- 
+func _shoot_plasmaball():
+	ball = PLASMA_BALL.instantiate()
 	ball.position = barrel.global_position
 	ball.transform.basis = barrel.global_transform.basis
 	ball.position = barrel.global_position
 	ball.transform.basis = barrel.global_transform.basis
 	get_parent().add_child(ball)
+
+func _speed_up():
+	$SpeedUPtimer.start()
+	move_duration = 0.08
+	print(move_duration)
+	print("zoooooommmm")
+
+func _on_speed_u_ptimer_timeout() -> void:
+	$SpeedUPtimer.stop()
+	move_duration = 0.1
+	print(move_duration)

@@ -5,11 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://cifl84hiiomxs" path="res://assets/ui/abilities/coldown.png" id="2_uc0xu"]
 
 [node name="AbilityButton" type="TextureButton"]
+custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_hcyk0")
 stretch_mode = 0
 script = ExtResource("2_p2b3e")
+
+[node name="AbilityIcon" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+centered = false
 
 [node name="Coldown" type="TextureProgressBar" parent="."]
 layout_mode = 0
@@ -26,6 +31,7 @@ tint_progress = Color(1, 1, 1, 0.45098)
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -50,10 +56,6 @@ offset_bottom = 42.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "1"
-
-[node name="AbilityIcon" type="Sprite2D" parent="."]
-position = Vector2(4, 4)
-centered = false
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

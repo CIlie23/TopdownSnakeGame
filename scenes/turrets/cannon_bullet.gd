@@ -1,10 +1,15 @@
 extends Node3D
+
+# Should probably rewrite this l8r so it's a resource
+# In case I wanna reuse it for something else
+# Rn this script is also used for the plasma_ball
+
 @onready var timer: Timer = $Timer
 @onready var cannonBall: MeshInstance3D = $MeshInstance3D
 @onready var particles: GPUParticles3D = $GPUParticles3D
 @onready var ray: RayCast3D = $RayCast3D
 
-const SPEED: float = 30.0
+@export var SPEED: float
 
 func _ready():
 	pass
