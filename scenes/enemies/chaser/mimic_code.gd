@@ -140,6 +140,7 @@ func _process(delta):
 			animations.play("memecAnimations/claw")
 			#animation_tree.set("parameters/conditions/attack", _target_in_range())
 		DEAD:
+			$CollisionShape3D.disabled = true
 			print("dead")
 			spawn_xp_orb()
 			target = null

@@ -1,10 +1,12 @@
 extends Resource
 class_name PlayerAbility
+
 #----------------------------------------------------------------------------
-# This code handles all the player ABILITIES
+# This code handles ALL the player ABILITIES
 #----------------------------------------------------------------------------
 
 @export var ability_scene: PackedScene 
+@export var spell_cost: int
 
 func _cast_spell_one(player):
 	if player.has_method("_shoot_plasmaball"):
@@ -22,7 +24,10 @@ func _cast_spell_three(player):
 		print("Player does not have a cast_projectile function!")
 
 func _cast_spell_four(player):
-	print("Swarm attack")
+	if player.has_method("_spawn_swarm"):
+		player._spawn_swarm(player)  # Calls the function in Player.gd
+	else:
+		print("Player does not have a cast_projectile function!")
 
 #----------------------------------------------------------------------------
 # This code handles all the player ABILITIES

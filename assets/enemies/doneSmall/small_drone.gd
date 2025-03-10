@@ -11,11 +11,11 @@ extends CharacterBody3D
 @onready var shoot_timer: Timer = $ShootTimer
 
 @onready var rifle_barrel: Node3D = $"Drone1_Armature/Skeleton3D/Physical Bone Body/RayCast3D"
-var xporb = preload("res://scenes/enemies/xporb.tscn")
+@onready var XPORB = preload("res://scenes/enemies/xporb.tscn")
 
 var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
 var instance
-
+var can_look: bool = true
 var state = IDLE
 var target = null
 var wander_directon: Vector3
@@ -45,9 +45,8 @@ func _process(delta: float) -> void:
 			velocity = wander_directon * MOVE_SPEED
 			move_and_slide()
 		ALERT:
-			#print("Im alerted")
 			animations.play("walk")
-			#eyes.look_at(target.global_transform.origin, Vector3.UP)
+			look_at(target.global_transform.origin, Vector3.UP)
 			rotate_y(deg_to_rad(180))
 			#rotate_y(deg_to_rad(eyes.rotation.y * rotation_speed))
 		CHASE:
@@ -57,17 +56,13 @@ func _process(delta: float) -> void:
 			print("Attacking")
 			animations.play("walk")
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
-			#eyes.look_at(target.global_transform.origin, Vector3.UP)
-			#rotate_y(deg_to_rad(180))
-			#rotate_y(deg_to_rad(eyes.rotation.y * rotation_speed))
 		DEAD:
-			var orbInstance = xporb.instantiate()
-			add_child(orbInstance)
+			spawn_xp_orb()
+			$Hitbox.disabled = true
 			target = null
 			skeleton.physical_bones_start_simulation()
-			#queue_free()
 			set_process(false)
-			#shoot_timer.stop()
+			shoot_timer.stop()
 			despawn.start()
 
 #----------------------------------------------------------------------------
@@ -75,40 +70,42 @@ func _process(delta: float) -> void:
 #----------------------------------------------------------------------------
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
-		exclamation_mark.visible = true
+		#exclamation_mark.visible = true
 		idle_timer.stop()
 		target = body
-		#state = ALERT
-		#await animations.animation_finished
 		state = ATTACK
 		shoot_timer.start()
 		
 		print(body.name + "Detected")
 
 func _physics_process(delta):
-	if target: #if the target is in range
+	if state == DEAD:
+		can_look = false
+		velocity = Vector3.ZERO
+		print("i should be dead rn")
+		return
+		
+	if target and can_look == true:
 		look_at(target.global_transform.origin, Vector3.UP)
-		#rotate_y(deg_to_rad(180)) #turns model 180 degrees cause for some reason it's fillped?
-		#velocity = position.direction_to(target.position) * MOVE_SPEED
-		pass
+		print("i shouldn't be movin rn")
 	else:
 		velocity = Vector3.ZERO  # Ensure no unintended movement
-	velocity = velocity.limit_length(MOVE_SPEED) 
 	
+	velocity = velocity.limit_length(MOVE_SPEED) 
 	move_and_slide()
 #----------------------------------------------------------------------------
 # Attack stuff
 #----------------------------------------------------------------------------
 func _on_attack_area_body_entered(body: Node3D) -> void:
+	if state == DEAD: return
 	if body.is_in_group("Player"):
-		#if body.is_in_group("Player"):
-		print("Can attack")
 		idle_timer.stop()
-		shoot_timer.start()
 		target = body
 		state = ATTACK
+		shoot_timer.start()
 
 func _on_attack_area_body_exited(body: Node3D) -> void:
+	if state == DEAD: return
 	if body.is_in_group("Player"):
 		print("Can't attack") 
 		state = CHASE
@@ -128,7 +125,7 @@ func _target_hit():
 #----------------------------------------------------------------------------
 func _on_chase_area_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		exclamation_mark.visible = false
+		#exclamation_mark.visible = false
 		idle_timer.start()
 		shoot_timer.stop()
 		target = null
@@ -159,3 +156,12 @@ func _on_wander_timer_timeout() -> void:
 
 func _on_despawn_timeout() -> void:
 	queue_free()
+
+func spawn_xp_orb():
+	var xp_orb = XPORB.instantiate()
+	xp_orb.global_position = global_position
+	# Reparent to the world so it doesn't get deleted
+	#get_parent().add_child(xp_orb) 
+	get_tree().get_root().add_child(xp_orb)
+	  # Spawn at enemy's last position
+	print("XP orb spawned at:", xp_orb.global_position)

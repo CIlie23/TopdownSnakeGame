@@ -18,7 +18,7 @@ extends TextureButton
 
 @export var player_ability: PlayerAbility  # Assign the ability resource
 @export var player: Node  # Assign the Player node
-
+@export var playerStats = preload("res://scripts/player/player_stats_resource.tres")
 var change_key = "":
 	set(value):
 		change_key = value
@@ -31,15 +31,15 @@ var change_key = "":
 		shortcut.events = [input_key]
  
 func _ready():
-
 	ability_icon.texture = abilityAtributes.abilityIcon
 	timer.wait_time = abilityAtributes.abilityColdown
 	lbl_key.text = input_config
 	cooldown.max_value = timer.wait_time
 	#cooldown.max_value = abilityAtributes.abilityColdown
 	set_process(false)
- 
+ 	
 func _process(_delta):
+	
 	lbl_coldown.text = "%3.1f" % timer.time_left
 	cooldown.value = timer.time_left
 	#cooldown.value = abilityAtributes.abilityColdown
@@ -50,21 +50,31 @@ func _process(_delta):
 # Basically it assigns a spell to each key
 #---------------------------------------------------------------------------- 
 func _on_pressed(): #add logic here to prvent from pressing again
-	if Input.is_action_pressed("ability_one"):
+	if Input.is_action_pressed("ability_one") and playerStats.mana >= 10:
+		playerStats.mana -= 10
 		abilityAtributes.use_ability_one(player)
-	elif Input.is_action_pressed("ability_two"):
+	elif Input.is_action_pressed("ability_two") and playerStats.mana >= 50:
+		playerStats.mana -= 50
 		abilityAtributes.use_ability_two(player)
-	elif Input.is_action_pressed("ability_tree"):
+	elif Input.is_action_pressed("ability_tree") and playerStats.mana >= 30:
+		playerStats.mana -= 30
 		abilityAtributes.use_ability_three(player)
-	elif Input.is_action_pressed("ability_four"):
+	elif Input.is_action_pressed("ability_four") and playerStats.mana >= 20:
+		playerStats.mana -= 20
 		abilityAtributes.use_ability_four(player)
-	#print("Button was pressed!")
+	
+	if playerStats.mana < abilityAtributes.abilityCost:
+		print("disabled3")
+		
+		ability_button.disabled = true
+	#current issue, make the button not pressable when no mana
+	#is available
+	
 	timer.start()
 	panel.show()
 	lbl_coldown.show()
 	set_process(true)
 
-	#lbl_coldown.text = "%3.1f" % timer.time_left
 	ability_button.disabled = true
  
 func _on_timer_timeout():

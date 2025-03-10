@@ -1,14 +1,14 @@
+Timer
+Control
+Container
 CollisionShape3D
 Area3D
 MeshInstance3D
 GPUParticles3D
 AnimationPlayer
-Timer
 NavigationAgent3D
 NavigationRegion3D
 RayCast3D
 CharacterBody3D
 HBoxContainer
 CPUParticles3D
-Sprite2D
-GridContainer

@@ -7,7 +7,7 @@ class_name PlayerStats
 @export var maxArmor: int
 @export var mana: int
 @export var maxMana: int
-
+@export var manaRegen: float = 2.0
 signal health_changed(new_health, max_health)
 signal mana_grown(new_mana, max_mana)
 

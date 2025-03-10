@@ -6,14 +6,14 @@ extends CharacterBody3D
 @onready var player: CharacterBody3D = $"../Player"
 #@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
-@export var target_player: CharacterBody3D
+@export var target_player = preload("res://scenes/world/player.tscn")
 
 var state = IDLE
 var SPEED = 0.1
 var target = null
 
-var orbit_radius: float = 5.0  # Distance from the player
-var orbit_speed: float = 0.03  # Rotation speed
+var follow_distance: float = 5.5  # Distance from the player
+var speed: float = 7.5  # Rotation speed
 var orbit_offset: Vector3 = Vector3.ZERO # Stores the initial offset
 
 var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
@@ -27,11 +27,24 @@ enum{
 }
 
 func _ready() -> void:
-	orbit_offset = Vector3(orbit_radius, 2, 0) 
+	pass
+	#orbit_offset = Vector3(orbit_radius, 2, 0) 
 	
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
+	#match state:
+		#IDLE:
+			#animation.play("CharacterArmature|Idle")
+		#ATTACK:
+			#animation.play("CharacterArmature|Shoot")
+		#CHASE:
+			#animation.play("CharacterArmature|Walk")
+		#RETREAT:
+			#animation.play("CharacterArmature|Walk")
+
+func _physics_process(delta: float) -> void:
 	match state:
 		IDLE:
+			idle_state(delta)
 			animation.play("CharacterArmature|Idle")
 		ATTACK:
 			animation.play("CharacterArmature|Shoot")
@@ -39,22 +52,19 @@ func _process(delta: float) -> void:
 			animation.play("CharacterArmature|Walk")
 		RETREAT:
 			animation.play("CharacterArmature|Walk")
+	move_and_slide()  
 
-
-func _physics_process(delta: float) -> void:
-	#if player:
-	var target_position = player.position + orbit_offset
-	position = position.lerp(target_position, orbit_speed)# Smoothly move towards target position
-	look_at(target_position)
-	rotate_y(deg_to_rad(180)) 
-	move_and_slide()
-	
 	#rotation = Vector3(0, rotation.y, 0) # So that the model doesn't look up or down while the player is jumping
 
 #----------------------------------------------------------------------------
 # Some movement logic
 #----------------------------------------------------------------------------
-
+func idle_state(delta):
+	if player:
+		var direction = (player.position - position).normalized()
+		velocity = direction * speed
+		look_at(player.position) 
+		rotate_y(deg_to_rad(180)) 
 #----------------------------------------------------------------------------
 # Detection
 #----------------------------------------------------------------------------
@@ -73,7 +83,6 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 		state = IDLE
 		print(body.name + "Lost")
 		pass 
-
 
 #----------------------------------------------------------------------------
 # Attack

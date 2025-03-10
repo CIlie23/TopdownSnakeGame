@@ -23,6 +23,7 @@ extends CharacterBody3D
 @onready var rifle_barrel: Node3D = $XRKArmature/GeneralSkeleton/BoneAttachment3D/rifle/RayCast3D
 var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
 var instance
+@onready var XPORB = preload("res://scenes/enemies/xporb.tscn")
 
 var state = IDLE
 var target = null
@@ -50,8 +51,6 @@ func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
 		idle_timer.stop()
 		target = body
-		#state = ALERT
-		#await animations.animation_finished
 		state = ATTACK
 		shoot_timer.start()
 		
@@ -142,9 +141,10 @@ func _process(delta: float) -> void:
 			#rotate_y(deg_to_rad(180))
 			#rotate_y(deg_to_rad(eyes.rotation.y * rotation_speed))
 		DEAD:
+			spawn_xp_orb()
+			$Hitbox.disabled = true
 			target = null
 			skeleton.physical_bones_start_simulation()
-			#queue_free()
 			set_process(false)
 			shoot_timer.stop()
 			despawn.start()
@@ -171,6 +171,14 @@ func _on_wander_timer_timeout() -> void:
 	
 	idle_timer.start()
 
-
 func _on_despawn_timeout() -> void:
 	queue_free()
+
+func spawn_xp_orb():
+	var xp_orb = XPORB.instantiate()
+	xp_orb.global_position = global_position
+	# Reparent to the world so it doesn't get deleted
+	#get_parent().add_child(xp_orb) 
+	get_tree().get_root().add_child(xp_orb)
+	  # Spawn at enemy's last position
+	print("XP orb spawned at:", xp_orb.global_position)

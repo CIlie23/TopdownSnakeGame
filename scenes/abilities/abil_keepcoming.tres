@@ -9,6 +9,7 @@ script = ExtResource("2_io2ya")
 abilityName = "TestificateAgain"
 abilityIcon = ExtResource("1_jtgn5")
 abilityShortcut = "2"
+abilityCost = 10
 description = ""
 abilityColdown = 4.0
 abilityEffect = ExtResource("1_ij8h2")

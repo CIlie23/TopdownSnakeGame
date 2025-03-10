@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=62 format=3 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
@@ -23,7 +23,6 @@
 [ext_resource type="Resource" uid="uid://da3x75y4auqsh" path="res://scripts/player/player_stats_resource.tres" id="21_sfccr"]
 [ext_resource type="PackedScene" uid="uid://c43mvr23c6gke" path="res://scenes/skilltree/skill_tree.tscn" id="26_auhyj"]
 [ext_resource type="Script" path="res://scripts/ui/drone_camera.gd" id="26_bb6pl"]
-[ext_resource type="PackedScene" uid="uid://dkmojbkfpsjow" path="res://scenes/enemies/xporb.tscn" id="26_iprpn"]
 [ext_resource type="Texture2D" uid="uid://c6rk8ro2e6oeb" path="res://assets/ui/windows/Card X3.png" id="26_n8b2v"]
 [ext_resource type="PackedScene" uid="uid://x3r8d5cox4a7" path="res://scenes/UI/inventory/inventory_ui.tscn" id="26_nv6hk"]
 [ext_resource type="PackedScene" uid="uid://b475wnptaipdd" path="res://scenes/pause_menu.tscn" id="28_4ig8x"]
@@ -31,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://duu00ypj1dd7q" path="res://scenes/UI/abilities/ability_button.tscn" id="29_ladu2"]
 [ext_resource type="Resource" uid="uid://dcjfxsl8b3wei" path="res://scenes/abilities/abil_keepcoming.tres" id="30_dbf63"]
 [ext_resource type="PackedScene" uid="uid://cp15cenbvmedl" path="res://scenes/awesome_test_cube.tscn" id="32_6a8in"]
-[ext_resource type="PackedScene" uid="uid://bfxt5jytjwrxn" path="res://scenes/enemies/chaser/enemy_mimic.tscn" id="34_s64ao"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_385kf"]
 
@@ -119,6 +117,7 @@ events = [SubResource("InputEventAction_87xu8")]
 [sub_resource type="Resource" id="Resource_gu0gh"]
 script = ExtResource("16_3uhxe")
 ability_scene = ExtResource("18_q0on2")
+spell_cost = 0
 
 [sub_resource type="InputEventAction" id="InputEventAction_b14d4"]
 action = &"ability_two"
@@ -137,6 +136,10 @@ action = &"ability_four"
 
 [sub_resource type="Shortcut" id="Shortcut_jfcgm"]
 events = [SubResource("InputEventAction_t64ml")]
+
+[sub_resource type="Resource" id="Resource_teswl"]
+script = ExtResource("16_3uhxe")
+spell_cost = 40
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mm3f"]
 texture = ExtResource("26_n8b2v")
@@ -272,7 +275,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HealthBar" type="ProgressBar" parent="Player/UI/UI"]
+[node name="AbilitiesNSuch" type="Control" parent="Player/UI/UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="Player/UI/UI/AbilitiesNSuch"]
 layout_mode = 0
 offset_left = 851.0
 offset_top = 512.0
@@ -285,7 +293,7 @@ show_percentage = false
 script = ExtResource("20_73y51")
 player_stats = ExtResource("21_sfccr")
 
-[node name="Label" type="Label" parent="Player/UI/UI/HealthBar"]
+[node name="Label" type="Label" parent="Player/UI/UI/AbilitiesNSuch/HealthBar"]
 layout_mode = 0
 offset_left = 241.0
 offset_top = -20.0
@@ -293,7 +301,7 @@ offset_right = 293.0
 offset_bottom = 3.0
 text = "Health"
 
-[node name="ManaBar" type="ProgressBar" parent="Player/UI/UI"]
+[node name="ManaBar" type="ProgressBar" parent="Player/UI/UI/AbilitiesNSuch"]
 layout_mode = 0
 offset_left = 850.0
 offset_top = 538.0
@@ -306,7 +314,7 @@ show_percentage = false
 script = ExtResource("20_73y51")
 player_stats = ExtResource("21_sfccr")
 
-[node name="Label" type="Label" parent="Player/UI/UI/ManaBar"]
+[node name="Label" type="Label" parent="Player/UI/UI/AbilitiesNSuch/ManaBar"]
 layout_mode = 0
 offset_left = 249.0
 offset_top = -20.0
@@ -314,15 +322,18 @@ offset_right = 293.0
 offset_bottom = 3.0
 text = "Mana"
 
-[node name="AbilityBar" type="HBoxContainer" parent="Player/UI/UI"]
-layout_mode = 0
-offset_left = 882.0
-offset_top = 561.0
-offset_right = 1054.0
-offset_bottom = 601.0
+[node name="AbilityBar" type="HBoxContainer" parent="Player/UI/UI/AbilitiesNSuch"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 22.05
+anchor_top = 14.025
+anchor_right = 28.5
+anchor_bottom = 15.525
+offset_right = -86.0
+offset_bottom = -20.0
 scale = Vector2(1.5, 1.5)
 
-[node name="AbilityButton" parent="Player/UI/UI/AbilityBar" node_paths=PackedStringArray("player") instance=ExtResource("29_ladu2")]
+[node name="AbilityButton" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" node_paths=PackedStringArray("player") instance=ExtResource("29_ladu2")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_xe53s")
 abilityAtributes = ExtResource("30_dbf63")
@@ -330,9 +341,9 @@ action_name = "Test1"
 input_config = "1"
 spell_number = 1
 player_ability = SubResource("Resource_gu0gh")
-player = NodePath("../../../..")
+player = NodePath("../../../../..")
 
-[node name="AbilityButton2" parent="Player/UI/UI/AbilityBar" instance=ExtResource("29_ladu2")]
+[node name="AbilityButton2" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_5mvnc")
 abilityAtributes = ExtResource("15_w28vc")
@@ -340,7 +351,7 @@ action_name = "Tes2"
 input_config = "2"
 spell_number = 2
 
-[node name="AbilityButton3" parent="Player/UI/UI/AbilityBar" node_paths=PackedStringArray("player") instance=ExtResource("29_ladu2")]
+[node name="AbilityButton3" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" node_paths=PackedStringArray("player") instance=ExtResource("29_ladu2")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_te72a")
 abilityAtributes = ExtResource("16_yji8p")
@@ -348,15 +359,17 @@ action_name = "Test3"
 input_config = "3"
 spell_number = 3
 player_ability = ExtResource("19_qwnsf")
-player = NodePath("../../../..")
+player = NodePath("../../../../..")
 
-[node name="AbilityButton4" parent="Player/UI/UI/AbilityBar" instance=ExtResource("29_ladu2")]
+[node name="AbilityButton4" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" node_paths=PackedStringArray("player") instance=ExtResource("29_ladu2")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_jfcgm")
 abilityAtributes = ExtResource("17_1kxay")
 action_name = "Test4"
 input_config = "4"
 spell_number = 4
+player_ability = SubResource("Resource_teswl")
+player = NodePath("../../../../..")
 
 [node name="deliveryDroneCam" type="Control" parent="Player/UI"]
 visible = false
@@ -437,11 +450,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.43127, -0.159485, -1.
 
 [node name="AwesomeTestCube" parent="." instance=ExtResource("32_6a8in")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7582, -0.140483, -2.62307)
-
-[node name="mimic" parent="." instance=ExtResource("34_s64ao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.763025, -0.622688, 7.26763)
-
-[node name="xporb" parent="." instance=ExtResource("26_iprpn")]
 
 [connection signal="pressed" from="Player/UI/Dialog/Box/okButton" to="Player/UI/Dialog" method="_on_ok_button_pressed"]
 [connection signal="animation_finished" from="Player/UI/Dialog/VBoxContainer/TypeWriterEffect" to="Player/UI/Dialog" method="_on_type_writer_effect_animation_finished"]
