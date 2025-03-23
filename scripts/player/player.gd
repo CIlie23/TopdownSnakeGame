@@ -1,21 +1,11 @@
 extends CharacterBody3D
 
-@export var grid_size: float = 1.0  # Adjust this to match your scene's grid
+class_name PlayerStuff
+
+#--------------------------MOVEMENT LOGIC--------------------------------
+@export var grid_size: float = 1.0 
 var move_duration: float = 0.1  # How long each move takes
 @onready var snake_head: MeshInstance3D = $CollisionShape3D/MeshInstance3D
-
-@export var inv: Inv #inventory
-var player_stats: PlayerStats
-#------------------------------BULLETS--------------------------------
-@onready var barrel: RayCast3D = $CollisionShape3D/MeshInstance3D/DirArrow/Rifle
-const PLASMA_BALL = preload("res://scenes/abilities/assets/plasma_ball.tscn")
-var CANNON_BALL = preload("res://scenes/turrets/cannon_ball.tscn")
-var ball
-
-var playerStats = preload("res://scripts/player/player_stats_resource.tres")
-var skilltree: SkillAtribute
-@onready var mana_regen: Timer = $ManaRegen
-var player_ability: PlayerAbility
 
 var direction = Vector3(0, 0, 0)  # Default movement direction
 var last_used_direction = direction
@@ -24,11 +14,20 @@ var tail_piece = preload("res://scenes/world/snake_segment.tscn")
 
 var is_moving = false  # Prevents input spam while moving
 
-#------------------------------Drone Swarm--------------------------------
-var drones: Array = []
-@export var drone_scene: PackedScene
-@export var max_drones: int
-@export var spawn_radius: float = 2.0
+#------------------------------BULLETS--------------------------------
+@onready var barrel: RayCast3D = $CollisionShape3D/MeshInstance3D/DirArrow/Rifle
+const PLASMA_BALL = preload("res://scenes/abilities/assets/plasma_ball.tscn")
+var CANNON_BALL = preload("res://scenes/turrets/cannon_ball.tscn")
+var ball
+
+#-------------------------PLAYER STATS IMPORTS------------------------
+var playerStats = preload("res://scripts/player/player_stats_resource.tres")
+#var skilltree: SkillAtribute
+@onready var mana_regen: Timer = $ManaRegen
+
+#-------------------------PLAYER INVENTORY----------------------------
+@export var inv: Inv #inventory
+
 
 func _ready():
 	print(playerStats.mana, " Mana")
@@ -41,7 +40,7 @@ func _ready():
 func _process(_delta):
 	handle_input()
 	if Input.is_action_just_pressed("shoot"):
-		_shoot_plasmaball()
+		shoot_plasmaball()
 	if Input.is_action_just_pressed("extend_snake"):
 		extend()
 
@@ -120,10 +119,8 @@ func collect(item): #connected to inventory.gd
 #----------------------------------------------------------------------------
 # ABILITIESSSSSSSS
 #---------------------------------------------------------------------------- 
-func _shoot_plasmaball():
-	#if playerStats.mana >= 10:
-		#playerStats.mana -= 10
-		##playerStats.mana -= 10
+
+func shoot_plasmaball():
 	print(playerStats.mana)
 	ball = PLASMA_BALL.instantiate()
 	ball.position = barrel.global_position
@@ -132,36 +129,21 @@ func _shoot_plasmaball():
 	ball.transform.basis = barrel.global_transform.basis
 	get_parent().add_child(ball)
 
-
-func _speed_up():
-	#if playerStats.mana >= 100:
-		#playerStats.mana -= 100
-	$SpeedUPtimer.start()
-	move_duration = 0.08
-	print(move_duration)
-	print("zoooooommmm")
-	print(playerStats.mana)
-	
-func _on_speed_u_ptimer_timeout() -> void:
-	$SpeedUPtimer.stop()
-	move_duration = 0.1
-	print(move_duration)
-
 func _on_mana_regen_timeout() -> void:
 	if playerStats.mana < playerStats.maxMana:
 		playerStats.mana += playerStats.manaRegen
 		playerStats.mana = min(playerStats.mana, playerStats.maxMana)
 
-func _spawn_swarm(player: Node3D):
-	if drones.size() < max_drones:
-		for i in range(max_drones):
-			var angle = (PI * 2 / max_drones) * i  # Spread them evenly in a circle
-			var spawn_position = player.position + Vector3(cos(angle), 0, sin(angle)) * spawn_radius
-			
-			var drone = drone_scene.instantiate()
-			drone.position = spawn_position
-			drone.set_owner(player)  # Set the player as the owner
-			drone.player = player  # Assign player reference for AI behavior
-
-			player.get_parent().add_child(drone)  # Spawn in world
-			drones.append(drone)
+#func _spawn_swarm(player: Node3D):
+	#if drones.size() < max_drones:
+		#for i in range(max_drones):
+			#var angle = (PI * 2 / max_drones) * i  # Spread them evenly in a circle
+			#var spawn_position = player.position + Vector3(cos(angle), 0, sin(angle)) * spawn_radius
+			#
+			#var drone = drone_scene.instantiate()
+			#drone.position = spawn_position
+			#drone.set_owner(player)  # Set the player as the owner
+			#drone.player = player  # Assign player reference for AI behavior
+#
+			#player.get_parent().add_child(drone)  # Spawn in world
+			#drones.append(drone)

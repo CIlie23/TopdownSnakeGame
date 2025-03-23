@@ -12,7 +12,7 @@ class_name AbilityScript
 @export var description: String
 
 @export var abilityColdown: float
-@export var abilityEffect: PlayerAbility
+#@export var abilityEffect: PlayerAbility
 
 #----------------------------------------------------------------------------
 # Horrible, horrible, HORRIBLE spaghetti, I'm sorry to my ancestors 

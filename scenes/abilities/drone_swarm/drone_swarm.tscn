@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb66hyaluk1p5"]
+
+[ext_resource type="Script" path="res://scenes/abilities/drone_swarm/drone_swarm.gd" id="1_gblri"]
+
+[node name="DroneSwarm" type="Node3D"]
+script = ExtResource("1_gblri")
+max_drones = 3

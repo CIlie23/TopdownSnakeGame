@@ -15,20 +15,21 @@ radius = 4.98493
 radius = 5.84575
 
 [node name="turretDrone" instance=ExtResource("1_8vhpl")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 script = ExtResource("2_r4lsj")
 
 [node name="Skeleton3D" parent="RootNode/CharacterArmature" index="0"]
-bones/1/position = Vector3(-3.43777e-06, 0.00462086, 5.03862e-05)
-bones/1/rotation = Quaternion(-0.0494394, -3.22192e-08, 1.7554e-08, 0.998777)
-bones/3/rotation = Quaternion(-0.45142, 0.402151, 0.148879, 0.782515)
+bones/1/position = Vector3(-3.43777e-06, 0.00378199, 5.03862e-05)
+bones/1/rotation = Quaternion(-0.0081504, -2.92539e-08, -1.65241e-09, 0.999967)
+bones/3/rotation = Quaternion(-0.475722, 0.181329, 0.100908, 0.854767)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.308843, -0.117144, -0.671982, 0.662823)
+bones/4/rotation = Quaternion(-0.381815, -0.061882, -0.536106, 0.750319)
 bones/5/rotation = Quaternion(-9.18718e-05, 0.0115839, -7.69632e-05, 0.999933)
 bones/5/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.498664, 0.668794, 0.331761, 0.440435)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.448397, -0.41857, -0.152317, 0.774945)
-bones/9/rotation = Quaternion(-0.369769, 0.0646631, 0.585674, 0.718384)
+bones/8/rotation = Quaternion(-0.475722, -0.181329, -0.100908, 0.854767)
+bones/9/rotation = Quaternion(-0.364442, 0.0685479, 0.595766, 0.712423)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(-9.18839e-05, -0.0115839, 7.69864e-05, 0.999933)
 bones/10/scale = Vector3(1, 1, 1)

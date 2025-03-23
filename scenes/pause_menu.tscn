@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b475wnptaipdd"]
+[gd_scene load_steps=6 format=3 uid="uid://b475wnptaipdd"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_nvl3v"]
 [ext_resource type="Shader" path="res://shaders/pause_menu.gdshader" id="2_6mg6m"]
+[ext_resource type="FontFile" uid="uid://1yuy1o07mph2" path="res://assets/fonts/URW Grotesk SC Regular.ttf" id="3_urfns"]
+[ext_resource type="FontFile" uid="uid://c7av1j5mjwa37" path="res://assets/fonts/URW Grotesk SC Light.ttf" id="4_gqmfv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hxx2w"]
 shader = ExtResource("2_6mg6m")
@@ -25,12 +27,32 @@ offset_bottom = 648.0
 color = Color(0.415686, 0.415686, 0.415686, 0.376471)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TheGameIsPaused" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_urfns")
+theme_override_font_sizes/font_size = 36
+text = "The game is paused"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_gqmfv")
+theme_override_font_sizes/font_size = 20
+text = "(trust me)"
+horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

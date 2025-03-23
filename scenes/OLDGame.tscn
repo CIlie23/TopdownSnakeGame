@@ -6,8 +6,8 @@
 [ext_resource type="MeshLibrary" uid="uid://cdxueohwd3sef" path="res://assets/meshes/cityassets.tres" id="7_m58bh"]
 [ext_resource type="PackedScene" uid="uid://voahc4el36wc" path="res://assets/particles/vfx_fire.tscn" id="32_v08qx"]
 [ext_resource type="PackedScene" uid="uid://n2ncjxjrjo5d" path="res://assets/friends/deliveryDrone/deliveryDrone.tscn" id="34_m6pxn"]
-[ext_resource type="PackedScene" uid="uid://bbix8gik8a0ao" path="res://assets/enemies/landingpod/pod.tscn" id="36_mn4mn"]
-[ext_resource type="PackedScene" uid="uid://dq25whkugls8y" path="res://assets/enemies/doneSmall/small_drone.tscn" id="38_a5n5r"]
+[ext_resource type="PackedScene" uid="uid://bbix8gik8a0ao" path="res://scenes/enemies/landingpod/pod.tscn" id="36_mn4mn"]
+[ext_resource type="PackedScene" uid="uid://dq25whkugls8y" path="res://scenes/enemies/small_Drone/small_drone.tscn" id="38_a5n5r"]
 [ext_resource type="PackedScene" uid="uid://d0tjqnb20e8kq" path="res://scenes/enemies/rifle_robot/robot_fella.tscn" id="38_aui5f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnp1g"]

@@ -1,7 +1,8 @@
 extends Node3D
 
 @onready var dialog: Control = $Player/UI/Dialog
-@onready var pause_menu: Control = $Player/UI/PauseMenu
+@onready var pause_menu: Control = $Player/PauseMenu
+
 const CANNON_SMALL = preload("res://scenes/turrets/cannon_small.tscn")
 @onready var inventory_ui: Control = $Player/InventoryUI
 

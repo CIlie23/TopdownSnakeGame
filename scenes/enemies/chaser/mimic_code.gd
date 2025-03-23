@@ -27,7 +27,7 @@ var state = IDLE
 var wander_directon: Vector3
 var target = null
 
-const MOVE_SPEED: float = 5.0
+const MOVE_SPEED: float = 7.0
 const ATTACK_RANGE: float = 2.5
 
 enum {
@@ -57,12 +57,14 @@ func _ready():
 #----------------------------------------------------------------------------
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
-		idle_timer.stop()
-		target = body
-		state = ALERT
-		await animations.animation_finished
-		state = CHASE
-		print(body.name + "Detected")
+		var closest = find_closest_target()
+		if closest:
+			idle_timer.stop()
+			target = body
+			state = ALERT
+			await animations.animation_finished
+			state = CHASE
+			#print(body.name + "Detected")
 		#pass 
 		
 func _physics_process(delta):
@@ -81,13 +83,19 @@ func _physics_process(delta):
 #----------------------------------------------------------------------------
 func _on_attack_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		print("Can attack")
+		#print("Can attack")
 		state = ATTACK
 		velocity = Vector3.ZERO
 
 func _on_attack_range_body_exited(body: Node3D) -> void:
-	print("Can't attack")
-	state = CHASE
+	#print("Can't attack")
+	#state = CHASE
+	if body == target:
+		target = find_closest_target()			
+		if target:
+			state = CHASE
+		else:
+			state = IDLE
 
 func _target_hit():
 	#if global_position.distance_to(target.global_position) < ATTACK_RANGE * 1.8:
@@ -102,7 +110,7 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 		idle_timer.start()
 		target = null
 		state = IDLE
-		print(body.name + "Lost")
+		#print(body.name + "Lost")
 		pass 
 
 #func _target_in_range():
@@ -111,12 +119,7 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 #----------------------------------------------------------------------------
 # Handles all the states the enemy can be in
 #----------------------------------------------------------------------------
-func _process(delta):
-	#random_direction()
-	#if state == IDLE:
-		#print("test")
-		#idle_timer.start()
-		
+func _process(delta):		
 	if Input.is_action_pressed("killAll"):
 		state = DEAD
 	match state:
@@ -133,7 +136,7 @@ func _process(delta):
 			rotate_y(deg_to_rad(180))
 		CHASE:
 			animations.play("memecAnimations/running")
-			#animation_tree.set("parameters/scream_run_blend/blend_amount", 1)
+			# still crashes
 			velocity = position.direction_to(target.position) * MOVE_SPEED
 		ATTACK:
 			#animation_tree.set("parameters/run_claw_blend/blend_amount", 1)
@@ -148,7 +151,20 @@ func _process(delta):
 			set_process(false)
 			despawn.start()
 
-#----------------------------------------------------------------------------
+func find_closest_target():
+	var all_players = get_tree().get_nodes_in_group("Player")
+	var closest_player = null
+ 
+	if (all_players.size() > 0):
+		closest_player = all_players[0]
+		for player in all_players:
+			var distance_to_this_player = global_position.distance_squared_to(player.global_position)
+			var distance_to_closest_player = global_position.distance_squared_to(closest_player.global_position)
+			if (distance_to_this_player < distance_to_closest_player):
+				closest_player = player
+ 
+	return closest_player
+	#----------------------------------------------------------------------------
 # Wander timers
 #----------------------------------------------------------------------------
 func random_direction():
@@ -157,14 +173,14 @@ func random_direction():
 func _on_idle_timer_timeout() -> void:
 	random_direction()
 	look_at(wander_directon)
-	print("I am now wandering")
+	#print("I am now wandering")
 	state = PATROL
 	velocity = wander_directon * MOVE_SPEED
 	
 	wander_timer.start()
 	
 func _on_wander_timer_timeout() -> void:
-	print("I am now chilling")
+	#print("I am now chilling")
 	state = IDLE
 	velocity = Vector3.ZERO
 	

@@ -49,12 +49,13 @@ func _ready() -> void:
 
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
-		idle_timer.stop()
-		target = body
-		state = ATTACK
-		shoot_timer.start()
-		
-		print(body.name + "Detected")
+		var closest = find_closest_target()
+		if closest:
+			idle_timer.stop()
+			target = body
+			state = ATTACK
+			shoot_timer.start()
+		#print(body.name + "Detected")
 
 func _physics_process(delta):
 	if target: #if the target is in range
@@ -73,19 +74,26 @@ func _physics_process(delta):
 
 func _on_attack_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		#if body.is_in_group("Player"):
-		print("Can attack")
-		idle_timer.stop()
-		shoot_timer.start()
-		target = body
-		state = ATTACK
+		var closest = find_closest_target()
+		if closest and closest != target:
+			idle_timer.stop()
+			shoot_timer.start()
+			target = body
+			state = ATTACK
 		#velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
 
 func _on_attack_range_body_exited(body: Node3D) -> void:
-	if body.is_in_group("Player"):
-		print("Can't attack") 
-		state = CHASE
-		shoot_timer.stop()
+	#if body.is_in_group("Player"):
+		##print("Can't attack") 
+		#state = CHASE
+		#shoot_timer.stop()
+	if body == target:
+		target = find_closest_target()			
+		if target:
+			state = CHASE
+		else:
+			state = IDLE
+			shoot_timer.stop()
 
 func _on_shoot_timer_timeout() -> void:
 	#print("pew")
@@ -108,7 +116,7 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 		shoot_timer.stop()
 		target = null
 		state = IDLE
-		print(body.name + "Lost") 
+		#print(body.name + "Lost") 
 		pass 
 	
 #----------------------------------------------------------------------------
@@ -134,12 +142,9 @@ func _process(delta: float) -> void:
 			animations.play("GunnerAnimations/run forward")
 			velocity = position.direction_to(target.position) * MOVE_SPEED
 		ATTACK:
-			print("Attacking")
 			animations.play("GunnerAnimations/walk forward aim")
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
-			#eyes.look_at(target.global_transform.origin, Vector3.UP)
-			#rotate_y(deg_to_rad(180))
-			#rotate_y(deg_to_rad(eyes.rotation.y * rotation_speed))
+			#svelocity = Vector3.ZERO
 		DEAD:
 			spawn_xp_orb()
 			$Hitbox.disabled = true
@@ -149,6 +154,19 @@ func _process(delta: float) -> void:
 			shoot_timer.stop()
 			despawn.start()
 
+func find_closest_target():
+	var all_players = get_tree().get_nodes_in_group("Player")
+	var closest_player = null
+ 
+	if (all_players.size() > 0):
+		closest_player = all_players[0]
+		for player in all_players:
+			var distance_to_this_player = global_position.distance_squared_to(player.global_position)
+			var distance_to_closest_player = global_position.distance_squared_to(closest_player.global_position)
+			if (distance_to_this_player < distance_to_closest_player):
+				closest_player = player
+ 
+	return closest_player
 #----------------------------------------------------------------------------
 # Wander timers
 #----------------------------------------------------------------------------
@@ -158,14 +176,14 @@ func random_direction():
 func _on_idle_timer_timeout() -> void:
 	random_direction()
 	eyes.look_at(wander_directon)
-	print("I am now wandering")
+	#print("I am now wandering")
 	state = PATROL
 	velocity = wander_directon * MOVE_SPEED
 	
 	wander_timer.start()
 
 func _on_wander_timer_timeout() -> void:
-	print("I am now chilling")
+	#print("I am now chilling")
 	state = IDLE
 	velocity = Vector3.ZERO
 	
@@ -181,4 +199,4 @@ func spawn_xp_orb():
 	#get_parent().add_child(xp_orb) 
 	get_tree().get_root().add_child(xp_orb)
 	  # Spawn at enemy's last position
-	print("XP orb spawned at:", xp_orb.global_position)
+	#print("XP orb spawned at:", xp_orb.global_position)

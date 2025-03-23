@@ -22,6 +22,9 @@ var wander_directon: Vector3
 
 var MOVE_SPEED: float = 5.0
 var AIM_MOVE_SPEED: float = 3.5
+
+const TARGET_SWITCH_THRESHOLD = 30.0
+
 enum {
 	IDLE,
 	PATROL,
@@ -53,7 +56,7 @@ func _process(delta: float) -> void:
 			animations.play("walk")
 			velocity = position.direction_to(target.position) * MOVE_SPEED
 		ATTACK:
-			print("Attacking")
+			#print("Attacking")
 			animations.play("walk")
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
 		DEAD:
@@ -65,29 +68,43 @@ func _process(delta: float) -> void:
 			shoot_timer.stop()
 			despawn.start()
 
+func find_closest_target():
+	var all_players = get_tree().get_nodes_in_group("Player")
+	var closest_player = null
+ 
+	if (all_players.size() > 0):
+		closest_player = all_players[0]
+		for player in all_players:
+			var distance_to_this_player = global_position.distance_squared_to(player.global_position)
+			var distance_to_closest_player = global_position.distance_squared_to(closest_player.global_position)
+			if (distance_to_this_player < distance_to_closest_player):
+				closest_player = player
+ 
+	return closest_player
 #----------------------------------------------------------------------------
 # Player is detected
 #----------------------------------------------------------------------------
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
-		#exclamation_mark.visible = true
-		idle_timer.stop()
-		target = body
-		state = ATTACK
-		shoot_timer.start()
+		var closest = find_closest_target()
+		if closest:
+			idle_timer.stop()
+			target = body
+			state = ATTACK
+			shoot_timer.start()
 		
-		print(body.name + "Detected")
+		#print(body.name + "Detected")
 
 func _physics_process(delta):
 	if state == DEAD:
 		can_look = false
 		velocity = Vector3.ZERO
-		print("i should be dead rn")
+		#print("i should be dead rn")
 		return
 		
 	if target and can_look == true:
 		look_at(target.global_transform.origin, Vector3.UP)
-		print("i shouldn't be movin rn")
+		#print("i shouldn't be movin rn")
 	else:
 		velocity = Vector3.ZERO  # Ensure no unintended movement
 	
@@ -99,17 +116,26 @@ func _physics_process(delta):
 func _on_attack_area_body_entered(body: Node3D) -> void:
 	if state == DEAD: return
 	if body.is_in_group("Player"):
-		idle_timer.stop()
-		target = body
-		state = ATTACK
-		shoot_timer.start()
+		var closest = find_closest_target()
+		if closest and closest != target:
+			idle_timer.stop()
+			target = body
+			state = ATTACK
+			shoot_timer.start()
 
 func _on_attack_area_body_exited(body: Node3D) -> void:
 	if state == DEAD: return
-	if body.is_in_group("Player"):
-		print("Can't attack") 
-		state = CHASE
-		shoot_timer.stop()
+	if body == target:
+		target = find_closest_target()
+		if target:
+			state = CHASE
+		else:
+			state = IDLE
+			shoot_timer.stop()
+	#if body.is_in_group("Player"):
+		##print("Can't attack") 
+		#state = CHASE
+		#shoot_timer.stop()
 
 func _on_shoot_timer_timeout() -> void:
 	instance = bullet.instantiate()
@@ -130,7 +156,7 @@ func _on_chase_area_body_exited(body: Node3D) -> void:
 		shoot_timer.stop()
 		target = null
 		state = IDLE
-		print(body.name + "Lost") 
+		#print(body.name + "Lost") 
 
 #----------------------------------------------------------------------------
 # Wander timers
@@ -141,14 +167,14 @@ func random_direction():
 func _on_idle_timer_timeout() -> void:
 	random_direction()
 	look_at(wander_directon)
-	print("I am now wandering")
+	#print("I am now wandering")
 	state = PATROL
 	velocity = wander_directon * MOVE_SPEED
 
 	wander_timer.start()
 
 func _on_wander_timer_timeout() -> void:
-	print("I am now chilling")
+	#print("I am now chilling")
 	state = IDLE
 	velocity = Vector3.ZERO
 	

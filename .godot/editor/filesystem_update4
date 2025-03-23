@@ -1,11 +1,11 @@
-res://scenes/Game.tscn
+res://scenes/friends/turret_drone.tscn
 res://scenes/UI/inventory/player_inventory.tres
 res://assets/meshes/cityassets.tres
 res://scenes/skilltree/Skills/skill_testskilltwo.tres
 res://scenes/skilltree/Skills/skill_testskill.tres
 res://scenes/skilltree/Skills/skill_armorbuff.tres
 res://shaders/dissolve_shader.tres
-res://scenes/world/player.tscn
-res://scenes/abilities/assets/plasma_ball.tscn
-res://scenes/skilltree/skill_tree.tscn
-res://scenes/friends/turret_drone.tscn
+res://scenes/Game.tscn
+res://scenes/UI/inventory/inventory_slot.gd
+res://scenes/abilities/drone_swarm/drone_swarm.tscn
+res://scenes/UI/abilities/ability_button.tscn
