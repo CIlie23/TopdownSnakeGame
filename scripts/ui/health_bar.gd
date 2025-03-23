@@ -12,27 +12,17 @@ func _ready():
 
 		# Initialize Health Bar
 		update_healthbar(player_stats.playerHealth, player_stats.max_playerHealth)
-		update_manabar(player_stats.mana, player_stats.maxMana)
-# Function to update the health bar when health changes
-
+		
 func _process(delta: float) -> void:
-	if player_stats.mana < player_stats.maxMana:
-		#update_healthbar(player_stats.playerHealth, player_stats.max_playerHealth)
-		update_manabar(player_stats.mana, player_stats.maxMana)
-	if Input.is_action_pressed("killAll"):
-		mana_bar.value = 0
+	if player_stats.playerHealth < player_stats.max_playerHealth:
+		update_healthbar(player_stats.playerHealth, player_stats.max_playerHealth)
 		
 func _physics_process(delta: float) -> void:
-	if mana_bar.value >= 100:
+	if health_bar.value >= 100:
 		pass
 	else:
-		mana_bar.value = min(mana_bar.value + regen_amount, 100)
+		health_bar.value = min(health_bar.value + regen_amount, 100)
 	
 func update_healthbar(current_health, max_health):
 	health_bar.max_value = max_health
 	health_bar.value = current_health
-	print("Health Bar Updated:", current_health, "/", max_health)
-
-func update_manabar(current_mana, max_mana):
-	mana_bar.max_value = max_mana
-	mana_bar.value = current_mana

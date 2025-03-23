@@ -1,9 +1,7 @@
 extends CharacterBody3D #Code for the mimic enemy
 
 #----------------------------------------------------------------------------
-# Known issues rn:
-# Game crashes after player leaves the chase circle
-# Enemy still chases after death
+#
 #----------------------------------------------------------------------------
 
 
@@ -19,14 +17,19 @@ extends CharacterBody3D #Code for the mimic enemy
 @onready var detect_area: Area3D = $DetectArea
 @onready var chase_range: Area3D = $ChaseRange
 @onready var attack_range: Area3D = $AttackRange
+@onready var XPORB = preload("res://scenes/enemies/xporb.tscn")
 
 @export var blend_speed = 1000
+@export var enemy_health: int
 
-@onready var XPORB = preload("res://scenes/enemies/xporb.tscn")
+
 var state = IDLE
 var wander_directon: Vector3
 var target = null
 
+var player = null
+#@export var player_path: NodePath
+@onready var player_path = get_node("/root/Spacial/Player")
 const MOVE_SPEED: float = 7.0
 const ATTACK_RANGE: float = 2.5
 
@@ -41,17 +44,11 @@ enum {
 
 func _ready():
 	idle_timer.start()
-	#pass
-	#animations.play("mimicAnimations/floor claw")
-	#velocity = Vector3.ZERO
-	
-#func _on_detect_area_body_exited(body: Node3D) -> void:
-	#if body.is_in_group("Player"):
-		##target = null
-		#state = CHASE
-		##print(body.name + "Lost")
-		#pass 
-		
+
+func hit():
+	state = DEAD
+	print("ddded")
+	print(state)		
 #----------------------------------------------------------------------------
 # Player is detected
 #----------------------------------------------------------------------------
@@ -88,8 +85,6 @@ func _on_attack_range_body_entered(body: Node3D) -> void:
 		velocity = Vector3.ZERO
 
 func _on_attack_range_body_exited(body: Node3D) -> void:
-	#print("Can't attack")
-	#state = CHASE
 	if body == target:
 		target = find_closest_target()			
 		if target:
@@ -98,9 +93,8 @@ func _on_attack_range_body_exited(body: Node3D) -> void:
 			state = IDLE
 
 func _target_hit():
-	#if global_position.distance_to(target.global_position) < ATTACK_RANGE * 1.8:
-		#var dir = global_position.distance_to(target.global_position)
-	print("Hit")
+	player_path.hit()
+	#print("Hit")
 
 #----------------------------------------------------------------------------
 # Going back to idle
@@ -120,8 +114,11 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 # Handles all the states the enemy can be in
 #----------------------------------------------------------------------------
 func _process(delta):		
-	if Input.is_action_pressed("killAll"):
+	#if Input.is_action_pressed("killAll"):
+		#state = DEAD
+	if enemy_health < 100:
 		state = DEAD
+		
 	match state:
 		IDLE:
 			animations.play("memecAnimations/idle")
@@ -145,7 +142,7 @@ func _process(delta):
 		DEAD:
 			$CollisionShape3D.disabled = true
 			print("dead")
-			spawn_xp_orb()
+			#spawn_xp_orb()
 			target = null
 			skeleton.physical_bones_start_simulation()
 			set_process(false)
@@ -164,7 +161,7 @@ func find_closest_target():
 				closest_player = player
  
 	return closest_player
-	#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
 # Wander timers
 #----------------------------------------------------------------------------
 func random_direction():

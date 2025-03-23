@@ -1,9 +1,10 @@
+res://scripts/ui
+res://assets/animations
 res://scenes/props
 res://scenes/abilities/assets
 res://scenes/abilities/drone_swarm
 res://scripts
 res://scenes/abilities
-res://scripts/ui
 res://scenes/friends
 res://scenes/turrets
 res://scenes/UI/abilities

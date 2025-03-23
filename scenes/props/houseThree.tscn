@@ -344,7 +344,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1idr7")
 
-[node name="House" type="StaticBody3D"]
+[node name="House" type="Node3D"]
 
 [node name="wallA_door" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

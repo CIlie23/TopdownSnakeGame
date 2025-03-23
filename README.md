@@ -1,55 +1,32 @@
-# Mixamo Animation Retargeter for Godot 4.3
+# Top down 3d snake game
 
-This plugin simplifies the process of importing and retargeting Mixamo animations in Godot 4.x projects.
-
-## Features
-
-- Adds a "Retarget Mixamo Animation" option to the right-click menu for FBX files in the FileSystem dock.
-- Automatically sets up the correct import settings for Mixamo animations.
-- Supports batch processing of multiple FBX files.
-- Saves retargeted animations as separate .res files that can be added to Animation Libraries.
-
-## Installation
-
-1. Download or clone this repository.
-2. Copy the `addons/mixamo_animation_retargeter` folder into your Godot project's `addons` folder.
-3. Enable the plugin in Project Settings -> Plugins.
-
-## Usage
-
-1. Import your Mixamo FBX file(s) into your Godot project using ufbx.
-2. In the FileSystem dock, right-click on the FBX file(s) you want to retarget.
-3. Select "Retarget Mixamo Animation" from the context menu.
-4. Choose a destination folder for the exported animation(s).
-5. The plugin will automatically update the import settings, retarget the animation(s), and save them as .res files in the specified folder.
-6. Ensure your character model has a Skeleton3D node named "Skeleton" for the exported animations to work correctly. 
-7. Ensure your Character Skeleton is also retargeted using Bone Mapping. This ensures both the animation and the skeleton will share the same bone names.
-8. Add the exported .res files to an AnimationLibrary and you should be able to play the animations in your scene.
+The second game and biggest project I've ever made in Godot, don't do what I did this whole thing is a mess held together by duct tape and prayers.
 
 ## Requirements
 
-- Godot 4.3
+- Godot 4.3 (and newer maybe)
 
-## Configuration
+## Installation
 
-The plugin uses a predefined bone map for Mixamo animations. If you need to customize the bone mapping, you can modify the `mixamo_bone_map.tres` file in the plugin folder.
+Just download the project files and import them into Godot and you should be fine
 
-## Known Issues
+## Assets stolen from:
 
-- Untested with older Godot versions.
+- [Ability Icons](https://free-game-assets.itch.io/free-skill-3232-icons-for-cyberpunk-game)
+- [Gunner Drone](https://sketchfab.com/3d-models/xrk-m-autonomous-combat-drone-2153909c16b242c293b5c296ce142799)
+- [Two legged drone](https://sketchfab.com/3d-models/military-drone-low-poly-24456f3cf17f4a12b05fbe9d95c3687d)
+- [Chaser robot](https://sketchfab.com/3d-models/fnaf-sb-mimic-98c4b02ef2754403a469cce4e9f5039c)
+- [UI Assets #1](https://wenrexa.itch.io/kit-nesia2)
+- [UI Assets #2](https://wenrexa.itch.io/holoui)
+- [UI Assets #3](https://wenrexa.itch.io/ui-different02)
+- [Flying drone](https://poly.pizza/m/UDTM6X1y9a)
+- [Turret One](https://poly.pizza/m/mXKbcMPLSS)
+- [Turret Two](https://poly.pizza/m/wMb4gh6STL)
+- [Turret Three](https://poly.pizza/m/ekTQhbJId7)
+- [Turret Four](https://poly.pizza/m/mNJ6poH7Cp)
+- [Turret Five ](https://poly.pizza/m/hThPXDCbwl)
+- [Retro Urban Kit](https://kenney.nl/assets/retro-urban-kit)
+- [Cursors](https://kenney-assets.itch.io/cursor-pack)
 
-## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-GNU GPLv3
-
-## Credits
-
-Developed by Matt Marcin @ RaidTheory
-
-## Disclaimer
-
-This plugin is not affiliated with or endorsed by Mixamo or Adobe. Mixamo and its logo are registered trademarks of Adobe Inc. All rights to Mixamo assets and branding belong to Adobe Inc.

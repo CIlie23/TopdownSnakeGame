@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://dakc3383jl1fr" path="res://shaders/dissolve_shader.tres" id="2_urhqh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_77r6p"]
-size = Vector3(4.80664, 4, 3.18359)
+size = Vector3(2.39048, 2.10767, 2.25769)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xxkix"]
 render_priority = 0
@@ -19,7 +19,7 @@ collision_mask = 7
 script = ExtResource("1_bmel6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191406, 1.5, -1.0918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0318772, 0.553834, -0.103702)
 shape = SubResource("BoxShape3D_77r6p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

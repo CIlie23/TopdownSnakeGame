@@ -24,23 +24,30 @@ var ball
 var playerStats = preload("res://scripts/player/player_stats_resource.tres")
 #var skilltree: SkillAtribute
 @onready var mana_regen: Timer = $ManaRegen
+@onready var speed_particles: GPUParticles3D = $SpeedParticles
 
 #-------------------------PLAYER INVENTORY----------------------------
 @export var inv: Inv #inventory
+#---------------------------------------------------------------------
 
+signal player_hit
+
+func hit():
+	playerStats.playerHealth -= 10
+	print(playerStats.playerHealth, " Health")
+	print("damaged")
+	emit_signal("player_hit")
 
 func _ready():
 	print(playerStats.mana, " Mana")
-	#print(move_duration)
-	#print(playerStats.playerHealth, " health")
-	#print(skilltree.healthBoost += 10)
-	# Ensure position starts snapped to grid
 	position = position.snapped(Vector3.ONE * grid_size)
+
+func show_speed_particles():
+	print(move_duration, " current speed")
+	#speed_particles.emitting = true
 
 func _process(_delta):
 	handle_input()
-	if Input.is_action_just_pressed("shoot"):
-		shoot_plasmaball()
 	if Input.is_action_just_pressed("extend_snake"):
 		extend()
 

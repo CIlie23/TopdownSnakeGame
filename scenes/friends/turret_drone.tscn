@@ -1,43 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3424w2fsjdmw"]
+[gd_scene load_steps=8 format=3 uid="uid://c3424w2fsjdmw"]
 
 [ext_resource type="PackedScene" uid="uid://b2bguhogqsfxy" path="res://assets/friends/gunnerDrone/Robot Enemy Flying Gun.glb" id="1_8vhpl"]
 [ext_resource type="Script" path="res://scenes/friends/turret_drone.gd" id="2_r4lsj"]
+[ext_resource type="AnimationLibrary" uid="uid://c4tubgsah0fnv" path="res://assets/animations/FriendlyTurretDrone.res" id="3_075pn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1iwp8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5oame"]
-radius = 4.02185
+radius = 5.07636
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ittnv"]
-radius = 4.98493
+height = 1.83852
+radius = 2.08633
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ybiw4"]
 radius = 5.84575
 
-[node name="turretDrone" instance=ExtResource("1_8vhpl")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+[node name="turretDrone" groups=["Player"] instance=ExtResource("1_8vhpl")]
+transform = Transform3D(-0.7, 0, -6.11959e-08, 0, 0.7, 0, 6.11959e-08, 0, -0.7, 0, 0, 0)
 script = ExtResource("2_r4lsj")
 
 [node name="Skeleton3D" parent="RootNode/CharacterArmature" index="0"]
 bones/1/position = Vector3(-3.43777e-06, 0.00378199, 5.03862e-05)
-bones/1/rotation = Quaternion(-0.0081504, -2.92539e-08, -1.65241e-09, 0.999967)
-bones/3/rotation = Quaternion(-0.475722, 0.181329, 0.100908, 0.854767)
+bones/1/rotation = Quaternion(0.00718605, 0.29874, -0.0139067, 0.954206)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.381815, -0.061882, -0.536106, 0.750319)
+bones/4/rotation = Quaternion(-0.297082, -0.014588, -0.699474, 0.64982)
 bones/5/rotation = Quaternion(-9.18718e-05, 0.0115839, -7.69632e-05, 0.999933)
 bones/5/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.498664, 0.668794, 0.331761, 0.440435)
+bones/7/position = Vector3(-0.00396354, 0.0022471, -8.23945e-05)
+bones/7/rotation = Quaternion(-0.533343, 0.659021, 0.198905, 0.491603)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.475722, -0.181329, -0.100908, 0.854767)
-bones/9/rotation = Quaternion(-0.364442, 0.0685479, 0.595766, 0.712423)
+bones/8/rotation = Quaternion(-0.31787, -0.0418281, 0.550548, 0.770783)
+bones/9/rotation = Quaternion(-0.0257172, 0.00894929, 0.0263085, 0.999283)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(-9.18839e-05, -0.0115839, 7.69864e-05, 0.999933)
 bones/10/scale = Vector3(1, 1, 1)
-bones/12/scale = Vector3(1, 1, 1)
+bones/12/scale = Vector3(0.991366, 0.510096, 1.01314)
 bones/14/rotation = Quaternion(0.00815041, -8.99518e-08, 7.20852e-10, 0.999967)
 
 [node name="RayCast3D" type="RayCast3D" parent="RootNode/CharacterArmature/Skeleton3D/Sphere_001" index="0"]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, -4.44089e-16, 0, 4.44089e-16, 0.02, 0, -0.00831632, 0.00855806)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"FriendlyTurretDrone": ExtResource("3_075pn")
+}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
 shape = SubResource("BoxShape3D_1iwp8")
@@ -50,6 +57,7 @@ shape = SubResource("CylinderShape3D_5oame")
 [node name="AttackRange" type="Area3D" parent="." index="4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46421, 0)
 shape = SubResource("CylinderShape3D_ittnv")
 
 [node name="ChaseRange" type="Area3D" parent="." index="5"]

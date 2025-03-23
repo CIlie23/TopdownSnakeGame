@@ -3,10 +3,10 @@ extends CharacterBody3D
 # https://www.youtube.com/watch?v=qg2kzZVe2RI
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
-#@onready var player: CharacterBody3D = $"../Player"
-#@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
 @export var target_player = preload("res://scenes/world/player.tscn")
+
+#var gunnerRobotScript = preload("res://scenes/enemies/rifle_robot/gunner_robot.gd")
+#var gunner = gunnerRobotScript.new()
 
 var state = FOLLOW_PLAYER
 var target = null
@@ -22,6 +22,7 @@ var instance
 enum{
 	FOLLOW_PLAYER,
 	CHASE_ENEMY,
+	ATTACK_ENEMY,
 	RETURN_TO_PLAYER,
 }
 
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 			follow_player(delta)
 		CHASE_ENEMY:
 			chase_enemy(delta)
+		ATTACK_ENEMY:
+			pass
 		RETURN_TO_PLAYER:
 			return_to_player(delta)
 	move_and_slide()  
@@ -45,7 +48,10 @@ func _physics_process(delta: float) -> void:
 # Some movement logic
 #----------------------------------------------------------------------------
 func follow_player(delta):
-	animation.play("CharacterArmature|Idle")
+	#if target == null:
+		#print("State is NULL")
+		#state = FOLLOW_PLAYER
+	animation.play("FriendlyTurretDrone/CharacterArmature|Walk")
 	if player:
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
 		velocity = direction * speed
@@ -54,36 +60,40 @@ func follow_player(delta):
 		rotate_y(deg_to_rad(180))
 
 func chase_enemy(delta):
-	if target and is_instance_valid(target):
+	if target:
 		var direction = (target.global_transform.origin - global_transform.origin).normalized()
 		velocity = direction * speed
 
 		look_at(target.global_transform.origin)
-		animation.play("CharacterArmature|Shoot")
+		animation.play("FriendlyTurretDrone/CharacterArmature|Attack")
 	else:
 		state = RETURN_TO_PLAYER
 
+func attack_enemy(delta):
+	print("attacking rn")
+	
 func return_to_player(delta):
 	if player:
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
 		velocity = direction * speed
 
 		look_at(player.global_transform.origin)
-		animation.play("CharacterArmature|Walk")
+		animation.play("FriendlyTurretDrone/CharacterArmature|Run")
 
-		# Optional: auto switch back if close enough
-		if global_transform.origin.distance_to(player.global_transform.origin) < 2.0:
-			state = FOLLOW_PLAYER
+		# switch back if close enough
+		#if global_transform.origin.distance_to(player.global_transform.origin) < 2.0:
+			#state = FOLLOW_PLAYER
 
-#-----------------------------------------
+#----------------------------------------------------------------------------
 # Detection
 #----------------------------------------------------------------------------
 func _on_detecting_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Enemy") and state == FOLLOW_PLAYER:
+	if body.is_in_group("Enemy"):
 		target = body
 		state = CHASE_ENEMY
-		look_at(target.position) 
-		print(body.name + "Detected")
+		look_at(target.global_transform.origin) 
+		print(body.name + " Detected")
+		print("Target is valid: ", target.name)
 
 #----------------------------------------------------------------------------
 # Chase
@@ -101,15 +111,15 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 func _on_attack_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
 		print("Can attack")
-		state = CHASE_ENEMY
+		state = ATTACK_ENEMY
+		body.hit()
 		#velocity = Vector3.ZERO
 
 func _on_attack_range_body_exited(body: Node3D) -> void:
 	print("Can't attack")
-	state = RETURN_TO_PLAYER
+	state = CHASE_ENEMY
 	look_at(player.global_transform.origin)
 
-func _target_hit():
-	#if global_position.distance_to(target.global_position) < ATTACK_RANGE * 1.8:
-		#var dir = global_position.distance_to(target.global_position)
-	print("Hit")
+func target_hit():
+	
+	print("hit")

@@ -16,6 +16,9 @@ func _process(delta):
 		print("colided")
 		mesh.visible = false
 		particles.emitting = true
+		if ray.get_collider().is_in_group("Player"):
+			ray.get_collider().hit()
+			print("Player hit")
 		await get_tree().create_timer(1,0).timeout
 		queue_free()
 		print("deleted")

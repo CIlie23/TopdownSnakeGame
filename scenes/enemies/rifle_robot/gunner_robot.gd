@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+class_name gunnerRobot
 #----------------------------------------------------------------------------
 # 
 # 
@@ -46,7 +47,9 @@ func _ready() -> void:
 #----------------------------------------------------------------------------
 # Player is detected
 #----------------------------------------------------------------------------
-
+func hit():
+	state = DEAD
+	
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
 		var closest = find_closest_target()
@@ -146,7 +149,7 @@ func _process(delta: float) -> void:
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
 			#svelocity = Vector3.ZERO
 		DEAD:
-			spawn_xp_orb()
+			#spawn_xp_orb() #fix xp orbs
 			$Hitbox.disabled = true
 			target = null
 			skeleton.physical_bones_start_simulation()

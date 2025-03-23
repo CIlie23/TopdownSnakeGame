@@ -53,12 +53,12 @@ bones/5/scale = Vector3(1, 1, 1)
 surface_material_override/0 = SubResource("StandardMaterial3D_02gw8")
 
 [node name="Physical Bone Body" type="PhysicalBone3D" parent="Drone1_Armature/Skeleton3D" index="1"]
-transform = Transform3D(125, -2.90465e-06, -6.72066e-07, 2.98139e-06, 121.783, 28.1778, -5.18654e-12, -28.1778, 121.783, -9.44139e-06, 74.8631, -15.2514)
+transform = Transform3D(125, -2.90465e-06, -6.72067e-07, 2.98139e-06, 121.783, 28.1778, -5.18654e-12, -28.1778, 121.783, -9.44139e-06, 74.8631, -15.2514)
 collision_layer = 2
 collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19632e-08, 0.155882, 0.177965)
-body_offset = Transform3D(125, -3.19399e-05, -7.3902e-06, 5.18654e-12, 28.1779, -121.783, 3.27837e-05, 121.783, 28.1779, 1.04867e-06, 17.2807, -23.9985)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19633e-08, 0.155883, 0.177966)
+body_offset = Transform3D(125, -3.19399e-05, -7.39018e-06, 5.18654e-12, 28.1778, -121.783, 3.27837e-05, 121.783, 28.1778, 1.04867e-06, 17.2807, -23.9985)
 bone_name = "Body"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -76,12 +76,12 @@ transform = Transform3D(1, -1.58639e-08, -6.68101e-09, 1.43143e-08, 0.981959, -0
 target_position = Vector3(0, 0, -10)
 
 [node name="Physical Bone Leg_0_l" type="PhysicalBone3D" parent="Drone1_Armature/Skeleton3D" index="2"]
-transform = Transform3D(94.8086, -76.822, -27.1056, -78.3691, -97.3649, 1.83341, -22.2398, 15.6033, -122.012, -11.6015, 50.4431, 49.1381)
+transform = Transform3D(94.8086, -76.8219, -27.1056, -78.3691, -97.3649, 1.83341, -22.2398, 15.6033, -122.012, -11.6015, 50.443, 49.1381)
 collision_layer = 2
 collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173609, -0.223446, 0.383181)
-body_offset = Transform3D(122.876, -11.0971, -20.0831, -3.08591, 100.422, -74.3697, 22.7366, 73.6018, 98.4419, 26.5482, 50.4002, -17.3277)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173609, -0.223446, 0.38318)
+body_offset = Transform3D(122.876, -11.0971, -20.0831, -3.08591, 100.422, -74.3698, 22.7366, 73.6019, 98.4419, 26.5482, 50.4002, -17.3277)
 bone_name = "Leg_0_l"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -100,8 +100,8 @@ transform = Transform3D(110.963, 40.6953, -40.6941, 53.998, -43.0452, 104.194, 1
 collision_layer = 2
 collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0879227, -0.0897812, 0.36339)
-body_offset = Transform3D(122.905, 7.11717, 21.6499, 22.7682, -33.1949, -118.341, -0.988729, 120.301, -33.9349, -18.0345, 38.0218, 23.2193)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0879232, -0.0897808, 0.363389)
+body_offset = Transform3D(122.905, 7.11719, 21.6498, 22.7682, -33.195, -118.341, -0.988735, 120.301, -33.935, -18.0345, 38.0218, 23.2193)
 bone_name = "Leg_0_r"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0

@@ -37,6 +37,11 @@ enum {
 func _ready() -> void:
 	idle_timer.start()
 
+func hit():
+	state = DEAD
+	print("ddded")
+	print(state)
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("killAll"):
 		state = DEAD
@@ -60,7 +65,7 @@ func _process(delta: float) -> void:
 			animations.play("walk")
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
 		DEAD:
-			spawn_xp_orb()
+			#spawn_xp_orb()
 			$Hitbox.disabled = true
 			target = null
 			skeleton.physical_bones_start_simulation()

@@ -40,13 +40,13 @@ proximity_fade_distance = 4096.0
 [sub_resource type="SphereMesh" id="SphereMesh_o2b6l"]
 material = SubResource("StandardMaterial3D_ysrxf")
 
-[node name="PlasmaBall" type="StaticBody3D"]
-collision_layer = 7
-collision_mask = 7
+[node name="PlasmaBall" type="Node3D"]
 script = ExtResource("1_1wt5o")
 SPEED = 15.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_lh72y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -66,6 +66,10 @@ wait_time = 5.0
 autostart = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, 1)
+collide_with_areas = true
+debug_shape_thickness = 5
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
