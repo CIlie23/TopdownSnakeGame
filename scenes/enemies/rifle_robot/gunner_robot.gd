@@ -6,10 +6,15 @@ class_name gunnerRobot
 # 
 # 
 #----------------------------------------------------------------------------
+@export var gunnerHEALTH: int = 100
+
+var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
+var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
+var lightning_damage = lightningScene.new().lightningDamage
 
 @export var rotation_speed: float = 2 # Speed of rotation in degrees per second
 @onready var animations: AnimationPlayer = $Animations
-@onready var vfx_smoke: Node3D = $"XRKArmature/GeneralSkeleton/Physical Bone Chest/vfx_smoke"
+@onready var vfx_fire: Node3D = $"XRKArmature/GeneralSkeleton/Physical Bone Chest/vfx_Fire"
 
 @onready var idle_timer: Timer = $IdleTimer
 @onready var wander_timer: Timer = $WanderTimer
@@ -47,9 +52,23 @@ func _ready() -> void:
 #----------------------------------------------------------------------------
 # Player is detected
 #----------------------------------------------------------------------------
-func hit():
-	state = DEAD
+
+# I could have probably passed a few vars for damage inside the function but uh fk it we ball
+func plasmaBallHit():
+	#print(plasma_ball_damage, " damage")
+	#print(gunnerHEALTH, " gunner health")
+	gunnerHEALTH -= plasma_ball_damage
 	
+func hit():
+	#print(friendly_drone_damage, " damage")
+	#print(gunnerHEALTH, " gunner health")
+	gunnerHEALTH -= friendly_drone_damage
+	
+func lightningHit():
+	print(lightning_damage, " damage")
+	print(gunnerHEALTH, " gunner health")
+	gunnerHEALTH -= lightning_damage
+#----------------------------------------------------------------------------
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
 		var closest = find_closest_target()
@@ -126,6 +145,13 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 # Handles all the states the enemy can be in
 #----------------------------------------------------------------------------
 func _process(delta: float) -> void:
+	if gunnerHEALTH <= 50:
+		vfx_fire.visible = true
+		
+	if gunnerHEALTH <= 0 and state != DEAD:
+		print("GUNNER dead")
+		state = DEAD
+		
 	if Input.is_action_pressed("killAll"):
 		state = DEAD
 	match state:
@@ -149,7 +175,7 @@ func _process(delta: float) -> void:
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
 			#svelocity = Vector3.ZERO
 		DEAD:
-			#spawn_xp_orb() #fix xp orbs
+			spawn_xp_orb() #fix xp orbs
 			$Hitbox.disabled = true
 			target = null
 			skeleton.physical_bones_start_simulation()
@@ -200,6 +226,6 @@ func spawn_xp_orb():
 	xp_orb.global_position = global_position
 	# Reparent to the world so it doesn't get deleted
 	#get_parent().add_child(xp_orb) 
-	get_tree().get_root().add_child(xp_orb)
+	get_tree().current_scene.call_deferred("add_child", xp_orb)
 	  # Spawn at enemy's last position
 	#print("XP orb spawned at:", xp_orb.global_position)

@@ -1,14 +1,21 @@
 extends Node3D
 
-@onready var beam: MeshInstance3D = $MeshInstance3D
-@onready var particles: GPUParticles3D = $GPUParticles3D
+class_name lightningScene
 
+@onready var lightning_mesh: MeshInstance3D = $LightningMesh
+@onready var lightning_particles: GPUParticles3D = $LightningParticles
+var lightningDamage: int = 50
 
 func _ready() -> void:
-	pass
+	lightning_particles.emitting = true
+	lightning_mesh.visible = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	hit()
+	if body.is_in_group("Enemy"):
+		body.lightningHit()
 
 func hit():
 	print("Hit")
+
+func _on_existence_timer_timeout() -> void:
+	queue_free()

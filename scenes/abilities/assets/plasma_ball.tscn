@@ -45,6 +45,8 @@ script = ExtResource("1_1wt5o")
 SPEED = 15.0
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_lh72y")

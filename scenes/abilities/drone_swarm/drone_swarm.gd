@@ -6,7 +6,7 @@ class_name Ability
 
 var drones: Array = []
 @export var max_drones: int
-@export var spawn_radius: float = 2.0
+@export var spawn_radius: float = 1.5
 
 @onready var drone_scene = preload("res://scenes/friends/turret_drone.tscn")
 #var player = preload("res://scripts/player/player.gd")

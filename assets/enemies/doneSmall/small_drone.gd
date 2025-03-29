@@ -1,13 +1,18 @@
 extends CharacterBody3D
 
+@export var smallDroneHealth: int = 130
+var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
+var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
+var lightning_damage = lightningScene.new().lightningDamage
+
 @onready var skeleton: Skeleton3D = $Drone1_Armature/Skeleton3D
 @onready var animations: AnimationPlayer = $AnimationPlayer
 @onready var vfx_fire: Node3D = $"Drone1_Armature/Skeleton3D/Physical Bone Body/vfx_Fire"
 
 @onready var idle_timer: Timer = $IdleTimer
+
 @onready var wander_timer: Timer = $WanderTimer
 @onready var despawn: Timer = $Despawn
-@onready var exclamation_mark: Sprite3D = $ExclamationMark
 @onready var shoot_timer: Timer = $ShootTimer
 
 @onready var rifle_barrel: Node3D = $"Drone1_Armature/Skeleton3D/Physical Bone Body/RayCast3D"
@@ -37,13 +42,11 @@ enum {
 func _ready() -> void:
 	idle_timer.start()
 
-func hit():
-	state = DEAD
-	print("ddded")
-	print(state)
-
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("killAll"):
+	if smallDroneHealth <= 50:
+		vfx_fire.visible = true
+		
+	if smallDroneHealth <= 0 and state != DEAD:
 		state = DEAD
 	match state:
 		IDLE:
@@ -65,7 +68,7 @@ func _process(delta: float) -> void:
 			animations.play("walk")
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
 		DEAD:
-			#spawn_xp_orb()
+			spawn_xp_orb()
 			$Hitbox.disabled = true
 			target = null
 			skeleton.physical_bones_start_simulation()
@@ -89,6 +92,24 @@ func find_closest_target():
 #----------------------------------------------------------------------------
 # Player is detected
 #----------------------------------------------------------------------------
+func plasmaBallHit():
+	#print(plasma_ball_damage, " damage")
+	#print(smallDroneHealth, " gunner health")
+	smallDroneHealth -= plasma_ball_damage
+
+func hit():
+	#print(friendly_drone_damage, " damage")
+	#print(gunnerHEALTH, " gunner health")
+	smallDroneHealth -= friendly_drone_damage
+	if smallDroneHealth <= 0:
+		print("dead")
+		state = DEAD
+		
+func lightningHit():
+	#print(lightning_damage, " damage")
+	#print(smallDroneHealth, " gunner health")
+	smallDroneHealth -= lightning_damage
+	
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
 		var closest = find_closest_target()
@@ -193,6 +214,6 @@ func spawn_xp_orb():
 	xp_orb.global_position = global_position
 	# Reparent to the world so it doesn't get deleted
 	#get_parent().add_child(xp_orb) 
-	get_tree().get_root().add_child(xp_orb)
+	get_tree().current_scene.call_deferred("add_child", xp_orb)
 	  # Spawn at enemy's last position
-	print("XP orb spawned at:", xp_orb.global_position)
+	#print("XP orb spawned at:", xp_orb.global_position)

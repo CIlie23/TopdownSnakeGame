@@ -4,7 +4,7 @@ extends Node3D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var rifle_barrel: MeshInstance3D = $MeshInstance3D/MeshInstance3D
 
-var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
+var bullet = load("res://scenes/turrets/turretBullet.tscn")
 var instance
 
 var target = null

@@ -4,7 +4,7 @@ extends ColorRect
 @export var camera_distance:float = 20.0
 
 @onready var player := get_node(target)
-@onready var camera: Camera3D = $SubViewportContainer/SubViewport/Camera3D
+@onready var camera: Camera3D = $SubViewportContainer/SubViewport/Camera
 
 func _process(delta: float) -> void:
 	if target:

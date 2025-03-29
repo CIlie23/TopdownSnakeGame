@@ -7,7 +7,7 @@ extends Node3D
 @onready var gun_anim: AnimationPlayer = $AnimationPlayer
 
 var target = null
-var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
+var bullet = load("res://scenes/turrets/turretBullet.tscn")
 var gun_bullet
 var can_shoot = true 
 

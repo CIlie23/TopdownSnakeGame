@@ -31,15 +31,24 @@ var playerStats = preload("res://scripts/player/player_stats_resource.tres")
 #---------------------------------------------------------------------
 
 signal player_hit
+signal player_dead
 
 func hit():
 	playerStats.playerHealth -= 10
-	print(playerStats.playerHealth, " Health")
-	print("damaged")
+	#print(playerStats.playerHealth, " Health")
+	#print("damaged")
+	emit_signal("player_hit")
+
+func bulletHit():
+	playerStats.playerHealth -= 0.5
+	#print(playerStats.playerHealth, " Health")
+	#print("damaged")
 	emit_signal("player_hit")
 
 func _ready():
 	print(playerStats.mana, " Mana")
+	#playerStats.playerHealth = 100
+	#playerStats.mana = 100
 	position = position.snapped(Vector3.ONE * grid_size)
 
 func show_speed_particles():
@@ -47,6 +56,9 @@ func show_speed_particles():
 	#speed_particles.emitting = true
 
 func _process(_delta):
+	if playerStats.playerHealth <= 0:
+		emit_signal("player_dead")
+		#print("Player is dead")
 	handle_input()
 	if Input.is_action_just_pressed("extend_snake"):
 		extend()
@@ -154,3 +166,9 @@ func _on_mana_regen_timeout() -> void:
 #
 			#player.get_parent().add_child(drone)  # Spawn in world
 			#drones.append(drone)
+
+
+func _on_health_regen_timeout() -> void:
+	if playerStats.playerHealth < playerStats.max_playerHealth:
+		playerStats.playerHealth  += playerStats.healthRegen
+		playerStats.playerHealth  = min(playerStats.playerHealth, playerStats.max_playerHealth)

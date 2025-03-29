@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name plasmaBall
+
 # Should probably rewrite this l8r so it's a resource
 # In case I wanna reuse it for something else
 # Rn this script is also used for the plasma_ball
@@ -14,6 +16,7 @@ extends Node3D
 @onready var dmgArea: Area3D = $Area3D
 
 @export var SPEED: float
+@export var plasmaBallDAMAGE: int = 50;
 
 func _ready():
 	pass
@@ -34,4 +37,4 @@ func _on_timer_timeout() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
-		body.hit()
+		body.plasmaBallHit()

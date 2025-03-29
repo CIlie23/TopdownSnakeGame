@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm2674jfeye45"]
+
+[ext_resource type="Script" path="res://scenes/turrets/turret_bullet.gd" id="1_5c8my"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_suewx"]
+size = Vector3(0.05, 0.05, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbilr"]
+albedo_color = Color(0.86, 0.565593, 0.1806, 1)
+emission_enabled = true
+emission = Color(1, 0, 0.0166664, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2u4gl"]
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48of4"]
+albedo_color = Color(1, 0.5, 0, 1)
+emission_enabled = true
+emission = Color(0.54, 0, 0.00899986, 1)
+emission_energy_multiplier = 8.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_piq22"]
+material = SubResource("StandardMaterial3D_48of4")
+size = Vector3(0.04, 0.04, 0.04)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yl3eo"]
+
+[node name="TurretBullet" type="Node3D"]
+script = ExtResource("1_5c8my")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_suewx")
+surface_material_override/0 = SubResource("StandardMaterial3D_wbilr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.585779)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2u4gl")
+draw_pass_1 = SubResource("BoxMesh_piq22")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="BulletColision" type="Area3D" parent="."]
+
+[node name="bulletShape" type="CollisionShape3D" parent="BulletColision"]
+shape = SubResource("BoxShape3D_yl3eo")
+
+[connection signal="body_entered" from="BulletColision" to="." method="_on_bullet_colision_body_entered"]

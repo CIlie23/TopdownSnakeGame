@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnhk6mxwsybmw"]
+[gd_scene load_steps=11 format=3 uid="uid://bnhk6mxwsybmw"]
 
 [ext_resource type="Script" path="res://scenes/abilities/assets/lightning_strike.gd" id="1_63hhg"]
+[ext_resource type="Texture2D" uid="uid://dude603a07ucu" path="res://assets/ui/abilities/lightning_area.png" id="2_r6qfg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_khdtx"]
-radius = 1.0
+radius = 2.0981
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ppskg"]
 
@@ -37,7 +38,9 @@ material = SubResource("StandardMaterial3D_xtsdq")
 [node name="LightningStrike" type="Node3D"]
 script = ExtResource("1_63hhg")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ExistenceTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -46,13 +49,13 @@ script = ExtResource("1_63hhg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CylinderShape3D_khdtx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="LightningMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0707329, 0, 0, 0, 5.65758, 0, 0, 0, 0.130299, 0, 4.03431, 0)
 visible = false
 mesh = SubResource("CylinderMesh_ppskg")
 surface_material_override/0 = SubResource("StandardMaterial3D_gugfc")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="LightningParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.0707329, 0, 0, 0, 5.65758, 0, 0, 0, 0.130299, 0, -0.61817, 0)
 emitting = false
 amount = 50
@@ -62,4 +65,9 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_j61kx")
 draw_pass_1 = SubResource("SphereMesh_ew4uj")
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, -1.74846e-08, -0.4, 0, 0.4, -1.74846e-08, 0, 0, 0)
+texture = ExtResource("2_r6qfg")
+
+[connection signal="timeout" from="ExistenceTimer" to="." method="_on_existence_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

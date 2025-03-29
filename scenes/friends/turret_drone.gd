@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name friendlyDrone
+
 # https://www.youtube.com/watch?v=qg2kzZVe2RI
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -7,6 +9,9 @@ extends CharacterBody3D
 
 #var gunnerRobotScript = preload("res://scenes/enemies/rifle_robot/gunner_robot.gd")
 #var gunner = gunnerRobotScript.new()
+
+@export var droneHEALTH: int = 45;
+@export var droneDAMAGE: int = 20;
 
 var state = FOLLOW_PLAYER
 var target = null
@@ -112,14 +117,17 @@ func _on_attack_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
 		print("Can attack")
 		state = ATTACK_ENEMY
+		target = body
 		body.hit()
 		#velocity = Vector3.ZERO
 
 func _on_attack_range_body_exited(body: Node3D) -> void:
-	print("Can't attack")
-	state = CHASE_ENEMY
-	look_at(player.global_transform.origin)
+	if body.is_in_group("Enemy"):
+		print("Can't attack")
+		state = CHASE_ENEMY
+		look_at(player.global_transform.origin)
 
 func target_hit():
-	
-	print("hit")
+	if target and target.has_method("hit"):
+		target.hit()
+		print("hit")

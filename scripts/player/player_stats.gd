@@ -3,6 +3,8 @@ class_name PlayerStats
 
 @export var playerHealth: int
 @export var max_playerHealth: int
+@export var healthRegen: float = 2.0
+
 @export var armor: int
 @export var maxArmor: int
 @export var mana: int

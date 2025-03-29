@@ -10,6 +10,7 @@ extends TextureButton
 @onready var ability_button: TextureButton = $"."
 @onready var ability_icon: Sprite2D = $AbilityIcon
 
+@onready var camera_path = get_node("/root/Spacial/Player/Camera")
 #@export var skill: Resource
 @export var abilityAtributes: AbilityAtributes
 #@export var action_name: String 
@@ -60,10 +61,13 @@ func _on_pressed(): #add logic here to prvent from pressing again
 	if Input.is_action_pressed("ability_one"):
 		playerStats.mana -= abilityAtributes.abilityCost
 		player.shoot_plasmaball()
-		print("Abil 1")
+		#print("Abil 1")
 	elif Input.is_action_pressed("ability_two") and playerStats.mana >= 50:
 		playerStats.mana -= abilityAtributes.abilityCost
-		print("Abil 2")
+		camera_path.shoot_ray()
+		#var lightningStrike = camera_path.shoot_ray()
+		#add_child(lightningStrike)		
+		#print("Abil 2")
 		#abilityAtributes.use_ability_two(player)
 	elif Input.is_action_pressed("ability_tree") and playerStats.mana >= 30:
 		playerStats.mana -= abilityAtributes.abilityCost

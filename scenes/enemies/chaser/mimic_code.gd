@@ -4,10 +4,16 @@ extends CharacterBody3D #Code for the mimic enemy
 #
 #----------------------------------------------------------------------------
 
+@export var chaserHEALTH: int = 150
+
+var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
+var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
+var lightning_damage = lightningScene.new().lightningDamage
 
 @onready var sight: CollisionShape3D = $DetectArea/Sight
 @onready var animations: AnimationPlayer = $Animations
 @onready var skeleton: Skeleton3D = %GeneralSkeleton
+@onready var vfx_fire: Node3D = $"SK_DLC_Old_Endo/GeneralSkeleton/Physical Bone Spine/vfx_Fire"
 
 
 @onready var idle_timer: Timer = $IdleTimer
@@ -45,13 +51,28 @@ enum {
 func _ready():
 	idle_timer.start()
 
-func hit():
-	state = DEAD
-	print("ddded")
-	print(state)		
+
 #----------------------------------------------------------------------------
 # Player is detected
 #----------------------------------------------------------------------------
+func plasmaBallHit():
+	print(plasma_ball_damage, " damage")
+	print(chaserHEALTH, " gunner health")
+	chaserHEALTH -= plasma_ball_damage
+
+func hit():
+	print(friendly_drone_damage, " damage")
+	print(chaserHEALTH, " gunner health")
+	chaserHEALTH -= friendly_drone_damage
+	if chaserHEALTH <= 0:
+		print("dead")
+		state = DEAD
+
+func lightningHit():
+	print(lightning_damage, " damage")
+	print(chaserHEALTH, " gunner health")
+	chaserHEALTH -= lightning_damage
+	
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
 		var closest = find_closest_target()
@@ -114,9 +135,10 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 # Handles all the states the enemy can be in
 #----------------------------------------------------------------------------
 func _process(delta):		
-	#if Input.is_action_pressed("killAll"):
-		#state = DEAD
-	if enemy_health < 100:
+	if enemy_health <= 50:
+		vfx_fire.visible = true
+		
+	if enemy_health <= 0 and state != DEAD:
 		state = DEAD
 		
 	match state:
@@ -142,7 +164,7 @@ func _process(delta):
 		DEAD:
 			$CollisionShape3D.disabled = true
 			print("dead")
-			#spawn_xp_orb()
+			spawn_xp_orb()
 			target = null
 			skeleton.physical_bones_start_simulation()
 			set_process(false)
@@ -191,6 +213,6 @@ func spawn_xp_orb():
 	xp_orb.global_position = global_position
 	# Reparent to the world so it doesn't get deleted
 	#get_parent().add_child(xp_orb) 
-	get_tree().get_root().add_child(xp_orb)
+	get_tree().current_scene.call_deferred("add_child", xp_orb)
 	  # Spawn at enemy's last position
-	print("XP orb spawned at:", xp_orb.global_position)
+	#print("XP orb spawned at:", xp_orb.global_position)

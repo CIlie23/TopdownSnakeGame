@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=71 format=3 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
@@ -28,15 +28,14 @@
 [ext_resource type="PackedScene" uid="uid://dqflyxajxqqx3" path="res://scenes/props/houseThree.tscn" id="26_cyquj"]
 [ext_resource type="Texture2D" uid="uid://c6rk8ro2e6oeb" path="res://assets/ui/windows/Card X3.png" id="26_n8b2v"]
 [ext_resource type="PackedScene" uid="uid://x3r8d5cox4a7" path="res://scenes/UI/inventory/inventory_ui.tscn" id="26_nv6hk"]
+[ext_resource type="PackedScene" uid="uid://cls10jofsy2mq" path="res://scenes/game_over_menu.tscn" id="27_i6k8y"]
 [ext_resource type="PackedScene" uid="uid://bi76xjwif6hcw" path="res://scenes/props/houseTwo.tscn" id="27_ucawo"]
 [ext_resource type="PackedScene" uid="uid://b475wnptaipdd" path="res://scenes/pause_menu.tscn" id="28_4ig8x"]
 [ext_resource type="PackedScene" uid="uid://uvfwcht0hfmi" path="res://scenes/UI/minimap.tscn" id="28_a32ar"]
 [ext_resource type="PackedScene" uid="uid://cy37xr24833ko" path="res://scenes/props/tree.tscn" id="28_edjhq"]
 [ext_resource type="PackedScene" uid="uid://duu00ypj1dd7q" path="res://scenes/UI/abilities/ability_button.tscn" id="29_ladu2"]
-[ext_resource type="PackedScene" uid="uid://cp15cenbvmedl" path="res://scenes/awesome_test_cube.tscn" id="32_6a8in"]
 [ext_resource type="PackedScene" uid="uid://dtvu4roohjsqa" path="res://scenes/props/truck_one.tscn" id="34_ebdwr"]
 [ext_resource type="PackedScene" uid="uid://cf2k7yprkaur7" path="res://scenes/props/black_barrel.tscn" id="35_ofc6a"]
-[ext_resource type="PackedScene" uid="uid://d0tjqnb20e8kq" path="res://scenes/enemies/rifle_robot/robot_fella.tscn" id="37_6guv5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k674v"]
 
@@ -187,6 +186,12 @@ shader_parameter/resolution_scale = 2
 [sub_resource type="QuadMesh" id="QuadMesh_fraa3"]
 flip_faces = true
 size = Vector2(2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrco0"]
+size = Vector3(127.703, 5.16107, 126.14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bnwr"]
+size = Vector3(130.476, 2.34198, 130.516)
 
 [node name="Spacial" type="Node3D"]
 script = ExtResource("1_mfq8h")
@@ -355,25 +360,34 @@ scale = Vector2(1.5, 1.5)
 
 [node name="AbilityButton" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
+tooltip_text = "
+ Shoots a ball of plasma"
 shortcut = SubResource("Shortcut_xe53s")
+shortcut_in_tooltip = false
 abilityAtributes = SubResource("Resource_n0cyb")
 input_config = "1"
 
 [node name="AbilityButton2" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
+tooltip_text = "Summon a circle of lightning"
 shortcut = SubResource("Shortcut_5mvnc")
+shortcut_in_tooltip = false
 abilityAtributes = SubResource("Resource_iqeol")
 input_config = "2"
 
 [node name="AbilityButton3" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
+tooltip_text = "Gain temporary  speed"
 shortcut = SubResource("Shortcut_te72a")
+shortcut_in_tooltip = false
 abilityAtributes = SubResource("Resource_7jfcp")
 input_config = "3"
 
 [node name="AbilityButton4" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
+tooltip_text = "Summon a flock of drones"
 shortcut = SubResource("Shortcut_jfcgm")
+shortcut_in_tooltip = false
 abilityAtributes = SubResource("Resource_ccluh")
 input_config = "4"
 
@@ -432,6 +446,39 @@ target = NodePath("../..")
 [node name="SkillTree2" parent="Player/UI" instance=ExtResource("26_auhyj")]
 visible = false
 
+[node name="ExitWarning" type="VBoxContainer" parent="Player/UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.0
+offset_top = 36.0
+offset_right = 131.0
+offset_bottom = 86.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="WARNING" type="Label" parent="Player/UI/ExitWarning"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_rt3cn")
+theme_override_font_sizes/font_size = 20
+text = "WARNING: PLAYER LEFT THE AREA"
+horizontal_alignment = 1
+
+[node name="Pls" type="Label" parent="Player/UI/ExitWarning"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_k4d8i")
+text = "Please return immediately"
+horizontal_alignment = 1
+
+[node name="WarningTimer" type="Timer" parent="Player/UI/ExitWarning"]
+wait_time = 60.0
+
+[node name="TimerLbl" type="Label" parent="Player/UI/ExitWarning"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_k4d8i")
+text = "69"
+horizontal_alignment = 1
+
 [node name="Shader" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.541)
 visible = false
@@ -467,6 +514,9 @@ visible = false
 offset_right = -2.0
 offset_bottom = -2.0
 
+[node name="GameOver" parent="Player" instance=ExtResource("27_i6k8y")]
+visible = false
+
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("7_m58bh")
 cell_size = Vector3(1, 1, 1)
@@ -483,15 +533,11 @@ shadow_enabled = true
 [node name="Money" parent="." instance=ExtResource("4_4nwhm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.43127, -0.159485, -1.88047)
 
-[node name="AwesomeTestCube" parent="." instance=ExtResource("32_6a8in")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23276, 0.412817, 2.68357)
-
 [node name="PodSpawner" type="Node3D" parent="."]
 script = ExtResource("25_fxiwe")
 
 [node name="PodSpawnTimer" type="Timer" parent="PodSpawner"]
 wait_time = 5.0
-autostart = true
 
 [node name="Houses" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -36)
@@ -640,11 +686,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2908, -0.622689, 20.3796)
 [node name="Barrel" parent="." instance=ExtResource("35_ofc6a")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3, -0.514036, 0)
 
-[node name="robotFella" parent="." instance=ExtResource("37_6guv5")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.332508, 0, 4.3561)
+[node name="ArenaArea" type="Area3D" parent="."]
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArenaArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.407936, 1.55899, -0.807739)
+shape = SubResource("BoxShape3D_rrco0")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.554115, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183395, -0.630035, 0.428291)
+shape = SubResource("BoxShape3D_0bnwr")
+
+[connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
 [connection signal="pressed" from="Player/UI/Dialog/Box/okButton" to="Player/UI/Dialog" method="_on_ok_button_pressed"]
 [connection signal="animation_finished" from="Player/UI/Dialog/VBoxContainer/TypeWriterEffect" to="Player/UI/Dialog" method="_on_type_writer_effect_animation_finished"]
+[connection signal="timeout" from="Player/UI/ExitWarning/WarningTimer" to="." method="_on_warning_timer_timeout"]
 [connection signal="item_out_of_inventory" from="Player/InventoryUI" to="." method="_on_inventory_ui_item_out_of_inventory"]
 [connection signal="timeout" from="PodSpawner/PodSpawnTimer" to="PodSpawner" method="_on_pod_spawn_timer_timeout"]
+[connection signal="body_entered" from="ArenaArea" to="." method="_on_arena_area_body_entered"]
+[connection signal="body_exited" from="ArenaArea" to="." method="_on_arena_area_body_exited"]

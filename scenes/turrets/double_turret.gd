@@ -12,7 +12,7 @@ extends Node3D
 @onready var barrel_left_two: RayCast3D = $turret_double/turret/BarrelLeftTwo
 
 var target = null
-var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
+var bullet = load("res://scenes/turrets/turretBullet.tscn")
 var cannon_bullet
 var can_shoot = true 
 
