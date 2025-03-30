@@ -13,7 +13,9 @@ size = Vector3(1, 1.81433, 1.06519)
 albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d0fc7"]
+lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_ir727")
+add_uv2 = true
 
 [sub_resource type="Curve" id="Curve_awuci"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -126,17 +128,10 @@ current = true
 size = 10.0
 script = ExtResource("4_kodi4")
 
-[node name="MouseRay" type="RayCast3D" parent="Camera"]
-target_position = Vector3(0, 0, 0)
-
 [node name="FPSCounter" type="Label" parent="Camera"]
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("2_rcm6a")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
 
 [node name="SpeedUPtimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -161,7 +156,5 @@ libraries = {
 "": SubResource("AnimationLibrary_itajh")
 }
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="SpeedUPtimer" to="." method="_on_speed_u_ptimer_timeout"]
 [connection signal="timeout" from="ManaRegen" to="." method="_on_mana_regen_timeout"]
 [connection signal="timeout" from="HealthRegen" to="." method="_on_health_regen_timeout"]

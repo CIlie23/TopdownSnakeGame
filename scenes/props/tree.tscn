@@ -48,7 +48,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0icjr")
 
 [node name="Tree" type="MeshInstance3D"]
+visibility_range_begin_margin = 25.0
 
 [node name="treePine_large" type="MeshInstance3D" parent="."]
+lod_bias = 0.1
 mesh = SubResource("ArrayMesh_h37q6")
 skeleton = NodePath("")

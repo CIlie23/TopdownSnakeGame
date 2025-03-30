@@ -3,3 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://dea1lmf4lvbm5" path="res://assets/gun/GL.fbx" id="1_cxx0u"]
 
 [node name="GL" instance=ExtResource("1_cxx0u")]
+
+[node name="HoloSightReticle" parent="." index="0"]
+visibility_range_end = 20.0
+
+[node name="GL" parent="." index="1"]
+visibility_range_end = 20.0
+
+[node name="Attatch" parent="." index="2"]
+visibility_range_end = 20.0
+
+[node name="Main" parent="." index="3"]
+visibility_range_end = 20.0
+
+[node name="Sight" parent="." index="4"]
+visibility_range_end = 20.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://duu00ypj1dd7q"]
+[gd_scene load_steps=6 format=3 uid="uid://duu00ypj1dd7q"]
 
 [ext_resource type="Texture2D" uid="uid://c4wsf7xhekjld" path="res://assets/ui/abilities/Frame_05.png" id="1_hcyk0"]
 [ext_resource type="Script" path="res://scenes/UI/abilities/ability_button.gd" id="2_p2b3e"]
 [ext_resource type="Texture2D" uid="uid://cifl84hiiomxs" path="res://assets/ui/abilities/coldown.png" id="2_uc0xu"]
 [ext_resource type="FontFile" uid="uid://br1hdtv4fq305" path="res://assets/fonts/Qaroxe-zrllw.ttf" id="4_plcoe"]
+[ext_resource type="Texture2D" uid="uid://bqg4jqw0p8q68" path="res://assets/ui/inventory/03.png" id="5_t34pn"]
 
 [node name="AbilityButton" type="TextureButton"]
 custom_minimum_size = Vector2(40, 40)
@@ -58,6 +59,11 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_plcoe")
 text = "1"
+
+[node name="AbilDisabled" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, 20)
+texture = ExtResource("5_t34pn")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

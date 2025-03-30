@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvwt7mjl8l7un"]
+
+[ext_resource type="PackedScene" uid="uid://mvq7sbbp13cp" path="res://scenes/enemies/GoopMonster/Slime Enemy 2.fbx" id="1_uxxlt"]
+[ext_resource type="Texture2D" uid="uid://bbvjpca0g3c06" path="res://scenes/enemies/GoopMonster/monsterbase.png" id="2_wlwux"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly4pk"]
+albedo_texture = ExtResource("2_wlwux")
+
+[node name="Slime Enemy 2" instance=ExtResource("1_uxxlt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="enemy2" parent="Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ly4pk")

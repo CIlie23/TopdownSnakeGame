@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://brf01yt4xcnid"]
+
+[ext_resource type="Shader" path="res://shaders/darkfog_shader.gdshader" id="1_w2sd6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b33xr"]
+render_priority = 0
+shader = ExtResource("1_w2sd6")
+shader_parameter/fog_color = Color(0.6, 0.7, 0.8, 1)
+shader_parameter/edge_fade_start = 40.0
+shader_parameter/edge_fade_end = 90.0
+shader_parameter/fog_density = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ctirr"]
+material = SubResource("ShaderMaterial_b33xr")
+
+[node name="DarkFogPlane" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_ctirr")

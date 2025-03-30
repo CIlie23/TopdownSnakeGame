@@ -32,25 +32,35 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = ExtResource("2_hmumu")
 
 [node name="pCylinder6_pCylinder6_Booster_Bottom_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="0"]
+lod_bias = 0.1
+visibility_range_end = 20.0
 surface_material_override/0 = SubResource("StandardMaterial3D_mtkch")
 
 [node name="pCylinder6_pCylinder6_Booster_Top_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="1"]
+lod_bias = 0.1
+visibility_range_end = 20.0
 surface_material_override/0 = SubResource("StandardMaterial3D_xgpt7")
 
 [node name="pCylinder6_pCylinder6_MainBody_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="2"]
+lod_bias = 0.1
+visibility_range_end = 20.0
 surface_material_override/0 = SubResource("StandardMaterial3D_44yt8")
 
 [node name="pCylinder6_pCylinder6_Panes_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="3"]
+lod_bias = 0.1
+visibility_range_end = 20.0
 surface_material_override/0 = SubResource("StandardMaterial3D_hnk78")
 
 [node name="pCylinder6_pCylinder6_Windows_0" parent="Sketchfab_model_001/f62b675344834139aea7600a6169d196_fbx_001/RootNode_001/pCylinder6_pCylinder6_001" index="4"]
+lod_bias = 0.1
+visibility_range_end = 20.0
 surface_material_override/0 = SubResource("StandardMaterial3D_xtiju")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0761871, -0.935787, 0)
 shape = SubResource("CapsuleShape3D_7gmgb")
 
-[node name="SpawnTimer" type="Timer" parent="." index="3"]
+[node name="SpawnTimer" type="Timer" parent="." index="2"]
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

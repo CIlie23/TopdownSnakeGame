@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bkwlo7ew7tsnv"]
+[gd_scene load_steps=49 format=4 uid="uid://bkwlo7ew7tsnv"]
 
 [ext_resource type="Texture2D" uid="uid://ubru5ilmqv4y" path="res://assets/GLTF format/wallA_door_wall_lines.png" id="1_nbrpv"]
 [ext_resource type="Texture2D" uid="uid://dxbvvtcyiqhs1" path="res://assets/GLTF format/wallA_door_concrete.png" id="2_j8di6"]
@@ -591,6 +591,9 @@ shadow_mesh = SubResource("ArrayMesh_u8nl4")
 [sub_resource type="BoxShape3D" id="BoxShape3D_65lka"]
 size = Vector3(3.4021, 1.80347, 2.99695)
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_wquoc"]
+size = Vector3(4.17985, 1.41652, 3.22364)
+
 [node name="House" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -598,11 +601,15 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="wallA_door" type="MeshInstance3D" parent="StaticBody3D"]
+lod_bias = 0.1
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_xpnbx")
 skeleton = NodePath("")
 
 [node name="wallA_window" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+lod_bias = 0.1
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_r3saw")
 skeleton = NodePath("")
 
@@ -618,11 +625,15 @@ skeleton = NodePath("")
 
 [node name="wallA" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+lod_bias = 0.1
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_r3apm")
 skeleton = NodePath("")
 
 [node name="wallBroken_typeA" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.475, 0, 0.999)
+lod_bias = 0.1
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_brh6k")
 skeleton = NodePath("")
 
@@ -634,3 +645,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.754517, 0.669067, -0.0147095)
 shape = SubResource("BoxShape3D_65lka")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.955546, 0.643972, -0.0458025)
+occluder = SubResource("BoxOccluder3D_wquoc")

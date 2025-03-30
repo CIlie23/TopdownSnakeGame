@@ -9,9 +9,9 @@ extends Node3D
 @onready var timer_lbl: Label = $Player/UI/ExitWarning/TimerLbl
 @onready var warning_timer: Timer = $Player/UI/ExitWarning/WarningTimer
 
-
 const CANNON_SMALL = preload("res://scenes/turrets/cannon_small.tscn")
 @onready var inventory_ui: Control = $Player/InventoryUI
+@onready var kills_label: Label = $Player/UI/UI/AbilitiesNSuch/VBoxContainer/KillsLabel
 
 var isPaused: bool = false
 
@@ -20,6 +20,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta):
+	kills_label.text = str(Global.total_enemy_kills)
 	timer_lbl.text = "%.1f" % warning_timer.time_left
 	if warning_timer.time_left <= 10.0:
 		timer_lbl.modulate = Color.RED
@@ -59,6 +60,9 @@ func _on_arena_area_body_exited(body: Node3D) -> void:
 		warning_timer.start()
 		exit_warning.visible = true
 		print("player exited")
+	
+	#if body.is_in_group("Enemy"):
+		#queue_free()
 
 func _on_arena_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

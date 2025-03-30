@@ -38,6 +38,14 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/12/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(0.00815041, -8.99518e-08, 7.20852e-10, 0.999967)
 
+[node name="Sphere_001" parent="RootNode/CharacterArmature/Skeleton3D" index="0"]
+lod_bias = 0.1
+visibility_range_end = 30.0
+
+[node name="Cube_000" parent="RootNode/CharacterArmature/Skeleton3D" index="1"]
+lod_bias = 0.1
+visibility_range_end = 30.0
+
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 "FriendlyTurretDrone": ExtResource("3_075pn")
@@ -62,7 +70,13 @@ shape = SubResource("CylinderShape3D_ittnv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseRange" index="0"]
 shape = SubResource("CylinderShape3D_ybiw4")
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0745918, 0.373349, -6.52102e-09)
+aabb = AABB(-0.526886, -0.705432, -0.798168, 1.05377, 1.41086, 1.59634)
+
 [connection signal="body_entered" from="DetectingArea" to="." method="_on_detecting_area_body_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_exited" from="ChaseRange" to="." method="_on_chase_range_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

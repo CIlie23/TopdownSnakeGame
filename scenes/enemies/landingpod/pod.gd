@@ -1,9 +1,10 @@
 extends CharacterBody3D
 
-var spawned_enemies = 0 
-var spawnSize = randi_range(3, 6)
+var spawned_enemies: int = 0 
+var spawnSize
 
-var gravity = 30
+var totalEnemies: int
+#var gravity:int = 30
 
 var enemyArray = [
 	preload("res://scenes/enemies/chaser/enemy_mimic.tscn"),
@@ -11,12 +12,15 @@ var enemyArray = [
 	preload("res://scenes/enemies/small_Drone/small_drone.tscn")
 ]
 
+func _ready() -> void:
+	spawnSize = randi_range(3, 5)
+	
 func _on_spawn_timer_timeout() -> void:
-	spawnSize = randi_range(3, 6)
+
 	if spawned_enemies <= spawnSize:
 		var random_enemy_scene = enemyArray.pick_random()
 		var enemy = random_enemy_scene.instantiate()
-		
+
 		var spawn_radius = 3.5  # Adjust the radius as needed
 		var random_offset = Vector3(randf_range(-spawn_radius, spawn_radius), -1, randf_range(-spawn_radius, spawn_radius))
 		
@@ -24,9 +28,9 @@ func _on_spawn_timer_timeout() -> void:
 		get_parent().add_child(enemy)
 		
 		spawned_enemies += 1
-		#print(spawned_enemies)
+		Global.total_enemies += 1
+		print("Total Enemies Alive: ", Global.total_enemies)
+
 		if spawned_enemies >= spawnSize:
 			#print("deleted")
 			queue_free()
-
-	

@@ -4,7 +4,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqh2e"]
 resource_name = "truck_alien"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_uk7ke")
 metallic = 0.35
 roughness = 0.5
@@ -49,6 +48,8 @@ size = Vector3(0.812012, 0.747101, 1.60938)
 [node name="TruckOne" type="CharacterBody3D"]
 
 [node name="truck_green" type="MeshInstance3D" parent="."]
+lod_bias = 0.01
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_a0e4v")
 skeleton = NodePath("")
 

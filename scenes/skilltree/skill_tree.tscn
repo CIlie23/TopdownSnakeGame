@@ -12,6 +12,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 34.0
+offset_right = -43.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e5m0p")
@@ -65,8 +69,30 @@ player_stats = ExtResource("3_fv47a")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 45.0
-offset_top = 32.0
-offset_right = 208.0
-offset_bottom = 55.0
+offset_left = 827.0
+offset_top = 16.0
+offset_right = 990.0
+offset_bottom = 39.0
 text = "Available Skill Points:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+
+[node name="Page1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "PLasma Ball"
+
+[node name="Page2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Lightning Strike"
+
+[node name="Page3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Speed Boost"
+
+[node name="Page4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Drone Swarm"

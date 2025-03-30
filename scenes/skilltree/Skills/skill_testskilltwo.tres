@@ -9,5 +9,5 @@ skill_name = "TestSkillTwo"
 skillIcon = ExtResource("2_wedd6")
 description = "hello"
 effects = {
-"health boost": 25
+"armor boost": 5
 }

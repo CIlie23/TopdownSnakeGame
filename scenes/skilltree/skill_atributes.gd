@@ -10,6 +10,7 @@ class_name SkillAtribute
 }
 
 func apply_effects(player_stats: PlayerStats):
-	for effect in effects.keys():
-		var value = effects[effect]
-		player_stats.apply_stat_boost(effect, value)
+	pass
+	#for effect in effects.keys():
+		#var value = effects[effect]
+		#player_stats.apply_stat_boost(effect, value)

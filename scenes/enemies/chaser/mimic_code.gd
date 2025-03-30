@@ -4,7 +4,7 @@ extends CharacterBody3D #Code for the mimic enemy
 #
 #----------------------------------------------------------------------------
 
-@export var chaserHEALTH: int = 150
+@export var chaserHEALTH: int = 120
 
 var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
 var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
@@ -23,10 +23,11 @@ var lightning_damage = lightningScene.new().lightningDamage
 @onready var detect_area: Area3D = $DetectArea
 @onready var chase_range: Area3D = $ChaseRange
 @onready var attack_range: Area3D = $AttackRange
-@onready var XPORB = preload("res://scenes/enemies/xporb.tscn")
+
+var xp_orb_scene = preload("res://scenes/enemies/xporb.tscn")
 
 @export var blend_speed = 1000
-@export var enemy_health: int
+#@export var enemy_health: int
 
 
 var state = IDLE
@@ -56,21 +57,12 @@ func _ready():
 # Player is detected
 #----------------------------------------------------------------------------
 func plasmaBallHit():
-	print(plasma_ball_damage, " damage")
-	print(chaserHEALTH, " gunner health")
 	chaserHEALTH -= plasma_ball_damage
 
 func hit():
-	print(friendly_drone_damage, " damage")
-	print(chaserHEALTH, " gunner health")
 	chaserHEALTH -= friendly_drone_damage
-	if chaserHEALTH <= 0:
-		print("dead")
-		state = DEAD
 
 func lightningHit():
-	print(lightning_damage, " damage")
-	print(chaserHEALTH, " gunner health")
 	chaserHEALTH -= lightning_damage
 	
 func _on_detect_area_body_entered(body: Node3D) -> void:
@@ -121,13 +113,11 @@ func _target_hit():
 # Going back to idle
 #----------------------------------------------------------------------------
 func _on_chase_range_body_exited(body: Node3D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and state != DEAD:
 		idle_timer.start()
 		target = null
 		state = IDLE
 		#print(body.name + "Lost")
-		pass 
-
 #func _target_in_range():
 	#return global_position.distance_to(target.global_position) < ATTACK_RANGE
 
@@ -135,11 +125,11 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 # Handles all the states the enemy can be in
 #----------------------------------------------------------------------------
 func _process(delta):		
-	if enemy_health <= 50:
+	if chaserHEALTH <= 50:
 		vfx_fire.visible = true
 		
-	if enemy_health <= 0 and state != DEAD:
-		state = DEAD
+	if chaserHEALTH <= 0 and state != DEAD:
+		die()
 		
 	match state:
 		IDLE:
@@ -162,13 +152,7 @@ func _process(delta):
 			animations.play("memecAnimations/claw")
 			#animation_tree.set("parameters/conditions/attack", _target_in_range())
 		DEAD:
-			$CollisionShape3D.disabled = true
-			print("dead")
-			spawn_xp_orb()
-			target = null
-			skeleton.physical_bones_start_simulation()
-			set_process(false)
-			despawn.start()
+			pass
 
 func find_closest_target():
 	var all_players = get_tree().get_nodes_in_group("Player")
@@ -191,7 +175,8 @@ func random_direction():
 	
 func _on_idle_timer_timeout() -> void:
 	random_direction()
-	look_at(wander_directon)
+	#look_at(wander_directon)
+	look_at(global_position + wander_directon, Vector3.UP)
 	#print("I am now wandering")
 	state = PATROL
 	velocity = wander_directon * MOVE_SPEED
@@ -209,10 +194,31 @@ func _on_despawn_timeout() -> void:
 	queue_free()
 
 func spawn_xp_orb():
-	var xp_orb = XPORB.instantiate()
-	xp_orb.global_position = global_position
-	# Reparent to the world so it doesn't get deleted
-	#get_parent().add_child(xp_orb) 
-	get_tree().current_scene.call_deferred("add_child", xp_orb)
-	  # Spawn at enemy's last position
-	#print("XP orb spawned at:", xp_orb.global_position)
+	var orb_instance = xp_orb_scene.instantiate()
+	get_tree().current_scene.add_child(orb_instance)
+	orb_instance.global_transform.origin = global_transform.origin
+
+func die():
+	Global.total_enemies -= 1
+	Global.total_enemy_kills += 1
+	print(Global.total_enemies, " enemies left")
+	state = DEAD
+	spawn_xp_orb()
+	$CollisionShape3D.disabled = true
+	target = null
+	idle_timer.stop()
+	
+	skeleton.physical_bones_start_simulation()
+	despawn.start()
+	set_process(false)
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	animations.stop()
+	#set_process(false)
+	#print("anims stopped")
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	#set_process(true)
+	animations.play("memecAnimations/idle")

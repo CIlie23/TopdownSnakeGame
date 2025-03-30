@@ -131,3 +131,11 @@ func target_hit():
 	if target and target.has_method("hit"):
 		target.hit()
 		print("hit")
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	animation.stop()
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	animation.play("FriendlyTurretDrone/CharacterArmature|Run")

@@ -82,6 +82,7 @@ size = Vector2(0.5, 0.5)
 [node name="vfx_Fire" type="Node3D"]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+visibility_range_end = 20.0
 amount = 900
 preprocess = 0.24
 explosiveness = 0.05

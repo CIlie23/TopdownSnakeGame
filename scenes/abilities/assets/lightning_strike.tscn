@@ -52,11 +52,14 @@ shape = SubResource("CylinderShape3D_khdtx")
 [node name="LightningMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0707329, 0, 0, 0, 5.65758, 0, 0, 0, 0.130299, 0, 4.03431, 0)
 visible = false
+lod_bias = 0.1
+visibility_range_end = 20.0
 mesh = SubResource("CylinderMesh_ppskg")
 surface_material_override/0 = SubResource("StandardMaterial3D_gugfc")
 
 [node name="LightningParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.0707329, 0, 0, 0, 5.65758, 0, 0, 0, 0.130299, 0, -0.61817, 0)
+visibility_range_end = 20.0
 emitting = false
 amount = 50
 one_shot = true
@@ -67,6 +70,7 @@ draw_pass_1 = SubResource("SphereMesh_ew4uj")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, -1.74846e-08, -0.4, 0, 0.4, -1.74846e-08, 0, 0, 0)
+visibility_range_end = 20.0
 texture = ExtResource("2_r6qfg")
 
 [connection signal="timeout" from="ExistenceTimer" to="." method="_on_existence_timer_timeout"]

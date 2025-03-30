@@ -21,7 +21,7 @@ var lightning_damage = lightningScene.new().lightningDamage
 @onready var skeleton: Skeleton3D = %GeneralSkeleton
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var raycast: RayCast3D = $RayCast3D
-@onready var eyes: Node3D = $Eyes
+#@onready var eyes: Node3D = $Eyes
 
 @onready var pew_pew_particles: GPUParticles3D = $XRKArmature/GeneralSkeleton/BoneAttachment3D/rifle/pewPewParticles
 @onready var despawn: Timer = $Despawn
@@ -29,7 +29,8 @@ var lightning_damage = lightningScene.new().lightningDamage
 @onready var rifle_barrel: Node3D = $XRKArmature/GeneralSkeleton/BoneAttachment3D/rifle/RayCast3D
 var bullet = load("res://scenes/enemies/rifle_robot/bullet.tscn")
 var instance
-@onready var XPORB = preload("res://scenes/enemies/xporb.tscn")
+
+var xp_orb_scene = preload("res://scenes/enemies/xporb.tscn")
 
 var state = IDLE
 var target = null
@@ -133,7 +134,7 @@ func _target_hit():
 #----------------------------------------------------------------------------
 
 func _on_chase_range_body_exited(body: Node3D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and state != DEAD:
 		idle_timer.start()
 		shoot_timer.stop()
 		target = null
@@ -150,7 +151,7 @@ func _process(delta: float) -> void:
 		
 	if gunnerHEALTH <= 0 and state != DEAD:
 		print("GUNNER dead")
-		state = DEAD
+		die()
 		
 	if Input.is_action_pressed("killAll"):
 		state = DEAD
@@ -164,7 +165,7 @@ func _process(delta: float) -> void:
 		ALERT:
 			#print("Im alerted")
 			animations.play("GunnerAnimations/run forward")
-			eyes.look_at(target.global_transform.origin, Vector3.UP)
+			#eyes.look_at(target.global_transform.origin, Vector3.UP)
 			rotate_y(deg_to_rad(180))
 			#rotate_y(deg_to_rad(eyes.rotation.y * rotation_speed))
 		CHASE:
@@ -175,13 +176,7 @@ func _process(delta: float) -> void:
 			velocity = position.direction_to(target.position) * AIM_MOVE_SPEED
 			#svelocity = Vector3.ZERO
 		DEAD:
-			spawn_xp_orb() #fix xp orbs
-			$Hitbox.disabled = true
-			target = null
-			skeleton.physical_bones_start_simulation()
-			set_process(false)
-			shoot_timer.stop()
-			despawn.start()
+			pass
 
 func find_closest_target():
 	var all_players = get_tree().get_nodes_in_group("Player")
@@ -204,7 +199,7 @@ func random_direction():
 
 func _on_idle_timer_timeout() -> void:
 	random_direction()
-	eyes.look_at(wander_directon)
+	#eyes.look_at(wander_directon)
 	#print("I am now wandering")
 	state = PATROL
 	velocity = wander_directon * MOVE_SPEED
@@ -222,10 +217,31 @@ func _on_despawn_timeout() -> void:
 	queue_free()
 
 func spawn_xp_orb():
-	var xp_orb = XPORB.instantiate()
-	xp_orb.global_position = global_position
-	# Reparent to the world so it doesn't get deleted
-	#get_parent().add_child(xp_orb) 
-	get_tree().current_scene.call_deferred("add_child", xp_orb)
-	  # Spawn at enemy's last position
-	#print("XP orb spawned at:", xp_orb.global_position)
+	var orb_instance = xp_orb_scene.instantiate()
+	get_tree().current_scene.add_child(orb_instance)
+	orb_instance.global_transform.origin = global_transform.origin
+
+func die():
+	Global.total_enemies -= 1
+	Global.total_enemy_kills += 1
+	print("GUNNER dead")
+	state = DEAD
+	spawn_xp_orb()
+	$Hitbox.disabled = true
+	target = null
+	shoot_timer.stop()
+	idle_timer.stop()
+	
+	# Start death effects
+	skeleton.physical_bones_start_simulation()
+	set_process(false)
+	despawn.start()
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	animations.stop()
+	#set_process(false)
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	#set_process(true)
+	animations.play("GunnerAnimations/idle")

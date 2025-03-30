@@ -9,6 +9,7 @@ extends TextureButton
 @onready var lbl_key: Label = $lblKey
 @onready var ability_button: TextureButton = $"."
 @onready var ability_icon: Sprite2D = $AbilityIcon
+@onready var abil_disabled: Sprite2D = $AbilDisabled
 
 @onready var camera_path = get_node("/root/Spacial/Player/Camera")
 #@export var skill: Resource
@@ -40,6 +41,10 @@ func _ready(): #figure out how to connect stuff
 	set_process(false)
  	
 func _process(_delta):
+	#if playerStats.mana < abilityAtributes.abilityCost:
+		#abil_disabled.visible = true
+	#elif playerStats.mana >= abilityAtributes.abilityCost:
+		#abil_disabled.visible = false
 	lbl_coldown.text = "%3.1f" % timer.time_left
 	cooldown.value = timer.time_left
 	#cooldown.value = abilityAtributes.abilityColdown
@@ -56,45 +61,49 @@ var DRONE_SWARM = preload("res://scenes/abilities/drone_swarm/drone_swarm.gd")
 var speedUpScene 
 
 func _on_pressed(): #add logic here to prvent from pressing again
-	#if playerStats.mana < abilityAtributes.abilityCost:
-		#ability_button.disabled = true
+	if playerStats.mana < abilityAtributes.abilityCost:
+		print("Not enough mana")
+		ability_button.disabled = true
+		return
+	else:
+		abil_disabled.visible = false
+		timer.start()
+		panel.show()
+		lbl_coldown.show()
+		set_process(true)
+
+	ability_button.disabled = true
+		
 	if Input.is_action_pressed("ability_one"):
+		if playerStats.mana < abilityAtributes.abilityCost:
+			print("Not enough mana")
+		else:
+			player.shoot_plasmaball()
 		playerStats.mana -= abilityAtributes.abilityCost
-		player.shoot_plasmaball()
-		#print("Abil 1")
 	elif Input.is_action_pressed("ability_two") and playerStats.mana >= 50:
+		if playerStats.mana < abilityAtributes.abilityCost:
+			print("Not enough mana")
+		else:
+			camera_path.shoot_ray()
 		playerStats.mana -= abilityAtributes.abilityCost
-		camera_path.shoot_ray()
-		#var lightningStrike = camera_path.shoot_ray()
-		#add_child(lightningStrike)		
-		#print("Abil 2")
-		#abilityAtributes.use_ability_two(player)
 	elif Input.is_action_pressed("ability_tree") and playerStats.mana >= 30:
+		if playerStats.mana < abilityAtributes.abilityCost:
+			print("Not enough mana")
+		else:
+			speedUpScene = SPEED_BOOST.instantiate()
+			add_child(speedUpScene)
+			speedUpScene.speed_up()
 		playerStats.mana -= abilityAtributes.abilityCost
-		speedUpScene = SPEED_BOOST.instantiate()
-		add_child(speedUpScene)
-		speedUpScene.speed_up()
 	elif Input.is_action_pressed("ability_four") and playerStats.mana >= 20:
 		playerStats.mana -= abilityAtributes.abilityCost
+		#if playerStats.mana < abilityAtributes.abilityCost:
+			#print("Not enough mana")
+		#else:
 		var droneswarmScene = preload("res://scenes/abilities/drone_swarm/drone_swarm.tscn")
 		var droneInst = droneswarmScene.instantiate()
 		add_child(droneInst)
 		droneInst.activate_ability(player)
-	#
-	#if playerStats.mana < abilityAtributes.abilityCost:
-		#print("disabled3")
-		
-		ability_button.disabled = true
-	#current issue, make the button not pressable when no mana
-	#is available
-	
-	timer.start()
-	panel.show()
-	lbl_coldown.show()
-	set_process(true)
-
-	ability_button.disabled = true
- 
+			
 func _on_timer_timeout():
 	cooldown.value = 0
 	panel.hide()

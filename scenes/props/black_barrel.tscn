@@ -51,6 +51,8 @@ script = ExtResource("1_v5w8e")
 
 [node name="wTube_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+lod_bias = 0.1
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_fy4ei")
 skeleton = NodePath("")
 

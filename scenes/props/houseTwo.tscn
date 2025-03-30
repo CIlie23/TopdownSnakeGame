@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bi76xjwif6hcw"]
+[gd_scene load_steps=39 format=4 uid="uid://bi76xjwif6hcw"]
 
 [ext_resource type="Texture2D" uid="uid://ubru5ilmqv4y" path="res://assets/GLTF format/wallA_door_wall_lines.png" id="1_0grcj"]
 [ext_resource type="Texture2D" uid="uid://dxbvvtcyiqhs1" path="res://assets/GLTF format/wallA_door_concrete.png" id="2_ndmbi"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://c7iu422acy7b6" path="res://assets/GLTF format/detailDumpster_open_roof.png" id="12_3vas4"]
 [ext_resource type="Texture2D" uid="uid://kf0mybl4fs0k" path="res://assets/GLTF format/wallA_wall_lines.png" id="13_wc8tu"]
 [ext_resource type="Texture2D" uid="uid://bsdtmrl0rrye2" path="res://assets/GLTF format/wallA_concrete.png" id="14_rehq4"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8yuon"]
+data = PackedVector3Array(-0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, 0.1989, 0, 0.5, 0.1989, 0, 0.5, 0.1989, 0.6278, 0.5, 0.5, 1, 0.5, 0.1989, 0.6278, 0.5, -0.1989, 0.6278, 0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, -0.1989, 0.6278, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, -0.1989, 0.6278, 0.5, -0.1989, 0.6278, 0.5, -0.1989, 0, 0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.1989, 0, 0.5, 0.5, 0, -0.5, -0.1989, 0, 0.5, -0.1466, 0, 0.475, 0.5, 0, -0.5, -0.1466, 0, 0.475, 0.1466, 0, 0.475, 0.5, 0, -0.5, 0.1466, 0, 0.475, 0.1466, 0, 0.5, 0.5, 0, -0.5, 0.1466, 0, 0.5, 0.1989, 0, 0.5, 0.5, 0, -0.5, 0.1989, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.1466, 0, 0.5, -0.1466, 0, 0.475, -0.1989, 0, 0.5, 0.1466, 0.5755, 0.475, -0.1466, 0.5755, 0.475, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, 0.1466, 0.5755, 0.5, 0.1466, 0.5755, 0.475, 0.1466, 0.5755, 0.475, 0.1466, 0.5755, 0.5, 0.1466, 0, 0.5, 0.1466, 0, 0.5, 0.1466, 0, 0.475, 0.1466, 0.5755, 0.475, -0.1466, 0, 0.475, -0.1466, 0, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.475, -0.1466, 0, 0.475, 0.1989, 0.6278, 0.5, 0.1989, 0, 0.5, 0.1466, 0, 0.5, 0.1466, 0, 0.5, 0.1466, 0.5755, 0.5, 0.1989, 0.6278, 0.5, 0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, 0.1989, 0.6278, 0.5, -0.1989, 0.6278, 0.5, 0.1989, 0.6278, 0.5, -0.1466, 0.5755, 0.5, -0.1989, 0, 0.5, -0.1989, 0.6278, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0, 0.5, -0.1989, 0, 0.5, 0.1466, 0.5755, 0.475, 0.1466, 0, 0.475, -0.1466, 0, 0.475, -0.1466, 0, 0.475, -0.1466, 0.5755, 0.475, 0.1466, 0.5755, 0.475)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6euy"]
 resource_name = "wall_lines"
@@ -144,9 +147,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8j0qs")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8yuon"]
-data = PackedVector3Array(-0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, 0.1989, 0, 0.5, 0.1989, 0, 0.5, 0.1989, 0.6278, 0.5, 0.5, 1, 0.5, 0.1989, 0.6278, 0.5, -0.1989, 0.6278, 0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, -0.1989, 0.6278, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, -0.1989, 0.6278, 0.5, -0.1989, 0.6278, 0.5, -0.1989, 0, 0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.1989, 0, 0.5, 0.5, 0, -0.5, -0.1989, 0, 0.5, -0.1466, 0, 0.475, 0.5, 0, -0.5, -0.1466, 0, 0.475, 0.1466, 0, 0.475, 0.5, 0, -0.5, 0.1466, 0, 0.475, 0.1466, 0, 0.5, 0.5, 0, -0.5, 0.1466, 0, 0.5, 0.1989, 0, 0.5, 0.5, 0, -0.5, 0.1989, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.1466, 0, 0.5, -0.1466, 0, 0.475, -0.1989, 0, 0.5, 0.1466, 0.5755, 0.475, -0.1466, 0.5755, 0.475, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, 0.1466, 0.5755, 0.5, 0.1466, 0.5755, 0.475, 0.1466, 0.5755, 0.475, 0.1466, 0.5755, 0.5, 0.1466, 0, 0.5, 0.1466, 0, 0.5, 0.1466, 0, 0.475, 0.1466, 0.5755, 0.475, -0.1466, 0, 0.475, -0.1466, 0, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.475, -0.1466, 0, 0.475, 0.1989, 0.6278, 0.5, 0.1989, 0, 0.5, 0.1466, 0, 0.5, 0.1466, 0, 0.5, 0.1466, 0.5755, 0.5, 0.1989, 0.6278, 0.5, 0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, 0.1989, 0.6278, 0.5, -0.1989, 0.6278, 0.5, 0.1989, 0.6278, 0.5, -0.1466, 0.5755, 0.5, -0.1989, 0, 0.5, -0.1989, 0.6278, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0.5755, 0.5, -0.1466, 0, 0.5, -0.1989, 0, 0.5, 0.1466, 0.5755, 0.475, 0.1466, 0, 0.475, -0.1466, 0, 0.475, -0.1466, 0, 0.475, -0.1466, 0.5755, 0.475, 0.1466, 0.5755, 0.475)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5de2"]
 resource_name = "concrete"
@@ -478,26 +478,43 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qhvge")
 
-[node name="House" type="StaticBody3D"]
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_7nauk"]
+size = Vector3(2.25358, 1, 2.45322)
+
+[node name="House" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("ConcavePolygonShape3D_8yuon")
 
 [node name="wallA_door" type="MeshInstance3D" parent="."]
+lod_bias = 0.1
+visibility_range_end = 24.0
 mesh = SubResource("ArrayMesh_xpnbx")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_8yuon")
-
 [node name="wallA_window2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
+lod_bias = 0.1
+visibility_range_end = 24.0
 mesh = SubResource("ArrayMesh_r3saw")
 skeleton = NodePath("")
 
 [node name="wallA" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+lod_bias = 0.1
+visibility_range_end = 24.0
 mesh = SubResource("ArrayMesh_r3apm")
 skeleton = NodePath("")
 
 [node name="detailDumpster_open" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 0.7)
+lod_bias = 0.1
+visibility_range_end = 24.0
 mesh = SubResource("ArrayMesh_hvqg6")
 skeleton = NodePath("")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444458, 0.479832, -0.308192)
+occluder = SubResource("BoxOccluder3D_7nauk")

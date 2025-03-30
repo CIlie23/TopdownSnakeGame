@@ -1,10 +1,13 @@
+res://assets/meshes
+res://scripts
 res://scenes/world
+res://scenes/enemies/GoopMonster
+res://shaders
 res://scripts/ui
 res://assets/animations
 res://scenes/props
 res://scenes/abilities/assets
 res://scenes/abilities/drone_swarm
-res://scripts
 res://scenes/abilities
 res://scenes/friends
 res://scenes/turrets
