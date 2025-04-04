@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://dsfn77x6mmr5d"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_174fy"]
+[ext_resource type="Texture2D" uid="uid://llo0ng7j0m50" path="res://assets/ui/skillIcons/Skillicon14_16.png" id="2_7ejmv"]
+
+[resource]
+script = ExtResource("1_174fy")
+skill_name = "Health Boost"
+skillIcon = ExtResource("2_7ejmv")
+description = "HP Growth"
+effects = {
+"armor boost": 5
+}

@@ -1,11 +1,14 @@
-res://assets/meshes
+res://scripts/challenges
 res://scripts
+res://scenes/UI
+res://scenes/props
+res://scenes/skilltree/Skills/PlayerBuffs
+res://assets/meshes
 res://scenes/world
 res://scenes/enemies/GoopMonster
 res://shaders
 res://scripts/ui
 res://assets/animations
-res://scenes/props
 res://scenes/abilities/assets
 res://scenes/abilities/drone_swarm
 res://scenes/abilities

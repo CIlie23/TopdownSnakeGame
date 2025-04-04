@@ -45,11 +45,12 @@ shadow_mesh = SubResource("ArrayMesh_owkxw")
 [sub_resource type="BoxShape3D" id="BoxShape3D_eq2nq"]
 size = Vector3(0.812012, 0.747101, 1.60938)
 
-[node name="TruckOne" type="CharacterBody3D"]
+[node name="TruckOne" type="RigidBody3D"]
+collision_layer = 2
 
 [node name="truck_green" type="MeshInstance3D" parent="."]
 lod_bias = 0.01
-visibility_range_end = 25.0
+visibility_range_end = 20.0
 mesh = SubResource("ArrayMesh_a0e4v")
 skeleton = NodePath("")
 

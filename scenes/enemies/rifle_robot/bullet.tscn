@@ -32,11 +32,13 @@ size = Vector3(0.04, 0.04, 0.04)
 script = ExtResource("1_8ckf7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visibility_range_end = 20.0
 mesh = SubResource("BoxMesh_bt5rg")
 surface_material_override/0 = SubResource("StandardMaterial3D_qxbru")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.585779)
+visibility_range_end = 10.0
 emitting = false
 one_shot = true
 explosiveness = 1.0

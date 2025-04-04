@@ -5,6 +5,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_7iejj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_drjxe"]
+size = Vector3(0.559799, 1.43848, 0.581177)
 
 [node name="SnakeSegment" type="CharacterBody3D" groups=["PlayerSegment"]]
 script = ExtResource("1_dkpwd")
@@ -17,5 +18,5 @@ visibility_range_end = 25.0
 mesh = SubResource("BoxMesh_7iejj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0.00675431, 0.28501, -0.0480042)
 shape = SubResource("BoxShape3D_drjxe")

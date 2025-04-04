@@ -11,7 +11,7 @@ class_name friendlyDrone
 #var gunner = gunnerRobotScript.new()
 
 @export var droneHEALTH: int = 45;
-@export var droneDAMAGE: int = 20;
+@export var droneDAMAGE: int = 5;
 
 var state = FOLLOW_PLAYER
 var target = null

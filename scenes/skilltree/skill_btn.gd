@@ -7,7 +7,8 @@ class_name SkillNode
 @onready var line: Line2D = $Line2D
 @onready var skill_btn: SkillNode = $"."
 
-@onready var skill_icon: Sprite2D = $SkillIcon
+#@onready var skill_icon: Sprite2D = $SkillIcon
+@onready var skill_icon: TextureRect = $TextureRect
 
 #@export var skillAtributes: SkillAtribute
 @export var skill_resource: Resource  
@@ -18,8 +19,8 @@ class_name SkillNode
 func _ready():
 	_skill_icon()
 	if get_parent() is SkillNode:
-		line.add_point(global_position + size/2)
-		line.add_point(get_parent().global_position + size/2)
+		line.add_point(global_position + size/1)
+		line.add_point(get_parent().global_position + size/1)
 		
 var level: int = 0:
 	set(value):
@@ -38,7 +39,7 @@ func _on_pressed():
 	for skill in skills:
 		if skill is SkillNode and level == 3:
 			skill.disabled = false
-
+			
 #updates the skill icon
 func _skill_icon():
 	if skill_resource is SkillAtribute:

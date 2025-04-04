@@ -37,4 +37,5 @@ func _on_timer_timeout() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
-		body.plasmaBallHit()
+		#body.plasmaBallHit(10, "plasma")
+		body.takeDamage(50, "plasma")

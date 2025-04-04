@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://bm6uknrp383ly"]
+
+[ext_resource type="FontFile" uid="uid://1yuy1o07mph2" path="res://assets/fonts/URW Grotesk SC Regular.ttf" id="1_i2rey"]
+[ext_resource type="Script" path="res://scenes/UI/challenges.gd" id="1_pbvnc"]
+[ext_resource type="Texture2D" uid="uid://bqg4jqw0p8q68" path="res://assets/ui/inventory/03.png" id="3_vl5rm"]
+[ext_resource type="FontFile" uid="uid://c7av1j5mjwa37" path="res://assets/fonts/URW Grotesk SC Light.ttf" id="3_y1jqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2vhm"]
+bg_color = Color(1, 0, 0.235294, 1)
+
+[sub_resource type="Animation" id="Animation_gthor"]
+resource_name = "slideIn"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-350, 128), Vector2(6, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_p7tjq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-350, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_lae6u"]
+resource_name = "slideOut"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixo8u"]
+_data = {
+"RESET": SubResource("Animation_p7tjq"),
+"slideIn": SubResource("Animation_gthor"),
+"slideOut": SubResource("Animation_lae6u")
+}
+
+[node name="Challenges" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbvnc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -350.0
+offset_top = 128.0
+offset_right = -1.0
+offset_bottom = 198.0
+
+[node name="QuestContainer" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(312, 70)
+layout_mode = 0
+offset_right = 313.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Panel/QuestContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i2rey")
+theme_override_font_sizes/font_size = 16
+text = "Challenge: Let yo bih go throu yo phon"
+autowrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/QuestContainer"]
+layout_mode = 2
+
+[node name="lblTime" type="Label" parent="Panel/QuestContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "TIme Left:"
+
+[node name="TimeLeft" type="Timer" parent="Panel/QuestContainer/VBoxContainer/lblTime"]
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/QuestContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_i2vhm")
+value = 50.0
+show_percentage = false
+
+[node name="RewardIcon" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 31.0
+offset_right = 343.0
+offset_bottom = 46.0
+texture = ExtResource("3_vl5rm")
+expand_mode = 1
+
+[node name="RewardLabel" type="Label" parent="Panel/RewardIcon"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 13.0
+offset_right = 21.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_y1jqi")
+theme_override_font_sizes/font_size = 15
+text = "300"
+horizontal_alignment = 1
+
+[node name="ColdownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Anims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ixo8u")
+}
+
+[connection signal="timeout" from="Panel/QuestContainer/VBoxContainer/lblTime/TimeLeft" to="." method="_on_time_left_timeout"]
+[connection signal="timeout" from="ColdownTimer" to="." method="_on_coldown_timer_timeout"]

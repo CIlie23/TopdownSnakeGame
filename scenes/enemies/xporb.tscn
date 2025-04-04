@@ -98,17 +98,20 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlsrj"]
+size = Vector3(1.56406, 1.55188, 1.83325)
 
 [node name="xporb" type="Node3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.5, 0)
 script = ExtResource("1_kpjsg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02839, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.964122, 0)
 lod_bias = 0.1
 mesh = SubResource("SphereMesh_py4rm")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310312, 0)
+visibility_range_end = 20.0
 amount = 20
 speed_scale = 0.7
 process_material = SubResource("ParticleProcessMaterial_6sao7")
@@ -122,6 +125,7 @@ libraries = {
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00638199, 1.27786, -0.0301514)
 shape = SubResource("BoxShape3D_vlsrj")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

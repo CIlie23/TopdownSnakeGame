@@ -24,7 +24,7 @@ use_parent_material = true
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.415686, 0.415686, 0.415686, 0.376471)
+color = Color(0.294118, 0.294118, 0.294118, 0.670588)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1152, 648)

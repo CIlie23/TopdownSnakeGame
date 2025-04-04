@@ -9,8 +9,6 @@ class_name gunnerRobot
 @export var gunnerHEALTH: int = 100
 
 var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
-var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
-var lightning_damage = lightningScene.new().lightningDamage
 
 @export var rotation_speed: float = 2 # Speed of rotation in degrees per second
 @onready var animations: AnimationPlayer = $Animations
@@ -54,21 +52,30 @@ func _ready() -> void:
 # Player is detected
 #----------------------------------------------------------------------------
 
+func takeDamage(amount: int, killer_type: String) -> void:
+	gunnerHEALTH -= amount
+	
+	if gunnerHEALTH <= 50:
+		vfx_fire.visible = true
+	
+	if gunnerHEALTH <= 0:# and state != "DEAD":
+		die(killer_type)
+		
 # I could have probably passed a few vars for damage inside the function but uh fk it we ball
-func plasmaBallHit():
-	#print(plasma_ball_damage, " damage")
-	#print(gunnerHEALTH, " gunner health")
-	gunnerHEALTH -= plasma_ball_damage
+#func plasmaBallHit():
+	##print(plasma_ball_damage, " damage")
+	##print(gunnerHEALTH, " gunner health")
+	#gunnerHEALTH -= plasma_ball_damage
 	
 func hit():
 	#print(friendly_drone_damage, " damage")
 	#print(gunnerHEALTH, " gunner health")
 	gunnerHEALTH -= friendly_drone_damage
 	
-func lightningHit():
-	print(lightning_damage, " damage")
-	print(gunnerHEALTH, " gunner health")
-	gunnerHEALTH -= lightning_damage
+#func lightningHit():
+	#print(lightning_damage, " damage")
+	#print(gunnerHEALTH, " gunner health")
+	#gunnerHEALTH -= lightning_damage
 #----------------------------------------------------------------------------
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
@@ -146,12 +153,12 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 # Handles all the states the enemy can be in
 #----------------------------------------------------------------------------
 func _process(delta: float) -> void:
-	if gunnerHEALTH <= 50:
-		vfx_fire.visible = true
-		
-	if gunnerHEALTH <= 0 and state != DEAD:
-		print("GUNNER dead")
-		die()
+	#if gunnerHEALTH <= 50:
+		#vfx_fire.visible = true
+		#
+	#if gunnerHEALTH <= 0 and state != DEAD:
+		#print("GUNNER dead")
+		#die()
 		
 	if Input.is_action_pressed("killAll"):
 		state = DEAD
@@ -221,10 +228,11 @@ func spawn_xp_orb():
 	get_tree().current_scene.add_child(orb_instance)
 	orb_instance.global_transform.origin = global_transform.origin
 
-func die():
+func die(killer_type: String):
+	Global.report_enemy_killed_by(killer_type)
 	Global.total_enemies -= 1
 	Global.total_enemy_kills += 1
-	print("GUNNER dead")
+	#print("GUNNER dead")
 	state = DEAD
 	spawn_xp_orb()
 	$Hitbox.disabled = true

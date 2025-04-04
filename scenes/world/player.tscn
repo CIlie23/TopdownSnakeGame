@@ -148,7 +148,7 @@ process_material = SubResource("ParticleProcessMaterial_ajnjm")
 draw_pass_1 = SubResource("BoxMesh_ujhfg")
 
 [node name="HealthRegen" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 1.5
 autostart = true
 
 [node name="CameraAnims" type="AnimationPlayer" parent="."]

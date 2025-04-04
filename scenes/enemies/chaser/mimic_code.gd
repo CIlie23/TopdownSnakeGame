@@ -7,8 +7,8 @@ extends CharacterBody3D #Code for the mimic enemy
 @export var chaserHEALTH: int = 120
 
 var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
-var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
-var lightning_damage = lightningScene.new().lightningDamage
+#var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
+#var lightning_damage = lightningScene.new().lightningDamage
 
 @onready var sight: CollisionShape3D = $DetectArea/Sight
 @onready var animations: AnimationPlayer = $Animations
@@ -52,18 +52,27 @@ enum {
 func _ready():
 	idle_timer.start()
 
-
 #----------------------------------------------------------------------------
 # Player is detected
 #----------------------------------------------------------------------------
-func plasmaBallHit():
-	chaserHEALTH -= plasma_ball_damage
+
+func takeDamage(amount: int, killer_type: String) -> void:
+	chaserHEALTH -= amount
+	
+	if chaserHEALTH <= 50:
+		vfx_fire.visible = true
+	
+	if chaserHEALTH <= 0:# and state != "DEAD":
+		die(killer_type)
+	
+#func plasmaBallHit(amount: int, killer_type: String) -> void:
+	#chaserHEALTH -= plasma_ball_damage
 
 func hit():
 	chaserHEALTH -= friendly_drone_damage
 
-func lightningHit():
-	chaserHEALTH -= lightning_damage
+#func lightningHit():
+	#chaserHEALTH -= lightning_damage
 	
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state == IDLE:
@@ -125,11 +134,11 @@ func _on_chase_range_body_exited(body: Node3D) -> void:
 # Handles all the states the enemy can be in
 #----------------------------------------------------------------------------
 func _process(delta):		
-	if chaserHEALTH <= 50:
-		vfx_fire.visible = true
+	#if chaserHEALTH <= 50:
+		#vfx_fire.visible = true
 		
-	if chaserHEALTH <= 0 and state != DEAD:
-		die()
+	#if chaserHEALTH <= 0 and state != DEAD:
+		#die()
 		
 	match state:
 		IDLE:
@@ -198,7 +207,8 @@ func spawn_xp_orb():
 	get_tree().current_scene.add_child(orb_instance)
 	orb_instance.global_transform.origin = global_transform.origin
 
-func die():
+func die(killer_type: String):
+	Global.report_enemy_killed_by(killer_type)
 	Global.total_enemies -= 1
 	Global.total_enemy_kills += 1
 	print(Global.total_enemies, " enemies left")

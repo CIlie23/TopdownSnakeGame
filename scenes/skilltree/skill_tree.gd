@@ -1,8 +1,11 @@
 extends Control
 
+@onready var points: Label = $Points
+
 var is_skilltree_open = false
 
 func _process(delta: float) -> void:
+	points.text = ("Available Points: " + str(Global.available_skpoints))
 	if Input.is_action_just_pressed("openskilltree"):
 		if !is_skilltree_open:
 			Engine.time_scale = 0

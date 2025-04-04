@@ -1,4 +1,3 @@
-AbilityAtributes
-AbilityScript
 SkillAtribute
+AbilityAtributes
 PlayerStats

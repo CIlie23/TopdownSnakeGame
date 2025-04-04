@@ -597,8 +597,7 @@ size = Vector3(4.17985, 1.41652, 3.22364)
 [node name="House" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 3
 
 [node name="wallA_door" type="MeshInstance3D" parent="StaticBody3D"]
 lod_bias = 0.1
