@@ -5,6 +5,8 @@ extends CharacterBody3D #Code for the mimic enemy
 #----------------------------------------------------------------------------
 
 @export var chaserHEALTH: int = 120
+@onready var healthbar_3d: ProgressBar = $SubViewport/Healthbar3D
+
 
 var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
 #var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
@@ -50,6 +52,7 @@ enum {
 }
 
 func _ready():
+	healthbar_3d.value = chaserHEALTH
 	idle_timer.start()
 
 #----------------------------------------------------------------------------
@@ -57,6 +60,7 @@ func _ready():
 #----------------------------------------------------------------------------
 
 func takeDamage(amount: int, killer_type: String) -> void:
+	healthbar_3d.value = chaserHEALTH
 	chaserHEALTH -= amount
 	
 	if chaserHEALTH <= 50:
@@ -87,15 +91,20 @@ func _on_detect_area_body_entered(body: Node3D) -> void:
 		#pass 
 		
 func _physics_process(delta):
-	if target: #if the target is in range
-		look_at(target.global_transform.origin, Vector3.UP)
-		rotate_y(deg_to_rad(180)) #turns model 180 degrees cause for some reason it's fillped?
-		#velocity = position.direction_to(target.position) * MOVE_SPEED
+	if target:
+		var target_pos = target.global_transform.origin
+		var self_pos = global_transform.origin
+		var dir = target_pos - self_pos
+
+		if dir.length_squared() > 0.0001:
+			look_at(target_pos, Vector3.UP)
+			rotate_y(deg_to_rad(180))  # Adjust for model rotation
 	else:
-		velocity = Vector3.ZERO  # Ensure no unintended movement
-	velocity = velocity.limit_length(MOVE_SPEED) 
-	
+		velocity = Vector3.ZERO
+
+	velocity = velocity.limit_length(MOVE_SPEED)
 	move_and_slide()
+
 
 #----------------------------------------------------------------------------
 # Attack stuff
@@ -123,7 +132,7 @@ func _target_hit():
 #----------------------------------------------------------------------------
 func _on_chase_range_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player") and state != DEAD:
-		idle_timer.start()
+		idle_timer.call_deferred("start")
 		target = null
 		state = IDLE
 		#print(body.name + "Lost")
@@ -208,13 +217,17 @@ func spawn_xp_orb():
 	orb_instance.global_transform.origin = global_transform.origin
 
 func die(killer_type: String):
+	if state == DEAD:
+		return
+		
+	healthbar_3d.visible = false
 	Global.report_enemy_killed_by(killer_type)
 	Global.total_enemies -= 1
 	Global.total_enemy_kills += 1
 	print(Global.total_enemies, " enemies left")
 	state = DEAD
 	spawn_xp_orb()
-	$CollisionShape3D.disabled = true
+	$CollisionShape3D.call_deferred("set_disabled", true)
 	target = null
 	idle_timer.stop()
 	
@@ -224,11 +237,12 @@ func die(killer_type: String):
 
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	animations.stop()
-	#set_process(false)
-	#print("anims stopped")
-
-
-func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	#set_process(true)
 	animations.play("memecAnimations/idle")
+	healthbar_3d.visible = true
+	#set_process(false)
+	#print("now we play")
+	
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	healthbar_3d.visible = false
+	#print("now we should be stoped")
+	animations.stop()

@@ -1,8 +1,10 @@
-res://scripts/challenges
-res://scripts
-res://scenes/UI
-res://scenes/props
 res://scenes/skilltree/Skills/PlayerBuffs
+res://scenes/skilltree/Skills
+res://scripts/player
+res://scenes/UI
+res://scenes/enemies
+res://scripts
+res://scenes/props
 res://assets/meshes
 res://scenes/world
 res://scenes/enemies/GoopMonster
@@ -15,7 +17,4 @@ res://scenes/abilities
 res://scenes/friends
 res://scenes/turrets
 res://scenes/UI/abilities
-res://scenes/enemies
-res://scenes/skilltree/Skills
-res://scripts/player
 res://scenes/skilltree

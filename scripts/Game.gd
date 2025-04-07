@@ -2,7 +2,8 @@ extends Node3D
 
 @onready var dialog: Control = $Player/UI/Dialog
 @onready var pause_menu: Control = $Player/UI/PauseMenu
-@onready var damage_rect: ColorRect = $Player/Damage/ColorRect
+@onready var damage_rect: TextureRect = $Player/UI/Damage/damageRect
+
 @onready var game_over: GameOver = $Player/UI/GameOver
 @onready var exit_warning: VBoxContainer = $Player/UI/ExitWarning
 
@@ -10,7 +11,7 @@ extends Node3D
 @onready var warning_timer: Timer = $Player/UI/ExitWarning/WarningTimer
 
 const CANNON_SMALL = preload("res://scenes/turrets/cannon_small.tscn")
-@onready var inventory_ui: Control = $Player/InventoryUI
+#@onready var inventory_ui: Control = $Player/InventoryUI
 #@onready var kills_label: Label = $Player/UI/UI/AbilitiesNSuch/VBoxContainer/KillsLabel
 
 var isPaused: bool = false
@@ -41,11 +42,6 @@ func pauseMenu():
 	
 	isPaused = !isPaused
 
-func _on_inventory_ui_item_out_of_inventory() -> void:
-	print("now we should be in the main scene")
-	#CANNON_SMALL.instantiate()
-	#inventory_ui.modulate.a = 0.5
-
 func _on_player_player_hit() -> void:
 	damage_rect.visible = true
 	await get_tree().create_timer(1).timeout
@@ -60,6 +56,12 @@ func _on_arena_area_body_exited(body: Node3D) -> void:
 		warning_timer.start()
 		exit_warning.visible = true
 		print("player exited")
+	if body.is_in_group("Enemy"):
+		body.queue_free()
+		print("enemy deleted")
+		print(Global.total_enemies)
+		Global.total_enemies -= 1
+		
 
 func _on_arena_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

@@ -5,12 +5,7 @@ class_name SkillAtribute
 @export var skillIcon: Texture2D
 @export var description: String
 
-@export var effects: Dictionary = {
-	"armor boost": 5 #change this every time you wanna update a stat?
-}
 
-func apply_effects(player_stats: PlayerStats):
-	pass
-	#for effect in effects.keys():
-		#var value = effects[effect]
-		#player_stats.apply_stat_boost(effect, value)
+@export var stat_to_modify: String
+@export var value: float #the value is how much shit increases
+@export var requiredPoints: int

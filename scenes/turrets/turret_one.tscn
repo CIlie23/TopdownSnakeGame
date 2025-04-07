@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/turrets/turret_one.gd" id="2_6e054"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tf538"]
-radius = 6.75068
+radius = 7.54817
 
 [sub_resource type="Animation" id="Animation_qlde5"]
 length = 0.001
@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="turretFixed" instance=ExtResource("1_5legn")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("2_6e054")
 
 [node name="turret" parent="turret_single" index="0"]

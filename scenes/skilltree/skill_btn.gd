@@ -12,9 +12,9 @@ class_name SkillNode
 
 #@export var skillAtributes: SkillAtribute
 @export var skill_resource: Resource  
-@export var player_stats: Resource
-#@export var sprIcon: Texture2D
-#@export var atributes: Resource
+#@export var ability: Resource  
+var player_stats = preload("res://scripts/player/player_stats.tres")
+var ability = preload("res://scenes/skilltree/Skills/PlayerBuffs/skill_coldownReduction.tres")
 
 func _ready():
 	_skill_icon()
@@ -25,20 +25,32 @@ func _ready():
 var level: int = 0:
 	set(value):
 		level = value
-		label.text = str(level) + "/3"
+		label.text = str(level) + "/" + str(skill_resource.requiredPoints)
 		
 func _on_pressed():
-	level = min(level+1, 3) #max 3
-	if level == 1:
+	# Check if skill is already maxed
+	if level >= skill_resource.requiredPoints:
+		return
+	
+	if Global.available_skpoints <= 0:
+		return
+		
+	Global.available_skpoints -= 1
+	level += 1
+	#level = min(level+1, skill_resource.requiredPoints) #max 3
+	
+	if Global.available_skpoints < skill_resource.requiredPoints:
+		pass
+	
+	if level == skill_resource.requiredPoints:
 		panel.show_behind_parent = true # to make the unlocked effect
 		apply_skill_effects()
-		
-	line.default_color = Color(1, 1, 1)
+		line.default_color = Color(1, 1, 1)
 	
-	var skills = get_children()
-	for skill in skills:
-		if skill is SkillNode and level == 3:
-			skill.disabled = false
+		var skills = get_children()
+		for skill in skills:
+			if skill is SkillNode and level == skill_resource.requiredPoints:
+				skill.disabled = false
 			
 #updates the skill icon
 func _skill_icon():
@@ -48,7 +60,19 @@ func _skill_icon():
 	else:
 		print("Missing skill icon!")
 
+# WARNINGGG!! THIS IS NEEDED FOR THE EFFECTS TO WORK!!!!
 func apply_skill_effects():
-	if player_stats and skill_resource:
-		skill_resource.apply_effects(player_stats)
-		print("Max Health:", player_stats.max_playerHealth)
+	if skill_resource is SkillAtribute:
+		if player_stats is PlayerStats:
+			player_stats.apply_skill_effect(skill_resource)
+
+		if ability is AbilityAtributes:
+			ability.apply_tree_effect(skill_resource)
+	else:
+		print("Invalid skill resource!")
+
+#func apply_skill_effects():
+	#if skill_resource is SkillAtribute and player_stats is PlayerStats:
+		#player_stats.apply_skill_effect(skill_resource)
+	#else:
+		#print("Missing resource or type mismatch!")

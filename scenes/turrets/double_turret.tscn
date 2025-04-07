@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/turrets/double_turret.gd" id="2_typuv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4fl4d"]
-radius = 3.57972
+radius = 4.7278
 
 [sub_resource type="Animation" id="Animation_31tmw"]
 length = 0.001
@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="doubleTurret" instance=ExtResource("1_ubny7")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("2_typuv")
 
 [node name="turret" parent="turret_double" index="0"]

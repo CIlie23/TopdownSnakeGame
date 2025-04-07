@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://e0xq0la0csgp"]
+[gd_scene load_steps=12 format=3 uid="uid://e0xq0la0csgp"]
 
 [ext_resource type="Script" path="res://scenes/turrets/cannon_bullet.gd" id="1_uskuq"]
 
@@ -43,6 +43,8 @@ material = SubResource("StandardMaterial3D_ilwvw")
 radius = 0.1
 height = 0.2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nnchm"]
+
 [node name="cannonBall" type="Node3D"]
 script = ExtResource("1_uskuq")
 SPEED = 30.0
@@ -73,4 +75,10 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.241046)
 target_position = Vector3(0, 0, -0.06)
 
+[node name="BallColision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BallColision"]
+shape = SubResource("SphereShape3D_nnchm")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="BallColision" to="." method="_on_ball_colision_body_entered"]

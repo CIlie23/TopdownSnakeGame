@@ -14,8 +14,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"):
 		body.takeDamage(50, "lightning")
 
-func hit():
-	print("Hit")
+#func hit():
+	#print("Hit")
 
 func _on_existence_timer_timeout() -> void:
 	queue_free()

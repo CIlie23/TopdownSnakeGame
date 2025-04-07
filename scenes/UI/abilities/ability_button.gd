@@ -75,6 +75,7 @@ func _on_pressed(): #add logic here to prvent from pressing again
 	ability_button.disabled = true
 		
 	if Input.is_action_pressed("ability_one"):
+		print(abilityAtributes.abilityColdown, " seconds")
 		if playerStats.mana < abilityAtributes.abilityCost:
 			print("Not enough mana")
 		else:

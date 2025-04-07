@@ -1,11 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://c43mvr23c6gke"]
+[gd_scene load_steps=14 format=3 uid="uid://c43mvr23c6gke"]
 
 [ext_resource type="Script" path="res://scenes/skilltree/skill_tree.gd" id="1_e5m0p"]
 [ext_resource type="PackedScene" uid="uid://bfpo6p1bmcpad" path="res://scenes/skilltree/skill_btn.tscn" id="1_s7r1q"]
-[ext_resource type="Resource" uid="uid://bgrdst4q204l7" path="res://scenes/skilltree/Skills/skill_testskilltwo.tres" id="2_cki0d"]
 [ext_resource type="FontFile" uid="uid://1yuy1o07mph2" path="res://assets/fonts/URW Grotesk SC Regular.ttf" id="2_p8055"]
-[ext_resource type="Resource" uid="uid://da3x75y4auqsh" path="res://scripts/player/player_stats_resource.tres" id="3_fv47a"]
+[ext_resource type="Resource" uid="uid://0co4pgrmfl2b" path="res://scenes/skilltree/Skills/skill_unlock_tree.tres" id="4_7ltfb"]
+[ext_resource type="Resource" uid="uid://dh4mwqrwvt052" path="res://scenes/skilltree/Skills/PlayerBuffs/skill_HealthIncrease.tres" id="5_k8bpw"]
+[ext_resource type="Resource" uid="uid://c48et1j1dw3g1" path="res://scenes/skilltree/Skills/PlayerBuffs/skill_healthRegen.tres" id="5_lqxe3"]
+[ext_resource type="Resource" uid="uid://clxh4vvr2mo3v" path="res://scenes/skilltree/Skills/PlayerBuffs/skill_coldownReduction.tres" id="7_jguiq"]
 [ext_resource type="Resource" uid="uid://dsfn77x6mmr5d" path="res://scenes/skilltree/Skills/PlayerBuffs/HealthBoost.tres" id="7_om8vr"]
+[ext_resource type="Resource" uid="uid://bb2bw2k8oqtq5" path="res://scenes/skilltree/Skills/PlayerBuffs/skill_manaRegen.tres" id="7_r4wcr"]
+[ext_resource type="Resource" uid="uid://bbuwtaf1d4fdm" path="res://scenes/skilltree/Skills/PlayerBuffs/skill_ManaIncrease.tres" id="8_tat8j"]
+
+[sub_resource type="Resource" id="Resource_njmxn"]
+metadata/__load_path__ = "res://scenes/skilltree/Skills/skill_testskilltwo.tres"
+
+[sub_resource type="Resource" id="Resource_3r30d"]
+metadata/__load_path__ = "res://scenes/skilltree/Skills/skill_testskilltwo.tres"
+
+[sub_resource type="Resource" id="Resource_u0oqj"]
+metadata/__load_path__ = "res://scenes/skilltree/Skills/skill_testskilltwo.tres"
 
 [node name="SkillTree" type="Control"]
 layout_mode = 3
@@ -34,10 +47,9 @@ text = "Available Points: 0"
 layout_mode = 0
 offset_right = 1054.0
 offset_bottom = 593.0
-current_tab = 2
+current_tab = 0
 
 [node name="PlasmaBall" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -47,8 +59,7 @@ offset_left = 250.0
 offset_top = 39.0
 offset_right = 296.0
 offset_bottom = 85.0
-skill_resource = ExtResource("2_cki0d")
-player_stats = ExtResource("3_fv47a")
+skill_resource = ExtResource("4_7ltfb")
 
 [node name="SkillBtn3" parent="TabContainer/PlasmaBall/SkillBtn" instance=ExtResource("1_s7r1q")]
 layout_mode = 1
@@ -59,6 +70,7 @@ offset_left = 4.0
 offset_top = 144.0
 offset_right = -10.0
 offset_bottom = 130.0
+skill_resource = ExtResource("5_lqxe3")
 
 [node name="SkillBtn3" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn3" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -66,6 +78,7 @@ offset_left = 36.0
 offset_top = 111.0
 offset_right = 68.0
 offset_bottom = 143.0
+skill_resource = ExtResource("5_k8bpw")
 
 [node name="SkillBtn2" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn3/SkillBtn3" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -73,6 +86,7 @@ offset_left = 71.0
 offset_top = 78.0
 offset_right = 103.0
 offset_bottom = 110.0
+skill_resource = ExtResource("7_jguiq")
 
 [node name="SkillBtn3" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn3/SkillBtn3/SkillBtn2" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -80,6 +94,7 @@ offset_left = 108.0
 offset_top = 27.0
 offset_right = 140.0
 offset_bottom = 59.0
+skill_resource = ExtResource("8_tat8j")
 
 [node name="SkillBtn2" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn3/SkillBtn3/SkillBtn2/SkillBtn3" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -94,6 +109,7 @@ offset_left = 31.0
 offset_top = 116.0
 offset_right = 63.0
 offset_bottom = 148.0
+skill_resource = ExtResource("7_jguiq")
 
 [node name="SkillBtn2" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn3" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -101,6 +117,7 @@ offset_left = 108.0
 offset_top = 51.0
 offset_right = 140.0
 offset_bottom = 83.0
+skill_resource = ExtResource("7_r4wcr")
 
 [node name="SkillBtn2" parent="TabContainer/PlasmaBall/SkillBtn" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -108,6 +125,7 @@ offset_left = 153.0
 offset_top = 3.0
 offset_right = 185.0
 offset_bottom = 35.0
+skill_resource = ExtResource("5_lqxe3")
 
 [node name="SkillBtn2" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn2" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -115,6 +133,7 @@ offset_left = 140.0
 offset_top = 41.0
 offset_right = 172.0
 offset_bottom = 73.0
+skill_resource = ExtResource("7_jguiq")
 
 [node name="SkillBtn3" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -122,6 +141,7 @@ offset_left = 107.0
 offset_top = 68.0
 offset_right = 139.0
 offset_bottom = 100.0
+skill_resource = ExtResource("8_tat8j")
 
 [node name="SkillBtn3" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn2/SkillBtn2/SkillBtn3" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -129,6 +149,7 @@ offset_left = 100.0
 offset_top = 69.0
 offset_right = 132.0
 offset_bottom = 101.0
+skill_resource = ExtResource("7_jguiq")
 
 [node name="SkillBtn2" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn2/SkillBtn2/SkillBtn3/SkillBtn3" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -143,6 +164,7 @@ offset_left = -63.0
 offset_top = 79.0
 offset_right = -31.0
 offset_bottom = 111.0
+skill_resource = ExtResource("5_lqxe3")
 
 [node name="SkillBtn2" parent="TabContainer/PlasmaBall/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
 layout_mode = 0
@@ -150,6 +172,7 @@ offset_left = 149.0
 offset_top = -15.0
 offset_right = 181.0
 offset_bottom = 17.0
+skill_resource = ExtResource("7_jguiq")
 
 [node name="Lightning Strike" type="TabBar" parent="TabContainer"]
 visible = false
@@ -163,46 +186,52 @@ offset_left = 229.0
 offset_top = 59.0
 offset_right = 275.0
 offset_bottom = 105.0
-skill_resource = ExtResource("2_cki0d")
-player_stats = ExtResource("3_fv47a")
+skill_resource = SubResource("Resource_njmxn")
 
 [node name="SkillBtn2" parent="TabContainer/Lightning Strike/SkillBtn" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 86.0
 offset_right = 158.0
 offset_bottom = 118.0
 
 [node name="SkillBtn2" parent="TabContainer/Lightning Strike/SkillBtn/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -8.0
 offset_top = 110.0
 offset_right = 24.0
 offset_bottom = 142.0
 
 [node name="SkillBtn2" parent="TabContainer/Lightning Strike/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 152.0
 offset_top = 16.0
 offset_right = 184.0
 offset_bottom = 48.0
 
 [node name="SkillBtn2" parent="TabContainer/Lightning Strike/SkillBtn/SkillBtn2/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 75.0
 offset_top = 112.0
 offset_right = 107.0
 offset_bottom = 144.0
 
 [node name="SkillBtn2" parent="TabContainer/Lightning Strike/SkillBtn/SkillBtn2/SkillBtn2/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 85.0
 offset_top = 28.0
 offset_right = 147.0
 offset_bottom = 90.0
 
 [node name="SkillBtn3" parent="TabContainer/Lightning Strike/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -119.0
 offset_top = 37.0
 offset_right = -87.0
 offset_bottom = 69.0
 
 [node name="Speed Boost" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -212,58 +241,66 @@ offset_left = 492.0
 offset_top = 68.0
 offset_right = 538.0
 offset_bottom = 114.0
-skill_resource = ExtResource("2_cki0d")
-player_stats = ExtResource("3_fv47a")
+skill_resource = SubResource("Resource_3r30d")
 
 [node name="SkillBtn2" parent="TabContainer/Speed Boost/SkillBtn" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -123.0
 offset_top = 69.0
 offset_right = -91.0
 offset_bottom = 101.0
 
 [node name="SkillBtn2" parent="TabContainer/Speed Boost/SkillBtn/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -103.0
 offset_top = 82.0
 offset_right = -71.0
 offset_bottom = 114.0
 
 [node name="SkillBtn2" parent="TabContainer/Speed Boost/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -142.0
 offset_top = -33.0
 offset_right = -110.0
 offset_bottom = -1.0
 
 [node name="SkillBtn3" parent="TabContainer/Speed Boost/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -84.0
 offset_top = 94.0
 offset_right = -52.0
 offset_bottom = 126.0
 
 [node name="SkillBtn2" parent="TabContainer/Speed Boost/SkillBtn/SkillBtn2/SkillBtn2/SkillBtn3" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 85.0
 offset_top = 28.0
 offset_right = 147.0
 offset_bottom = 90.0
 
 [node name="SkillBtn3" parent="TabContainer/Speed Boost/SkillBtn" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 140.0
 offset_top = 87.0
 offset_right = 172.0
 offset_bottom = 119.0
 
 [node name="SkillBtn2" parent="TabContainer/Speed Boost/SkillBtn/SkillBtn3" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 95.0
 offset_top = 70.0
 offset_right = 127.0
 offset_bottom = 102.0
 
 [node name="SkillBtn2" parent="TabContainer/Speed Boost/SkillBtn/SkillBtn3/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -107.0
 offset_top = 79.0
 offset_right = -75.0
 offset_bottom = 111.0
 
 [node name="SkillBtn2" parent="TabContainer/Speed Boost/SkillBtn/SkillBtn3/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 131.0
 offset_top = 37.0
 offset_right = 193.0
@@ -280,64 +317,73 @@ offset_left = 460.0
 offset_top = 97.0
 offset_right = 506.0
 offset_bottom = 143.0
-skill_resource = ExtResource("2_cki0d")
-player_stats = ExtResource("3_fv47a")
+skill_resource = SubResource("Resource_u0oqj")
 
 [node name="SkillBtn2" parent="TabContainer/Drone Swarm/SkillBtn" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -149.0
 offset_top = 28.0
 offset_right = -117.0
 offset_bottom = 60.0
 
 [node name="SkillBtn2" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -92.0
 offset_top = 71.0
 offset_right = -60.0
 offset_bottom = 103.0
 
 [node name="SkillBtn3" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -32.0
 offset_top = 106.0
 offset_right = 0.0
 offset_bottom = 138.0
 
 [node name="SkillBtn2" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn2/SkillBtn2/SkillBtn3" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 86.0
 offset_top = 78.0
 offset_right = 148.0
 offset_bottom = 140.0
 
 [node name="SkillBtn2" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn2/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -94.0
 offset_top = -54.0
 offset_right = -62.0
 offset_bottom = -22.0
 
 [node name="SkillBtn3" parent="TabContainer/Drone Swarm/SkillBtn" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 178.0
 offset_top = 28.0
 offset_right = 210.0
 offset_bottom = 60.0
 
 [node name="SkillBtn3" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn3" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 98.0
 offset_top = 97.0
 offset_right = 130.0
 offset_bottom = 129.0
 
 [node name="SkillBtn2" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn3/SkillBtn3" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 67.0
 offset_top = 96.0
 offset_right = 99.0
 offset_bottom = 128.0
 
 [node name="SkillBtn2" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn3/SkillBtn3/SkillBtn2" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = -136.0
 offset_top = 58.0
 offset_right = -74.0
 offset_bottom = 120.0
 
 [node name="SkillBtn2" parent="TabContainer/Drone Swarm/SkillBtn/SkillBtn3" instance=ExtResource("1_s7r1q")]
+layout_mode = 0
 offset_left = 183.0
 offset_top = 5.0
 offset_right = 215.0

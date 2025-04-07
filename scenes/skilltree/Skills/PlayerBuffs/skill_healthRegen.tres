@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://c48et1j1dw3g1"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_xiu8o"]
+[ext_resource type="Texture2D" uid="uid://ojcfvineeyn8" path="res://assets/ui/skillIcons/Skillicon14_13.png" id="2_5y152"]
+
+[resource]
+script = ExtResource("1_xiu8o")
+skill_name = "Increase Health Regen"
+skillIcon = ExtResource("2_5y152")
+description = "Increases health regen"
+stat_to_increase = "healthRegen"
+value = 1.0
+requiredPoints = 1

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://dh4mwqrwvt052"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_ramhb"]
+[ext_resource type="Texture2D" uid="uid://llo0ng7j0m50" path="res://assets/ui/skillIcons/Skillicon14_16.png" id="2_hmln8"]
+
+[resource]
+script = ExtResource("1_ramhb")
+skill_name = "IncreaseHealth"
+skillIcon = ExtResource("2_hmln8")
+description = "Increases the player health"
+cooldown = 0.0
+bonus_damage = 0.0
+mana_cost = 0.0
+stat_to_increase = "maxHealth"
+value = 10.0
+effects = {
+"armor boost": 5
+}

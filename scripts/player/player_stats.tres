@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://b1xrxxftoy3wh"]
+
+[ext_resource type="Script" path="res://scripts/player/player_stats.gd" id="1_h8271"]
+
+[resource]
+script = ExtResource("1_h8271")
+playerHealth = 100
+max_playerHealth = 100
+healthRegen = 2.0
+armor = 0
+maxArmor = 0
+mana = 100
+maxMana = 100
+manaRegen = 2.0

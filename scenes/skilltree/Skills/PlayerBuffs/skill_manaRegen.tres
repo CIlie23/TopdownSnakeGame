@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://bb2bw2k8oqtq5"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_dqdsg"]
+[ext_resource type="Texture2D" uid="uid://5segdjfrfffk" path="res://assets/ui/skillIcons/Skillicon14_03.png" id="2_m3swa"]
+
+[resource]
+script = ExtResource("1_dqdsg")
+skill_name = "Faster Mana Regen"
+skillIcon = ExtResource("2_m3swa")
+description = "Faster mana regen"
+stat_to_increase = "manaRegen"
+value = 1.0
+requiredPoints = 0

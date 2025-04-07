@@ -57,14 +57,14 @@ mesh = SubResource("SphereMesh_4mjyf")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.106169)
-amount = 90
-lifetime = 0.9
+amount = 20
+lifetime = 0.1
 speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_eeqlr")
 draw_pass_1 = SubResource("SphereMesh_o2b6l")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]

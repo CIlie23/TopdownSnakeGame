@@ -13,26 +13,26 @@
 [ext_resource type="Texture2D" uid="uid://bemv46m73p0r6" path="res://assets/ui/buttons/Button Hover.png" id="10_0vpjl"]
 [ext_resource type="Script" path="res://scripts/ui/typewriter.gd" id="11_tqxcn"]
 [ext_resource type="Script" path="res://scripts/ui/mana_bar.gd" id="12_tyovm"]
+[ext_resource type="Resource" uid="uid://b1xrxxftoy3wh" path="res://scripts/player/player_stats.tres" id="13_io050"]
 [ext_resource type="Script" path="res://scenes/abilities/drone_swarm/AbilityAtributes.gd" id="14_e0ckn"]
 [ext_resource type="Texture2D" uid="uid://spsem12ved31" path="res://assets/ui/abilities/plasma.png" id="14_fjv5s"]
 [ext_resource type="Texture2D" uid="uid://tna65qq5vjk0" path="res://assets/ui/abilities/droneswarm.png" id="15_iirk0"]
 [ext_resource type="Texture2D" uid="uid://qyygqqxx4gct" path="res://assets/ui/abilities/lightning.png" id="16_kh2ve"]
 [ext_resource type="Texture2D" uid="uid://dwfyb0umq7h7l" path="res://assets/ui/abilities/speed.png" id="17_mcg0q"]
 [ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="20_73y51"]
-[ext_resource type="Resource" uid="uid://da3x75y4auqsh" path="res://scripts/player/player_stats_resource.tres" id="21_sfccr"]
 [ext_resource type="PackedScene" uid="uid://bkwlo7ew7tsnv" path="res://scenes/props/house.tscn" id="25_0f6i8"]
 [ext_resource type="Script" path="res://scripts/pod_spawner.gd" id="25_fxiwe"]
 [ext_resource type="PackedScene" uid="uid://c43mvr23c6gke" path="res://scenes/skilltree/skill_tree.tscn" id="26_auhyj"]
 [ext_resource type="Script" path="res://scripts/ui/drone_camera.gd" id="26_bb6pl"]
 [ext_resource type="PackedScene" uid="uid://dqflyxajxqqx3" path="res://scenes/props/houseThree.tscn" id="26_cyquj"]
 [ext_resource type="Texture2D" uid="uid://c6rk8ro2e6oeb" path="res://assets/ui/windows/Card X3.png" id="26_n8b2v"]
-[ext_resource type="PackedScene" uid="uid://x3r8d5cox4a7" path="res://scenes/UI/inventory/inventory_ui.tscn" id="26_nv6hk"]
 [ext_resource type="PackedScene" uid="uid://cls10jofsy2mq" path="res://scenes/game_over_menu.tscn" id="27_i6k8y"]
 [ext_resource type="PackedScene" uid="uid://bm6uknrp383ly" path="res://scenes/UI/challenges.tscn" id="27_s7h63"]
 [ext_resource type="PackedScene" uid="uid://bi76xjwif6hcw" path="res://scenes/props/houseTwo.tscn" id="27_ucawo"]
 [ext_resource type="PackedScene" uid="uid://b475wnptaipdd" path="res://scenes/pause_menu.tscn" id="28_4ig8x"]
 [ext_resource type="PackedScene" uid="uid://uvfwcht0hfmi" path="res://scenes/UI/minimap.tscn" id="28_a32ar"]
 [ext_resource type="PackedScene" uid="uid://cy37xr24833ko" path="res://scenes/props/tree.tscn" id="28_edjhq"]
+[ext_resource type="Texture2D" uid="uid://cthmyu26uxapi" path="res://assets/ui/warning.png" id="28_glenw"]
 [ext_resource type="PackedScene" uid="uid://duu00ypj1dd7q" path="res://scenes/UI/abilities/ability_button.tscn" id="29_ladu2"]
 [ext_resource type="Texture2D" uid="uid://cskqtd05nkas3" path="res://assets/GLTF format/roadAsphalt_pavement_tiles.png" id="30_nub5e"]
 [ext_resource type="Texture2D" uid="uid://cm1isap3uumsy" path="res://assets/GLTF format/roadDirt_center_dirt.png" id="31_dsaiu"]
@@ -6283,7 +6283,7 @@ visible = false
 light_data = ExtResource("46_dlju2")
 
 [node name="Player" parent="." instance=ExtResource("2_ii6h3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.6647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.60301)
 
 [node name="UI" type="CanvasLayer" parent="Player"]
 follow_viewport_enabled = true
@@ -6405,7 +6405,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_nl5wp")
 fill_mode = 1
 show_percentage = false
 script = ExtResource("20_73y51")
-player_stats = ExtResource("21_sfccr")
+player_stats = ExtResource("13_io050")
 
 [node name="Label" type="Label" parent="Player/UI/UI/AbilitiesNSuch/HealthBar"]
 layout_mode = 0
@@ -6427,7 +6427,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_pfia4")
 fill_mode = 1
 show_percentage = false
 script = ExtResource("12_tyovm")
-player_stats = ExtResource("21_sfccr")
+player_stats = ExtResource("13_io050")
 
 [node name="Label" type="Label" parent="Player/UI/UI/AbilitiesNSuch/ManaBar"]
 layout_mode = 0
@@ -6551,6 +6551,19 @@ offset_bottom = -2.0
 [node name="GameOver" parent="Player/UI" instance=ExtResource("27_i6k8y")]
 visible = false
 
+[node name="Damage" type="Control" parent="Player/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="damageRect" type="TextureRect" parent="Player/UI/Damage"]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("28_glenw")
+
 [node name="ExitWarning" type="VBoxContainer" parent="Player/UI"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -6591,26 +6604,6 @@ material_overlay = SubResource("ShaderMaterial_y1lgv")
 mesh = SubResource("QuadMesh_fraa3")
 skeleton = NodePath("../..")
 
-[node name="InventoryUI" parent="Player" instance=ExtResource("26_nv6hk")]
-
-[node name="Damage" type="Control" parent="Player"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Player/Damage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1115.0
-offset_bottom = 620.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.74, 0.74, 0.282353)
-
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("7_m58bh")
 cell_size = Vector3(1, 1, 1)
@@ -6627,6 +6620,7 @@ script = ExtResource("25_fxiwe")
 
 [node name="PodSpawnTimer" type="Timer" parent="PodSpawner"]
 wait_time = 5.0
+autostart = true
 
 [node name="Houses" type="Node3D" parent="PodSpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -36)
@@ -6800,7 +6794,6 @@ mesh = SubResource("BoxMesh_p3f2o")
 [connection signal="pressed" from="Player/UI/Dialog/Box/okButton" to="Player/UI/Dialog" method="_on_ok_button_pressed"]
 [connection signal="animation_finished" from="Player/UI/Dialog/VBoxContainer/TypeWriterEffect" to="Player/UI/Dialog" method="_on_type_writer_effect_animation_finished"]
 [connection signal="timeout" from="Player/UI/ExitWarning/WarningTimer" to="." method="_on_warning_timer_timeout"]
-[connection signal="item_out_of_inventory" from="Player/InventoryUI" to="." method="_on_inventory_ui_item_out_of_inventory"]
 [connection signal="timeout" from="PodSpawner/PodSpawnTimer" to="PodSpawner" method="_on_pod_spawn_timer_timeout"]
 [connection signal="body_entered" from="ArenaArea" to="." method="_on_arena_area_body_entered"]
 [connection signal="body_exited" from="ArenaArea" to="." method="_on_arena_area_body_exited"]

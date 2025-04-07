@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://clxh4vvr2mo3v"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_qwprh"]
+[ext_resource type="Texture2D" uid="uid://cr2rk16m5qfbe" path="res://assets/ui/skillIcons/Skillicon14_05.png" id="2_bhaqn"]
+
+[resource]
+script = ExtResource("1_qwprh")
+skill_name = "Coldown Reduction"
+skillIcon = ExtResource("2_bhaqn")
+description = "Reduces spell coldown"
+stat_to_increase = "decreaseColdown"
+value = 5.0
+requiredPoints = 3

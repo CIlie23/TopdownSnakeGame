@@ -28,12 +28,12 @@ func update_slots():
 # ----------------------------------------------------------------------------
 # Handles opening and closing inventory with the assigned key
 # ----------------------------------------------------------------------------
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("open_inventory"):
-		if !is_inventory_open:
-			opened()
-		else:
-			closed()
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("open_inventory"):
+		#if !is_inventory_open:
+			#opened()
+		#else:
+			#closed()
 
 func opened():
 	visible = true

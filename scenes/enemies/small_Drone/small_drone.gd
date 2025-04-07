@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 @export var smallDroneHealth: int = 130
 var friendly_drone_damage = friendlyDrone.new().droneDAMAGE
-#var plasma_ball_damage = plasmaBall.new().plasmaBallDAMAGE
-#var lightning_damage = lightningScene.new().lightningDamage
+@onready var healthbar_3d: ProgressBar = $SubViewport/Healthbar3D
+
 
 @onready var skeleton: Skeleton3D = $Drone1_Armature/Skeleton3D
 @onready var animations: AnimationPlayer = $AnimationPlayer
@@ -41,6 +41,7 @@ enum {
 }
 
 func _ready() -> void:
+	healthbar_3d.value = smallDroneHealth
 	idle_timer.start()
 
 func _process(delta: float) -> void:
@@ -58,8 +59,8 @@ func _process(delta: float) -> void:
 			move_and_slide()
 		ALERT:
 			animations.play("walk")
-			look_at(target.global_transform.origin, Vector3.UP)
-			rotate_y(deg_to_rad(180))
+			#look_at(target.global_transform.origin, Vector3.UP)
+			#rotate_y(deg_to_rad(180))
 			#rotate_y(deg_to_rad(eyes.rotation.y * rotation_speed))
 		CHASE:
 			animations.play("walk")
@@ -88,6 +89,7 @@ func find_closest_target():
 # Player is detected
 #----------------------------------------------------------------------------
 func takeDamage(amount: int, killer_type: String) -> void:
+	healthbar_3d.value = smallDroneHealth
 	smallDroneHealth -= amount
 	
 	if smallDroneHealth <= 50:
@@ -120,17 +122,21 @@ func _physics_process(delta):
 	if state == DEAD:
 		can_look = false
 		velocity = Vector3.ZERO
-		#print("i should be dead rn")
 		return
-		
-	if target and can_look == true:
-		look_at(target.global_transform.origin, Vector3.UP)
-		#print("i shouldn't be movin rn")
+
+	if target and can_look:
+		var target_pos = target.global_transform.origin
+		var self_pos = global_transform.origin
+		var dir = target_pos - self_pos
+
+		if dir.length_squared() > 0.0001:
+			look_at(target_pos, Vector3.UP)
 	else:
 		velocity = Vector3.ZERO  # Ensure no unintended movement
-	
-	velocity = velocity.limit_length(MOVE_SPEED) 
+
+	velocity = velocity.limit_length(MOVE_SPEED)
 	move_and_slide()
+
 #----------------------------------------------------------------------------
 # Attack stuff
 #----------------------------------------------------------------------------
@@ -139,7 +145,7 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and state != DEAD:
 		var closest = find_closest_target()
 		if closest and closest != target:
-			idle_timer.stop()
+			idle_timer.call_deferred("start")
 			target = body
 			state = ATTACK
 			shoot_timer.start()
@@ -173,7 +179,7 @@ func _target_hit():
 func _on_chase_area_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player") and state != DEAD:
 		#exclamation_mark.visible = false
-		idle_timer.start()
+		idle_timer.call_deferred("start")
 		shoot_timer.stop()
 		target = null
 		state = IDLE
@@ -210,12 +216,15 @@ func spawn_xp_orb():
 	orb_instance.global_transform.origin = global_transform.origin
 	
 func die(killer_type: String):
+	if state == DEAD:
+		return
+	healthbar_3d.visible = false
 	Global.report_enemy_killed_by(killer_type)
 	Global.total_enemies -= 1
 	Global.total_enemy_kills += 1
 	state = DEAD
 	spawn_xp_orb()
-	$Hitbox.disabled = true
+	$Hitbox.call_deferred("set_disabled", true)
 	target = null
 	shoot_timer.stop()
 	idle_timer.stop()
@@ -226,10 +235,11 @@ func die(killer_type: String):
 
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	animations.stop()
+	animations.play("idle")
+	healthbar_3d.visible = true
 	#set_process(false)
 
-
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	#set_process(true)
-	animations.play("idle")
+	animations.stop()
+	healthbar_3d.visible = false
+	

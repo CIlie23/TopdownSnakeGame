@@ -35,5 +35,6 @@ func _on_bullet_colision_body_entered(body: Node3D) -> void:
 		mesh.visible = false
 		particles.emitting = true
 		#_target_hit()
+		body.takeDamage(50, "plasma")
 		await get_tree().create_timer(1,0).timeout
 		queue_free()

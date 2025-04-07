@@ -34,3 +34,10 @@ func _on_spawn_timer_timeout() -> void:
 		if spawned_enemies >= spawnSize:
 			#print("deleted")
 			queue_free()
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	set_process(true)
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	set_process(false)

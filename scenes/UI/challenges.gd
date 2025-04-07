@@ -3,6 +3,7 @@ extends Control
 @onready var coldown_timer: Timer = $ColdownTimer
 @onready var title: Label = $Panel/QuestContainer/Title
 @onready var lbl_time: Label = $Panel/QuestContainer/VBoxContainer/lblTime
+
 @onready var time_left: Timer = $Panel/QuestContainer/VBoxContainer/lblTime/TimeLeft
 @onready var progress_bar: ProgressBar = $Panel/QuestContainer/VBoxContainer/ProgressBar
 @onready var challenges: Control = $"."
@@ -20,21 +21,32 @@ func _ready() -> void:
 	coldown_timer.start()
 	
 func _process(delta: float) -> void:
-	if challenge_active and current_challenge == "killEnemies":
-		if Global.total_enemy_kills == 10:
-			Global.total_enemy_kills = 0
-			payMoney()
-			challenge_finished()
-	if challenge_active and current_challenge == "killWithPlasma":
-		if Global.plasma_kills == 3:
-			Global.plasma_kills = 0
-			payMoney()
-			challenge_finished()
-	if challenge_active and current_challenge == "killWithLightning":
-		if Global.lightning_kills == 3:
-			Global.lightning_kills = 0
-			payMoney()
-			challenge_finished()
+	if not challenge_active:
+		return
+	
+	lbl_time.text = "Time left: " + "%.1f" % time_left.time_left
+	
+	match current_challenge:
+		"killEnemies":
+			progress_bar.value = Global.total_enemy_kills
+			if Global.total_enemy_kills >= 10:
+				Global.total_enemy_kills = 0
+				payMoney()
+				challenge_finished()
+
+		"killWithPlasma":
+			progress_bar.value = Global.plasma_kills
+			if Global.plasma_kills >= 3:
+				Global.plasma_kills = 0
+				payMoney()
+				challenge_finished()
+
+		"killWithLightning":
+			progress_bar.value = Global.lightning_kills
+			if Global.lightning_kills >= 3:
+				Global.lightning_kills = 0
+				payMoney()
+				challenge_finished()
 
 func _on_coldown_timer_timeout() -> void:
 	# Here we should choose between challenges
@@ -53,32 +65,45 @@ func _on_coldown_timer_timeout() -> void:
 	#time_left.start()
 	
 func _on_time_left_timeout() -> void:
-	pass # when this timer is over we need to check if the challenge is done or na
-
+	# when this timer is over we need to check if the challenge is done or na
+	challenge_failed()
+	
 func killEnemies():
+	time_left.wait_time = 10
+	time_left.start()
+	
 	current_challenge = "killEnemies"
 	challenge_active = true
 	title.text = "Kill 10 enemies"
+	progress_bar.max_value = 10
 	reward_icon.texture = preload("res://assets/ui/inventory/15.png")
 	reward_label.text = "100"
 	
 	challenge_start()
 	
 func stayInZone():
+	time_left.wait_time = 10
+	time_left.start()
 	current_challenge = "stayInZone"
 	title.text = "Locate and capture the point"
 	challenge_active = true
 	challenge_start()
 	
 func killWithPlasma():
+	time_left.wait_time = 10
+	time_left.start()
+	progress_bar.max_value = 3
 	current_challenge = "killWithPlasma"
-	title.text = "Use Plasma Ball to kill 3 enemies with one shot"
+	title.text = "Use Plasma Ball to kill 3 enemies!"
 	challenge_active = true
 	challenge_start()
 	
 func killWithLightning():
+	time_left.wait_time = 10
+	time_left.start()
+	progress_bar.max_value = 3
 	current_challenge = "killWithLightning"
-	title.text = "Use Lightning Strike to kill 3 enemies"
+	title.text = "Use Lightning Strike to kill 3 enemies!"
 	challenge_active = true
 	challenge_start()
 	
@@ -87,11 +112,18 @@ func challenge_start():
 	anims.play("slideIn")
 	
 func challenge_finished():
+	progress_bar.value = 0
 	coldown_timer.start()
 	print("challenge finished")
 	anims.play("slideOut")
 	challenge_active = false 
 	#challenges.visible = false
 
+func challenge_failed():
+	anims.play("slideOut") 
+	challenge_active = false
+	coldown_timer.start()
+	lbl_time.text = "Challenge Failed."
+	
 func payMoney():
 	Global.money += 10

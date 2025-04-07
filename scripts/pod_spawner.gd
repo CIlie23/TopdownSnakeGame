@@ -2,13 +2,12 @@ extends Node3D
 @onready var pod_spawn_timer: Timer = $PodSpawnTimer
 
 var pod_scene = preload("res://scenes/enemies/landingpod/pod.tscn")  # Store scene reference
-var spawn_radius = 25
+var spawn_radius = 15 #how far the pods spawn from each other
 
 
 func _ready() -> void:
 	for i in range(3):
 		spawn_pods()
-
 	
 func _process(delta: float) -> void:
 	check_spawn_timer()

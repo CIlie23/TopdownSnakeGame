@@ -7,51 +7,61 @@ extends Node3D
 @onready var gun_anim: AnimationPlayer = $AnimationPlayer
 
 var target = null
-var bullet = load("res://scenes/turrets/turretBullet.tscn")
-var gun_bullet
+const bullet = preload("res://scenes/turrets/turretBullet.tscn")
 var can_shoot = true 
 
-func _ready() -> void:
-	print("Cannon Loaded!")
+#func _ready() -> void:
+	#set_process(false)
 
 func _process(delta: float) -> void:
-	if barrel.is_colliding() and can_shoot:
+	if target and can_shoot: # and barrel.is_colliding() 
+		if target.state == target.DEAD:
+			clear_target()
+			return
 		shoot_timer.start()
 		can_shoot = false
-	rotate_towards_target()
+		rotate_towards_target()
 	
 func rotate_towards_target():
-	if target == null:
-		pass
-	else:
-		#turret_head.look_at(target.global_transform.origin, Vector3.UP)
+	if target:
 		turret_head.look_at(target.global_transform.origin)
-		turret_head.rotate_y(deg_to_rad(180))  # Adjust depending on model orientation
+		turret_head.rotate_y(deg_to_rad(180))
+		#turret_head.look_at(target.global_transform.origin, Vector3.UP)
+  # Adjust depending on model orientation
 		#turret_head.rotate_x(deg_to_rad(-90)) 
 		#turret_head.rotate_y(deg_to_rad(180))
+
+func clear_target():
+	set_process(false)
+	target = null
+	shoot_timer.stop()
 #----------------------------------------------------------------------------
 # Turret Detection Logic
 #----------------------------------------------------------------------------
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy"): #checking if the raycast is coliding so it doesn't shoot at random
 		#head.look_at(target.global_transform.origin, Vector3.UP)
+		set_process(true)
 		target = body
 		can_shoot = true
 		print(body.name + " Detected")
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
+	set_process(false)
 	target = null
 	shoot_timer.stop()
 	print(body.name + " Lost :(")
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
-	gun_anim.play("shoot")
+	#gun_anim.play("shoot")
+	var gun_bullet = bullet.instantiate()
 	#Can't think of a better way to do this :/
-	gun_bullet = bullet.instantiate()
-	gun_bullet.position = barrel.global_position
-	gun_bullet.transform.basis = barrel.global_transform.basis
-	gun_bullet.position = barrel.global_position
-	gun_bullet.transform.basis = barrel.global_transform.basis
-	get_parent().add_child(gun_bullet)
+	#gun_bullet = bullet.instantiate()
+	gun_bullet.global_transform = barrel.global_transform
+	#gun_bullet.position = barrel.global_position
+	#gun_bullet.transform.basis = barrel.global_transform.basis
+	#gun_bullet.position = barrel.global_position
+	#gun_bullet.transform.basis = barrel.global_transform.basis
+	get_tree().current_scene.add_child(gun_bullet)
 	#print("pow")

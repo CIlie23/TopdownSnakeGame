@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://0co4pgrmfl2b"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_ihyiw"]
+[ext_resource type="Texture2D" uid="uid://ctxrcihchaunc" path="res://assets/ui/skillIcons/Skillicon14_38.png" id="2_byw2v"]
+
+[resource]
+script = ExtResource("1_ihyiw")
+skill_name = "UnlockTree"
+skillIcon = ExtResource("2_byw2v")
+description = "Unlocks the skill tree"
+stat_to_increase = ""
+value = 0.0
+requiredPoints = 5

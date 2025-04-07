@@ -13,7 +13,7 @@ albedo_color = Color(0.988235, 0.831373, 0.486275, 1)
 albedo_color = Color(0.92549, 0.956863, 0.956863, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3k66f"]
-radius = 4.11036
+radius = 5.72223
 
 [sub_resource type="Animation" id="Animation_bukwe"]
 length = 0.001
@@ -54,6 +54,7 @@ _data = {
 }
 
 [node name="updatedMachinegun" instance=ExtResource("1_ocm65")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("2_gjsat")
 
 [node name="Turret_Gun_Top" parent="." index="1"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAtribute" load_steps=3 format=3 uid="uid://dnc8j5mog1f1p"]
+
+[ext_resource type="Script" path="res://scenes/skilltree/skill_atributes.gd" id="1_m2dba"]
+[ext_resource type="Texture2D" uid="uid://llo0ng7j0m50" path="res://assets/ui/skillIcons/Skillicon14_16.png" id="2_rm0uo"]
+
+[resource]
+script = ExtResource("1_m2dba")
+skill_name = "Increase Health"
+skillIcon = ExtResource("2_rm0uo")
+description = "Increases player Health"
+stat_to_increase = "maxHealth"
+value = 10.0
+requiredPoints = 3
