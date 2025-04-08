@@ -4,9 +4,9 @@ class_name PlayerStuff
 
 #--------------------------MOVEMENT LOGIC--------------------------------
 @export var grid_size: float = 1.1 
-var move_duration: float = 0.1  # How long each move takes
+var move_duration: float = 0.11  # How long each move takes
 #@onready var snake_head: MeshInstance3D = $CollisionShape3D/MeshInstance3D
-@onready var snake_head: Node3D = $CollisionShape3D/Playe
+@onready var snake_head: Node3D = $CollisionShape3D/Player
 
 var direction = Vector3(0, 0, 0)  # Default movement direction
 var last_used_direction = direction
@@ -16,7 +16,7 @@ var tail_piece = preload("res://scenes/world/snake_segment.tscn")
 var is_moving = false  # Prevents input spam while moving
 
 #------------------------------BULLETS--------------------------------
-@onready var barrel: RayCast3D = $CollisionShape3D/Playe/Rifle
+@onready var barrel: RayCast3D = $CollisionShape3D/Player/Rifle
 const PLASMA_BALL = preload("res://scenes/abilities/assets/plasma_ball.tscn")
 var CANNON_BALL = preload("res://scenes/turrets/cannon_ball.tscn")
 var ball
@@ -43,24 +43,25 @@ func bulletHit():
 	emit_signal("player_hit")
 
 func _ready():
-	#print(playerStats.mana, " Mana")
-	#playerStats.playerHealth = 100
-	#playerStats.mana = 100
+	#gpt failsafe
+	global_position = Vector3(0, 0, 0)
+	print("Player ready")
+	position = position.snapped(Vector3.ONE * grid_size)
+	last_used_direction = Vector3(0, 0, -1)
+	snake_bodies.clear()
+	is_moving = false
+
 	position = position.snapped(Vector3.ONE * grid_size)
 
 
 func _process(_delta):
-	#print(playerStats.max_playerHealth, "max health")
-	#print(playerStats.healthRegen, "health regen")
-	#print(playerStats.mana, " mana")
-	#print(playerStats.maxMana, "max mana")
-	#print(playerStats.manaRegen, "regen mana")
+
 	if playerStats.playerHealth <= 0:
 		emit_signal("player_dead")
 		#print("Player is dead")
 	handle_input()
-	if Input.is_action_just_pressed("extend_snake"):
-		extend()
+	#if Input.is_action_just_pressed("extend_snake"):
+		#extend()
 
 func handle_input():
 	if is_moving:
@@ -70,16 +71,12 @@ func handle_input():
  	
 	# We prevent reversing (e.g., moving right and immediately moving left) by checking last_used_direction.
 	if Input.is_action_pressed("game_up") and last_used_direction != Vector3(0, 0, 1):
-		#snake_head.look_at(new_direction)
 		new_direction = Vector3(0, 0, -1)
 	elif Input.is_action_pressed("game_down") and last_used_direction != Vector3(0, 0, -1):
-		#snake_head.look_at(new_direction)
 		new_direction = Vector3(0, 0, 1)
 	elif Input.is_action_pressed("game_left") and last_used_direction != Vector3(1, 0, 0):
-		#snake_head.look_at(new_direction)
 		new_direction = Vector3(-1, 0, 0)
 	elif Input.is_action_pressed("game_right") and last_used_direction != Vector3(-1, 0, 0):
-		#snake_head.look_at(new_direction)
 		new_direction = Vector3(1, 0, 0)
 
 	if new_direction != direction:
@@ -90,13 +87,20 @@ func handle_input():
 
 	move_snake()
 
-func rotate_towards(new_direction: Vector3):
+#func rotate_towards(new_direction: Vector3):
 	#var target_position = position + new_direction
-	#snake_head.look_at(target_position, Vector3.UP)  # Make the head look in the movement direction
-	
+	#target_position.y = snake_head.global_transform.origin.y  # Keep Y-level fixed
+	#snake_head.look_at(target_position, Vector3.UP)
+	#snake_head.rotate_y(PI)
+func rotate_towards(new_direction: Vector3):
 	var target_position = position + new_direction
-	target_position.y = snake_head.global_transform.origin.y  # Keep Y-level fixed
+	if snake_head.global_transform.origin.is_equal_approx(target_position):
+		return  # Avoid look_at on same position, which causes NaNs
+	
+	target_position.y = snake_head.global_transform.origin.y
 	snake_head.look_at(target_position, Vector3.UP)
+
+	# Optional: avoid this if you aren't sure why it's needed
 	snake_head.rotate_y(PI)
 	
 func move_snake():
@@ -135,7 +139,7 @@ func extend():
 	get_tree().current_scene.add_child(new_body)
 	
 	show_weapon_popup_for_segment(new_body)
-	
+
 func show_weapon_popup_for_segment(segment: Node3D):
 	var popup = preload("res://scenes/UI/turret_chooser.tscn").instantiate()
 	get_tree().current_scene.add_child(popup)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c43mvr23c6gke"]
+[gd_scene load_steps=19 format=3 uid="uid://c43mvr23c6gke"]
 
 [ext_resource type="Script" path="res://scenes/skilltree/skill_tree.gd" id="1_e5m0p"]
 [ext_resource type="PackedScene" uid="uid://bfpo6p1bmcpad" path="res://scenes/skilltree/skill_btn.tscn" id="1_s7r1q"]
@@ -13,6 +13,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rl5cq"]
 bg_color = Color(0.0562916, 0.0562916, 0.0562916, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apqm6"]
+bg_color = Color(0.00706989, 0.105657, 0.00672496, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqaan"]
 bg_color = Color(0.143239, 0.747962, 0.146995, 1)
@@ -233,6 +236,7 @@ theme_override_constants/separation = 98
 
 [node name="Yes" type="Button" parent="TabContainer/Player Upgrades/Panel/Label/HBoxContainer"]
 layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_apqm6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fqaan")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wix1g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xrbdl")

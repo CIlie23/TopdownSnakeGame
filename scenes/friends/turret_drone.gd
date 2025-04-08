@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 class_name friendlyDrone
-
 # https://www.youtube.com/watch?v=qg2kzZVe2RI
 
 @onready var animation: AnimationPlayer = $AnimationPlayer

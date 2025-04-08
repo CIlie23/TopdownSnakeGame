@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cls10jofsy2mq"]
+[gd_scene load_steps=7 format=3 uid="uid://cls10jofsy2mq"]
 
 [ext_resource type="Script" path="res://scenes/game_over_menu.gd" id="1_7j0f0"]
 [ext_resource type="Shader" path="res://shaders/pause_menu.gdshader" id="2_6mg6m"]
+[ext_resource type="Resource" uid="uid://b1xrxxftoy3wh" path="res://scripts/player/player_stats.tres" id="2_tbll3"]
 [ext_resource type="FontFile" uid="uid://1yuy1o07mph2" path="res://assets/fonts/URW Grotesk SC Regular.ttf" id="3_urfns"]
 [ext_resource type="FontFile" uid="uid://c7av1j5mjwa37" path="res://assets/fonts/URW Grotesk SC Light.ttf" id="4_gqmfv"]
 
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7j0f0")
+playerStats = ExtResource("2_tbll3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_hxx2w")
@@ -61,10 +63,12 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="TryAgain" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Try again"
 
 [node name="GiveUp" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Give up"
 

@@ -104,7 +104,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 36.0
-offset_top = 495.0
+offset_top = 492.0
 offset_right = 206.0
 offset_bottom = 627.0
 grow_vertical = 0
@@ -196,7 +196,7 @@ layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_1g2n2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4kwe4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6tk0")
-text = "Hell yea!"
+text = "Pretty sure"
 
 [node name="no" type="Button" parent="Popup/HBoxContainer"]
 layout_mode = 2
@@ -218,9 +218,10 @@ offset_bottom = 55.0
 layout_mode = 0
 offset_right = 831.0
 offset_bottom = 599.0
-current_tab = 0
+current_tab = 1
 
 [node name="Display" type="TabBar" parent="SettingsPannel/Settings"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -235,9 +236,9 @@ text = "Resolution
 
 [node name="Resolution" type="OptionButton" parent="SettingsPannel/Settings/Display/Resolution"]
 layout_mode = 0
-offset_left = 102.0
+offset_left = 126.0
 offset_top = 2.0
-offset_right = 207.0
+offset_right = 242.0
 offset_bottom = 33.0
 item_count = 4
 popup/item_0/text = "1600x900"
@@ -249,28 +250,207 @@ popup/item_3/text = "640x480"
 popup/item_3/id = 2
 
 [node name="Fullscreen" type="Label" parent="SettingsPannel/Settings/Display"]
-offset_left = 16.0
-offset_top = 65.0
-offset_right = 104.0
-offset_bottom = 88.0
-text = "Fullscreen"
-
-[node name="FullScreenCheck" type="CheckBox" parent="SettingsPannel/Settings/Display/Fullscreen"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 4.0
-offset_right = 136.0
-offset_bottom = 28.0
+offset_left = 11.0
+offset_top = 73.0
+offset_right = 116.0
+offset_bottom = 96.0
+text = "Display Mode"
 
-[node name="Sound" type="TabBar" parent="SettingsPannel/Settings"]
-visible = false
+[node name="OptionButton" type="OptionButton" parent="SettingsPannel/Settings/Display/Fullscreen"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = -2.0
+offset_right = 243.0
+offset_bottom = 29.0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 1
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="VSync" type="Label" parent="SettingsPannel/Settings/Display"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 125.0
+offset_right = 99.0
+offset_bottom = 148.0
+text = "VSync"
+
+[node name="VsyncOp" type="OptionButton" parent="SettingsPannel/Settings/Display/VSync"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 2.0
+offset_right = 240.0
+offset_bottom = 33.0
+item_count = 3
+popup/item_0/text = "Disabled"
+popup/item_1/text = "Enabled"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+
+[node name="Shader" type="Label" parent="SettingsPannel/Settings/Display"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 175.0
+offset_right = 104.0
+offset_bottom = 198.0
+text = "PSX Shader"
+
+[node name="psxShader" type="CheckBox" parent="SettingsPannel/Settings/Display/Shader"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 1.0
+offset_right = 151.0
+offset_bottom = 25.0
+
+[node name="Keybinds" type="TabBar" parent="SettingsPannel/Settings"]
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Keybinds" type="TabBar" parent="SettingsPannel/Settings"]
-visible = false
+[node name="lblKeybind" type="Label" parent="SettingsPannel/Settings/Keybinds"]
+layout_mode = 0
+offset_right = 831.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPannel/Settings/Keybinds"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 56.0
+offset_right = 539.0
+offset_bottom = 327.0
+theme_override_constants/separation = 200
+
+[node name="KeybindContainer" type="VBoxContainer" parent="SettingsPannel/Settings/Keybinds/HBoxContainer"]
 layout_mode = 2
-metadata/_tab_index = 2
+theme_override_constants/separation = 20
+
+[node name="Move Up" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Move Up"
+
+[node name="upInput" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Up"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = -1.0
+offset_right = 138.0
+offset_bottom = 30.0
+focus_mode = 0
+text = "W"
+
+[node name="Move Down" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Move Down"
+
+[node name="downInput" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Down"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = -1.0
+offset_right = 138.0
+offset_bottom = 30.0
+focus_mode = 0
+text = "S"
+
+[node name="Move Left" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Move Left"
+
+[node name="leftInput" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Left"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = -1.0
+offset_right = 138.0
+offset_bottom = 30.0
+focus_mode = 0
+text = "A"
+
+[node name="Move Right" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Move Right"
+
+[node name="rightInput" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Right"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = -1.0
+offset_right = 138.0
+offset_bottom = 30.0
+focus_mode = 0
+text = "D
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPannel/Settings/Keybinds/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Ability One" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ability One"
+
+[node name="abilOne" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability One"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = -2.0
+offset_right = 143.0
+offset_bottom = 29.0
+text = "1"
+
+[node name="Ability Two" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ability Two"
+
+[node name="abilTwo" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Two"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 1.0
+offset_right = 144.0
+offset_bottom = 32.0
+text = "2"
+
+[node name="Ability Three" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ability Three"
+
+[node name="abilThree" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Three"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = -2.0
+offset_right = 144.0
+offset_bottom = 29.0
+text = "3"
+
+[node name="Ability Four" type="Label" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ability Four"
+
+[node name="abilFour" type="Button" parent="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Four"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = -2.0
+offset_right = 144.0
+offset_bottom = 29.0
+text = "4"
+
+[node name="SkillTree" type="Label" parent="SettingsPannel/Settings/Keybinds"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 252.0
+offset_right = 124.0
+offset_bottom = 275.0
+text = "Open Skill Tree"
+
+[node name="btnSkillTeee" type="Button" parent="SettingsPannel/Settings/Keybinds/SkillTree"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = 29.0
+text = "Tab"
 
 [node name="Button" type="Button" parent="SettingsPannel"]
 layout_mode = 0
@@ -286,11 +466,29 @@ libraries = {
 "": SubResource("AnimationLibrary_rc01t")
 }
 
+[node name="Label" type="Label" parent="."]
+offset_left = 927.0
+offset_top = 620.0
+offset_right = 1149.0
+offset_bottom = 643.0
+text = "Release 0.3.1 (the Pre-Demo)"
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Popup/HBoxContainer/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Popup/HBoxContainer/no" to="." method="_on_no_pressed"]
 [connection signal="item_selected" from="SettingsPannel/Settings/Display/Resolution/Resolution" to="." method="_on_resolution_item_selected"]
-[connection signal="toggled" from="SettingsPannel/Settings/Display/Fullscreen/FullScreenCheck" to="." method="_on_full_screen_check_toggled"]
+[connection signal="item_selected" from="SettingsPannel/Settings/Display/Fullscreen/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="SettingsPannel/Settings/Display/VSync/VsyncOp" to="." method="_on_vsync_op_item_selected"]
+[connection signal="toggled" from="SettingsPannel/Settings/Display/Shader/psxShader" to="." method="_on_psx_shader_toggled"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Up/upInput" to="." method="_on_up_input_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Down/downInput" to="." method="_on_down_input_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Left/leftInput" to="." method="_on_left_input_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Right/rightInput" to="." method="_on_right_input_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability One/abilOne" to="." method="_on_abil_one_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Two/abilTwo" to="." method="_on_abil_two_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Three/abilThree" to="." method="_on_abil_three_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Four/abilFour" to="." method="_on_abil_four_pressed"]
+[connection signal="pressed" from="SettingsPannel/Settings/Keybinds/SkillTree/btnSkillTeee" to="." method="_on_btn_skill_teee_pressed"]
 [connection signal="pressed" from="SettingsPannel/Button" to="." method="_on_button_pressed"]

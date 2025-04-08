@@ -1,7 +1,8 @@
-/home/mask/Desktop/win build
+/home/mask/Desktop/wiinn
+res://
+/home/mask/Desktop
 res://scenes
 /home/mask/Desktop/windows build
-res://
 res://scenes/UI
 res://scenes/world
 res://scenes/skilltree
@@ -19,5 +20,3 @@ res://scripts/ui
 res://assets/animations
 res://scenes/abilities/assets
 res://scenes/abilities/drone_swarm
-res://scenes/friends
-res://scenes/turrets

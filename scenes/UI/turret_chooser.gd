@@ -5,6 +5,7 @@ signal weapon_selected(weapon_type: String)
 @export var available_weapons := ["turretOne", "doubleTurret", "cannon", "machineGun"]
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	var container = $PanelContainer/GridContainer
 	for weapon in available_weapons:
 		var button = TextureButton.new()
@@ -17,6 +18,7 @@ func _ready() -> void:
 	
 func _on_weapon_pressed(weapon_type: String):
 	emit_signal("weapon_selected", weapon_type)
-	Engine.time_scale = 1
+	#Engine.time_scale = 1
+	get_tree().paused = false
 	queue_free()
 	

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4b7wxtl556r4" path="res://assets/ui/skillIcons/Skillicon14_31.png" id="3_qekvt"]
 
 [node name="SkillBtn" type="TextureButton"]
+process_mode = 3
 offset_right = 32.0
 offset_bottom = 32.0
 toggle_mode = true

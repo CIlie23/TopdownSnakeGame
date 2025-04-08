@@ -1,4 +1,4 @@
-[gd_scene load_steps=346 format=4 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=347 format=4 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://bs8ybb3hk77ow" path="res://scenes/abilities/res_PlasmaBall.tres" id="16_wnt2v"]
 [ext_resource type="Texture2D" uid="uid://dwfyb0umq7h7l" path="res://assets/ui/abilities/speed.png" id="17_mcg0q"]
 [ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="20_73y51"]
+[ext_resource type="Texture2D" uid="uid://c78ft1js5twd0" path="res://assets/ui/skillIcons/Skillicon14_40.png" id="24_3s0yt"]
 [ext_resource type="PackedScene" uid="uid://bkwlo7ew7tsnv" path="res://scenes/props/house.tscn" id="25_0f6i8"]
 [ext_resource type="Script" path="res://scripts/pod_spawner.gd" id="25_fxiwe"]
 [ext_resource type="PackedScene" uid="uid://c43mvr23c6gke" path="res://scenes/skilltree/skill_tree.tscn" id="26_auhyj"]
@@ -6262,7 +6263,7 @@ material = SubResource("ShaderMaterial_y2i41")
 [node name="Spacial" type="Node3D"]
 script = ExtResource("1_mfq8h")
 
-[node name="ri" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1hwlr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -6531,6 +6532,16 @@ offset_bottom = -9.0
 color = Color(0.28485, 0.28485, 0.28485, 1)
 target = NodePath("../..")
 
+[node name="skillTreeButton" type="Button" parent="Player/UI/Minimap"]
+process_mode = 3
+layout_mode = 0
+offset_left = -2.0
+offset_top = -45.0
+offset_right = 38.0
+offset_bottom = -5.0
+tooltip_text = "Click to open the skill system menu"
+icon = ExtResource("24_3s0yt")
+
 [node name="Challenges" parent="Player/UI" instance=ExtResource("27_s7h63")]
 offset_left = 2.0
 offset_right = -812.0
@@ -6788,6 +6799,7 @@ mesh = SubResource("BoxMesh_p3f2o")
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
 [connection signal="pressed" from="Player/UI/Dialog/Box/okButton" to="Player/UI/Dialog" method="_on_ok_button_pressed"]
 [connection signal="animation_finished" from="Player/UI/Dialog/VBoxContainer/TypeWriterEffect" to="Player/UI/Dialog" method="_on_type_writer_effect_animation_finished"]
+[connection signal="pressed" from="Player/UI/Minimap/skillTreeButton" to="." method="_on_skill_tree_button_pressed"]
 [connection signal="timeout" from="Player/UI/ExitWarning/WarningTimer" to="." method="_on_warning_timer_timeout"]
 [connection signal="timeout" from="PodSpawner/PodSpawnTimer" to="PodSpawner" method="_on_pod_spawn_timer_timeout"]
 [connection signal="body_entered" from="ArenaArea" to="." method="_on_arena_area_body_entered"]

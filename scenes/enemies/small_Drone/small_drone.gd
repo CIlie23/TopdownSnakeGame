@@ -119,6 +119,7 @@ func _on_detect_area_body_entered(body: Node3D) -> void:
 		#print(body.name + "Detected")
 
 func _physics_process(delta):
+	
 	if state == DEAD:
 		can_look = false
 		velocity = Vector3.ZERO

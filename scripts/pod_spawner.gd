@@ -11,6 +11,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	check_spawn_timer()
+	#pass
 		
 func _on_pod_spawn_timer_timeout() -> void:
 		spawn_pods()

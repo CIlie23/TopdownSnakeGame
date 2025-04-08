@@ -9,6 +9,7 @@ var plasma_kills := 0
 var lightning_kills := 0
 
 
+
 #it detects how the enemy died by checking what the fuck
 #is happening in the ability script (for example plasma_ball)
 func report_enemy_killed_by(type: String) -> void:

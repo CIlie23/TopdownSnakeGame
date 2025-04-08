@@ -55,10 +55,12 @@ text = "(trust me)"
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Resume"
 
 [node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Main Menu"
 
