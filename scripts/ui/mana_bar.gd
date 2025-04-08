@@ -4,6 +4,7 @@ extends ProgressBar
 @onready var mana_bar: ProgressBar = $"../ManaBar"
 var regen_amount: float = 0.1
 @onready var health_bar: ProgressBar = $"."
+#var player_stats = preload("res://scripts/player/player_stats.tres")
 
 func _ready():
 	if player_stats:

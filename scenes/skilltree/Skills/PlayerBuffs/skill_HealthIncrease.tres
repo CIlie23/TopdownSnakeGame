@@ -8,11 +8,6 @@ script = ExtResource("1_ramhb")
 skill_name = "IncreaseHealth"
 skillIcon = ExtResource("2_hmln8")
 description = "Increases the player health"
-cooldown = 0.0
-bonus_damage = 0.0
-mana_cost = 0.0
 stat_to_increase = "maxHealth"
 value = 10.0
-effects = {
-"armor boost": 5
-}
+requiredPoints = 1

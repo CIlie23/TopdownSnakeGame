@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv4cdjretgsme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpcj2"]
+bg_color = Color(0.140066, 0.723663, 0.143166, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvqpd"]
+bg_color = Color(0.0980392, 0.505882, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6s4i"]
+bg_color = Color(0.943183, 0.245332, 0.227311, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kemg"]
+bg_color = Color(0.580392, 0.0980392, 0.0980392, 1)
+
+[node name="ChoicePopup" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -70.0
+offset_right = 220.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 12.0
+offset_right = 243.0
+offset_bottom = 35.0
+text = "This is title"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 93.0
+offset_right = 335.0
+offset_bottom = 133.0
+theme_override_constants/separation = 95
+
+[node name="Yes" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_wpcj2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bvqpd")
+text = "Hell yea!"
+
+[node name="No" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_n6s4i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6kemg")
+text = "Hell na!"

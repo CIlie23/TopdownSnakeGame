@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxdyuggn1q6db"]
+
+[ext_resource type="Texture2D" uid="uid://dude603a07ucu" path="res://assets/ui/abilities/lightning_area.png" id="1_h0mv2"]
+[ext_resource type="Script" path="res://scenes/world/capture_point.gd" id="1_m4f7x"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ky8dj"]
+radius = 5.02939
+
+[node name="capturePoint" type="Node3D"]
+script = ExtResource("1_m4f7x")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+texture = ExtResource("1_h0mv2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_ky8dj")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

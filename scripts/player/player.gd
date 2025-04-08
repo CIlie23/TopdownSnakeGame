@@ -48,12 +48,13 @@ func _ready():
 	#playerStats.mana = 100
 	position = position.snapped(Vector3.ONE * grid_size)
 
-#func show_speed_particles():
-	#print(move_duration, " current speed")
-	#speed_particles.emitting = true
 
 func _process(_delta):
-	#print(playerStats.max_playerHealth)
+	#print(playerStats.max_playerHealth, "max health")
+	#print(playerStats.healthRegen, "health regen")
+	#print(playerStats.mana, " mana")
+	#print(playerStats.maxMana, "max mana")
+	#print(playerStats.manaRegen, "regen mana")
 	if playerStats.playerHealth <= 0:
 		emit_signal("player_dead")
 		#print("Player is dead")

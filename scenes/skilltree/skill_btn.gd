@@ -11,16 +11,16 @@ class_name SkillNode
 @onready var skill_icon: TextureRect = $TextureRect
 
 #@export var skillAtributes: SkillAtribute
-@export var skill_resource: Resource  
+@export var skill_resource: Resource
 #@export var ability: Resource  
 var player_stats = preload("res://scripts/player/player_stats.tres")
-var ability = preload("res://scenes/skilltree/Skills/PlayerBuffs/skill_coldownReduction.tres")
+var ability = preload("res://scenes/abilities/res_PlasmaBall.tres")
 
 func _ready():
 	_skill_icon()
-	if get_parent() is SkillNode:
-		line.add_point(global_position + size/1)
-		line.add_point(get_parent().global_position + size/1)
+	if get_parent().is_in_group("skillButtons"):
+		line.add_point(global_position + size / 1)
+		line.add_point(get_parent().global_position + size / 1)
 		
 var level: int = 0:
 	set(value):
@@ -68,11 +68,14 @@ func apply_skill_effects():
 
 		if ability is AbilityAtributes:
 			ability.apply_tree_effect(skill_resource)
-	else:
-		print("Invalid skill resource!")
+			
+	#else:
+		#print("Missing or invalid skill_resource!")
 
 #func apply_skill_effects():
 	#if skill_resource is SkillAtribute and player_stats is PlayerStats:
 		#player_stats.apply_skill_effect(skill_resource)
+	#elif skill_resource is SkillAtribute and ability is AbilityAtributes:
+		#ability.apply_tree_effect(skill_resource) 
 	#else:
 		#print("Missing resource or type mismatch!")

@@ -8,6 +8,6 @@ script = ExtResource("1_ihyiw")
 skill_name = "UnlockTree"
 skillIcon = ExtResource("2_byw2v")
 description = "Unlocks the skill tree"
-stat_to_increase = ""
+stat_to_increase = "unlockSkilltree"
 value = 0.0
 requiredPoints = 5

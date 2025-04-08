@@ -9,5 +9,5 @@ skill_name = "Increase Max Mana"
 skillIcon = ExtResource("2_ag03i")
 description = "Increases max mana"
 stat_to_increase = "maxMana"
-value = 0.0
-requiredPoints = 10
+value = 10.0
+requiredPoints = 3

@@ -29,6 +29,8 @@ func _process(delta):
 		timer_lbl.modulate = Color.WHITE
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
+	if Input.is_action_just_pressed("globalPause"):
+		Engine.time_scale = 0
 
 func pauseMenu():
 	if isPaused:
@@ -62,7 +64,6 @@ func _on_arena_area_body_exited(body: Node3D) -> void:
 		print(Global.total_enemies)
 		Global.total_enemies -= 1
 		
-
 func _on_arena_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		warning_timer.stop()

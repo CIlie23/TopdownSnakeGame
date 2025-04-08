@@ -73,9 +73,9 @@ script = ExtResource("1_pbvnc")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 6.0
+offset_left = -350.0
 offset_top = 128.0
-offset_right = 355.0
+offset_right = -1.0
 offset_bottom = 198.0
 
 [node name="QuestContainer" type="VBoxContainer" parent="Panel"]
@@ -110,6 +110,7 @@ step = 1.0
 show_percentage = false
 
 [node name="RewardIcon" type="TextureRect" parent="Panel"]
+visible = false
 layout_mode = 0
 offset_left = 328.0
 offset_top = 31.0

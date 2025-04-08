@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://br1hdtv4fq305" path="res://assets/fonts/Qaroxe-zrllw.ttf" id="4_plcoe"]
 [ext_resource type="Texture2D" uid="uid://bqg4jqw0p8q68" path="res://assets/ui/inventory/03.png" id="5_t34pn"]
 
-[node name="AbilityButton" type="TextureButton"]
+[node name="AbilityButton" type="TextureButton" groups=["skillButtons"]]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0

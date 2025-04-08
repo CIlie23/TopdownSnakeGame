@@ -160,7 +160,7 @@ _data = {
 "cameraZoomIN": SubResource("Animation_20sql")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_c8ga6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

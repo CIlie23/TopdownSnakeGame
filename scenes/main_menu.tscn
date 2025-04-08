@@ -1,0 +1,296 @@
+[gd_scene load_steps=23 format=3 uid="uid://bh3bfisnbmqim"]
+
+[ext_resource type="Texture2D" uid="uid://vvpwiwrv1fvx" path="res://assets/ui/buttons/Button Normal.png" id="1_7jteo"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_n7muc"]
+[ext_resource type="Texture2D" uid="uid://wlc568tk58y" path="res://assets/ui/buttons/Button Active.png" id="2_i85v4"]
+[ext_resource type="Texture2D" uid="uid://bemv46m73p0r6" path="res://assets/ui/buttons/Button Hover.png" id="3_rraj1"]
+[ext_resource type="Texture2D" uid="uid://c64pmfjh8j7ec" path="res://assets/ui/buttons/Button Disable.png" id="4_xwe4e"]
+[ext_resource type="FontFile" uid="uid://c7av1j5mjwa37" path="res://assets/fonts/URW Grotesk SC Light.ttf" id="5_q0iaf"]
+[ext_resource type="FontFile" uid="uid://1yuy1o07mph2" path="res://assets/fonts/URW Grotesk SC Regular.ttf" id="6_gs8y7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1mwf"]
+texture = ExtResource("4_xwe4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uj37l"]
+texture = ExtResource("3_rraj1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j64u1"]
+texture = ExtResource("2_i85v4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6mpbs"]
+texture = ExtResource("1_7jteo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyfe3"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g2n2"]
+bg_color = Color(0.145098, 0.74902, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kwe4"]
+bg_color = Color(0.145098, 0.74902, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6tk0"]
+bg_color = Color(0.0980392, 0.505882, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awd7a"]
+bg_color = Color(1, 0.345098, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcan7"]
+bg_color = Color(1, 0.345098, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3btq"]
+bg_color = Color(0.580392, 0.0980392, 0.0980392, 1)
+
+[sub_resource type="Animation" id="Animation_fwff5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(418, 201)]
+}
+
+[sub_resource type="Animation" id="Animation_w3msn"]
+resource_name = "title_MoveCenter"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-28, 149), Vector2(418, 201)]
+}
+
+[sub_resource type="Animation" id="Animation_4f364"]
+resource_name = "title_MoveLeft"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(418, 201), Vector2(-28, 149)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rc01t"]
+_data = {
+"RESET": SubResource("Animation_fwff5"),
+"title_MoveCenter": SubResource("Animation_w3msn"),
+"title_MoveLeft": SubResource("Animation_4f364")
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_n7muc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 495.0
+offset_right = 206.0
+offset_bottom = 627.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(170, 23)
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1mwf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uj37l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_j64u1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6mpbs")
+text = "Play"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1mwf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uj37l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_j64u1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6mpbs")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t1mwf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uj37l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_j64u1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6mpbs")
+text = "Quit
+"
+
+[node name="TitleContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 418.0
+offset_top = 201.0
+offset_right = 738.0
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TitleContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_q0iaf")
+theme_override_font_sizes/font_size = 55
+text = "PROJECT:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TitleContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_gs8y7")
+theme_override_font_sizes/font_size = 75
+text = "SNAKE"
+horizontal_alignment = 1
+
+[node name="Popup" type="Panel" parent="."]
+visible = false
+offset_left = 316.0
+offset_top = 242.0
+offset_right = 812.0
+offset_bottom = 398.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nyfe3")
+
+[node name="Label" type="Label" parent="Popup"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 35.0
+offset_right = 326.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 25
+text = "Are you sure?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 94.0
+offset_right = 358.0
+offset_bottom = 134.0
+theme_override_constants/separation = 98
+
+[node name="yes" type="Button" parent="Popup/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_1g2n2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4kwe4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6tk0")
+text = "Hell yea!"
+
+[node name="no" type="Button" parent="Popup/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_awd7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lcan7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q3btq")
+text = "Nuh uh"
+
+[node name="SettingsPannel" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 292.0
+offset_top = 15.0
+offset_right = 332.0
+offset_bottom = 55.0
+
+[node name="Settings" type="TabContainer" parent="SettingsPannel"]
+layout_mode = 0
+offset_right = 831.0
+offset_bottom = 599.0
+current_tab = 0
+
+[node name="Display" type="TabBar" parent="SettingsPannel/Settings"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Resolution" type="Label" parent="SettingsPannel/Settings/Display"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 17.0
+offset_right = 95.0
+offset_bottom = 40.0
+text = "Resolution
+"
+
+[node name="Resolution" type="OptionButton" parent="SettingsPannel/Settings/Display/Resolution"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 2.0
+offset_right = 207.0
+offset_bottom = 33.0
+item_count = 4
+popup/item_0/text = "1600x900"
+popup/item_1/text = "1270x720"
+popup/item_1/id = 1
+popup/item_2/text = "1024x768"
+popup/item_2/id = 3
+popup/item_3/text = "640x480"
+popup/item_3/id = 2
+
+[node name="Fullscreen" type="Label" parent="SettingsPannel/Settings/Display"]
+offset_left = 16.0
+offset_top = 65.0
+offset_right = 104.0
+offset_bottom = 88.0
+text = "Fullscreen"
+
+[node name="FullScreenCheck" type="CheckBox" parent="SettingsPannel/Settings/Display/Fullscreen"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 4.0
+offset_right = 136.0
+offset_bottom = 28.0
+
+[node name="Sound" type="TabBar" parent="SettingsPannel/Settings"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Keybinds" type="TabBar" parent="SettingsPannel/Settings"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Button" type="Button" parent="SettingsPannel"]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 548.0
+offset_right = 805.0
+offset_bottom = 579.0
+theme_override_font_sizes/font_size = 15
+text = "Close"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rc01t")
+}
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Popup/HBoxContainer/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Popup/HBoxContainer/no" to="." method="_on_no_pressed"]
+[connection signal="item_selected" from="SettingsPannel/Settings/Display/Resolution/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="toggled" from="SettingsPannel/Settings/Display/Fullscreen/FullScreenCheck" to="." method="_on_full_screen_check_toggled"]
+[connection signal="pressed" from="SettingsPannel/Button" to="." method="_on_button_pressed"]

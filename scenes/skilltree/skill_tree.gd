@@ -1,8 +1,13 @@
 extends Control
 
 @onready var points: Label = $Points
+@onready var panel: Panel = $"TabContainer/Player Upgrades/Panel"
+#@onready var panel: Panel = $"TabContainer/Player Upgrades/ChoicePopup"
 
+#@export var player = preload("res://scenes/world/player.tscn")
+@export var player = load("res://scenes/world/player.tscn")
 var is_skilltree_open = false
+@onready var skill_tree: Control = $"."
 
 func _process(delta: float) -> void:
 	points.text = ("Available Points: " + str(Global.available_skpoints))
@@ -21,3 +26,20 @@ func opened():
 func closed():
 	visible = false
 	is_skilltree_open = false
+
+func _on_increase_size_pressed() -> void:
+	panel.visible = true
+
+func _on_yes_pressed() -> void:
+	var player = get_tree().get_root().get_node("Spacial/Player")  # Adjust path as needed
+	player.extend()
+	if Global.available_skpoints <= 0:
+		return
+		
+	Global.available_skpoints -= 10
+	skill_tree.visible = false
+	panel.visible = false
+
+
+func _on_no_pressed() -> void:
+	panel.visible = false

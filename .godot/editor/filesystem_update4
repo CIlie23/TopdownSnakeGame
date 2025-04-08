@@ -1,9 +1,9 @@
-res://scenes/skilltree/skill_tree.tscn
+res://scenes/main_menu.tscn
 res://assets/meshes/cityassets.tres
 res://shaders/darkfog_shader.gdshader
 res://scenes/Game.gdshader
-res://scenes/skilltree/skill_atributes.gd
-res://scripts/player/player_stats.gd
-res://scripts/player/player.gd
-res://scenes/UI/inventory/inventory_slot.gd
+res://scenes/main_menu.gd
 res://scenes/Game.tscn
+res://scenes/UI/inventory/inventory_slot.gd
+res://scenes/pause_menu.tscn
+res://scripts/ui/pause_menu.gd

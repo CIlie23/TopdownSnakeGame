@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityAtributes" load_steps=3 format=3 uid="uid://bs8ybb3hk77ow"]
+
+[ext_resource type="Texture2D" uid="uid://spsem12ved31" path="res://assets/ui/abilities/plasma.png" id="1_4k3t8"]
+[ext_resource type="Script" path="res://scenes/abilities/drone_swarm/AbilityAtributes.gd" id="2_h4uhy"]
+
+[resource]
+script = ExtResource("2_h4uhy")
+abilityName = "PlasmaBalll"
+abilityIcon = ExtResource("1_4k3t8")
+abilityCost = 10
+description = "Launch a plasmaball"
+abilityColdown = 1.0

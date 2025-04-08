@@ -4,6 +4,7 @@ class_name PlayerStats
 @export var playerHealth: int
 @export var max_playerHealth: int
 @export var healthRegen: float = 2.0
+@export var intelligence: int #i lack here
 
 @export var armor: int
 @export var maxArmor: int
@@ -24,5 +25,9 @@ func apply_skill_effect(skill: SkillAtribute):
 			manaRegen += skill.value
 		"maxMana":
 			maxMana += skill.value
+		"unlockSkilltree":
+			intelligence += skill.value
+		#"decreaseColdown":
+			#intelligence += skill.value
 		_:
 			print("Unknown stat: ", skill.stat_to_increase)

@@ -29,8 +29,8 @@ var change_key = "":
  
 		shortcut.events = [input_key]
  
-@export var playerStats = preload("res://scripts/player/player_stats_resource.tres")
-
+#@export var playerStats = preload("res://scripts/player/player_stats_resource.tres")
+@export var playerStats: PlayerStats
 func _ready(): #figure out how to connect stuff
 	player = get_node("/root/Spacial/Player")
 	ability_icon.texture = abilityAtributes.abilityIcon
@@ -41,6 +41,7 @@ func _ready(): #figure out how to connect stuff
 	set_process(false)
  	
 func _process(_delta):
+	#update_cooldown()
 	#if playerStats.mana < abilityAtributes.abilityCost:
 		#abil_disabled.visible = true
 	#elif playerStats.mana >= abilityAtributes.abilityCost:
@@ -60,20 +61,19 @@ var DRONE_SWARM = preload("res://scenes/abilities/drone_swarm/drone_swarm.gd")
 #var droneswarmScene
 var speedUpScene 
 
-func _on_pressed(): #add logic here to prvent from pressing again
+func _on_pressed():
 	if playerStats.mana < abilityAtributes.abilityCost:
-		print("Not enough mana")
+		#print("Not enough mana")
 		ability_button.disabled = true
 		return
-	else:
-		abil_disabled.visible = false
-		timer.start()
-		panel.show()
-		lbl_coldown.show()
-		set_process(true)
 
+	abil_disabled.visible = false
+	timer.start()
+	panel.show()
+	lbl_coldown.show()
+	set_process(true)
 	ability_button.disabled = true
-		
+			
 	if Input.is_action_pressed("ability_one"):
 		print(abilityAtributes.abilityColdown, " seconds")
 		if playerStats.mana < abilityAtributes.abilityCost:
@@ -97,17 +97,23 @@ func _on_pressed(): #add logic here to prvent from pressing again
 		playerStats.mana -= abilityAtributes.abilityCost
 	elif Input.is_action_pressed("ability_four") and playerStats.mana >= 20:
 		playerStats.mana -= abilityAtributes.abilityCost
-		#if playerStats.mana < abilityAtributes.abilityCost:
-			#print("Not enough mana")
-		#else:
+
 		var droneswarmScene = preload("res://scenes/abilities/drone_swarm/drone_swarm.tscn")
 		var droneInst = droneswarmScene.instantiate()
 		add_child(droneInst)
 		droneInst.activate_ability(player)
-			
+		
+	
+	#playerStats.mana -= abilityAtributes.abilityCost
+	#print("Mana after cast: ", playerStats.mana)
 func _on_timer_timeout():
 	cooldown.value = 0
 	panel.hide()
 	lbl_coldown.hide()
 	set_process(false)
 	ability_button.disabled = false
+
+func update_cooldown():
+	if abilityAtributes:
+		timer.wait_time = abilityAtributes.abilityColdown
+		cooldown.max_value = abilityAtributes.abilityColdown

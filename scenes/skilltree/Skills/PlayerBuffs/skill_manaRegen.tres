@@ -10,4 +10,4 @@ skillIcon = ExtResource("2_m3swa")
 description = "Faster mana regen"
 stat_to_increase = "manaRegen"
 value = 1.0
-requiredPoints = 0
+requiredPoints = 1

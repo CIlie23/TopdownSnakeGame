@@ -57,7 +57,8 @@ func _on_coldown_timer_timeout() -> void:
 		"killEnemies":
 			killEnemies()
 		"stayInZone":
-			stayInZone()
+			stayInZone()		#"killEnemies":
+			#killEnemies()
 		"killWithPlasma":
 			killWithPlasma()
 		"killWithLightning":
@@ -69,7 +70,7 @@ func _on_time_left_timeout() -> void:
 	challenge_failed()
 	
 func killEnemies():
-	time_left.wait_time = 10
+	time_left.wait_time = 30
 	time_left.start()
 	
 	current_challenge = "killEnemies"
@@ -82,15 +83,30 @@ func killEnemies():
 	challenge_start()
 	
 func stayInZone():
-	time_left.wait_time = 10
+	time_left.wait_time = 40
 	time_left.start()
 	current_challenge = "stayInZone"
 	title.text = "Locate and capture the point"
 	challenge_active = true
 	challenge_start()
 	
+	var point_scene = preload("res://scenes/world/capture_point.tscn")
+	var capture_point = point_scene.instantiate()
+	get_tree().get_root().add_child(capture_point)
+	
+	if not capture_point.capturing_progress.is_connected(_on_capture_progress):
+		capture_point.capturing_progress.connect(_on_capture_progress)
+
+#sorta works, cleanup and finish l8r
+func _on_capture_progress(progress: float):
+	time_left.paused = true
+	progress_bar.value = progress * 10.0
+	if progress >= 1.0:
+		print(progress)
+		challenge_finished()
+	
 func killWithPlasma():
-	time_left.wait_time = 10
+	time_left.wait_time = 30
 	time_left.start()
 	progress_bar.max_value = 3
 	current_challenge = "killWithPlasma"
@@ -99,7 +115,7 @@ func killWithPlasma():
 	challenge_start()
 	
 func killWithLightning():
-	time_left.wait_time = 10
+	time_left.wait_time = 30
 	time_left.start()
 	progress_bar.max_value = 3
 	current_challenge = "killWithLightning"

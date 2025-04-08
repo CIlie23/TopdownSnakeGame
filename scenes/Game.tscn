@@ -1,4 +1,4 @@
-[gd_scene load_steps=347 format=4 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=346 format=4 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
@@ -15,9 +15,9 @@
 [ext_resource type="Script" path="res://scripts/ui/mana_bar.gd" id="12_tyovm"]
 [ext_resource type="Resource" uid="uid://b1xrxxftoy3wh" path="res://scripts/player/player_stats.tres" id="13_io050"]
 [ext_resource type="Script" path="res://scenes/abilities/drone_swarm/AbilityAtributes.gd" id="14_e0ckn"]
-[ext_resource type="Texture2D" uid="uid://spsem12ved31" path="res://assets/ui/abilities/plasma.png" id="14_fjv5s"]
 [ext_resource type="Texture2D" uid="uid://tna65qq5vjk0" path="res://assets/ui/abilities/droneswarm.png" id="15_iirk0"]
 [ext_resource type="Texture2D" uid="uid://qyygqqxx4gct" path="res://assets/ui/abilities/lightning.png" id="16_kh2ve"]
+[ext_resource type="Resource" uid="uid://bs8ybb3hk77ow" path="res://scenes/abilities/res_PlasmaBall.tres" id="16_wnt2v"]
 [ext_resource type="Texture2D" uid="uid://dwfyb0umq7h7l" path="res://assets/ui/abilities/speed.png" id="17_mcg0q"]
 [ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="20_73y51"]
 [ext_resource type="PackedScene" uid="uid://bkwlo7ew7tsnv" path="res://scenes/props/house.tscn" id="25_0f6i8"]
@@ -134,14 +134,6 @@ action = &"ability_one"
 [sub_resource type="Shortcut" id="Shortcut_xe53s"]
 events = [SubResource("InputEventAction_87xu8")]
 
-[sub_resource type="Resource" id="Resource_n0cyb"]
-script = ExtResource("14_e0ckn")
-abilityName = "PlasmaBall"
-abilityIcon = ExtResource("14_fjv5s")
-abilityCost = 10
-description = "Launch a plasma ball"
-abilityColdown = 5.0
-
 [sub_resource type="InputEventAction" id="InputEventAction_b14d4"]
 action = &"ability_two"
 
@@ -152,9 +144,9 @@ events = [SubResource("InputEventAction_b14d4")]
 script = ExtResource("14_e0ckn")
 abilityName = "LightningStrike"
 abilityIcon = ExtResource("16_kh2ve")
-abilityCost = 1
+abilityCost = 15
 description = "Summon a lightning strike"
-abilityColdown = 5.0
+abilityColdown = 2.0
 
 [sub_resource type="InputEventAction" id="InputEventAction_50msj"]
 action = &"ability_tree"
@@ -6270,7 +6262,7 @@ material = SubResource("ShaderMaterial_y2i41")
 [node name="Spacial" type="Node3D"]
 script = ExtResource("1_mfq8h")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="ri" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1hwlr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -6456,8 +6448,9 @@ tooltip_text = "
  Shoots a ball of plasma"
 shortcut = SubResource("Shortcut_xe53s")
 shortcut_in_tooltip = false
-abilityAtributes = SubResource("Resource_n0cyb")
+abilityAtributes = ExtResource("16_wnt2v")
 input_config = "1"
+playerStats = ExtResource("13_io050")
 
 [node name="AbilityButton2" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
@@ -6466,6 +6459,7 @@ shortcut = SubResource("Shortcut_5mvnc")
 shortcut_in_tooltip = false
 abilityAtributes = SubResource("Resource_iqeol")
 input_config = "2"
+playerStats = ExtResource("13_io050")
 
 [node name="AbilityButton3" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
@@ -6474,6 +6468,7 @@ shortcut = SubResource("Shortcut_te72a")
 shortcut_in_tooltip = false
 abilityAtributes = SubResource("Resource_7jfcp")
 input_config = "3"
+playerStats = ExtResource("13_io050")
 
 [node name="AbilityButton4" parent="Player/UI/UI/AbilitiesNSuch/AbilityBar" instance=ExtResource("29_ladu2")]
 layout_mode = 2
@@ -6482,6 +6477,7 @@ shortcut = SubResource("Shortcut_jfcgm")
 shortcut_in_tooltip = false
 abilityAtributes = SubResource("Resource_ccluh")
 input_config = "4"
+playerStats = ExtResource("13_io050")
 
 [node name="deliveryDroneCam" type="Control" parent="Player/UI"]
 visible = false
@@ -6599,7 +6595,6 @@ horizontal_alignment = 1
 
 [node name="Shader" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.541)
-visible = false
 material_overlay = SubResource("ShaderMaterial_y1lgv")
 mesh = SubResource("QuadMesh_fraa3")
 skeleton = NodePath("../..")
