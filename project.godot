@@ -14,6 +14,8 @@ config/name="Project: SNAKE"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://gameIcon.png"
+config/macos_native_icon="res://gameIcon.png"
+config/windows_native_icon="res://gameIcon.png"
 
 [autoload]
 

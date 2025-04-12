@@ -6606,6 +6606,7 @@ horizontal_alignment = 1
 
 [node name="Shader" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.541)
+visible = false
 material_overlay = SubResource("ShaderMaterial_y1lgv")
 mesh = SubResource("QuadMesh_fraa3")
 skeleton = NodePath("../..")

@@ -1,6 +1,6 @@
 res://assets/friends/deliveryDrone/deliveryDrone.tscn::2f6c351090efdbd2567d99757fd12cf5::1741104917::res://.godot/exported/133200997/export-29342fa64d614b464eb3730fb509bac5-deliveryDrone.scn
 res://assets/gun/gl.tscn::8205d0f5002b6b306e23bdba203d1ada::1743345659::res://.godot/exported/133200997/export-2c7d1dc8f51041995b46be6fefdf5246-gl.scn
-res://assets/meshes/cityassets.tres::06337c58709e60954aa7be3fa6e95481::1744141774::res://.godot/exported/133200997/export-53dfaaaa4a17a692a13d1e8c967bb408-cityassets.res
+res://assets/meshes/cityassets.tres::167656f4f756a93cb368e7ec1461a2ae::1744445727::res://.godot/exported/133200997/export-53dfaaaa4a17a692a13d1e8c967bb408-cityassets.res
 res://assets/particles/vfx_fire.tscn::8d21237408eafcfda2c85e68faf1f827::1744152416::res://.godot/exported/133200997/export-0922bc36cde334bfdfd88c021d1ede38-vfx_fire.scn
 res://assets/particles/vfx_smoke.tscn::efd15f0494eaa3819e7cb646e108e6a8::1741104917::res://.godot/exported/133200997/export-2d7f8fc0b29a2a7ea26774179729b00e-vfx_smoke.scn
 res://scenes/abilities/assets/lightning_strike.tscn::029c6e1cfab9f16041f753cb20b92442::1743332481::res://.godot/exported/133200997/export-3b9d1c7614502b066d3b638fb23d6866-lightning_strike.scn
@@ -52,7 +52,7 @@ res://scenes/UI/inventory/inventory_ui.tscn::71f42f0ee8ee67e7e36d39488fdde2b0::1
 res://scenes/UI/inventory/inv_ui_slot.tscn::a4b9e5b9917bf9dcd52ba5e516b04db6::1741111259::res://.godot/exported/133200997/export-28a778a7d87fc5262dc72c23c8baf9fd-inv_ui_slot.scn
 res://scenes/UI/inventory/player_inventory.tres::c30acd14b964c3bbd24803552875038d::1744072444::res://.godot/exported/133200997/export-a213dc8cac9236ecdf60a491cd3c98fa-player_inventory.res
 res://scenes/UI/challenges.tscn::57c75f53ba10b028782189090949f74b::1744071876::res://.godot/exported/133200997/export-30ee309c1c82b27146fb2de3f2beaaa8-challenges.scn
-res://scenes/UI/minimap.tscn::141521de4d2cb3e67b1f9000424b1f90::1743605358::res://.godot/exported/133200997/export-62d3ef2dcb30bed2e2a7a918bfe752c6-minimap.scn
+res://scenes/UI/minimap.tscn::141521de4d2cb3e67b1f9000424b1f90::1744366583::res://.godot/exported/133200997/export-62d3ef2dcb30bed2e2a7a918bfe752c6-minimap.scn
 res://scenes/UI/choice_popup.tscn::c160a037942c3a836447714da73b95fa::1744065438::res://.godot/exported/133200997/export-820e104d599bce3963e3563fd1a74358-choice_popup.scn
 res://scenes/UI/turret_chooser.tscn::2718d35c0ce236a6a4cd01400e305dd8::1744155162::res://.godot/exported/133200997/export-d992984d400578109cefec5835de52dd-turret_chooser.scn
 res://scenes/world/box_small.tscn::fc87f296a576018cc1ea56ddc7642ddc::1742979698::res://.godot/exported/133200997/export-dba1c258b51f8ae3c757050cd6d264c9-box_small.scn
@@ -63,12 +63,14 @@ res://scenes/world/player.tscn::a64eaba065c0a2d5ff7e1494d224bdb6::1744155442::re
 res://scenes/world/snake_segment.tscn::3feee18df8ed5c3c16fbbcc31c714adb::1743942386::res://.godot/exported/133200997/export-4cc37a8ee7aca9bb412e3ce0a25246aa-snake_segment.scn
 res://scenes/awesome_test_cube.tscn::4b68305ee6a33fcc62002277e113babb::1742751800::res://.godot/exported/133200997/export-bb307d253bee4003dc4b054b49e3c395-awesome_test_cube.scn
 res://scenes/car_8.tscn::0b33207dbfb4f60a213929d9c5f7affb::1741104917::res://.godot/exported/133200997/export-80bd1c069754bc2380faf034ab1121b0-car_8.scn
-res://scenes/Game.tscn::dcbac7a60ec138b5e7ceb44029c87d2e::1744155951::res://.godot/exported/133200997/export-ff8ceb9b2bd5b48777d3d52e811276ab-Game.scn
-res://scenes/game_over_menu.tscn::3f8df06444ce6af9484a7dc9bacfcde9::1744155483::res://.godot/exported/133200997/export-d8a58ab355b9a912456270e4718df9a2-game_over_menu.scn
-res://scenes/main_menu.tscn::13cdabd9a1355291b96b2fe236d8c190::1744155919::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
+res://scenes/Game.tscn::96f3ad87d7e5a24aaa253fe0b0fd2a85::1744445926::res://.godot/exported/133200997/export-ff8ceb9b2bd5b48777d3d52e811276ab-Game.scn
+res://scenes/game_over_menu.tscn::3f8df06444ce6af9484a7dc9bacfcde9::1744366583::res://.godot/exported/133200997/export-d8a58ab355b9a912456270e4718df9a2-game_over_menu.scn
+res://scenes/main_menu.tscn::d5b4058c4ae1287d959b91a4300af64a::1744445727::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn
 res://scenes/OLDGame.tscn::75c4bab524362f874b1658a931c0d605::1742128724::res://.godot/exported/133200997/export-fbcfa893a6266ff404475a29fbd961a5-OLDGame.scn
-res://scenes/pause_menu.tscn::02a26c899edc3bfc8e21eda8918482fb::1744155162::res://.godot/exported/133200997/export-ca2c2284eb591e72162d67219a0d2f87-pause_menu.scn
+res://scenes/pause_menu.tscn::02a26c899edc3bfc8e21eda8918482fb::1744366583::res://.godot/exported/133200997/export-ca2c2284eb591e72162d67219a0d2f87-pause_menu.scn
 res://scenes/tiles.tscn::d4c257928af05c1f5bafdb0a1c21bea8::1743338220::res://.godot/exported/133200997/export-d7745853a644f72d754da2c49af4b958-tiles.scn
 res://scripts/player/player_stats.tres::2fffc1251b7118f093eb8b0db1b8aaba::1743958598::res://.godot/exported/133200997/export-f5b8763e9977ec9a94333a8daa50c7b8-player_stats.res
 res://scripts/player/player_stats_resource.tres::093a18d87ca5bc6ac68e13c46d7f83a4::1741216201::res://.godot/exported/133200997/export-cb4c1c0107b2642ada4c0c7fa8ae8a51-player_stats_resource.res
 res://shaders/dissolve_shader.tres::5124f54ff61a5fca469dfc49ddf3fce7::1743240258::res://.godot/exported/133200997/export-cbe8dbecad0697a048b98050951ae95d-dissolve_shader.res
+res://scenes/UI/loading_ui.tscn::cdc355125281ae4181fbfc400d505bda::1744361738::res://.godot/exported/133200997/export-a69601a9328daa50859f38a3eda0afcd-loading_ui.scn
+res://scenes/UI/main_menu_bg.tscn::c1a6d1c89157a2fd912a6fdf1ba916bd::1744366583::res://.godot/exported/133200997/export-164be90365d2c0d299ba7b8ce2f76831-main_menu_bg.scn

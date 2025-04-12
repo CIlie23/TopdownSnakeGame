@@ -3,6 +3,7 @@ extends Node2D
 @onready var popup: Panel = $Popup
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var settings: Control = $SettingsPannel
+var isSettingsOn: bool = false
 #var shader = get_node("/root/Spacial/Player/Shader")
 var shader: Node
 @onready var lbl_keybind: Label = $SettingsPannel/Settings/Keybinds/lblKeybind
@@ -12,7 +13,6 @@ var shader: Node
 @onready var left_input: Button = $"SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Left/leftInput"
 @onready var right_input: Button = $"SettingsPannel/Settings/Keybinds/HBoxContainer/KeybindContainer/Move Right/rightInput"
 
-
 @onready var abil_one: Button = $"SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability One/abilOne"
 @onready var abil_two: Button = $"SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Two/abilTwo"
 @onready var abil_three: Button = $"SettingsPannel/Settings/Keybinds/HBoxContainer/VBoxContainer/Ability Three/abilThree"
@@ -20,15 +20,34 @@ var shader: Node
 
 @onready var btn_skill_teee: Button = $SettingsPannel/Settings/Keybinds/SkillTree/btnSkillTeee
 
+@onready var settingsButton: Button = $VBoxContainer/Settings
+@onready var audio: AudioStreamPlayer = $Audio
+@onready var tutorial: Control = $Tutorial
+
+
+#
+#func _ready() -> void:
+	#audio.play()
+	
+func _process(delta: float) -> void:
+	if isSettingsOn == true:
+		settingsButton.disabled = true
+	else:
+		settingsButton.disabled = false
+		
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Game.tscn")
-
+	
 func _on_settings_pressed() -> void:
+	isSettingsOn = true
 	animation.play("title_MoveLeft")
 	settings.visible = true
 	
 func _on_quit_pressed() -> void:
 	popup.visible = true
+	isSettingsOn = false
+	animation.play("title_MoveCenter")
+	settings.visible = false
 	
 func _on_yes_pressed() -> void:
 	get_tree().quit()
@@ -39,6 +58,7 @@ func _on_no_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
+	isSettingsOn = false
 	animation.play("title_MoveCenter")
 	settings.visible = false
 
@@ -154,3 +174,6 @@ func _on_psx_shader_toggled(toggled_on: bool) -> void:
 
 func _on_btn_skill_teee_pressed() -> void:
 	on_change_key_pressed("openskilltree")
+
+func _on_how_to_play_pressed() -> void:
+	tutorial.visible = true

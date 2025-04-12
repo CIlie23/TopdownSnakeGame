@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://do8pydd2c7pd8"]
+
+[ext_resource type="Script" path="res://scenes/UI/loading_ui.gd" id="1_81u5b"]
+[ext_resource type="FontFile" uid="uid://1yuy1o07mph2" path="res://assets/fonts/URW Grotesk SC Regular.ttf" id="2_yk6pr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q5oi"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0l3s"]
+bg_color = Color(0.2, 0.2, 0.2, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksdkj"]
+bg_color = Color(0.796243, 0.796243, 0.796243, 0.686275)
+
+[node name="LoadingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_81u5b")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0q5oi")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -559.0
+offset_top = -40.0
+offset_right = 559.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_m0l3s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ksdkj")
+value = 50.0
+
+[node name="ProgressText" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -66.0
+offset_right = 285.0
+offset_bottom = -43.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_yk6pr")
+theme_override_font_sizes/font_size = 20
+text = "The game is loading, be patient!"
