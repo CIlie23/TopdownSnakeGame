@@ -52,7 +52,7 @@ func _ready():
 	is_moving = false
 
 	position = position.snapped(Vector3.ONE * grid_size)
-
+	
 
 func _process(_delta):
 

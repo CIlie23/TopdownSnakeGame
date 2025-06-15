@@ -1,4 +1,4 @@
-[gd_scene load_steps=347 format=4 uid="uid://q0p8j4vc433c"]
+[gd_scene load_steps=348 format=4 uid="uid://q0p8j4vc433c"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_mfq8h"]
 [ext_resource type="PackedScene" uid="uid://dh3ocl34lg3dh" path="res://scenes/world/player.tscn" id="2_ii6h3"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://dl5m4xj7aavhy" path="res://assets/GLTF format/roadAsphalt_corner_asphalt.png" id="37_all1d"]
 [ext_resource type="Shader" path="res://shaders/darkfog_shader.gdshader" id="37_fcemr"]
 [ext_resource type="LightmapGIData" uid="uid://isg3v5peq1a5" path="res://scenes/world/Game.lmbake" id="46_dlju2"]
+[ext_resource type="PackedScene" uid="uid://d0tjqnb20e8kq" path="res://scenes/enemies/rifle_robot/robot_fella.tscn" id="48_b7o7v"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_lmss8"]
 
@@ -6795,6 +6796,9 @@ transform = Transform3D(250, 0, 0, 0, 50, 0, 0, 0, 250, -2.92323, 0, -0.0247047)
 transparency = 1.0
 lod_bias = 0.001
 mesh = SubResource("BoxMesh_p3f2o")
+
+[node name="robotFella" parent="." instance=ExtResource("48_b7o7v")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -2.74146, -0.0131602, 3.30103)
 
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
